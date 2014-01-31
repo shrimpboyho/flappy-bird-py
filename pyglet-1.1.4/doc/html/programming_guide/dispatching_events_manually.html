@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Dispatching events manually</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="customising_the_event_loop.html" title="Customising the event loop">Customising the ...</a></span><span class="next">Next: <a class="reference" href="the_pyglet_event_framework.html" title="The pyglet event framework">The pyglet ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_application_event_loop.html" title="The application event loop">The application ...</a> » Dispatching events manually</span></div>
+<h1 class="title">Dispatching events manually</h1>
+
+<p>Earlier versions of pyglet and certain other windowing toolkits such as PyGame
+and SDL require the application developer to write their own event loop.
+This &quot;manual&quot; event loop is usually just an inconvenience compared to
+<a class="reference apilink" href="../api/pyglet.app-module.html#run ">pyglet.app.run</a>, but can be necessary in some situations when combining
+pyglet with other toolkits.</p>
+<p>A simple event loop usually has the following form:</p>
+<pre class="py-doctest">
+<span class="py-keyword">while</span> True:
+    pyglet.clock.tick()
+
+    <span class="py-keyword">for</span> window <span class="py-keyword">in</span> pyglet.app.windows:
+        window.switch_to()
+        window.dispatch_events()
+        window.dispatch_event(<span class="py-string">'on_draw'</span>)
+        window.flip()</pre>
+<p>The <cite>dispatch_events</cite> method checks the window's operating system event queue
+for user input and dispatches any events found.  The method does not wait for
+input -- if ther are no events pending, control is returned to the program
+immediately.</p>
+<p>The call to <cite>pyglet.clock.tick()</cite> is required for ensuring scheduled functions
+are called, including the internal data pump functions for playing sounds and
+video.</p>
+<p>Developers are strongly discouraged from writing pyglet applications with
+event loops like this:</p>
+<ul class="simple">
+<li>The <a class="reference apilink" href="../api/pyglet.app.EventLoop-class.html " title="pyglet.app.EventLoop">EventLoop</a> class provides plenty of hooks for most toolkits to be
+integrated without needing to resort to a manual event loop.</li>
+<li>Because <cite>EventLoop</cite> is tuned for specific operating systems, it is more
+responsive to user events, and continues calling clock functions while
+windows are being resized, and (on Mac OS X) the menu bar is being tracked.</li>
+<li>It is difficult to write a manual event loop that does not consume
+100% CPU while still remaining responsive to user input.</li>
+</ul>
+<p>The capability for writing manual event loops remains for legacy support and
+extreme circumstances.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="customising_the_event_loop.html" title="Customising the event loop">Customising the ...</a></span><span class="next">Next: <a class="reference" href="the_pyglet_event_framework.html" title="The pyglet event framework">The pyglet ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_application_event_loop.html" title="The application event loop">The application ...</a> » Dispatching events manually</span></div>
+</div>
+</body>
+</html>

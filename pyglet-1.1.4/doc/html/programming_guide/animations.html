@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Animations</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="image_sequences_and_atlases.html" title="Image sequences and atlases">Image sequences ...</a></span><span class="next">Next: <a class="reference" href="buffer_images.html" title="Buffer images">Buffer images</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Animations</span></div>
+<h1 class="title">Animations</h1>
+
+<p>While image sequences and atlases provide storage for related images, they
+alone are not enough to describe a complete animation.</p>
+<p>The <a class="reference apilink" href="../api/pyglet.image.Animation-class.html " title="pyglet.image.Animation">Animation</a> class manages a list of <a class="reference apilink" href="../api/pyglet.image.AnimationFrame-class.html " title="pyglet.image.AnimationFrame">AnimationFrame</a> objects, each of
+which references an image and a duration, in seconds.  The storage of
+the images is up to the application developer: they can each be discrete, or
+packed into a texture atlas, or any other technique.</p>
+<p>An animation can be loaded directly from a GIF 89a image file with
+<a class="reference apilink" href="../api/pyglet.image-module.html#load_animation " title="pyglet.image.load_animation">load_animation</a> (supported on Linux, Mac OS X and Windows) or constructed
+manually from a list of images or an image sequence using the class methods
+(in which case the timing information will also need to be provided).  The
+<a class="reference apilink" href="../api/pyglet.image.Animation-class.html#add_to_texture_bin " title="pyglet.image.Animation.add_to_texture_bin">add_to_texture_bin</a> method provides a convenient way to pack the image frames
+into a texture bin for efficient access.</p>
+<p>Individual frames can be accessed by the application for use with any kind of
+rendering, or the entire animation can be used directly with a <a class="reference apilink" href="../api/pyglet.sprite.Sprite-class.html " title="pyglet.sprite.Sprite">Sprite</a> (see
+next section).</p>
+<p>The following example loads a GIF animation and packs the images in that
+animation into a texture bin.  A sprite is used to display the animation in
+the window:</p>
+<pre class="py-doctest">
+animation = pyglet.image.load_animation(<span class="py-string">'animation.gif'</span>)
+bin = pyglet.image.TextureBin()
+animation.add_to_texture_bin(bin)
+sprite = pyglet.sprite.Sprite(animation)
+
+window = pyglet.window.Window()
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    sprite.draw()
+
+pyglet.app.run()</pre>
+<p>When animations are loaded with <a class="reference apilink" href="../api/pyglet.resource-module.html ">pyglet.resource</a> (see <cite>Application
+resources</cite>) the frames are automatically packed into a texture bin.</p>
+<p>This example program is located in
+<a class="reference filelink" href="animation.py">examples/programming_guide/animation.py</a>, along with a sample GIF animation
+file.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="image_sequences_and_atlases.html" title="Image sequences and atlases">Image sequences ...</a></span><span class="next">Next: <a class="reference" href="buffer_images.html" title="Buffer images">Buffer images</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Animations</span></div>
+</div>
+</body>
+</html>

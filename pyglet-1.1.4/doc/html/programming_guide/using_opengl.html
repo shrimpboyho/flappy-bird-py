@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Using OpenGL</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a></span><span class="next">Next: <a class="reference" href="resizing_the_window.html" title="Resizing the window">Resizing the window</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a> » Using OpenGL</span></div>
+<h1 class="title">Using OpenGL</h1>
+
+<p>Documentation of OpenGL and GLU are provided at the <a class="reference" href="http://www.opengl.org">OpenGL website</a> and
+(more comprehensively) in the <a class="reference" href="http://opengl.org/documentation/red_book/">OpenGL Programming Guide</a>.</p>
+<p>Importing the package gives access to OpenGL, GLU, and all OpenGL registered
+extensions.   This is sufficient for all but the most advanced uses of
+OpenGL:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> *</pre>
+<p>All function names and constants are identical to the C counterparts.  For
+example, the following program draws a triangle on the screen:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> *
+
+<span class="py-comment"># Direct OpenGL commands to this window.</span>
+window = pyglet.window.Window()
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    glClear(GL_COLOR_BUFFER_BIT)
+    glLoadIdentity()
+    glBegin(GL_TRIANGLES)
+    glVertex2f(0, 0)
+    glVertex2f(window.width, 0)
+    glVertex2f(window.width, window.height)
+    glEnd()
+
+pyglet.app.run()</pre>
+<p>Some OpenGL functions require an array of data.  These arrays must be
+constructed as <tt class="docutils literal">ctypes</tt> arrays of the correct type.  The following example
+draw the same triangle as above, but uses a vertex array instead of the
+immediate-mode functions.  Note the construction of the vertex array using a
+one-dimensional <tt class="docutils literal">ctypes</tt> array of <tt class="docutils literal">GLfloat</tt>:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> *
+
+window = pyglet.window.Window()
+
+vertices = [
+    0, 0,
+    window.width, 0,
+    window.width, window.height]
+vertices_gl = (GLfloat * len(vertices))(*vertices)
+
+glEnableClientState(GL_VERTEX_ARRAY)
+glVertexPointer(2, GL_FLOAT, 0, vertices_gl)
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    glClear(GL_COLOR_BUFFER_BIT)
+    glLoadIdentity()
+    glDrawArrays(GL_TRIANGLES, 0, len(vertices) // 2)
+
+pyglet.app.run()</pre>
+<p>Similar array constructions can be used to create data for vertex buffer
+objects, texture data, polygon stipple data and the map functions.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a></span><span class="next">Next: <a class="reference" href="resizing_the_window.html" title="Resizing the window">Resizing the window</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a> » Using OpenGL</span></div>
+</div>
+</body>
+</html>

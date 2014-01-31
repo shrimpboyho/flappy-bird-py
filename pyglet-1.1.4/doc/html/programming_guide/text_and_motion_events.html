@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Text and motion events</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="keyboard_events.html" title="Keyboard events">Keyboard events</a></span><span class="next">Next: <a class="reference" href="keyboard_exclusivity.html" title="Keyboard exclusivity">Keyboard exclusivity</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="working_with_the_keyboard.html" title="Working with the keyboard">Working with ...</a> » Text and ...</span></div>
+<h1 class="title">Text and motion events</h1>
+
+<p>pyglet decouples the keys that the user presses from the Unicode text that is
+input.  There are several benefits to this:</p>
+<ul class="simple">
+<li>The complex task of mapping modifiers and key symbols to Unicode characters
+is taken care of automatically and correctly.</li>
+<li>Key repeat is applied to keys held down according to the user's operating
+system preferences.</li>
+<li>Dead keys and compose keys are automatically interpreted to produce
+diacritic marks or combining characters.</li>
+<li>Keyboard input can be routed via an input palette, for example to input
+characters from Asian languages.</li>
+<li>Text input can come from other user-defined sources, such as handwriting or
+voice recognition.</li>
+</ul>
+<p>The actual source of input (i.e., which keys were pressed, or what input
+method was used) should be considered outside of the scope of the application
+-- the operating system provides the necessary services.</p>
+<p>When text is entered into a window, the <cite>on_text</cite> event is fired:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">on_text</span>(text):
+    <span class="py-keyword">pass</span></pre>
+<p>The only parameter provided is a Unicode string.  For keyboard input this will
+usually be one character long, however more complex input methods such as an
+input palette may provide an entire word or phrase at once.</p>
+<p>You should always use the <cite>on_text</cite> event when you need to determine a string
+from a sequence of keystrokes.  Conversely, you never use <cite>on_text</cite> when you
+require keys to be pressed (for example, to control the movement of the player
+in a game).</p>
+<div class="section" id="motion-events">
+<h1><a class="toc-backref" href="#id269">Motion events</a></h1>
+<p>In addition to entering text, users press keys on the keyboard to navigate
+around text widgets according to well-ingrained conventions.  For example,
+pressing the left arrow key moves the cursor one character to the left.</p>
+<p>While you might be tempted to use the <cite>on_key_press</cite> event to capture these
+events, there are a couple of problems:</p>
+<ul class="simple">
+<li>Key repeat events are not generated for <cite>on_key_press</cite>, yet users expect
+that holding down the left arrow key will eventually move the character to
+the beginning of the line.</li>
+<li>Different operating systems have different conventions for the behaviour of
+keys.  For example, on Windows it is customary for the Home key to move the
+cursor to the beginning of the line, whereas on Mac OS X the same key moves
+to the beginning of the document.</li>
+</ul>
+<p>pyglet windows provide the <cite>on_text_motion</cite> event, which takes care of these
+problems by abstracting away the key presses and providing your application
+only with the intended cursor motion:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">on_text_motion</span>(motion):
+    <span class="py-keyword">pass</span></pre>
+<p><cite>motion</cite> is an integer which is a constant defined in <a class="reference apilink" href="../api/pyglet.window.key-module.html ">pyglet.window.key</a>.
+The following table shows the defined text motions and their keyboard mapping
+on each operating system.</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Constant</th>
+<th class="head">Behaviour</th>
+<th class="head">Windows/Linux</th>
+<th class="head">Mac OS X</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">MOTION_UP</tt></td>
+<td>Move the cursor up</td>
+<td>Up</td>
+<td>Up</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_DOWN</tt></td>
+<td>Move the cursor down</td>
+<td>Down</td>
+<td>Down</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_LEFT</tt></td>
+<td>Move the cursor left</td>
+<td>Left</td>
+<td>Left</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_RIGHT</tt></td>
+<td>Move the cursor right</td>
+<td>Right</td>
+<td>Right</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_PREVIOUS_WORD</tt></td>
+<td>Move the cursor to the previuos word</td>
+<td>Ctrl + Left</td>
+<td>Option + Left</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_NEXT_WORD</tt></td>
+<td>Move the cursor to the next word</td>
+<td>Ctrl + Right</td>
+<td>Option + Right</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_BEGINNING_OF_LINE</tt></td>
+<td>Move the cursor to the beginning of the current line</td>
+<td>Home</td>
+<td>Command + Left</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_END_OF_LINE</tt></td>
+<td>Move the cursor to the end of the current line</td>
+<td>End</td>
+<td>Command + Right</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_PREVIOUS_PAGE</tt></td>
+<td>Move to the previous page</td>
+<td>Page Up</td>
+<td>Page Up</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_NEXT_PAGE</tt></td>
+<td>Move to the next page</td>
+<td>Page Down</td>
+<td>Page Down</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_BEGINNING_OF_FILE</tt></td>
+<td>Move to the beginning of the document</td>
+<td>Ctrl + Home</td>
+<td>Home</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_END_OF_FILE</tt></td>
+<td>Move to the end of the document</td>
+<td>Ctrl + End</td>
+<td>End</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_BACKSPACE</tt></td>
+<td>Delete the previous character</td>
+<td>Backspace</td>
+<td>Backspace</td>
+</tr>
+<tr><td><tt class="docutils literal">MOTION_DELETE</tt></td>
+<td>Delete the next character, or the current character</td>
+<td>Delete</td>
+<td>Delete</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="keyboard_events.html" title="Keyboard events">Keyboard events</a></span><span class="next">Next: <a class="reference" href="keyboard_exclusivity.html" title="Keyboard exclusivity">Keyboard exclusivity</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="working_with_the_keyboard.html" title="Working with the keyboard">Working with ...</a> » Text and ...</span></div>
+</div>
+</body>
+</html>

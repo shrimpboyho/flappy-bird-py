@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.formats.html.HTMLDecoder</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.formats-module.html">formats</a>&nbsp;.&nbsp;<a href="pyglet.text.formats.html-module.html">html</a>&nbsp;.&nbsp;HTMLDecoder
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.formats.html.HTMLDecoder</h1>
+<pre class="base-tree">
+       markupbase.ParserBase --+    
+                               |    
+           HTMLParser.HTMLParser --+
+                                   |
+             <a href="pyglet.text.DocumentDecoder-class.html">DocumentDecoder</a> --+   |
+                               |   |
+<a href="pyglet.text.formats.structured.StructuredTextDecoder-class.html">structured.StructuredTextDecoder</a> --+
+                                   |
+                                  <strong class="uidshort">HTMLDecoder</strong>
+</pre>
+
+Decoder for HTML documents.
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.html.HTMLDecoder-class.html#decode_structured" class="summary-sig-name">decode_structured</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>,
+        <span class="summary-sig-arg">location</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_image"></a><span class="summary-sig-name">get_image</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="prepare_for_data"></a><span class="summary-sig-name">prepare_for_data</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.html.HTMLDecoder-class.html#handle_data" class="summary-sig-name">handle_data</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.html.HTMLDecoder-class.html#handle_starttag" class="summary-sig-name">handle_starttag</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">tag</span>,
+        <span class="summary-sig-arg">case_attrs</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.html.HTMLDecoder-class.html#handle_endtag" class="summary-sig-name">handle_endtag</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">tag</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.html.HTMLDecoder-class.html#handle_entityref" class="summary-sig-name">handle_entityref</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.html.HTMLDecoder-class.html#handle_charref" class="summary-sig-name">handle_charref</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="add_element"></a><span class="summary-sig-name">add_element</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">element</span>)</span>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.formats.structured.StructuredTextDecoder-class.html">pyglet.text.formats.structured.StructuredTextDecoder</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="add_text"></a><span class="summary-sig-name">add_text</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.formats.structured.StructuredTextDecoder-class.html">pyglet.text.formats.structured.StructuredTextDecoder</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.document.AbstractDocument-class.html" class="link">AbstractDocument</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.structured.StructuredTextDecoder-class.html#decode" class="summary-sig-name">decode</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>,
+        <span class="summary-sig-arg">location</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Decode document text.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.formats.structured.StructuredTextDecoder-class.html">pyglet.text.formats.structured.StructuredTextDecoder</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="pop_style"></a><span class="summary-sig-name">pop_style</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">key</span>)</span>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.formats.structured.StructuredTextDecoder-class.html">pyglet.text.formats.structured.StructuredTextDecoder</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="push_style"></a><span class="summary-sig-name">push_style</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">key</span>,
+        <span class="summary-sig-arg">styles</span>)</span>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.formats.structured.StructuredTextDecoder-class.html">pyglet.text.formats.structured.StructuredTextDecoder</a>)</span>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+<b>Inherited from <code>HTMLParser.HTMLParser</code></b>:
+      <code>__init__</code>,
+      <code>check_for_whole_start_tag</code>,
+      <code>clear_cdata_mode</code>,
+      <code>close</code>,
+      <code>error</code>,
+      <code>feed</code>,
+      <code>get_starttag_text</code>,
+      <code>goahead</code>,
+      <code>handle_comment</code>,
+      <code>handle_decl</code>,
+      <code>handle_pi</code>,
+      <code>handle_startendtag</code>,
+      <code>parse_endtag</code>,
+      <code>parse_pi</code>,
+      <code>parse_starttag</code>,
+      <code>reset</code>,
+      <code>set_cdata_mode</code>,
+      <code>unescape</code>,
+      <code>unknown_decl</code>
+<b>Inherited from <code>markupbase.ParserBase</code></b>:
+      <code>getpos</code>,
+      <code>parse_comment</code>,
+      <code>parse_declaration</code>,
+      <code>parse_marked_section</code>,
+      <code>updatepos</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.formats.html.HTMLDecoder-class.html#default_style" class="summary-name">default_style</a> = <code title="{'font_name': 'Times New Roman',
+ 'font_size': 12,
+ 'margin_bottom': '12pt'}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">font_name</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">Times New Roman</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">font_size</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="font_sizes"></a><span class="summary-name">font_sizes</span> = <code title="{1: 8, 2: 10, 3: 12, 4: 14, 5: 18, 6: 24, 7: 48}"><code class="variable-group">{</code>1<code class="variable-op">: </code>8<code class="variable-op">, </code>2<code class="variable-op">: </code>10<code class="variable-op">, </code>3<code class="variable-op">: </code>12<code class="variable-op">, </code>4<code class="variable-op">: </code>14<code class="variable-op">, </code>5<code class="variable-op">: </code>18<code class="variable-op">, </code>6<code class="variable-op">: </code>24<code class="variable-op">, </code>7<code class="variable-op">: </code>48<code class="variable-group">}</code></code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+<b>Inherited from <code>HTMLParser.HTMLParser</code></b>:
+      <code>entitydefs</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CONSTANTS ==================== -->
+<a name="section-Constants"></a>
+        <h2>Constants</h2>
+<table class="summary">
+  <tr>
+    <td colspan="2" class="summary">
+<b>Inherited from <code>HTMLParser.HTMLParser</code></b>:
+      <code>CDATA_CONTENT_ELEMENTS</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="decode_structured"></a>
+<div class=" detail">
+  <h3>decode_structured</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">decode_structured</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>,
+        <span class="sig-arg">location</span>)</span>
+    </div>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.formats.structured.StructuredTextDecoder-class.html#decode_structured">structured.StructuredTextDecoder.decode_structured</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="handle_data"></a>
+<div class=" detail">
+  <h3>handle_data</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">handle_data</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">data</span>)</span>
+    </div>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      HTMLParser.HTMLParser.handle_data
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="handle_starttag"></a>
+<div class=" detail">
+  <h3>handle_starttag</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">handle_starttag</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">tag</span>,
+        <span class="sig-arg">case_attrs</span>)</span>
+    </div>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      HTMLParser.HTMLParser.handle_starttag
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="handle_endtag"></a>
+<div class=" detail">
+  <h3>handle_endtag</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">handle_endtag</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">tag</span>)</span>
+    </div>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      HTMLParser.HTMLParser.handle_endtag
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="handle_entityref"></a>
+<div class=" detail">
+  <h3>handle_entityref</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">handle_entityref</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      HTMLParser.HTMLParser.handle_entityref
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="handle_charref"></a>
+<div class=" detail">
+  <h3>handle_charref</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">handle_charref</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      HTMLParser.HTMLParser.handle_charref
+    </dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+        <h2>Class Variable Details</h2>
+<table class="details">
+</table>
+<a name="default_style"></a>
+<div class=" detail">
+  <h3>default_style</h3>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">font_name</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">Times New Roman</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">font_size</code><code class="variable-quote">'</code><code class="variable-op">: </code>12<code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">margin_bottom</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">12pt</code><code class="variable-quote">'</code><code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.formats-module.html">formats</a>&nbsp;.&nbsp;<a href="pyglet.text.formats.html-module.html">html</a>&nbsp;.&nbsp;HTMLDecoder
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

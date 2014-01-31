@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Sharing objects between contexts</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="selecting_the_best_configuration.html" title="Selecting the best configuration">Selecting the ...</a></span><span class="next">Next: <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="creating_an_opengl_context.html" title="Creating an OpenGL context">Creating an ...</a> » Sharing objects ...</span></div>
+<h1 class="title">Sharing objects between contexts</h1>
+
+<p>Every window in pyglet has its own OpenGL context.  Each context has its own
+OpenGL state, including the matrix stacks and current flags.  However,
+contexts can optionally share their objects with one or more other contexts.
+Shareable objects include:</p>
+<ul class="simple">
+<li>Textures</li>
+<li>Display lists</li>
+<li>Shader programs</li>
+<li>Vertex and pixel buffer objects</li>
+<li>Framebuffer objects</li>
+</ul>
+<p>There are two reasons for sharing objects.  The first is to allow objects to
+be stored on the video card only once, even if used by more than one window.
+For example, you could have one window showing the actual game, with other
+&quot;debug&quot; windows showing the various objects as they are manipulated.  Or, a
+set of widget textures required for a GUI could be shared between all the
+windows in an application.</p>
+<p>The second reason is to avoid having to recreate the objects when a context
+needs to be recreated.  For example, if the user wishes to turn on
+multisampling, it is necessary to recreate the context.  Rather than destroy
+the old one and lose all the objects already created, you can</p>
+<ol class="arabic simple">
+<li>Create the new context, sharing object space with the old context, then</li>
+<li>Destroy the old context.  The new context retains all the old objects.</li>
+</ol>
+<p>pyglet defines an <a class="reference apilink" href="../api/pyglet.gl.ObjectSpace-class.html " title="pyglet.gl.ObjectSpace">ObjectSpace</a>: a representation of a collection of objects
+used by one or more contexts.  Each context has a single object space,
+accessible via its <a class="reference apilink" href="../api/pyglet.gl.Context-class.html#object_space " title="pyglet.gl.Context.object_space">object_space</a> attribute.</p>
+<p>By default, all contexts share the same object space as long as at least one
+context using it is &quot;alive&quot;.  If all the contexts sharing an object space are
+lost or destroyed, the object space will be destroyed also.  This is why it is
+necessary to follow the steps outlined above for retaining objects when a
+context is recreated.</p>
+<p>pyglet creates a hidden &quot;shadow&quot; context as soon as <a class="reference apilink" href="../api/pyglet.gl-module.html ">pyglet.gl</a> is imported.
+By default, all windows will share object space with this shadow context, so
+the above steps are generally not needed.  The shadow context also allows
+objects such as textures to be loaded before a window is created.</p>
+<p>When you create a <a class="reference apilink" href="../api/pyglet.gl.Context-class.html " title="pyglet.gl.Context">Context</a>, you tell pyglet which other context it will
+obtain an object space from.  By default (when using the <a class="reference apilink" href="../api/pyglet.window.Window-class.html " title="pyglet.window.Window">Window</a> constructor
+to create the context) the most recently created context will be used.  You
+can specify another context, or specify no context (to create a new object
+space) in the <cite>Context</cite> constructor.</p>
+<p>It can be useful to keep track of which object space an object was created in.
+For example, when you load a font, pyglet caches the textures used and reuses
+them; but only if the font is being loaded on the same object space.  The
+easiest way to do this is to set your own attributes on the <cite>ObjectSpace</cite>
+object.</p>
+<p>In the following example, an attribute is set on the object space indicating
+that game objects have been loaded.  This way, if the context is recreated,
+you can check for this attribute to determine if you need to load them again:</p>
+<pre class="py-doctest">
+context = pyglet.gl.get_current_context()
+object_space = context.object_space
+object_space.my_game_objects_loaded = True</pre>
+<p>Avoid using attribute names on <cite>ObjectSpace</cite> that begin with <tt class="docutils literal">&quot;pyglet&quot;</tt>,
+they may conflict with an internal module.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="selecting_the_best_configuration.html" title="Selecting the best configuration">Selecting the ...</a></span><span class="next">Next: <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="creating_an_opengl_context.html" title="Creating an OpenGL context">Creating an ...</a> » Sharing objects ...</span></div>
+</div>
+</body>
+</html>

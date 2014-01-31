@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Other new features</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="new_text_features.html" title="New text features">New text features</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a> » Other new features</span></div>
+<h1 class="title">Other new features</h1>
+
+<p><a class="reference apilink" href="../api/pyglet.event.EventDispatcher-class.html " title="pyglet.event.EventDispatcher">EventDispatcher</a> now has a <a class="reference apilink" href="../api/pyglet.event.EventDispatcher-class.html#remove_handlers " title="pyglet.event.EventDispatcher.remove_handlers">remove_handlers</a> method which provides finer
+control over the event stack than <a class="reference apilink" href="../api/pyglet.event.EventDispatcher-class.html#pop_handlers " title="pyglet.event.EventDispatcher.pop_handlers">pop_handlers</a>.</p>
+<p>The <tt class="docutils literal">&#64;event</tt> decorator has been fixed so that it no longer overrides
+existing event handlers on the object, which fixes the common problem of
+handling the <cite>on_resize</cite> event.  For example, the following now works without
+any surprises (in pyglet 1.0 this would override the default handler, which
+sets up a default, necessary viewport and projection):</p>
+<pre class="py-doctest">
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_resize</span>(width, height):
+    <span class="py-keyword">pass</span></pre>
+<p>A variant of <a class="reference apilink" href="../api/pyglet.clock-module.html#schedule_interval " title="pyglet.clock.schedule_interval">clock.schedule_interval</a>, <a class="reference apilink" href="../api/pyglet.clock-module.html#schedule_interval_soft " title="pyglet.clock.schedule_interval_soft">clock.schedule_interval_soft</a> has
+been added.  This is for functions that need to be called periodically at a
+given interval, but do not need to schedule the period immediately.    Soft
+interval scheduling is used by the <a class="reference apilink" href="../api/pyglet.media-module.html ">pyglet.media</a> module to distribute the
+work of decoding video and audio data over time, rather than stalling the CPU
+periodically.  Games could use soft interval scheduling to spread the
+regular computational requirements of multiple agents out over time.</p>
+<p>In pyglet 1.0, <a class="reference apilink" href="../api/pyglet.font-module.html#load " title="pyglet.font.load">font.load</a> attempted to match the font resolution (DPI) with
+the operating system's typical behaviour.  For example, on Linux and Mac OS X
+the default DPI was typically set at 72, and on Windows at 96.  While this
+would be useful for writing a word processor, it adds a burden on the
+application developer to ensure their fonts work at arbitrary resolutions.  In
+pyglet 1.1 the default DPI is set at 96 across all platforms.  It can still be
+overridden explicitly by the application if desired.</p>
+<p>Video sources in <cite>pyglet.media</cite> can now be stepped through frame-by-frame:
+individual image frames can be extracted without needing to play back the
+video in realtime.</p>
+<p>For a complete list of new features and bug fixes, see the <tt class="docutils literal">CHANGELOG</tt>
+distributed with the source distribution.</p>
+<!-- .. include:: advanced.txt
+.. include:: distribution.txt -->
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="new_text_features.html" title="New text features">New text features</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a> » Other new features</span></div>
+</div>
+</body>
+</html>

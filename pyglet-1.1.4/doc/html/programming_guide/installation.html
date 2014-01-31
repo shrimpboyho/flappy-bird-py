@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Installation</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="index.html" title="Programming Guide">Programming Guide</a></span><span class="next">Next: <a class="reference" href="installing_using_setup_py.html" title="Installing using setup.py">Installing using setup.py</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » Installation</span></div>
+<h1 class="title">Installation</h1>
+
+<p>pyglet does not need to be installed.  Because it uses no external libraries
+or compiled binaries, you can run it in-place.  You can distribute the pyglet
+source code or runtime eggs alongside your application code (see
+<cite>Distribution</cite>).</p>
+<p>You might want to experiment with pyglet and run the example programs before
+you install it on your development machine.  To do this, add either the
+extracted pyglet source archive directory or the compressed runtime egg to
+your <tt class="docutils literal">PYTHONPATH</tt>.</p>
+<p>On Windows you can specify this from a command line:</p>
+<pre class="py-doctest">
+set PYTHONPATH c:\path\to\pyglet-1.1\;%PYTHONPATH%</pre>
+<p>On Mac OS X, Linux or on Windows under cygwin using bash:</p>
+<pre class="py-doctest">
+set PYTHONPATH /path/to/pyglet-1.1/:$PYTHONPATH
+export PYTHONPATH</pre>
+<p>or, using tcsh or a variant:</p>
+<pre class="py-doctest">
+setenv PYTHONPATH /path/to/pyglet-1.1/:$PYTHONPATH</pre>
+<p>If you have downloaded a runtime egg instead of the source archive, you would
+specify the filename of the egg in place of <tt class="docutils literal"><span class="pre">pyglet-1.1/</span></tt>.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference" href="installing_using_setup_py.html" id="id212">Installing using setup.py</a></li>
+<li><a class="reference" href="installation_from_the_runtime_eggs.html" id="id213">Installation from the runtime eggs</a></li>
+</ul>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="index.html" title="Programming Guide">Programming Guide</a></span><span class="next">Next: <a class="reference" href="installing_using_setup_py.html" title="Installing using setup.py">Installing using setup.py</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » Installation</span></div>
+</div>
+</body>
+</html>

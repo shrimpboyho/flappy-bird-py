@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Mouse exclusivity</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="changing_the_mouse_cursor.html" title="Changing the mouse cursor">Changing the ...</a></span><span class="next">Next: <a class="reference" href="keeping_track_of_time.html" title="Keeping track of time">Keeping track ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="working_with_the_mouse.html" title="Working with the mouse">Working with ...</a> » Mouse exclusivity</span></div>
+<h1 class="title">Mouse exclusivity</h1>
+
+<p>It is possible to take complete control of the mouse for your own application,
+preventing it being used to activate other applications.  This is most useful
+for immersive games such as first-person shooters.</p>
+<p>When you enable mouse-exclusive mode, the mouse cursor is no longer available.
+It is not merely hidden -- no amount of mouse movement will make it leave your
+application.  Because there is no longer a mouse cursor, the <cite>x</cite> and <cite>y</cite>
+parameters of the mouse events are meaningless; you should use only the <cite>dx</cite>
+and <cite>dy</cite> parameters to determine how the mouse was moved.</p>
+<p>Activate mouse exclusive mode with <a class="reference apilink" href="../api/pyglet.window.Window-class.html#set_exclusive_mouse " title="pyglet.window.Window.set_exclusive_mouse">set_exclusive_mouse</a>:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window()
+window.set_exclusive_mouse(True)</pre>
+<p>You should activate mouse exclusive mode even if your window is full-screen:
+it will prevent the window &quot;hitting&quot; the edges of the screen, and behave
+correctly in multi-monitor setups (a common problem with commercial
+full-screen games is that the mouse is only hidden, meaning it can
+accidentally travel onto the other monitor where applications are still
+visible).</p>
+<p>Note that on Linux setting exclusive mouse also disables Alt+Tab and other
+hotkeys for switching applications.  No workaround for this has yet been
+discovered.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="changing_the_mouse_cursor.html" title="Changing the mouse cursor">Changing the ...</a></span><span class="next">Next: <a class="reference" href="keeping_track_of_time.html" title="Keeping track of time">Keeping track ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="working_with_the_mouse.html" title="Working with the mouse">Working with ...</a> » Mouse exclusivity</span></div>
+</div>
+</body>
+</html>

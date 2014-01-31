@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Hello, World</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="writing_a_pyglet_application.html" title="Writing a pyglet application">Writing a ...</a></span><span class="next">Next: <a class="reference" href="image_viewer.html" title="Image viewer">Image viewer</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="writing_a_pyglet_application.html" title="Writing a pyglet application">Writing a ...</a> » Hello, World</span></div>
+<h1 class="title">Hello, World</h1>
+
+<p>We'll begin with the requisite &quot;Hello, World&quot; introduction.  This program will
+open a window with some text in it and wait to be closed.  You can find the
+entire program in the <a class="reference filelink" href="hello_world.py">examples/programming_guide/hello_world.py</a> file.</p>
+<p>Begin by importing the pyglet package:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> pyglet</pre>
+<p>Create a <a class="reference apilink" href="../api/pyglet.window.Window-class.html " title="pyglet.window.Window">Window</a> by calling its default constructor.  The window will be
+visible as soon as it's created, and will have reasonable default values for
+all its parameters:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window()</pre>
+<p>To display the text, we'll create a <a class="reference apilink" href="../api/pyglet.text.Label-class.html " title="pyglet.text.Label">Label</a>.  Keyword arguments are used
+to set the font, position and anchorage of the label:</p>
+<pre class="py-doctest">
+label = pyglet.text.Label(<span class="py-string">'Hello, world'</span>,
+                          font_name=<span class="py-string">'Times New Roman'</span>,
+                          font_size=36,
+                          x=window.width//2, y=window.height//2,
+                          anchor_x=<span class="py-string">'center'</span>, anchor_y=<span class="py-string">'center'</span>)</pre>
+<p>An <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_draw " title="pyglet.window.Window.on_draw">on_draw</a> event is dispatched to the window to give it a chance to redraw
+its contents.  pyglet provides several ways to attach event handlers to
+objects; a simple way is to use a decorator:</p>
+<pre class="py-doctest">
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+    label.draw()</pre>
+<p>Within the <tt class="docutils literal">on_draw</tt> handler the window is cleared to the default background
+color (black), and the label is drawn.</p>
+<p>Finally, call:</p>
+<pre class="py-doctest">
+pyglet.app.run()</pre>
+<p>To let pyglet respond to application events such as the mouse and keyboard.
+Your event handlers will now be called as required, and the <cite>run</cite> method will
+return only when all application windows have been closed.</p>
+<p>Note that earlier versions of pyglet required the application developer to
+write their own event-handling runloop.  This is still possible, but
+discouraged; see <a class="reference sectionlink" href="the_application_event_loop.html">The application event loop</a> for details.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="writing_a_pyglet_application.html" title="Writing a pyglet application">Writing a ...</a></span><span class="next">Next: <a class="reference" href="image_viewer.html" title="Image viewer">Image viewer</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="writing_a_pyglet_application.html" title="Writing a pyglet application">Writing a ...</a> » Hello, World</span></div>
+</div>
+</body>
+</html>

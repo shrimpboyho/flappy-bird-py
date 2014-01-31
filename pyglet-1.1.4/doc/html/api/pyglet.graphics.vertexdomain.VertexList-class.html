@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.graphics.vertexdomain.VertexList</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;<a href="pyglet.graphics.vertexdomain-module.html">vertexdomain</a>&nbsp;.&nbsp;VertexList
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.graphics.vertexdomain.VertexList</h1>
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.graphics.vertexdomain.IndexedVertexList-class.html">IndexedVertexList</a>
+</dd></dl>
+
+A list of vertices within a <a href="pyglet.graphics.vertexdomain.VertexDomain-class.html" class="link">VertexDomain</a>.  Use
+<a href="pyglet.graphics.vertexdomain.VertexDomain-class.html#create" class="link">VertexDomain.create</a> to construct this list.
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">domain</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">count</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_size"></a><span class="summary-sig-name">get_size</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the number of vertices in the list.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.vertexdomain.VertexDomain-class.html" class="link">VertexDomain</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_domain"></a><span class="summary-sig-name">get_domain</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the domain this vertex list belongs to.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexdomain.VertexList-class.html#draw" class="summary-sig-name">draw</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">mode</span>)</span>
+<div class="summary-description">Draw this vertex list in the given OpenGL mode.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexdomain.VertexList-class.html#resize" class="summary-sig-name">resize</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">count</span>)</span>
+<div class="summary-description">Resize this group.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="delete"></a><span class="summary-sig-name">delete</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Delete this group.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexdomain.VertexList-class.html#migrate" class="summary-sig-name">migrate</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">domain</span>)</span>
+<div class="summary-description">Move this group from its current domain and add to the specified
+one.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.VertexList-class.html#colors" class="summary-name">colors</a>
+<div class="summary-description">Array of color data.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.VertexList-class.html#fog_coords" class="summary-name">fog_coords</a>
+<div class="summary-description">Array of fog coordinate data.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.VertexList-class.html#edge_flags" class="summary-name">edge_flags</a>
+<div class="summary-description">Array of edge flag data.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.VertexList-class.html#normals" class="summary-name">normals</a>
+<div class="summary-description">Array of normal vector data.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.VertexList-class.html#secondary_colors" class="summary-name">secondary_colors</a>
+<div class="summary-description">Array of secondary color data.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.VertexList-class.html#tex_coords" class="summary-name">tex_coords</a>
+<div class="summary-description">Array of texture coordinate data.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.VertexList-class.html#vertices" class="summary-name">vertices</a>
+<div class="summary-description">Array of vertex coordinate data.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="draw"></a>
+<div class=" detail">
+  <h3>draw</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">draw</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">mode</span>)</span>
+    </div>
+  <div class="detail-description">
+  Draw this vertex list in the given OpenGL mode.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">mode</span> : <span class='ptype'>int</span></dt>
+        <dd>OpenGL drawing mode, e.g. <tt class="rst-docutils literal">GL_POINTS</tt>, <tt class="rst-docutils literal">GL_LINES</tt>, etc.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="resize"></a>
+<div class=" detail">
+  <h3>resize</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">resize</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">count</span>)</span>
+    </div>
+  <div class="detail-description">
+  Resize this group.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">count</span> : <span class='ptype'>int</span></dt>
+        <dd>New number of vertices in the list.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="migrate"></a>
+<div class=" detail">
+  <h3>migrate</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">migrate</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">domain</span>)</span>
+    </div>
+  <div class="detail-description">
+  Move this group from its current domain and add to the specified
+one.  Attributes on domains must match.  (In practice, used to change
+parent state of some vertices).
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">domain</span> : <span class='ptype'><a href="pyglet.graphics.vertexdomain.VertexDomain-class.html" class="link">VertexDomain</a></span></dt>
+        <dd>Domain to migrate this vertex list to.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="colors"></a>
+<div class=" detail">
+  <h3>colors</h3>
+  <div class="detail-description">
+  Array of color data.
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="fog_coords"></a>
+<div class=" detail">
+  <h3>fog_coords</h3>
+  <div class="detail-description">
+  Array of fog coordinate data.
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="edge_flags"></a>
+<div class=" detail">
+  <h3>edge_flags</h3>
+  <div class="detail-description">
+  Array of edge flag data.
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="normals"></a>
+<div class=" detail">
+  <h3>normals</h3>
+  <div class="detail-description">
+  Array of normal vector data.
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="secondary_colors"></a>
+<div class=" detail">
+  <h3>secondary_colors</h3>
+  <div class="detail-description">
+  Array of secondary color data.
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="tex_coords"></a>
+<div class=" detail">
+  <h3>tex_coords</h3>
+  <div class="detail-description">
+  Array of texture coordinate data.
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="vertices"></a>
+<div class=" detail">
+  <h3>vertices</h3>
+  <div class="detail-description">
+  Array of vertex coordinate data.
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;<a href="pyglet.graphics.vertexdomain-module.html">vertexdomain</a>&nbsp;.&nbsp;VertexList
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

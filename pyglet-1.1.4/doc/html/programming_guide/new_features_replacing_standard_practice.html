@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>New features replacing standard practice</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="deprecated_methods.html" title="Deprecated methods">Deprecated methods</a></span><span class="next">Next: <a class="reference" href="new_graphics_features.html" title="New graphics features">New graphics features</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a> » New features ...</span></div>
+<h1 class="title">New features replacing standard practice</h1>
+
+<p>pyglet 1.1 introduces new features that make it easier to program with, so the
+standard practice as followed in many of the pyglet example programs has
+changed.</p>
+<div class="section" id="importing-pyglet">
+<h1><a class="toc-backref" href="#id332">Importing pyglet</a></h1>
+<p>In pyglet 1.0, it was necessary to explicitly import each submodule required
+by the application; for example:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet <span class="py-keyword">import</span> font
+<span class="py-keyword">from</span> pyglet <span class="py-keyword">import</span> image
+<span class="py-keyword">from</span> pyglet <span class="py-keyword">import</span> window</pre>
+<p>pyglet now lazily loads submodules on demand, so an application can get away
+with importing just <a class="reference apilink" href="../api/pyglet-module.html ">pyglet</a>.  This is especially handy for modules that are
+typically only used once in an application, and frees up the names <tt class="docutils literal">font</tt>,
+<tt class="docutils literal">image</tt>, <tt class="docutils literal">window</tt> and so on for the application developer.  For example:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window()</pre>
+</div>
+<div class="section" id="application-event-loop">
+<h1><a class="toc-backref" href="#id333">Application event loop</a></h1>
+<p>Every application using pyglet 1.0 provides its own event loop, such as:</p>
+<pre class="py-doctest">
+<span class="py-keyword">while</span> <span class="py-keyword">not</span> window.has_exit:
+    dt = clock.tick()
+    <span class="py-builtin">update</span>(dt)
+
+    window.dispatch_events()
+    window.clear()
+    draw()
+    window.flip()</pre>
+<p>Besides being somewhat repetitious to type, this type of event loop is
+difficult to extend with more windows, and exausts all available system
+resources, even if the application is not doing anything.</p>
+<p>The new <a class="reference apilink" href="../api/pyglet.app-module.html ">pyglet.app</a> module provides an application event loop that is
+less demanding of the CPU yet more responsive to user events.  A complete
+application that opens an empty window can be written with:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window()
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+
+pyglet.app.run()</pre>
+<p>Note the new <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_draw " title="pyglet.window.Window.on_draw">on_draw</a> event, which makes it easy to specify different drawing
+functions for each window.  The <cite>pyglet.app</cite> event loop takes care of
+dispatching events, ticking the clock, calling the draw function and flipping
+the window buffer.</p>
+<p>Update functions can be scheduled on the clock.  To have an update function be
+called as often as possible, use <a class="reference apilink" href="../api/pyglet.clock-module.html#schedule " title="pyglet.clock.schedule">clock.schedule</a> (this effectively
+degenerates into the older <cite>dispatch_events</cite> practice of thrashing the CPU):</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">update</span>(dt):
+    <span class="py-keyword">pass</span>
+clock.schedule(<span class="py-builtin">update</span>)</pre>
+<p>Usually applications can update at a less frequent interval.  For example, a
+game that is designed to run at 60Hz can use <a class="reference apilink" href="../api/pyglet.clock-module.html#schedule_interval " title="pyglet.clock.schedule_interval">clock.schedule_interval</a>:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">update</span>(dt):
+    <span class="py-keyword">pass</span>
+clock.schedule_interval(<span class="py-builtin">update</span>, 1/60.0)</pre>
+<p>This also removes the need for <a class="reference apilink" href="../api/pyglet.clock-module.html#set_fps_limit " title="pyglet.clock.set_fps_limit">clock.set_fps_limit</a>.</p>
+<p>Besides the advantages already listed, windows managed by the event loop
+will not block while being resized or moved; and the menu bar on OS X can be
+interacted with without blocking the application.</p>
+<p><strong>It is highly recommended that all applications use the event loop.</strong>  The
+loop can be extended if you need to add additional hooks or integrate with
+another package.  Applications continuing to use <a class="reference apilink" href="../api/pyglet.window.Window-class.html#dispatch_events " title="pyglet.window.Window.dispatch_events">Window.dispatch_events</a>
+gain no advantage, but suffer from poorer response, increased CPU usage and
+artifacts during window resizing and moving.</p>
+<p>See <a class="reference sectionlink" href="the_application_event_loop.html">The application event loop</a> for more details.</p>
+</div>
+<div class="section" id="id35">
+<h1><a class="toc-backref" href="#id334">Loading resources</a></h1>
+<p>Locating resources such as images, sound and video files, data files and fonts
+is difficult to do correctly across all platforms, considering the effects of
+a changing working directory and various distribution packages such as
+setuptools, py2exe and py2app.</p>
+<p>The new <a class="reference apilink" href="../api/pyglet.resource-module.html ">pyglet.resource</a> module implements the correct logic for all these
+cases, making it simple to load resources that belong to a specific module or
+the application as a whole.  A resource path can be set that is indexed once,
+and can include filesystem directories, Python module paths and ZIP files.</p>
+<p>For example, suppose your application ships with a <tt class="docutils literal">logo.png</tt> that needs to
+be loaded on startup.  In pyglet 1.0 you might have written:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> os.path
+<span class="py-keyword">from</span> pyglet <span class="py-keyword">import</span> image
+
+script_dir = os.path.dirname(__file__)
+logo_filename = os.path.join(script_dir, <span class="py-string">'logo.png'</span>)
+logo = image.load(logo_filename)</pre>
+<p>In pyglet 1.1, you can write:</p>
+<pre class="py-doctest">
+logo = pyglet.resource.image(<span class="py-string">'logo.png'</span>)</pre>
+<p>And will actually work in more scenarios (such as within a setuptools egg
+file, py2exe and py2app).</p>
+<p>The resource module efficiently packs multiple small images into larger
+textures, so there is less need for artists to create sprite sheets themselves
+for efficient rendering.  Images and textures are also cached automatically.</p>
+<p>See <a class="reference sectionlink" href="application_resources.html">Application resources</a> for more details.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="deprecated_methods.html" title="Deprecated methods">Deprecated methods</a></span><span class="next">Next: <a class="reference" href="new_graphics_features.html" title="New graphics features">New graphics features</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a> » New features ...</span></div>
+</div>
+</body>
+</html>

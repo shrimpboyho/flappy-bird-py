@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Loading an image</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="images.html" title="Images">Images</a></span><span class="next">Next: <a class="reference" href="supported_image_formats.html" title="Supported image formats">Supported image formats</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Loading an image</span></div>
+<h1 class="title">Loading an image</h1>
+
+<p>Images can be loaded using the <a class="reference apilink" href="../api/pyglet.image-module.html#load ">pyglet.image.load</a> function:</p>
+<pre class="py-doctest">
+kitten = pyglet.image.load(<span class="py-string">'kitten.png'</span>)</pre>
+<p>If the image is distributed with your application, consider using the
+<a class="reference apilink" href="../api/pyglet.resource-module.html ">pyglet.resource</a> module (see <a class="reference sectionlink" href="application_resources.html">Application resources</a>).</p>
+<p>Without any additional arguments, <cite>load</cite> will attempt to load the
+filename specified using any available image decoder.  This will allow you to
+load PNG, GIF, JPEG, BMP and DDS files, and possibly other files as well,
+depending on your operating system and additional installed modules (see the
+next section for details).  If the image cannot be loaded, an
+<cite>ImageDecodeException</cite> will be raised.</p>
+<p>You can load an image from any file-like object providing a <cite>read</cite> method by
+specifying the <cite>file</cite> keyword parameter:</p>
+<pre class="py-doctest">
+kitten_stream = open(<span class="py-string">'kitten.png'</span>, <span class="py-string">'rb'</span>)
+kitten = pyglet.image.load(<span class="py-string">'kitten.png'</span>, file=kitten_stream)</pre>
+<p>In this case the filename <tt class="docutils literal">kitten.png</tt> is optional, but gives a hint to the
+decoder as to the file type (it is otherwise unused).</p>
+<p>pyglet provides the following image decoders:</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Module</th>
+<th class="head">Class</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">pyglet.image.codecs.dds</tt></td>
+<td><tt class="docutils literal">DDSImageDecoder</tt></td>
+<td>Reads Microsoft DirectDraw Surface files containing compressed
+textures</td>
+</tr>
+<tr><td><tt class="docutils literal">pyglet.image.codecs.gdiplus</tt></td>
+<td><tt class="docutils literal">GDIPlusDecoder</tt></td>
+<td>Uses Windows GDI+ services to decode images.</td>
+</tr>
+<tr><td><tt class="docutils literal">pyglet.image.codecs.gdkpixbuf2</tt></td>
+<td><tt class="docutils literal">GdkPixbuf2ImageDecoder</tt></td>
+<td>Uses the GTK-2.0 GDK functions to decode images.</td>
+</tr>
+<tr><td><tt class="docutils literal">pyglet.image.codecs.pil</tt></td>
+<td><tt class="docutils literal">PILImageDecoder</tt></td>
+<td>Wrapper interface around PIL Image class.</td>
+</tr>
+<tr><td><tt class="docutils literal">pyglet.image.codecs.png</tt></td>
+<td><tt class="docutils literal">PNGImageDecoder</tt></td>
+<td>PNG decoder written in pure Python.</td>
+</tr>
+<tr><td><tt class="docutils literal">pyglet.image.codecs.quicktime</tt></td>
+<td><tt class="docutils literal">QuickTimeImageDecoder</tt></td>
+<td>Uses Mac OS X QuickTime to decode images.</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Each of these classes registers itself with <a class="reference apilink" href="../api/pyglet.image-module.html ">pyglet.image</a> with the filename
+extensions it supports.  The <cite>load</cite> function will try each image decoder with
+a matching file extension first, before attempting the other decoders.  Only
+if every image decoder fails to load an image will <cite>ImageDecodeException</cite> be
+raised (the origin of the exception will be the first decoder that was
+attempted).</p>
+<p>You can override this behaviour and specify a particular decoding instance to
+use.  For example, in the following example the pure Python PNG decoder is
+always used rather than the operating system's decoder:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.image.codecs.png <span class="py-keyword">import</span> PNGImageDecoder
+kitten = pyglet.image.load(<span class="py-string">'kitten.png'</span>, decoder=PNGImageDecoder())</pre>
+<p>This use is not recommended unless your application has to work around
+specific deficiences in an operating system decoder.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="images.html" title="Images">Images</a></span><span class="next">Next: <a class="reference" href="supported_image_formats.html" title="Supported image formats">Supported image formats</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Loading an image</span></div>
+</div>
+</body>
+</html>

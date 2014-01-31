@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Loading media</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="supported_media_types.html" title="Supported media types">Supported media types</a></span><span class="next">Next: <a class="reference" href="simple_audio_playback.html" title="Simple audio playback">Simple audio playback</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a> » Loading media</span></div>
+<h1 class="title">Loading media</h1>
+
+<p>Audio and video files are loaded in the same way, using the
+<a class="reference apilink" href="../api/pyglet.media-module.html#load ">pyglet.media.load</a> function, providing a filename:</p>
+<pre class="py-doctest">
+source = pyglet.media.load(<span class="py-string">'explosion.wav'</span>)</pre>
+<p>If the media file is bundled with the application, consider using the resource
+module (see <a class="reference sectionlink" href="application_resources.html">Application resources</a>).</p>
+<p>The result of loading a media file is a <a class="reference apilink" href="../api/pyglet.media.Source-class.html " title="pyglet.media.Source">Source</a> object.  This object provides
+useful information about the type of media encoded in the file, and serves as
+an opaque object used for playing back the file (described in the next
+section).</p>
+<p>The <cite>load</cite> function will raise a <a class="reference apilink" href="../api/pyglet.media.MediaException-class.html " title="pyglet.media.MediaException">MediaException</a> if the format is unknown.
+<cite>IOError</cite> may also be raised if the file could not be read from disk.  Future
+versions of pyglet will also support reading from arbitrary file-like objects,
+however a valid filename must currently be given.</p>
+<p>The length of the media file is given by the <cite>duration</cite> property, which
+returns the media's length in seconds.</p>
+<p>Audio metadata is provided in the source's <cite>audio_format</cite> attribute, which is
+<cite>None</cite> for silent videos.  This metadata is not generally useful to
+applications.  See the <a class="reference apilink" href="../api/pyglet.media.AudioFormat-class.html " title="pyglet.media.AudioFormat">AudioFormat</a> class documentation for details.</p>
+<p>Video metadata is provided in the source's <a class="reference apilink" href="../api/pyglet.media.Source-class.html#video_format " title="pyglet.media.Source.video_format">video_format</a> attribute, which is
+<cite>None</cite> for audio files.  It is recommended that this attribute is checked
+before attempting play back a video file -- if a movie file has a readable
+audio track but unknown video format it will appear as an audio file.</p>
+<p>You can use the video metadata, described in a <a class="reference apilink" href="../api/pyglet.media.VideoFormat-class.html " title="pyglet.media.VideoFormat">VideoFormat</a> object, to set up
+display of the video before beginning playback.  The attributes are as
+follows:</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Attribute</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">width</tt>, <tt class="docutils literal">height</tt></td>
+<td>Width and height of the video image, in pixels.</td>
+</tr>
+<tr><td><tt class="docutils literal">sample_aspect</tt></td>
+<td>The aspect ratio of each video pixel.</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>You must take care to apply the sample aspect ratio to the video image size
+for display purposes.  The following code determines the display size for a
+given video format:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">get_video_size</span>(width, height, sample_aspect):
+    <span class="py-keyword">if</span> sample_aspect &gt; 1.:
+        <span class="py-keyword">return</span> width * sample_aspect, height
+    <span class="py-keyword">elif</span> sample_aspect &lt; 1.:
+        <span class="py-keyword">return</span> width, height / sample_aspect
+    <span class="py-keyword">else</span>:
+        <span class="py-keyword">return</span> width, height</pre>
+<p>Media files are not normally read entirely from disk; instead, they are
+streamed into the decoder, and then into the audio buffers and video memory
+only when needed.  This reduces the startup time of loading a file and reduces
+the memory requirements of the application.</p>
+<p>However, there are times when it is desirable to completely decode an audio
+file in memory first.  For example, a sound that will be played many times
+(such as a bullet or explosion) should only be decoded once.  You can instruct
+pyglet to completely decode an audio file into memory at load time:</p>
+<pre class="py-doctest">
+explosion = pyglet.media.load(<span class="py-string">'explosion.wav'</span>, streaming=False)</pre>
+<p>The resulting source is an instance of <a class="reference apilink" href="../api/pyglet.media.StaticSource-class.html " title="pyglet.media.StaticSource">StaticSource</a>, which provides the same
+interface as a streaming source.  You can also construct a <cite>StaticSource</cite>
+directly from an already-loaded <cite>Source</cite>:</p>
+<pre class="py-doctest">
+explosion = pyglet.media.StaticSource(pyglet.media.load(<span class="py-string">'explosion.wav'</span>))</pre>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="supported_media_types.html" title="Supported media types">Supported media types</a></span><span class="next">Next: <a class="reference" href="simple_audio_playback.html" title="Simple audio playback">Simple audio playback</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a> » Loading media</span></div>
+</div>
+</body>
+</html>

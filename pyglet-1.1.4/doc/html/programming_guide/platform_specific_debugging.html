@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Platform-specific debugging</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="tracing_execution.html" title="Tracing execution">Tracing execution</a></span><span class="next">Next: <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="debugging_tools.html" title="Debugging tools">Debugging tools</a> » Platform-specific debugging</span></div>
+<h1 class="title">Platform-specific debugging</h1>
+
+<p>The <tt class="docutils literal">debug_lib</tt> option causes the path of each loaded library to be printed
+to standard out.  This is performed by the undocumented <tt class="docutils literal">pyglet.lib</tt> module,
+which on Linux and Mac OS X must sometimes follow complex procedures to find
+the correct library.  On Windows not all libraries are loaded via this module,
+so they will not be printed (however, loading Windows DLLs is sufficiently
+simple that there is little need for this information).</p>
+<div class="section" id="id33">
+<h1><a class="toc-backref" href="#id200">Linux</a></h1>
+<p>X11 errors are caught by pyglet and suppressed, as there are plenty of X
+servers in the wild that generate errors that can be safely ignored.
+The <tt class="docutils literal">debug_x11</tt> option causes these errors to be dumped to standard out,
+along with a traceback of the Python stack (this may or may not correspond to
+the error, depending on whether or not it was reported asynchronously).</p>
+</div>
+<div class="section" id="windows">
+<h1><a class="toc-backref" href="#id201">Windows</a></h1>
+<p>The <tt class="docutils literal">debug_win32</tt> option causes all library calls into <tt class="docutils literal">user32.dll</tt>,
+<tt class="docutils literal">kernel32.dll</tt> and <tt class="docutils literal">gdi32.dll</tt> to be intercepted.  Before each library
+call <tt class="docutils literal">SetLastError(0)</tt> is called, and afterwards <tt class="docutils literal">GetLastError()</tt> is
+called.  Any errors discovered are written to a file named
+<tt class="docutils literal">debug_win32.log</tt>.  Note that an error is only valid if the function called
+returned an error code, but the interception function does not check this.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="tracing_execution.html" title="Tracing execution">Tracing execution</a></span><span class="next">Next: <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="debugging_tools.html" title="Debugging tools">Debugging tools</a> » Platform-specific debugging</span></div>
+</div>
+</body>
+</html>

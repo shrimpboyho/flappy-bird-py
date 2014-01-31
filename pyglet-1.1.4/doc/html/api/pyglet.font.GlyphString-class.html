@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.font.GlyphString</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.font-module.html">font</a>&nbsp;.&nbsp;GlyphString
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.font.GlyphString</h1>
+<p>An immutable string of glyphs that can be rendered quickly.</p>
+<p>This class is ideal for quickly rendering single or multi-line strings
+of text that use the same font.  To wrap text using a glyph string,
+call <a href="pyglet.font.GlyphString-class.html#get_break_index" class="link">get_break_index</a> to find the optimal breakpoint for each line,
+the repeatedly call <a href="pyglet.font.GlyphString-class.html#draw" class="link">draw</a> for each breakpoint.</p>
+
+<div class="fields">      <p><strong>Deprecated:</strong>
+        Use <a href="pyglet.text.layout-module.html" class="link">pyglet.text.layout</a> classes.
+      </p>
+</div><!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font.GlyphString-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>,
+        <span class="summary-sig-arg">glyphs</span>,
+        <span class="summary-sig-arg">x</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">y</span>=<span class="summary-sig-default">0</span>)</span>
+<div class="summary-description">Create a glyph string.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font.GlyphString-class.html#get_break_index" class="summary-sig-name">get_break_index</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_index</span>,
+        <span class="summary-sig-arg">width</span>)</span>
+<div class="summary-description">Find a breakpoint within the text for a given width.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font.GlyphString-class.html#get_subwidth" class="summary-sig-name">get_subwidth</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_index</span>,
+        <span class="summary-sig-arg">to_index</span>)</span>
+<div class="summary-description">Return the width of a slice of this string.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font.GlyphString-class.html#draw" class="summary-sig-name">draw</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">from_index</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">to_index</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Draw a region of the glyph string.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>,
+        <span class="sig-arg">glyphs</span>,
+        <span class="sig-arg">x</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">y</span>=<span class="sig-default">0</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create a glyph string.</p>
+<p>The text string is used to determine valid breakpoints; all glyphs
+must have already been determined using
+<a href="pyglet.font.base.Font-class.html#get_glyphs" class="link">pyglet.font.base.Font.get_glyphs</a>.  The string
+will be positioned with the baseline of the left-most glyph at the
+given coordinates.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">text</span> : <span class='ptype'>str or unicode</span></dt>
+        <dd>String to represent.</dd>
+        <dt><span class="pname">glyphs</span> : <span class='ptype'>list of <a href="pyglet.font.base.Glyph-class.html" class="link">pyglet.font.base.Glyph</a></span></dt>
+        <dd>Glyphs representing text.</dd>
+        <dt><span class="pname">x</span> : <span class='ptype'>float</span></dt>
+        <dd>X coordinate of the left-side bearing of the left-most glyph.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>float</span></dt>
+        <dd>Y coordinate of the baseline.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="get_break_index"></a>
+<div class=" detail">
+  <h3>get_break_index</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_break_index</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">from_index</span>,
+        <span class="sig-arg">width</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Find a breakpoint within the text for a given width.</p>
+<p>Returns a valid breakpoint after <code class="link">from_index</code> so that the text
+between <code class="link">from_index</code> and the breakpoint fits within <code class="link">width</code> pixels.</p>
+<p>This method uses precomputed cumulative glyph widths to give quick
+answer, and so is much faster than
+<a href="pyglet.font.base.Font-class.html#get_glyphs_for_width" class="link">pyglet.font.base.Font.get_glyphs_for_width</a>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">from_index</span> : <span class='ptype'>int</span></dt>
+        <dd>Index of text to begin at, or 0 for the beginning of the
+string.</dd>
+        <dt><span class="pname">width</span> : <span class='ptype'>float</span></dt>
+        <dd>Maximum width to use.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">int</span>: the index of text which will be used as the breakpoint, or
+<code class="link">from_index</code> if there is no valid breakpoint.</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_subwidth"></a>
+<div class=" detail">
+  <h3>get_subwidth</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_subwidth</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">from_index</span>,
+        <span class="sig-arg">to_index</span>)</span>
+    </div>
+  <div class="detail-description">
+  Return the width of a slice of this string.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">from_index</span> : <span class='ptype'>int</span></dt>
+        <dd>The start index of the string to measure.</dd>
+        <dt><span class="pname">to_index</span> : <span class='ptype'>int</span></dt>
+        <dd>The end index (exclusive) of the string to measure.</dd>
+    </dl></dd>
+    <dt>Returns: float</dt>
+  </dl>
+  </div>
+</div>
+<a name="draw"></a>
+<div class=" detail">
+  <h3>draw</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">draw</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">from_index</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">to_index</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Draw a region of the glyph string.</p>
+<p>Assumes texture state is enabled.  To enable the texture state:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> *
+glEnable(GL_TEXTURE_2D)</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">from_index</span> : <span class='ptype'>int</span></dt>
+        <dd>Start index of text to render.</dd>
+        <dt><span class="pname">to_index</span> : <span class='ptype'>int</span></dt>
+        <dd>End index (exclusive) of text to render.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.font-module.html">font</a>&nbsp;.&nbsp;GlyphString
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

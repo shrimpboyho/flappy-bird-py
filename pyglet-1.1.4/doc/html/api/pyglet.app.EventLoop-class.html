@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.app.EventLoop</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.app-module.html">app</a>&nbsp;.&nbsp;EventLoop
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.app.EventLoop</h1>
+<pre class="base-tree">
+<a href="pyglet.event.EventDispatcher-class.html">event.EventDispatcher</a> --+
+                        |
+                       <strong class="uidshort">EventLoop</strong>
+</pre>
+
+<p>The main run loop of the application.</p>
+<p>Calling <a href="pyglet.app.EventLoop-class.html#run" class="link">run</a> begins the application event loop, which processes
+operating system events, calls pyglet.clock.tick to call scheduled
+functions and calls <a href="pyglet.window.Window-class.html#on_draw" class="link">pyglet.window.Window.on_draw</a> and
+<a href="pyglet.window.Window-class.html#flip" class="link">pyglet.window.Window.flip</a> to update window contents.</p>
+<p>Applications can subclass <a href="pyglet.app.EventLoop-class.html" class="link">EventLoop</a> and override certain methods
+to integrate another framework's run loop, or to customise processing
+in some other way.  You should not in general override <a href="pyglet.app.EventLoop-class.html#run" class="link">run</a>, as
+this method contains platform-specific code that ensures the application
+remains responsive to the user while keeping CPU usage to a minimum.</p>
+
+<!-- ==================== EVENTS ==================== -->
+<a name="section-Events"></a>
+        <h2>Events</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.app.EventLoop-class.html#on_enter" class="summary-sig-name">on_enter</a>()</span>
+<div class="summary-description">The event loop is about to begin.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.app.EventLoop-class.html#on_exit" class="summary-sig-name">on_exit</a>()</span>
+<div class="summary-description">The event loop is about to exit.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.app.EventLoop-class.html#on_window_close" class="summary-sig-name">on_window_close</a>(<span class="summary-sig-arg">window</span>)</span>
+<div class="summary-description">A window was closed.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#dispatch_event" class="summary-sig-name">dispatch_event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event_type</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Dispatch a single event to the attached handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#event" class="summary-sig-name">event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Function decorator for an event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.app.EventLoop-class.html#exit" class="summary-sig-name">exit</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Safely exit the event loop at the end of the current iteration.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.app.EventLoop-class.html#idle" class="summary-sig-name">idle</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Called during each iteration of the event loop.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="pop_handlers"></a><span class="summary-sig-name">pop_handlers</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Pop the top level of event handlers off the stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="summary-sig-name">push_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Push a level onto the top of the handler stack, then attach zero or
+more event handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#register_event_type" class="summary-sig-name">register_event_type</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Register an event type with the dispatcher.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handler" class="summary-sig-name">remove_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Remove a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handlers" class="summary-sig-name">remove_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Remove event handlers from the event stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.app.EventLoop-class.html#run" class="summary-sig-name">run</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Begin processing events, scheduled functions and window updates.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handler" class="summary-sig-name">set_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Attach a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handlers" class="summary-sig-name">set_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Attach one or more event handlers to the top level of the handler
+stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="event_types"></a><span class="summary-name">event_types</span> = <code title="['on_window_close', 'on_enter', 'on_exit']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">on_window_close</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">on_enter</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">on_exit</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="has_exit"></a><span class="summary-name">has_exit</span> = <code title="False">False</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== EVENT DETAILS ==================== -->
+<a name="section-EventDetails"></a>
+        <h2>Event Details</h2>
+<table class="details">
+</table>
+<a name="on_enter"></a>
+<div class=" detail">
+  <h3>on_enter</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_enter</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The event loop is about to begin.</p>
+<p>This is dispatched when the event loop is prepared to enter
+the main run loop, and represents the last chance for an
+application to initialise itself.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_exit"></a>
+<div class=" detail">
+  <h3>on_exit</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_exit</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The event loop is about to exit.</p>
+<p>After dispatching this event, the <a href="pyglet.app.EventLoop-class.html#run" class="link">run</a> method returns (the
+application may not actually exit if you have more code
+following the <a href="pyglet.app.EventLoop-class.html#run" class="link">run</a> invocation).</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_window_close"></a>
+<div class=" detail">
+  <h3>on_window_close</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_window_close</span>(<span class="sig-arg">window</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>A window was closed.</p>
+<p>This event is dispatched when a window is closed.  It is not
+dispatched if the window's close button was pressed but the
+window did not close.</p>
+<p>The default handler calls <a href="pyglet.app.EventLoop-class.html#exit" class="link">exit</a> if no more windows are open.  You
+can override this handler to base your application exit on some
+other policy.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="exit"></a>
+<div class=" detail">
+  <h3>exit</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">exit</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Safely exit the event loop at the end of the current iteration.</p>
+<p>This method is convenience for setting <a href="pyglet.app.EventLoop-class.html#has_exit" class="link">has_exit</a> to <tt class="rst-docutils literal">True</tt>.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="idle"></a>
+<div class=" detail">
+  <h3>idle</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">idle</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Called during each iteration of the event loop.</p>
+<p>The method is called immediately after any window events (i.e., after
+any user input).  The method can return a duration after which
+the idle method will be called again.  The method may be called
+earlier if the user creates more input events.  The method
+can return <code class="link">None</code> to only wait for user events.</p>
+<p>For example, return <tt class="rst-docutils literal">1.0</tt> to have the idle method called every
+second, or immediately after any user events.</p>
+<p>The default implementation dispatches the
+<a href="pyglet.window.Window-class.html#on_draw" class="link">pyglet.window.Window.on_draw</a> event for all windows and uses
+pyglet.clock.tick and pyglet.clock.get_sleep_time on the default
+clock to determine the return value.</p>
+<p>This method should be overridden by advanced users only.  To have
+code execute at regular intervals, use the
+pyglet.clock.schedule methods.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">float</span>: The number of seconds before the idle method should
+be called again, or <code class="link">None</code> to block for user input.</dd>
+  </dl>
+  </div>
+</div>
+<a name="run"></a>
+<div class=" detail">
+  <h3>run</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">run</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Begin processing events, scheduled functions and window updates.</p>
+<p>This method returns when <a href="pyglet.app.EventLoop-class.html#has_exit" class="link">has_exit</a> is set to True.</p>
+<p>Developers are discouraged from overriding this method, as the
+implementation is platform-specific.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.app-module.html">app</a>&nbsp;.&nbsp;EventLoop
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

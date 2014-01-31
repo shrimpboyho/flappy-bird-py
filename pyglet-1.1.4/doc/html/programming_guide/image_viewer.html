@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Image viewer</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="hello_world.html" title="Hello, World">Hello, World</a></span><span class="next">Next: <a class="reference" href="handling_mouse_and_keyboard_events.html" title="Handling mouse and keyboard events">Handling mouse ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="writing_a_pyglet_application.html" title="Writing a pyglet application">Writing a ...</a> » Image viewer</span></div>
+<h1 class="title">Image viewer</h1>
+
+<p>Most games will need to load and display images on the screen.  In this
+example we'll load an image from the application's directory and display it
+within the window:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> pyglet
+
+window = pyglet.window.Window()
+image = pyglet.resource.image(<span class="py-string">'kitten.jpg'</span>)
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+    image.blit(0, 0)
+
+pyglet.app.run()</pre>
+<p>We used the <a class="reference apilink" href="../api/pyglet.resource-module.html#image ">pyglet.resource.image</a> function to load the image, which
+automatically locates the file relative to the source file (rather than the
+working directory).  To load an image not bundled with the application (for
+example, specified on the command line, you would use <a class="reference apilink" href="../api/pyglet.image-module.html#load ">pyglet.image.load</a>).</p>
+<p>The <a class="reference apilink" href="../api/pyglet.image.AbstractImage-class.html#blit " title="pyglet.image.AbstractImage.blit">AbstractImage.blit</a> method draws the image.  The arguments <tt class="docutils literal">(0, 0)</tt>
+tell pyglet to draw the image at pixel coordinates 0, 0 in the window
+(the lower-left corner).</p>
+<p>The complete code for this example is located in
+<a class="reference filelink" href="image_viewer.py">examples/programming_guide/image_viewer.py</a>.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="hello_world.html" title="Hello, World">Hello, World</a></span><span class="next">Next: <a class="reference" href="handling_mouse_and_keyboard_events.html" title="Handling mouse and keyboard events">Handling mouse ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="writing_a_pyglet_application.html" title="Writing a pyglet application">Writing a ...</a> » Image viewer</span></div>
+</div>
+</body>
+</html>

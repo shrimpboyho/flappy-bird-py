@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.media.Listener</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;media&nbsp;.&nbsp;Listener
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.media.Listener</h1>
+<p>The listener properties for positional audio.</p>
+<p>You can obtain the singleton instance of this class as
+<a href="pyglet.media-module.html#listener" class="link">pyglet.media.listener</a>.</p>
+
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Listener-class.html#volume" class="summary-name">volume</a>
+<div class="summary-description">The master volume for sound playback.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">3-tuple of float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Listener-class.html#position" class="summary-name">position</a>
+<div class="summary-description">The position of the listener in 3D space.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">3-tuple of float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Listener-class.html#forward_orientation" class="summary-name">forward_orientation</a>
+<div class="summary-description">A vector giving the direction the
+listener is facing.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">3-tuple of float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Listener-class.html#up_orientation" class="summary-name">up_orientation</a>
+<div class="summary-description">A vector giving the &quot;up&quot; orientation
+of the listener.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="volume"></a>
+<div class=" detail">
+  <h3>volume</h3>
+  <div class="detail-description">
+  <p>The master volume for sound playback.</p>
+<p>All sound volumes are multiplied by this master volume before being
+played.  A value of 0 will silence playback (but still consume
+resources).  The nominal volume is 1.0.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="position"></a>
+<div class=" detail">
+  <h3>position</h3>
+  <div class="detail-description">
+  <p>The position of the listener in 3D space.</p>
+<p>The position is given as a tuple of floats (x, y, z).  The unit
+defaults to meters, but can be modified with the listener
+properties.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>3-tuple of float</dd>
+  </dl>
+  </div>
+</div>
+<a name="forward_orientation"></a>
+<div class=" detail">
+  <h3>forward_orientation</h3>
+  <div class="detail-description">
+  <p>A vector giving the direction the
+listener is facing.</p>
+<p>The orientation is given as a tuple of floats (x, y, z), and has
+no unit.  The forward orientation should be orthogonal to the
+up orientation.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>3-tuple of float</dd>
+  </dl>
+  </div>
+</div>
+<a name="up_orientation"></a>
+<div class=" detail">
+  <h3>up_orientation</h3>
+  <div class="detail-description">
+  <p>A vector giving the &quot;up&quot; orientation
+of the listener.</p>
+<p>The orientation is given as a tuple of floats (x, y, z), and has
+no unit.  The up orientation should be orthogonal to the
+forward orientation.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>3-tuple of float</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;media&nbsp;.&nbsp;Listener
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

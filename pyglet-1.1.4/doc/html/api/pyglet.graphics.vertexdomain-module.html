@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.graphics.vertexdomain</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;vertexdomain
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module pyglet.graphics.vertexdomain</h1>
+<p>Manage related vertex attributes within a single vertex domain.</p>
+<p>A vertex &quot;domain&quot; consists of a set of attribute descriptions that together
+describe the layout of one or more vertex buffers which are used together to
+specify the vertices in a primitive.  Additionally, the domain manages the
+buffers used to store the data and will resize them as necessary to accommodate
+new vertices.</p>
+<p>Domains can optionally be indexed, in which case they also manage a buffer
+containing vertex indices.  This buffer is grown separately and has no size
+relation to the attribute buffers.</p>
+<p>Applications can create vertices (and optionally, indices) within a domain
+with the <a href="pyglet.graphics.vertexdomain.VertexDomain-class.html#create" class="link">VertexDomain.create</a> method.  This returns a <a href="pyglet.graphics.vertexdomain.VertexList-class.html" class="link">VertexList</a>
+representing the list of vertices created.  The vertex attribute data within
+the group can be modified, and the changes will be made to the underlying
+buffers automatically.</p>
+<p>The entire domain can be efficiently drawn in one step with the
+<a href="pyglet.graphics.vertexdomain.VertexDomain-class.html#draw" class="link">VertexDomain.draw</a> method, assuming all the vertices comprise primitives of
+the same OpenGL primitive mode.</p>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.VertexDomain-class.html" class="summary-name">VertexDomain</a>
+<div class="summary-description">Management of a set of vertex lists.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.VertexList-class.html" class="summary-name">VertexList</a>
+<div class="summary-description">A list of vertices within a <a href="pyglet.graphics.vertexdomain.VertexDomain-class.html" class="link">VertexDomain</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.IndexedVertexDomain-class.html" class="summary-name">IndexedVertexDomain</a>
+<div class="summary-description">Management of a set of indexed vertex lists.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexdomain.IndexedVertexList-class.html" class="summary-name">IndexedVertexList</a>
+<div class="summary-description">A list of vertices within an <a href="pyglet.graphics.vertexdomain.IndexedVertexDomain-class.html" class="link">IndexedVertexDomain</a> that are indexed.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexdomain-module.html#create_attribute_usage" class="summary-sig-name">create_attribute_usage</a>(<span class="summary-sig-arg">format</span>)</span>
+<div class="summary-description">Create an attribute and usage pair from a format string.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.vertexdomain.VertexDomain-class.html" class="link">VertexDomain</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexdomain-module.html#create_domain" class="summary-sig-name">create_domain</a>(<span class="summary-sig-arg">*attribute_usage_formats</span>)</span>
+<div class="summary-description">Create a vertex domain covering the given attribute usage formats.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.vertexdomain.VertexDomain-class.html" class="link">VertexDomain</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexdomain-module.html#create_indexed_domain" class="summary-sig-name">create_indexed_domain</a>(<span class="summary-sig-arg">*attribute_usage_formats</span>)</span>
+<div class="summary-description">Create an indexed vertex domain covering the given attribute usage
+formats.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.graphics'"><code class="variable-quote">'</code><code class="variable-string">pyglet.graphics</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="create_attribute_usage"></a>
+<div class=" detail">
+  <h3>create_attribute_usage</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">create_attribute_usage</span>(<span class="sig-arg">format</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create an attribute and usage pair from a format string.  The
+format string is as documented in <a href="pyglet.graphics.vertexattribute-module.html" class="link">pyglet.graphics.vertexattribute</a>, with
+the addition of an optional usage component:</p>
+<pre class="py-doctest">
+usage ::= attribute ( <span class="py-string">'/'</span> (<span class="py-string">'static'</span> | <span class="py-string">'dynamic'</span> | <span class="py-string">'stream'</span> | <span class="py-string">'none'</span>) )?</pre>
+<p>If the usage is not given it defaults to 'dynamic'.  The usage corresponds
+to the OpenGL VBO usage hint, and for <tt class="rst-docutils literal">static</tt> also indicates a
+preference for interleaved arrays.  If <tt class="rst-docutils literal">none</tt> is specified a buffer
+object is not created, and vertex data is stored in system memory.</p>
+<p>Some examples:</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">v3f/stream</tt></dt>
+<dd>3D vertex position using floats, for stream usage</dd>
+<dt><tt class="rst-docutils literal">c4b/static</tt></dt>
+<dd>4-byte color attribute, for static usage</dd>
+</dl>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>attribute, usage</dd>
+  </dl>
+  </div>
+</div>
+<a name="create_domain"></a>
+<div class=" detail">
+  <h3>create_domain</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">create_domain</span>(<span class="sig-arg">*attribute_usage_formats</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a vertex domain covering the given attribute usage formats.
+See documentation for <a href="pyglet.graphics.vertexdomain-module.html#create_attribute_usage" class="link">create_attribute_usage</a> and
+<a href="pyglet.graphics.vertexattribute-module.html#create_attribute" class="link">pyglet.graphics.vertexattribute.create_attribute</a> for the grammar of
+these format strings.
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.graphics.vertexdomain.VertexDomain-class.html" class="link">VertexDomain</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="create_indexed_domain"></a>
+<div class=" detail">
+  <h3>create_indexed_domain</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">create_indexed_domain</span>(<span class="sig-arg">*attribute_usage_formats</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create an indexed vertex domain covering the given attribute usage
+formats.  See documentation for <a href="pyglet.graphics.vertexdomain-module.html#create_attribute_usage" class="link">create_attribute_usage</a> and
+<a href="pyglet.graphics.vertexattribute-module.html#create_attribute" class="link">pyglet.graphics.vertexattribute.create_attribute</a> for the grammar of
+these format strings.
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.graphics.vertexdomain.VertexDomain-class.html" class="link">VertexDomain</a></dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;vertexdomain
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

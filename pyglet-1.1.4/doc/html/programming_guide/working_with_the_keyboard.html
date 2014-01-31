@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Working with the keyboard</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="creating_your_own_event_dispatcher.html" title="Creating your own event dispatcher">Creating your ...</a></span><span class="next">Next: <a class="reference" href="keyboard_events.html" title="Keyboard events">Keyboard events</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » Working with ...</span></div>
+<h1 class="title">Working with the keyboard</h1>
+
+<p>pyglet has support for low-level keyboard input suitable for games as well as
+locale- and device-independent Unicode text entry.</p>
+<p>Keyboard input requires a window which has focus.  The operating system
+usually decides which application window has keyboard focus.  Typically this
+window appears above all others and may be decorated differently, though this
+is platform-specific (for example, Unix window managers sometimes couple
+keyboard focus with the mouse pointer).</p>
+<p>You can request keyboard focus for a window with the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#activate " title="pyglet.window.Window.activate">activate</a> method, but
+you should not rely on this -- it may simply provide a visual cue to the user
+indicating that the window requires user input, without actually getting
+focus.</p>
+<p>Windows created with the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#WINDOW_STYLE_BORDERLESS " title="pyglet.window.Window.WINDOW_STYLE_BORDERLESS">WINDOW_STYLE_BORDERLESS</a> or <a class="reference apilink" href="../api/pyglet.window.Window-class.html#WINDOW_STYLE_TOOL " title="pyglet.window.Window.WINDOW_STYLE_TOOL">WINDOW_STYLE_TOOL</a>
+style cannot receive keyboard focus.</p>
+<p>It is not possible to use pyglet's keyboard or text events without a window;
+consider using Python built-in functions such as <tt class="docutils literal">raw_input</tt> instead.</p>
+<div class="contents local topic" id="id10">
+<ul class="simple">
+<li><a class="reference" href="keyboard_events.html" id="id263">Keyboard events</a><ul>
+<li><a class="reference" href="keyboard_events.html#defined-key-symbols" id="id264">Defined key symbols</a></li>
+<li><a class="reference" href="keyboard_events.html#modifiers" id="id265">Modifiers</a></li>
+<li><a class="reference" href="keyboard_events.html#user-defined-key-symbols" id="id266">User-defined key symbols</a></li>
+<li><a class="reference" href="keyboard_events.html#remembering-key-state" id="id267">Remembering key state</a></li>
+</ul>
+</li>
+<li><a class="reference" href="text_and_motion_events.html" id="id268">Text and motion events</a><ul>
+<li><a class="reference" href="text_and_motion_events.html#motion-events" id="id269">Motion events</a></li>
+</ul>
+</li>
+<li><a class="reference" href="keyboard_exclusivity.html" id="id270">Keyboard exclusivity</a></li>
+</ul>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="creating_your_own_event_dispatcher.html" title="Creating your own event dispatcher">Creating your ...</a></span><span class="next">Next: <a class="reference" href="keyboard_events.html" title="Keyboard events">Keyboard events</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » Working with ...</span></div>
+</div>
+</body>
+</html>

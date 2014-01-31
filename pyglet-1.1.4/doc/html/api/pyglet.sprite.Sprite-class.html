@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.sprite.Sprite</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.sprite-module.html">sprite</a>&nbsp;.&nbsp;Sprite
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.sprite.Sprite</h1>
+<pre class="base-tree">
+<a href="pyglet.event.EventDispatcher-class.html">event.EventDispatcher</a> --+
+                        |
+                       <strong class="uidshort">Sprite</strong>
+</pre>
+
+<p>Instance of an on-screen image.</p>
+<p>See the module documentation for usage.</p>
+
+<!-- ==================== EVENTS ==================== -->
+<a name="section-Events"></a>
+        <h2>Events</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.sprite.Sprite-class.html#on_animation_end" class="summary-sig-name">on_animation_end</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">The sprite animation reached the final frame.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.sprite.Sprite-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">img</span>,
+        <span class="summary-sig-arg">x</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">y</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">blend_src</span>=<span class="summary-sig-default">770</span>,
+        <span class="summary-sig-arg">blend_dest</span>=<span class="summary-sig-default">771</span>,
+        <span class="summary-sig-arg">batch</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">group</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">usage</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">dynamic</code><code class="variable-quote">'</code></span>)</span>
+<div class="summary-description">Create a sprite.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__del__"></a><span class="summary-sig-name">__del__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.sprite.Sprite-class.html#delete" class="summary-sig-name">delete</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Force immediate removal of the sprite from video memory.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.sprite.Sprite-class.html#set_position" class="summary-sig-name">set_position</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">Set the X and Y coordinates of the sprite simultaneously.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.sprite.Sprite-class.html#draw" class="summary-sig-name">draw</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Draw the sprite at its current position.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#dispatch_event" class="summary-sig-name">dispatch_event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event_type</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Dispatch a single event to the attached handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#event" class="summary-sig-name">event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Function decorator for an event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="pop_handlers"></a><span class="summary-sig-name">pop_handlers</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Pop the top level of event handlers off the stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="summary-sig-name">push_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Push a level onto the top of the handler stack, then attach zero or
+more event handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#register_event_type" class="summary-sig-name">register_event_type</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Register an event type with the dispatcher.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handler" class="summary-sig-name">remove_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Remove a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handlers" class="summary-sig-name">remove_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Remove event handlers from the event stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handler" class="summary-sig-name">set_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Attach a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handlers" class="summary-sig-name">set_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Attach one or more event handlers to the top level of the handler
+stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Batch-class.html" class="link">Batch</a></span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#batch" class="summary-name">batch</a>
+<div class="summary-description">Graphics batch.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#group" class="summary-name">group</a>
+<div class="summary-description">Parent graphics group.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.AbstractImage-class.html" class="link">AbstractImage</a> or <a href="pyglet.image.Animation-class.html" class="link">Animation</a></span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#image" class="summary-name">image</a>
+<div class="summary-description">Image or animation to display.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(int, int)</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#position" class="summary-name">position</a>
+<div class="summary-description">The (x, y) coordinates of the sprite.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#x" class="summary-name">x</a>
+<div class="summary-description">X coordinate of the sprite.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#y" class="summary-name">y</a>
+<div class="summary-description">Y coordinate of the sprite.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#rotation" class="summary-name">rotation</a>
+<div class="summary-description">Clockwise rotation of the sprite, in degrees.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#scale" class="summary-name">scale</a>
+<div class="summary-description">Scaling factor.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#width" class="summary-name">width</a>
+<div class="summary-description">Scaled width of the sprite.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#height" class="summary-name">height</a>
+<div class="summary-description">Scaled height of the sprite.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#opacity" class="summary-name">opacity</a>
+<div class="summary-description">Blend opacity.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(int, int, int)</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#color" class="summary-name">color</a>
+<div class="summary-description">Blend color.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html#visible" class="summary-name">visible</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="event_types"></a><span class="summary-name">event_types</span> = <code title="['on_animation_end']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">on_animation_end</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== EVENT DETAILS ==================== -->
+<a name="section-EventDetails"></a>
+        <h2>Event Details</h2>
+<table class="details">
+</table>
+<a name="on_animation_end"></a>
+<div class=" detail">
+  <h3>on_animation_end</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_animation_end</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>The sprite animation reached the final frame.</p>
+<p>The event is triggered only if the sprite has an animation, not an
+image.  For looping animations, the event is triggered each time
+the animation loops.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">img</span>,
+        <span class="sig-arg">x</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">y</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">blend_src</span>=<span class="sig-default">770</span>,
+        <span class="sig-arg">blend_dest</span>=<span class="sig-default">771</span>,
+        <span class="sig-arg">batch</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">group</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">usage</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">dynamic</code><code class="variable-quote">'</code></span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a sprite.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">img</span> : <span class='ptype'><a href="pyglet.image.AbstractImage-class.html" class="link">AbstractImage</a> or <a href="pyglet.image.Animation-class.html" class="link">Animation</a></span></dt>
+        <dd>Image or animation to display.</dd>
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate of the sprite.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Y coordinate of the sprite.</dd>
+        <dt><span class="pname">blend_src</span> : <span class='ptype'>int</span></dt>
+        <dd>OpenGL blend source mode.  The default is suitable for
+compositing sprites drawn from back-to-front.</dd>
+        <dt><span class="pname">blend_dest</span> : <span class='ptype'>int</span></dt>
+        <dd>OpenGL blend destination mode.  The default is suitable for
+compositing sprites drawn from back-to-front.</dd>
+        <dt><span class="pname">batch</span> : <span class='ptype'><a href="pyglet.graphics.Batch-class.html" class="link">Batch</a></span></dt>
+        <dd>Optional batch to add the sprite to.</dd>
+        <dt><span class="pname">group</span> : <span class='ptype'><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span></dt>
+        <dd>Optional parent group of the sprite.</dd>
+        <dt><span class="pname">usage</span> : <span class='ptype'>str</span></dt>
+        <dd>Vertex buffer object usage hint, one of <tt class="rst-docutils literal">&quot;none&quot;</tt> (default),
+<tt class="rst-docutils literal">&quot;stream&quot;</tt>, <tt class="rst-docutils literal">&quot;dynamic&quot;</tt> or <tt class="rst-docutils literal">&quot;static&quot;</tt>.  Applies
+only to vertex data.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="delete"></a>
+<div class=" detail">
+  <h3>delete</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">delete</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Force immediate removal of the sprite from video memory.</p>
+<p>This is often necessary when using batches, as the Python garbage
+collector will not necessarily call the finalizer as soon as the
+sprite is garbage.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="set_position"></a>
+<div class=" detail">
+  <h3>set_position</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_position</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  Set the X and Y coordinates of the sprite simultaneously.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate of the sprite.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Y coordinate of the sprite.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="draw"></a>
+<div class=" detail">
+  <h3>draw</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">draw</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Draw the sprite at its current position.</p>
+<p>See the module documentation for hints on drawing multiple sprites
+efficiently.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="batch"></a>
+<div class=" detail">
+  <h3>batch</h3>
+  <div class="detail-description">
+  <p>Graphics batch.</p>
+<p>The sprite can be migrated from one batch to another, or removed from its
+batch (for individual drawing).  Note that this can be an expensive
+operation.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><a href="pyglet.graphics.Batch-class.html" class="link">Batch</a></dd>
+  </dl>
+  </div>
+</div>
+<a name="group"></a>
+<div class=" detail">
+  <h3>group</h3>
+  <div class="detail-description">
+  <p>Parent graphics group.</p>
+<p>The sprite can change its rendering group, however this can be an
+expensive operation.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><a href="pyglet.graphics.Group-class.html" class="link">Group</a></dd>
+  </dl>
+  </div>
+</div>
+<a name="image"></a>
+<div class=" detail">
+  <h3>image</h3>
+  <div class="detail-description">
+  Image or animation to display.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><a href="pyglet.image.AbstractImage-class.html" class="link">AbstractImage</a> or <a href="pyglet.image.Animation-class.html" class="link">Animation</a></dd>
+  </dl>
+  </div>
+</div>
+<a name="position"></a>
+<div class=" detail">
+  <h3>position</h3>
+  <div class="detail-description">
+  The (x, y) coordinates of the sprite.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>(int, int)</dd>
+  </dl>
+  </div>
+</div>
+<a name="x"></a>
+<div class=" detail">
+  <h3>x</h3>
+  <div class="detail-description">
+  X coordinate of the sprite.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="y"></a>
+<div class=" detail">
+  <h3>y</h3>
+  <div class="detail-description">
+  Y coordinate of the sprite.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="rotation"></a>
+<div class=" detail">
+  <h3>rotation</h3>
+  <div class="detail-description">
+  <p>Clockwise rotation of the sprite, in degrees.</p>
+<p>The sprite image will be rotated about its image's (anchor_x, anchor_y)
+position.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="scale"></a>
+<div class=" detail">
+  <h3>scale</h3>
+  <div class="detail-description">
+  <p>Scaling factor.</p>
+<p>A scaling factor of 1 (the default) has no effect.  A scale of 2 will draw
+the sprite at twice the native size of its image.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="width"></a>
+<div class=" detail">
+  <h3>width</h3>
+  <div class="detail-description">
+  <p>Scaled width of the sprite.</p>
+<p>Read-only.  Invariant under rotation.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="height"></a>
+<div class=" detail">
+  <h3>height</h3>
+  <div class="detail-description">
+  <p>Scaled height of the sprite.</p>
+<p>Read-only.  Invariant under rotation.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="opacity"></a>
+<div class=" detail">
+  <h3>opacity</h3>
+  <div class="detail-description">
+  <p>Blend opacity.</p>
+<p>This property sets the alpha component of the colour of the sprite's
+vertices.  With the default blend mode (see the constructor), this
+allows the sprite to be drawn with fractional opacity, blending with the
+background.</p>
+<p>An opacity of 255 (the default) has no effect.  An opacity of 128 will
+make the sprite appear translucent.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="color"></a>
+<div class=" detail">
+  <h3>color</h3>
+  <div class="detail-description">
+  <p>Blend color.</p>
+<p>This property sets the color of the sprite's vertices. This allows the
+sprite to be drawn with a color tint.</p>
+<p>The color is specified as an RGB tuple of integers <tt class="rst-docutils literal">(red, green, blue)</tt>.
+Each color component must be in the range 0 (dark) to 255 (saturated).</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>(int, int, int)</dd>
+  </dl>
+  </div>
+</div>
+<a name="visible"></a>
+<div class=" detail">
+  <h3>visible</h3>
+  <div class="detail-description">
+  
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.sprite-module.html">sprite</a>&nbsp;.&nbsp;Sprite
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

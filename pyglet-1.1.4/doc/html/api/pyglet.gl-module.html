@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.gl</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;gl
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package pyglet.gl</h1>
+<p>OpenGL and GLU interface.</p>
+<p>This package imports all OpenGL, GLU and registered OpenGL extension
+functions.  Functions have identical signatures to their C counterparts.  For
+example:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> *
+
+<span class="py-comment"># [...omitted: set up a GL context and framebuffer]</span>
+glBegin(GL_QUADS)
+glVertex3f(0, 0, 0)
+glVertex3f(0.1, 0.2, 0.3)
+glVertex3f(0.1, 0.2, 0.3)
+glEnd()</pre>
+<p>OpenGL is documented in full at the <a class="rst-reference external" href="http://www.opengl.org/documentation/red_book/" target="_top">OpenGL Reference Pages</a>.</p>
+<p>The <a class="rst-reference external" href="http://fly.cc.fer.hr/~unreal/theredbook/" target="_top">OpenGL Programming Guide</a> is a popular reference manual organised by
+topic.  The free online version documents only OpenGL 1.1.  <a class="rst-reference external" href="http://www.opengl.org/documentation/red_book/" target="_top">Later editions</a>
+cover more recent versions of the API and can be purchased from a book store.</p>
+<p>The following subpackages are imported into this &quot;mega&quot; package already (and
+so are available by importing <tt class="rst-docutils literal">pyglet.gl</tt>):</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">pyglet.gl.gl</tt></dt>
+<dd>OpenGL</dd>
+<dt><tt class="rst-docutils literal">pyglet.gl.glu</tt></dt>
+<dd>GLU</dd>
+<dt><tt class="rst-docutils literal">pyglet.gl.gl.glext_arb</tt></dt>
+<dd>ARB registered OpenGL extension functions</dd>
+<dt><tt class="rst-docutils literal">pyglet.gl.gl.glext_missing</tt></dt>
+<dd>ARB registered OpenGL extension functions not included in the ARB C header</dd>
+</dl>
+<p>These subpackages are also available, but are not imported into this namespace
+by default:</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">pyglet.gl.glext_nv</tt></dt>
+<dd>nVidia OpenGL extension functions</dd>
+<dt><tt class="rst-docutils literal">pyglet.gl.agl</tt></dt>
+<dd>AGL (Mac OS X OpenGL context functions)</dd>
+<dt><tt class="rst-docutils literal">pyglet.gl.glx</tt></dt>
+<dd>GLX (Linux OpenGL context functions)</dd>
+<dt><tt class="rst-docutils literal">pyglet.gl.glxext_arb</tt></dt>
+<dd>ARB registered GLX extension functions</dd>
+<dt><tt class="rst-docutils literal">pyglet.gl.glxext_nv</tt></dt>
+<dd>nvidia GLX extension functions</dd>
+<dt><tt class="rst-docutils literal">pyglet.gl.wgl</tt></dt>
+<dd>WGL (Windows OpenGL context functions)</dd>
+<dt><tt class="rst-docutils literal">pyglet.gl.wglext_arb</tt></dt>
+<dd>ARB registered WGL extension functions</dd>
+<dt><tt class="rst-docutils literal">pyglet.gl.wglext_nv</tt></dt>
+<dd>nvidia WGL extension functions</dd>
+</dl>
+<p>The information modules are provided for convenience, and are documented
+below.</p>
+
+<!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+        <h2>Submodules</h2>
+<table class="summary">
+<tr><td width="15%"></td><td><a href="pyglet.gl.gl_info-module.html" class="summary-name">pyglet.gl.gl_info</a><div class="summary-description">Information about version and extensions of current GL implementation.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.gl.glu_info-module.html" class="summary-name">pyglet.gl.glu_info</a><div class="summary-description">Information about version and extensions of current GLU implementation.</div></td></tr></table>
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.gl.Config-class.html" class="summary-name">Config</a>
+<div class="summary-description">Graphics configuration.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.gl.ObjectSpace-class.html" class="summary-name">ObjectSpace</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.gl.Context-class.html" class="summary-name">Context</a>
+<div class="summary-description">OpenGL context for drawing.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.gl.ContextException-class.html" class="summary-name">ContextException</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.gl.ConfigException-class.html" class="summary-name">ConfigException</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.gl.Context-class.html" class="link">Context</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl-module.html#get_current_context" class="summary-sig-name">get_current_context</a>()</span>
+<div class="summary-description">Return the active OpenGL context.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="current_context"></a><span class="summary-name">current_context</span> = <code title="None">None</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="glBindTexture"></a><span class="summary-name">glBindTexture</span> = <code title="&lt;_FuncPtr object at 0x9fd0a54&gt;">&lt;_FuncPtr object at 0x9fd0a54&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="glTexImage2D"></a><span class="summary-name">glTexImage2D</span> = <code title="&lt;_FuncPtr object at 0xa0813d4&gt;">&lt;_FuncPtr object at 0xa0813d4&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="glDeleteTextures"></a><span class="summary-name">glDeleteTextures</span> = <code title="&lt;_FuncPtr object at 0xa047094&gt;">&lt;_FuncPtr object at 0xa047094&gt;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.gl'"><code class="variable-quote">'</code><code class="variable-string">pyglet.gl</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="get_current_context"></a>
+<div class=" detail">
+  <h3>get_current_context</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_current_context</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>Return the active OpenGL context.</p>
+<p>You can change the current context by calling <a href="pyglet.gl.Context-class.html#set_current" class="link">Context.set_current</a>.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype"><a href="pyglet.gl.Context-class.html" class="link">Context</a></span>: the context to which OpenGL commands are directed, or None
+if there is no selected context.</dd>
+  </dl>
+<div class="fields">      <p><strong>Deprecated:</strong>
+        Use <a href="pyglet.gl-module.html#current_context" class="link">current_context</a>
+      </p>
+</div>  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;gl
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:17 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

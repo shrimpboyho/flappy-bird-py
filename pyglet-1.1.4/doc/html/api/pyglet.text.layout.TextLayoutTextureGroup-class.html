@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.layout.TextLayoutTextureGroup</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.layout-module.html">layout</a>&nbsp;.&nbsp;TextLayoutTextureGroup
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.layout.TextLayoutTextureGroup</h1>
+<pre class="base-tree">
+<a href="pyglet.graphics.Group-class.html">graphics.Group</a> --+
+                 |
+                <strong class="uidshort">TextLayoutTextureGroup</strong>
+</pre>
+
+<p>Rendering group for a glyph texture in all text layouts.</p>
+<p>The group binds its texture to <tt class="rst-docutils literal">GL_TEXTURE_2D</tt>.  The group is shared
+between all other text layout uses of the same texture.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayoutTextureGroup-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">texture</span>,
+        <span class="summary-sig-arg">parent</span>)</span>
+<div class="summary-description">Create a group.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayoutTextureGroup-class.html#set_state" class="summary-sig-name">set_state</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Apply the OpenGL state change.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__hash__"></a><span class="summary-sig-name">__hash__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__eq__"></a><span class="summary-sig-name">__eq__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__repr__"></a><span class="summary-sig-name">__repr__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.Group-class.html#set_state_recursive" class="summary-sig-name">set_state_recursive</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Set this group and its ancestry.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.graphics.Group-class.html">pyglet.graphics.Group</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.Group-class.html#unset_state" class="summary-sig-name">unset_state</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Repeal the OpenGL state change.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.graphics.Group-class.html">pyglet.graphics.Group</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.Group-class.html#unset_state_recursive" class="summary-sig-name">unset_state_recursive</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Unset this group and its ancestry.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.graphics.Group-class.html">pyglet.graphics.Group</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">texture</span>,
+        <span class="sig-arg">parent</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a group.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.graphics.Group-class.html#__init__">graphics.Group.__init__</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="set_state"></a>
+<div class=" detail">
+  <h3>set_state</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_state</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Apply the OpenGL state change.</p>
+<p>The default implementation does nothing.</p>
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.graphics.Group-class.html#set_state">graphics.Group.set_state</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.layout-module.html">layout</a>&nbsp;.&nbsp;TextLayoutTextureGroup
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:20 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,25 @@
+Metadata-Version: 1.0
+Name: pyglet
+Version: 1.1.4
+Summary: Cross-platform windowing and multimedia library
+Home-page: http://www.pyglet.org/
+Author: Alex Holkner
+Author-email: Alex.Holkner@gmail.com
+License: BSD
+Download-URL: http://www.pyglet.org/download.html
+Description: pyglet provides an object-oriented programming
+        interface for developing games and other visually-rich applications
+        for Windows, Mac OS X and Linux.
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.media.AudioPlayer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;media&nbsp;.&nbsp;AudioPlayer
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.media.AudioPlayer</h1>
+<p>Abstract low-level interface for playing audio.</p>
+<p>AudioPlayer has no knowledge of sources or eos behaviour.  Once
+created, its audio format cannot be modified.  The player will attempt
+to recover automatically from a buffer underrun (but this is not
+guaranteed).</p>
+<p>Applications should not use this class directly, but instead use <a href="pyglet.media.Player-class.html" class="link">Player</a>.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.AudioPlayer-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">audio_format</span>)</span>
+<div class="summary-description">Create a new audio player for the given audio format.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.AudioPlayer-class.html#get_write_size" class="summary-sig-name">get_write_size</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Return the maximum number of bytes that can be written.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.AudioPlayer-class.html#write" class="summary-sig-name">write</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">audio_data</span>)</span>
+<div class="summary-description">Write audio_data to the stream.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="write_eos"></a><span class="summary-sig-name">write_eos</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Write an EOS marker to the stream at the current write point.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.AudioPlayer-class.html#write_end" class="summary-sig-name">write_end</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Mark that there will be no more audio data past the current write
+point.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="play"></a><span class="summary-sig-name">play</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Begin playback.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="stop"></a><span class="summary-sig-name">stop</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Stop playback.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.AudioPlayer-class.html#clear" class="summary-sig-name">clear</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Clear all buffered data and prepare for replacement data.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="pump"></a><span class="summary-sig-name">pump</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Called once per loop iteration before checking for eos
+triggers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.AudioPlayer-class.html#get_time" class="summary-sig-name">get_time</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Return best guess of current playback time.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.AudioPlayer-class.html#clear_eos" class="summary-sig-name">clear_eos</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Check if an EOS marker has been passed, and clear it.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="set_volume"></a><span class="summary-sig-name">set_volume</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">volume</span>)</span>
+<div class="summary-description">See <a href="pyglet.media.Player-class.html#volume" class="link">Player.volume</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="set_position"></a><span class="summary-sig-name">set_position</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">position</span>)</span>
+<div class="summary-description">See <a href="pyglet.media.Player-class.html#position" class="link">Player.position</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="set_min_distance"></a><span class="summary-sig-name">set_min_distance</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">min_distance</span>)</span>
+<div class="summary-description">See <a href="pyglet.media.Player-class.html#min_distance" class="link">Player.min_distance</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="set_max_distance"></a><span class="summary-sig-name">set_max_distance</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">max_distance</span>)</span>
+<div class="summary-description">See <a href="pyglet.media.Player-class.html#max_distance" class="link">Player.max_distance</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="set_pitch"></a><span class="summary-sig-name">set_pitch</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pitch</span>)</span>
+<div class="summary-description">See <a href="pyglet.media.Player-class.html#pitch" class="link">Player.pitch</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="set_cone_orientation"></a><span class="summary-sig-name">set_cone_orientation</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cone_orientation</span>)</span>
+<div class="summary-description">See <a href="pyglet.media.Player-class.html#cone_orientation" class="link">Player.cone_orientation</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="set_cone_inner_angle"></a><span class="summary-sig-name">set_cone_inner_angle</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cone_inner_angle</span>)</span>
+<div class="summary-description">See <a href="pyglet.media.Player-class.html#cone_inner_angle" class="link">Player.cone_inner_angle</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="set_cone_outer_angle"></a><span class="summary-sig-name">set_cone_outer_angle</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cone_outer_angle</span>)</span>
+<div class="summary-description">See <a href="pyglet.media.Player-class.html#cone_outer_angle" class="link">Player.cone_outer_angle</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="set_cone_outer_gain"></a><span class="summary-sig-name">set_cone_outer_gain</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cone_outer_gain</span>)</span>
+<div class="summary-description">See <a href="pyglet.media.Player-class.html#cone_outer_gain" class="link">Player.cone_outer_gain</a>.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.media.AudioFormat-class.html" class="link">AudioFormat</a></span>
+    </td><td class="summary">
+        <a name="audio_format"></a><span class="summary-name">audio_format</span>
+<div class="summary-description">The player's audio format (read-only).</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CONSTANTS ==================== -->
+<a name="section-Constants"></a>
+        <h2>Constants</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="UPDATE_PERIOD"></a><span class="summary-name">UPDATE_PERIOD</span> = <code title="0.15">0.15</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">audio_format</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a new audio player for the given audio format.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">audio_format</span> : <span class='ptype'><a href="pyglet.media.AudioFormat-class.html" class="link">AudioFormat</a></span></dt>
+        <dd>Audio format parameters.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="get_write_size"></a>
+<div class=" detail">
+  <h3>get_write_size</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_write_size</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Return the maximum number of bytes that can be written.</p>
+<p>This is used as a hint for preparing data for <a href="pyglet.media.AudioPlayer-class.html#write" class="link">write</a>, not as a strict
+contract.</p>
+  <dl class="fields">
+    <dt>Returns: int</dt>
+  </dl>
+  </div>
+</div>
+<a name="write"></a>
+<div class=" detail">
+  <h3>write</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">write</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">audio_data</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Write audio_data to the stream.</p>
+<p>This method calls <a href="pyglet.media.AudioData-class.html#consume" class="link">AudioData.consume</a> to remove data actually written.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">audio_data</span> : <span class='ptype'><a href="pyglet.media.AudioData-class.html" class="link">AudioData</a></span></dt>
+        <dd>Data to write.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="write_end"></a>
+<div class=" detail">
+  <h3>write_end</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">write_end</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Mark that there will be no more audio data past the current write
+point.</p>
+<p>This does not produce an EOS, but is required to prevent data
+underrun artifacts.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="clear"></a>
+<div class=" detail">
+  <h3>clear</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">clear</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Clear all buffered data and prepare for replacement data.</p>
+<p>The player should be stopped before calling this method.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="get_time"></a>
+<div class=" detail">
+  <h3>get_time</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_time</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Return best guess of current playback time.  The time is relative
+to the timestamps provided in the data supplied to <a href="pyglet.media.AudioPlayer-class.html#write" class="link">write</a>.  The time
+is meaningless unless proper care has been taken to clear EOS markers.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">float</span>: current play cursor time, in seconds.</dd>
+  </dl>
+  </div>
+</div>
+<a name="clear_eos"></a>
+<div class=" detail">
+  <h3>clear_eos</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">clear_eos</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Check if an EOS marker has been passed, and clear it.</p>
+<p>This method should be called repeatedly to clear all pending EOS
+markers.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">bool</span>: True if an EOS marker was cleared.</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;media&nbsp;.&nbsp;AudioPlayer
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Using extension functions</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="error_checking.html" title="Error checking">Error checking</a></span><span class="next">Next: <a class="reference" href="using_multiple_windows.html" title="Using multiple windows">Using multiple windows</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a> » Using extension functions</span></div>
+<h1 class="title">Using extension functions</h1>
+
+<p>Before using an extension function, you should check that the extension is
+implemented by the current driver.  Typically this is done using
+<tt class="docutils literal">glGetString(GL_EXTENSIONS)</tt>, but pyglet has a convenience module,
+<a class="reference apilink" href="../api/pyglet.gl.gl_info-module.html ">pyglet.gl.gl_info</a> that does this for you:</p>
+<pre class="py-doctest">
+<span class="py-keyword">if</span> pyglet.gl.gl_info.have_extension(<span class="py-string">'GL_ARB_shadow'</span>):
+    <span class="py-comment"># ... do shadow-related code.</span>
+<span class="py-keyword">else</span>:
+    <span class="py-comment"># ... raise an exception, or use a fallback method</span></pre>
+<p>You can also easily check the version of OpenGL:</p>
+<pre class="py-doctest">
+<span class="py-keyword">if</span> pyglet.gl.gl_info.have_version(1,5):
+    <span class="py-comment"># We can assume all OpenGL 1.5 functions are implemented.</span></pre>
+<p>Remember to only call the <tt class="docutils literal">gl_info</tt> functions after creating a window.</p>
+<p>There is a corresponding <tt class="docutils literal">glu_info</tt> module for checking the version and
+extensions of GLU.</p>
+<p>nVidia often release hardware with extensions before having them registered
+officially.  When you <tt class="docutils literal">import * from pyglet.gl</tt> you import only the
+registered extensions.  You can import the latest nVidia extensions
+with:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl.glext_nv <span class="py-keyword">import</span> *</pre>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="error_checking.html" title="Error checking">Error checking</a></span><span class="next">Next: <a class="reference" href="using_multiple_windows.html" title="Using multiple windows">Using multiple windows</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a> » Using extension functions</span></div>
+</div>
+</body>
+</html>

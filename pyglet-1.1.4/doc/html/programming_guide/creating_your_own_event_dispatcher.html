@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Creating your own event dispatcher</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="stacking_event_handlers.html" title="Stacking event handlers">Stacking event handlers</a></span><span class="next">Next: <a class="reference" href="working_with_the_keyboard.html" title="Working with the keyboard">Working with ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_pyglet_event_framework.html" title="The pyglet event framework">The pyglet ...</a> » Creating your ...</span></div>
+<h1 class="title">Creating your own event dispatcher</h1>
+
+<p>pyglet provides only the <a class="reference apilink" href="../api/pyglet.window.Window-class.html " title="pyglet.window.Window">Window</a> and <a class="reference apilink" href="../api/pyglet.media.Player-class.html " title="pyglet.media.Player">Player</a> event dispatchers, but
+exposes a public interface for creating and dispatching your own events.</p>
+<p>The steps for creating an event dispatcher are:</p>
+<ol class="arabic simple">
+<li>Subclass <a class="reference apilink" href="../api/pyglet.event.EventDispatcher-class.html " title="pyglet.event.EventDispatcher">EventDispatcher</a></li>
+<li>Call the <a class="reference apilink" href="../api/pyglet.event.EventDispatcher-class.html#register_event_type " title="pyglet.event.EventDispatcher.register_event_type">register_event_type</a> class method on your subclass for each
+event your subclass will recognise.</li>
+<li>Call <cite>dispatch_event</cite> to create and dispatch an event as needed.</li>
+</ol>
+<p>In the following example, a hypothetical GUI widget provides several events:</p>
+<pre class="py-doctest">
+<span class="py-keyword">class</span> <span class="py-defname">ClankingWidget</span>(pyglet.event.EventDispatcher):
+    <span class="py-keyword">def</span> <span class="py-defname">clank</span>(self):
+        self.dispatch_event(<span class="py-string">'on_clank'</span>)
+
+    <span class="py-keyword">def</span> <span class="py-defname">click</span>(self, clicks):
+        self.dispatch_event(<span class="py-string">'on_clicked'</span>, clicks)
+
+    <span class="py-keyword">def</span> <span class="py-defname">on_clank</span>(self):
+        <span class="py-keyword">print</span> <span class="py-string">'Default clank handler.'</span>
+
+ClankingWidget.register_event_type(<span class="py-string">'on_clank'</span>)
+ClankingWidget.register_event_type(<span class="py-string">'on_clicked'</span>)</pre>
+<p>Event handlers can then be attached as described in the preceding sections:</p>
+<pre class="py-doctest">
+widget = ClankingWidget()
+
+@widget.event
+<span class="py-keyword">def</span> <span class="py-defname">on_clank</span>():
+    <span class="py-keyword">pass</span>
+
+@widget.event
+<span class="py-keyword">def</span> <span class="py-defname">on_clicked</span>(clicks):
+    <span class="py-keyword">pass</span>
+
+<span class="py-keyword">def</span> <span class="py-defname">override_on_clicked</span>(clicks):
+    <span class="py-keyword">pass</span>
+
+widget.push_handlers(on_clicked=override_on_clicked)</pre>
+<p>The <cite>EventDispatcher</cite> takes care of propogating the event to all attached
+handlers or ignoring it if there are no handlers for that event.</p>
+<p>There is zero instance overhead on objects that have no event handlers
+attached (the event stack is created only when required).  This makes
+<cite>EventDispatcher</cite> suitable for use even on light-weight objects that may not
+always have handlers.  For example, <cite>Player</cite> is an <cite>EventDispatcher</cite>
+even though potentially hundreds of these objects may be created and destroyed
+each second, and most will not need an event handler.</p>
+<div class="section" id="implementing-the-observer-pattern">
+<h1><a class="toc-backref" href="#id261">Implementing the Observer pattern</a></h1>
+<p>The <a class="reference" href="Gamma,etal.,`DesignPatterns`Addison-Wesley1994">Observer design pattern</a>, also known as Publisher/Subscriber, is a
+simple way to decouple software components.  It is used extensively in many
+large software projects; for example, Java's AWT and Swing GUI toolkits and the
+Python <tt class="docutils literal">logging</tt> module; and is fundamental to any Model-View-Controller
+architecture.</p>
+<p><cite>EventDispatcher</cite> can be used to easily add observerable components to your
+application.  The following example recreates the <cite>ClockTimer</cite> example from
+<cite>Design Patterns</cite> (pages 300-301), though without needing the bulky
+<tt class="docutils literal">Attach</tt>, <tt class="docutils literal">Detach</tt> and <tt class="docutils literal">Notify</tt> methods:</p>
+<pre class="py-doctest">
+<span class="py-comment"># The subject</span>
+<span class="py-keyword">class</span> <span class="py-defname">ClockTimer</span>(pyglet.event.EventDispatcher):
+    <span class="py-keyword">def</span> <span class="py-defname">tick</span>(self):
+        self.dispatch_events(<span class="py-string">'on_update'</span>)
+ClockTimer.register_event(<span class="py-string">'on_update'</span>)
+
+<span class="py-comment"># Abstract observer class</span>
+<span class="py-keyword">class</span> <span class="py-defname">Observer</span>(object):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self, subject):
+        subject.push_handlers(self)
+
+<span class="py-comment"># Concrete observer</span>
+<span class="py-keyword">class</span> <span class="py-defname">DigitalClock</span>(Observer):
+    <span class="py-keyword">def</span> <span class="py-defname">on_update</span>(self):
+        <span class="py-keyword">pass</span>
+
+<span class="py-comment"># Concrete observer</span>
+<span class="py-keyword">class</span> <span class="py-defname">AnalogClock</span>(Observer):
+    <span class="py-keyword">def</span> <span class="py-defname">on_update</span>(self):
+        <span class="py-keyword">pass</span>
+
+timer = ClockTimer()
+digital_clock = DigitalClock(timer)
+analog_clock = AnalogClock(timer)</pre>
+<p>The two clock objects will be notified whenever the timer is &quot;ticked&quot;, though
+neither the timer nor the clocks needed prior knowledge of the other.  During
+object construction any relationships between subjects and observers can be
+created.</p>
+</div>
+<div class="section" id="documenting-events">
+<h1><a class="toc-backref" href="#id262">Documenting events</a></h1>
+<p>pyglet uses a modified version of <a class="reference" href="http://epydoc.sourceforge.net/">Epydoc</a> to construct its API
+documentation.  One of these modifications is the inclusion of an &quot;Events&quot;
+summary for event dispatchers.  If you plan on releasing your code as a
+library for others to use, you may want to consider using the same tool to
+document code.</p>
+<p>The patched version of Epydoc is included in the pyglet repository under
+<tt class="docutils literal">trunk/tools/epydoc</tt> (it is not included in distributions).  It has
+special notation for document event methods, and allows conditional
+execution when introspecting source code.</p>
+<p>If the <tt class="docutils literal">sys.is_epydoc</tt> attribute exists and is <tt class="docutils literal">True</tt>, the module is
+currently being introspected for documentation.  pyglet places event
+documentation only within this conditional, to prevent extraneous methods
+appearing on the class.</p>
+<p>To document an event, create a method with the event's signature and add a
+blank <tt class="docutils literal">event</tt> field to the docstring:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> sys
+
+<span class="py-keyword">class</span> <span class="py-defname">MyDispatcher</span>(object):
+    <span class="py-keyword">if</span> getattr(sys, <span class="py-string">'is_epydoc'</span>):
+        <span class="py-keyword">def</span> <span class="py-defname">on_update</span>():
+            <span class="py-string">'''The object was updated.</span>
+
+<span class="py-string">            :event:</span>
+<span class="py-string">            '''</span></pre>
+<p>Note that the event parameters should not include <tt class="docutils literal">self</tt>.  The function will
+appear in the &quot;Events&quot; table and not as a method.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="stacking_event_handlers.html" title="Stacking event handlers">Stacking event handlers</a></span><span class="next">Next: <a class="reference" href="working_with_the_keyboard.html" title="Working with the keyboard">Working with ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_pyglet_event_framework.html" title="The pyglet event framework">The pyglet ...</a> » Creating your ...</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Error checking</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="resizing_the_window.html" title="Resizing the window">Resizing the window</a></span><span class="next">Next: <a class="reference" href="using_extension_functions.html" title="Using extension functions">Using extension functions</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a> » Error checking</span></div>
+<h1 class="title">Error checking</h1>
+
+<p>By default, pyglet calls <tt class="docutils literal">glGetError</tt> after every GL function call (except
+where such a check would be invalid).  If an error is reported, pyglet raises
+<tt class="docutils literal">GLException</tt> with the result of <tt class="docutils literal">gluErrorString</tt> as the message.</p>
+<p>This is very handy during development, as it catches common coding errors
+early on.  However, it has a significant impact on performance, and is
+disabled when python is run with the <tt class="docutils literal"><span class="pre">-O</span></tt> option.</p>
+<p>You can also disable this error check by setting the following option <cite>before</cite>
+importing <tt class="docutils literal">pyglet.gl</tt> or <tt class="docutils literal">pyglet.window</tt>:</p>
+<pre class="py-doctest">
+<span class="py-comment"># Disable error checking for increased performance</span>
+pyglet.options[<span class="py-string">'debug_gl'</span>] = False
+
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> *</pre>
+<p>Setting the option after importing <tt class="docutils literal">pyglet.gl</tt> will have no effect.  Once
+disabled, there is no error-checking overhead in each GL call.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="resizing_the_window.html" title="Resizing the window">Resizing the window</a></span><span class="next">Next: <a class="reference" href="using_extension_functions.html" title="Using extension functions">Using extension functions</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a> » Error checking</span></div>
+</div>
+</body>
+</html>

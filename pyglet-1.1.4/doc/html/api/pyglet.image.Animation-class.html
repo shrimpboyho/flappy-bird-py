@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.image.Animation</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;Animation
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.image.Animation</h1>
+<p>Sequence of images with timing information.</p>
+<p>If no frames of the animation have a duration of <tt class="rst-docutils literal">None</tt>, the animation
+loops continuously; otherwise the animation stops at the first frame with
+duration of <tt class="rst-docutils literal">None</tt>.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Animation-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">frames</span>)</span>
+<div class="summary-description">Create an animation directly from a list of frames.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Animation-class.html#add_to_texture_bin" class="summary-sig-name">add_to_texture_bin</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">bin</span>)</span>
+<div class="summary-description">Add the images of the animation to a <a href="pyglet.image.atlas.TextureBin-class.html" class="link">TextureBin</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Animation-class.html" class="link">Animation</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Animation-class.html#get_transform" class="summary-sig-name">get_transform</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">flip_x</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">flip_y</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">rotate</span>=<span class="summary-sig-default">0</span>)</span>
+<div class="summary-description">Create a copy of this animation applying a simple transformation.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_duration"></a><span class="summary-sig-name">get_duration</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the total duration of the animation in seconds.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Animation-class.html#get_max_width" class="summary-sig-name">get_max_width</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the maximum image frame width.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Animation-class.html#get_max_height" class="summary-sig-name">get_max_height</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the maximum image frame height.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Animation-class.html" class="link">Animation</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Animation-class.html#from_image_sequence" class="summary-sig-name">from_image_sequence</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">sequence</span>,
+        <span class="summary-sig-arg">period</span>,
+        <span class="summary-sig-arg">loop</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Create an animation from a list of images and a constant framerate.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of <a href="pyglet.image.AnimationFrame-class.html" class="link">AnimationFrame</a></span>
+    </td><td class="summary">
+        <a name="frames"></a><span class="summary-name">frames</span>
+<div class="summary-description">The frames that make up the animation.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">frames</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create an animation directly from a list of frames.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">frames</span> : <span class='ptype'>list of <a href="pyglet.image.AnimationFrame-class.html" class="link">AnimationFrame</a></span></dt>
+        <dd>The frames that make up the animation.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="add_to_texture_bin"></a>
+<div class=" detail">
+  <h3>add_to_texture_bin</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">add_to_texture_bin</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">bin</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Add the images of the animation to a <a href="pyglet.image.atlas.TextureBin-class.html" class="link">TextureBin</a>.</p>
+<p>The animation frames are modified in-place to refer to the texture bin
+regions.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">bin</span> : <span class='ptype'><a href="pyglet.image.atlas.TextureBin-class.html" class="link">TextureBin</a></span></dt>
+        <dd>Texture bin to upload animation frames into.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="get_transform"></a>
+<div class=" detail">
+  <h3>get_transform</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_transform</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">flip_x</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">flip_y</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">rotate</span>=<span class="sig-default">0</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create a copy of this animation applying a simple transformation.</p>
+<p>The transformation is applied around the image's anchor point of
+each frame.  The texture data is shared between the original animation
+and the transformed animation.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">flip_x</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the returned animation will be flipped horizontally.</dd>
+        <dt><span class="pname">flip_y</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the returned animation will be flipped vertically.</dd>
+        <dt><span class="pname">rotate</span> : <span class='ptype'>int</span></dt>
+        <dd>Degrees of clockwise rotation of the returned animation.  Only
+90-degree increments are supported.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.image.Animation-class.html" class="link">Animation</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="get_max_width"></a>
+<div class=" detail">
+  <h3>get_max_width</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_max_width</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the maximum image frame width.</p>
+<p>This method is useful for determining texture space requirements: due
+to the use of <tt class="rst-docutils literal">anchor_x</tt> the actual required playback area may be
+larger.</p>
+  <dl class="fields">
+    <dt>Returns: int</dt>
+  </dl>
+  </div>
+</div>
+<a name="get_max_height"></a>
+<div class=" detail">
+  <h3>get_max_height</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_max_height</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the maximum image frame height.</p>
+<p>This method is useful for determining texture space requirements: due
+to the use of <tt class="rst-docutils literal">anchor_y</tt> the actual required playback area may be
+larger.</p>
+  <dl class="fields">
+    <dt>Returns: int</dt>
+  </dl>
+  </div>
+</div>
+<a name="from_image_sequence"></a>
+<div class=" detail">
+  <h3>from_image_sequence</h3>
+  <div class="detail-signature">
+    <span class="fspecial">Class Method</span>
+    <span class="sig"><span class="sig-name">from_image_sequence</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">sequence</span>,
+        <span class="sig-arg">period</span>,
+        <span class="sig-arg">loop</span>=<span class="sig-default">True</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create an animation from a list of images and a constant framerate.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">sequence</span> : <span class='ptype'>list of <a href="pyglet.image.AbstractImage-class.html" class="link">AbstractImage</a></span></dt>
+        <dd>Images that make up the animation, in sequence.</dd>
+        <dt><span class="pname">period</span> : <span class='ptype'>float</span></dt>
+        <dd>Number of seconds to display each image.</dd>
+        <dt><span class="pname">loop</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the animation will loop continuously.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.image.Animation-class.html" class="link">Animation</a></dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;Animation
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

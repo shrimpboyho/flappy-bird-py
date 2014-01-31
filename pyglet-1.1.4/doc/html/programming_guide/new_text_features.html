@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>New text features</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="new_graphics_features.html" title="New graphics features">New graphics features</a></span><span class="next">Next: <a class="reference" href="other_new_features.html" title="Other new features">Other new features</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a> » New text features</span></div>
+<h1 class="title">New text features</h1>
+
+<p>The <a class="reference apilink" href="../api/pyglet.text-module.html ">pyglet.text</a> module can render formatted text efficiently.  A new class
+<a class="reference apilink" href="../api/pyglet.text.Label-class.html " title="pyglet.text.Label">Label</a> supercedes the old <a class="reference apilink" href="../api/pyglet.font.Text-class.html ">pyglet.font.Text</a> class (which is now actually
+implemented in terms of <cite>Label</cite>).  The &quot;Hello, World&quot; application can now be
+written:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window()
+label = pyglet.text.Label(<span class="py-string">'Hello, world'</span>,
+                          font_name=<span class="py-string">'Times New Roman'</span>,
+                          font_size=36,
+                          x=window.width//2, y=window.height//2,
+                          halign=<span class="py-string">'center'</span>, valign=<span class="py-string">'center'</span>)
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+    label.draw()
+
+pyglet.app.run()</pre>
+<p>You can also display multiple fonts and styles within one label, with
+<a class="reference apilink" href="../api/pyglet.text.HTMLLabel-class.html " title="pyglet.text.HTMLLabel">HTMLLabel</a>:</p>
+<pre class="py-doctest">
+label = pyglet.text.HTMLLabel(<span class="py-string">'&lt;b&gt;Hello&lt;/b&gt;, &lt;font color=red&gt;world!&lt;/font&gt;'</span>)</pre>
+<p>More advanced uses of the new text module permit applications to efficiently
+display large, scrolling, formatted documents (for example, HTML files with
+embedded images), and to allow the user to interactively edit text as in a
+WYSIWYG text editor.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="new_graphics_features.html" title="New graphics features">New graphics features</a></span><span class="next">Next: <a class="reference" href="other_new_features.html" title="Other new features">Other new features</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a> » New text features</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Supported image formats</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="loading_an_image.html" title="Loading an image">Loading an image</a></span><span class="next">Next: <a class="reference" href="working_with_images.html" title="Working with images">Working with images</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Supported image formats</span></div>
+<h1 class="title">Supported image formats</h1>
+
+<p>The following table lists the image formats that can be loaded on each
+operating system.  If PIL is installed, any additional formats it supports can
+also be read.  See the <a class="reference" href="http://www.pythonware.com/library/pil/handbook/index.htm">Python Imaging Library Handbook</a> for a list of such
+formats.</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Extension</th>
+<th class="head">Description</th>
+<th class="head">Windows XP</th>
+<th class="head">Mac OS X</th>
+<th class="head">Linux <a class="footnote-reference" href="#linux" id="id16">[9]</a></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">.bmp</tt></td>
+<td>Windows Bitmap</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr><td><tt class="docutils literal">.dds</tt></td>
+<td>Microsoft DirectDraw Surface <a class="footnote-reference" href="#dds" id="id17">[10]</a></td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr><td><tt class="docutils literal">.exif</tt></td>
+<td>Exif</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">.gif</tt></td>
+<td>Graphics Interchange Format</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr><td><tt class="docutils literal">.jpg .jpeg</tt></td>
+<td>JPEG/JIFF Image</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr><td><tt class="docutils literal">.jp2 .jpx</tt></td>
+<td>JPEG 2000</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">.pcx</tt></td>
+<td>PC Paintbrush Bitmap Graphic</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">.png</tt></td>
+<td>Portable Network Graphic</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr><td><tt class="docutils literal">.pnm</tt></td>
+<td>PBM Portable Any Map Graphic Bitmap</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+</tr>
+<tr><td><tt class="docutils literal">.ras</tt></td>
+<td>Sun raster graphic</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+</tr>
+<tr><td><tt class="docutils literal">.tga</tt></td>
+<td>Truevision Targa Graphic</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">.tif .tiff</tt></td>
+<td>Tagged Image File Format</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr><td><tt class="docutils literal">.xbm</tt></td>
+<td>X11 bitmap</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr><td><tt class="docutils literal">.xpm</tt></td>
+<td>X11 icon</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The only supported save format is PNG, unless PIL is installed, in which case
+any format it supports can be written.</p>
+<table class="docutils footnote" frame="void" id="linux" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id16">[9]</a></td><td>Requires GTK 2.0 or later.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="dds" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id17">[10]</a></td><td>Only S3TC compressed surfaces are supported.  Depth, volume and cube
+textures are not supported.</td></tr>
+</tbody>
+</table>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="loading_an_image.html" title="Loading an image">Loading an image</a></span><span class="next">Next: <a class="reference" href="working_with_images.html" title="Working with images">Working with images</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Supported image formats</span></div>
+</div>
+</body>
+</html>

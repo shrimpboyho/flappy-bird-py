@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Controlling playback</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="simple_audio_playback.html" title="Simple audio playback">Simple audio playback</a></span><span class="next">Next: <a class="reference" href="incorporating_video.html" title="Incorporating video">Incorporating video</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a> » Controlling playback</span></div>
+<h1 class="title">Controlling playback</h1>
+
+<p>You can implement many functions common to a media player using the <a class="reference apilink" href="../api/pyglet.media.Player-class.html " title="pyglet.media.Player">Player</a>
+class.  Use of this class is also necessary for video playback.  There are no
+parameters to its construction:</p>
+<pre class="py-doctest">
+player = pyglet.media.Player()</pre>
+<p>A player will play any source that is &quot;queued&quot; on it.  Any number of sources
+can be queued on a single player, but once queued, a source can never be
+dequeued (until it is removed automatically once complete).  The main use of
+this queuing mechanism is to facilitate &quot;gapless&quot; transitions between playback
+of media files.</p>
+<p>A <a class="reference apilink" href="../api/pyglet.media.StreamingSource-class.html " title="pyglet.media.StreamingSource">StreamingSource</a> can only ever be queued on one player, and only once on
+that player.  <a class="reference apilink" href="../api/pyglet.media.StaticSource-class.html " title="pyglet.media.StaticSource">StaticSource</a> objects can be queued any number of times on any
+number of players.  Recall that a <cite>StaticSource</cite> can be created by passing
+<tt class="docutils literal">streaming=False</tt> to the <cite>load</cite> method.</p>
+<p>In the following example, two sounds are queued onto a player:</p>
+<pre class="py-doctest">
+player.queue(source1)
+player.queue(source2)</pre>
+<p>Playback begins with the player's <cite>play</cite> method is called:</p>
+<pre class="py-doctest">
+player.play()</pre>
+<p>Standard controls for controlling playback are provided by these methods:</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Method</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><cite>play</cite></td>
+<td>Begin or resume playback of the current source.</td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.media.Player-class.html#pause " title="pyglet.media.Player.pause">pause</a></td>
+<td>Pause playback of the current source.</td>
+</tr>
+<tr><td><cite>next</cite></td>
+<td>Dequeue the current source and move to the next one immediately.</td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.media.Player-class.html#seek " title="pyglet.media.Player.seek">seek</a></td>
+<td>Seek to a specific time within the current source.</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Note that there is no <cite>stop</cite> method.  If you do not need to resume playback,
+simply pause playback and discard the player and source objects.  Using the
+<cite>next</cite> method does not guarantee gapless playback.</p>
+<p>There are several properties that describe the player's current state:</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Property</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference apilink" href="../api/pyglet.media.Player-class.html#time " title="pyglet.media.Player.time">time</a></td>
+<td>The current playback position within the current source, in
+seconds.  This is read-only (but see the <cite>seek</cite> method).</td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.media.Player-class.html#playing " title="pyglet.media.Player.playing">playing</a></td>
+<td>True if the player is currently playing, False if there are no
+sources queued or the player is paused.  This is read-only (but
+see the <cite>pause</cite> and <cite>play</cite> methods).</td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.media.Player-class.html#source " title="pyglet.media.Player.source">source</a></td>
+<td>A reference to the current source being played.  This is
+read-only (but see the <a class="reference apilink" href="../api/pyglet.media.Player-class.html#queue " title="pyglet.media.Player.queue">queue</a> method).</td>
+</tr>
+<tr><td><cite>volume</cite></td>
+<td>The audio level, expressed as a float from 0 (mute) to 1 (normal
+volume).  This can be set at any time.</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>When a player reaches the end of the current source, by default it will move
+immediately to the next queued source.  If there are no more sources, playback
+stops until another is queued.  There are several other possible behaviours,
+specified by setting the <cite>eos_action</cite> attribute on the player:</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><tt class="docutils literal">eos_action</tt></th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference apilink" href="../api/pyglet.media.Player-class.html#EOS_NEXT " title="pyglet.media.Player.EOS_NEXT">EOS_NEXT</a></td>
+<td>The default action: playback continues at the next source.</td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.media.Player-class.html#EOS_PAUSE " title="pyglet.media.Player.EOS_PAUSE">EOS_PAUSE</a></td>
+<td>Playback pauses at the end of the source, which remains the
+current source for this player.</td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.media.Player-class.html#EOS_LOOP " title="pyglet.media.Player.EOS_LOOP">EOS_LOOP</a></td>
+<td>Playback continues immediately at the beginning of the current
+source.</td>
+</tr>
+<tr><td><cite>EOS_STOP</cite></td>
+<td>Valid only for <cite>ManagedPlayer</cite>, for which it is default: the
+player is discarded when the current source finishes.</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>You can change a player's <cite>eos_action</cite> at any time, but be aware that unless
+sufficient time is given for the future data to be decoded and buffered there
+may be a stutter or gap in playback.  If <cite>eos_action</cite> is set well in advance
+of the end of the source (say, several seconds), there will be no disruption.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="simple_audio_playback.html" title="Simple audio playback">Simple audio playback</a></span><span class="next">Next: <a class="reference" href="incorporating_video.html" title="Incorporating video">Incorporating video</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a> » Controlling playback</span></div>
+</div>
+</body>
+</html>

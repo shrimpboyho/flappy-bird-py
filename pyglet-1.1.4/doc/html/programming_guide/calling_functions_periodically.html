@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Calling functions periodically</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="keeping_track_of_time.html" title="Keeping track of time">Keeping track ...</a></span><span class="next">Next: <a class="reference" href="animation_techniques.html" title="Animation techniques">Animation techniques</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="keeping_track_of_time.html" title="Keeping track of time">Keeping track ...</a> » Calling functions periodically</span></div>
+<h1 class="title">Calling functions periodically</h1>
+
+<p>pyglet applications begin execution with:</p>
+<pre class="py-doctest">
+pyglet.app.run()</pre>
+<p>Once called, this function doesn't return until the application windows have
+been closed.  This may leave you wondering how to execute code while the
+application is running.</p>
+<p>Typical applications need to execute code in only three circumstances:</p>
+<ul class="simple">
+<li>A user input event (such as a mouse movement or key press) has been
+generated.  In this case the appropriate code can be attached as an
+event handler to the window.</li>
+<li>An animation or other time-dependent system needs to update the position
+or parameters of an object.  We'll call this a &quot;periodic&quot; event.</li>
+<li>A certain amount of time has passed, perhaps indicating that an
+operation has timed out, or that a dialog can be automatically dismissed.
+We'll call this a &quot;one-shot&quot; event.</li>
+</ul>
+<p>To have a function called periodically, for example, once every 0.1 seconds:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">update</span>(dt):
+    <span class="py-comment"># ...</span>
+pyglet.clock.schedule_interval(<span class="py-builtin">update</span>, 0.1)</pre>
+<p>The <cite>dt</cite> parameter gives the number of seconds (due to latency, load and timer
+inprecision, this might be slightly more or less than the requested interval).</p>
+<p>Scheduling functions with a set interval is ideal for animation, physics
+simulation, and game state updates.  pyglet ensures that the application does
+not consume more resources than necessary to execute the scheduled functions
+in time.</p>
+<p>Rather than &quot;limiting the frame rate&quot;, as required in other toolkits, simply
+schedule all your update functions for no less than the minimum period your
+application or game requires.  For example, most games need not run at more
+than 60Hz (60 times a second) for imperceptibly smooth animation, so the
+interval given to <cite>schedule_interval</cite> would be <tt class="docutils literal">1/60.0</tt> (or more).</p>
+<p>If you are writing a benchmarking program or otherwise wish to simply run at
+the highest possible frequency, use <cite>schedule</cite>:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">update</span>(dt):
+    <span class="py-comment"># ...</span>
+pyglet.clock.schedule(<span class="py-builtin">update</span>)</pre>
+<p>By default pyglet window buffer swaps are synchronised to the display refresh
+rate, so you may also want to disable <a class="reference apilink" href="../api/pyglet.window.Window-class.html#set_vsync " title="pyglet.window.Window.set_vsync">set_vsync</a>.</p>
+<p>For one-shot events, use <cite>schedule_once</cite>:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">dismiss_dialog</span>(dt):
+    <span class="py-comment"># ...</span>
+
+<span class="py-comment"># Dismiss the dialog after 5 seconds.</span>
+pyglet.clock.schedule_once(dismiss_dialog, 5.0)</pre>
+<p>To stop a scheduled function from being called, including cancelling a
+periodic function, use <a class="reference apilink" href="../api/pyglet.clock-module.html#unschedule ">pyglet.clock.unschedule</a>.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="keeping_track_of_time.html" title="Keeping track of time">Keeping track ...</a></span><span class="next">Next: <a class="reference" href="animation_techniques.html" title="Animation techniques">Animation techniques</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="keeping_track_of_time.html" title="Keeping track of time">Keeping track ...</a> » Calling functions periodically</span></div>
+</div>
+</body>
+</html>

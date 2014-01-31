@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.gl.gl_info</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.gl-module.html">gl</a>&nbsp;.&nbsp;gl_info
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module pyglet.gl.gl_info</h1>
+<p>Information about version and extensions of current GL implementation.</p>
+<p>Usage:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> gl_info
+
+<span class="py-keyword">if</span> gl_info.have_extension(<span class="py-string">'GL_NV_register_combiners'</span>):
+    <span class="py-comment"># ...</span></pre>
+<p>If you are using more than one context, you can set up a separate GLInfo
+object for each context.  Call <a href="pyglet.gl.gl_info-module.html#set_active_context" class="link">set_active_context</a> after switching to the
+context:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl.gl_info <span class="py-keyword">import</span> GLInfo
+
+info = GLInfo()
+info.set_active_context()
+
+<span class="py-keyword">if</span> info.have_version(2, 1):
+    <span class="py-comment"># ...</span></pre>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.gl.gl_info.GLInfo-class.html" class="summary-name">GLInfo</a>
+<div class="summary-description">Information interface for a single GL context.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.gl_info-module.html#set_active_context" class="summary-sig-name">set_active_context</a>()</span>
+<div class="summary-description">Store information for the currently active context.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="remove_active_context"></a><span class="summary-sig-name">remove_active_context</span>()</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.gl_info-module.html#have_extension" class="summary-sig-name">have_extension</a>(<span class="summary-sig-arg">extension</span>)</span>
+<div class="summary-description">Determine if an OpenGL extension is available.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.gl_info-module.html#get_extensions" class="summary-sig-name">get_extensions</a>()</span>
+<div class="summary-description">Get a list of available OpenGL extensions.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.gl_info-module.html#get_version" class="summary-sig-name">get_version</a>()</span>
+<div class="summary-description">Get the current OpenGL version.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.gl_info-module.html#have_version" class="summary-sig-name">have_version</a>(<span class="summary-sig-arg">major</span>,
+        <span class="summary-sig-arg">minor</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">release</span>=<span class="summary-sig-default">0</span>)</span>
+<div class="summary-description">Determine if a version of OpenGL is supported.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_renderer"></a><span class="summary-sig-name">get_renderer</span>()</span>
+<div class="summary-description">Determine the renderer string of the OpenGL context.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_vendor"></a><span class="summary-sig-name">get_vendor</span>()</span>
+<div class="summary-description">Determine the vendor string of the OpenGL context.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="have_context"></a><span class="summary-sig-name">have_context</span>()</span>
+<div class="summary-description">Determine if a default OpenGL context has been set yet.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.gl'"><code class="variable-quote">'</code><code class="variable-string">pyglet.gl</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="set_active_context"></a>
+<div class=" detail">
+  <h3>set_active_context</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_active_context</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>Store information for the currently active context.</p>
+<p>This method is called automatically for the default context.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="have_extension"></a>
+<div class=" detail">
+  <h3>have_extension</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">have_extension</span>(<span class="sig-arg">extension</span>)</span>
+    </div>
+  <div class="detail-description">
+  Determine if an OpenGL extension is available.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">extension</span> : <span class='ptype'>str</span></dt>
+        <dd>The name of the extension to test for, including its
+<tt class="rst-docutils literal">GL_</tt> prefix.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">bool</span>: True if the extension is provided by the driver.</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_extensions"></a>
+<div class=" detail">
+  <h3>get_extensions</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_extensions</span>()</span>
+    </div>
+  <div class="detail-description">
+  Get a list of available OpenGL extensions.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">list of str</span>: a list of the available extensions.</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_version"></a>
+<div class=" detail">
+  <h3>get_version</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_version</span>()</span>
+    </div>
+  <div class="detail-description">
+  Get the current OpenGL version.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">str</span>: the OpenGL version</dd>
+  </dl>
+  </div>
+</div>
+<a name="have_version"></a>
+<div class=" detail">
+  <h3>have_version</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">have_version</span>(<span class="sig-arg">major</span>,
+        <span class="sig-arg">minor</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">release</span>=<span class="sig-default">0</span>)</span>
+    </div>
+  <div class="detail-description">
+  Determine if a version of OpenGL is supported.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">major</span> : <span class='ptype'>int</span></dt>
+        <dd>The major revision number (typically 1 or 2).</dd>
+        <dt><span class="pname">minor</span> : <span class='ptype'>int</span></dt>
+        <dd>The minor revision number.</dd>
+        <dt><span class="pname">release</span> : <span class='ptype'>int</span></dt>
+        <dd>The release number.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">bool</span>: True if the requested or a later version is supported.</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.gl-module.html">gl</a>&nbsp;.&nbsp;gl_info
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:17 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

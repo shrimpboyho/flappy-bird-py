@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>The frame rate</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="animation_techniques.html" title="Animation techniques">Animation techniques</a></span><span class="next">Next: <a class="reference" href="user_defined_clocks.html" title="User-defined clocks">User-defined clocks</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="keeping_track_of_time.html" title="Keeping track of time">Keeping track ...</a> » The frame rate</span></div>
+<h1 class="title">The frame rate</h1>
+
+<p>Game performance is often measured in terms of the number of times the display
+is updated every second; that is, the frames-per-second or FPS.  You can
+determine your application's FPS with a single function call:</p>
+<pre class="py-doctest">
+pyglet.clock.get_fps()</pre>
+<p>The value returned is more useful than simply taking the reciprocal of <cite>dt</cite>
+from a period function, as it is averaged over a sliding window of several
+frames.</p>
+<div class="section" id="displaying-the-frame-rate">
+<h1><a class="toc-backref" href="#id277">Displaying the frame rate</a></h1>
+<p>A simple way to profile your application performance is to display the frame
+rate while it is running.  Printing it to the console is not ideal as this
+will have a severe impact on performance.  pyglet provides the <a class="reference apilink" href="../api/pyglet.clock.ClockDisplay-class.html " title="pyglet.clock.ClockDisplay">ClockDisplay</a>
+class for displaying the frame rate with very little effort:</p>
+<pre class="py-doctest">
+fps_display = pyglet.clock.ClockDisplay()
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+    fps_display.draw()</pre>
+<p>By default the frame rate will be drawn in the bottom-right corner of the
+window in a semi-translucent large font.  See the <cite>ClockDisplay</cite> documentation
+for details on how to customise this, or even display another clock value
+(such as the current time) altogether.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="animation_techniques.html" title="Animation techniques">Animation techniques</a></span><span class="next">Next: <a class="reference" href="user_defined_clocks.html" title="User-defined clocks">User-defined clocks</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="keeping_track_of_time.html" title="Keeping track of time">Keeping track ...</a> » The frame rate</span></div>
+</div>
+</body>
+</html>

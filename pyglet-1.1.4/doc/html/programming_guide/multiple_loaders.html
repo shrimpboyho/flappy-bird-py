@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Multiple loaders</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="specifying_the_resource_path.html" title="Specifying the resource path">Specifying the ...</a></span><span class="next">Next: <a class="reference" href="saving_user_preferences.html" title="Saving user preferences">Saving user preferences</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="application_resources.html" title="Application resources">Application resources</a> » Multiple loaders</span></div>
+<h1 class="title">Multiple loaders</h1>
+
+<p>A <a class="reference apilink" href="../api/pyglet.resource.Loader-class.html " title="pyglet.resource.Loader">Loader</a> encapsulates a complete resource path and cache.  This lets your
+application cleanly separate resource loading of different modules.  Loaders
+are constructed for a given search path, and exposes the same methods as the
+global <a class="reference apilink" href="../api/pyglet.resource-module.html ">pyglet.resource</a> module functions.</p>
+<p>For example, if a module needs to load its own graphics but does not want to
+interfere with the rest of the application's resource loading, it would create
+its own <cite>Loader</cite> with a local search path:</p>
+<pre class="py-doctest">
+loader = pyglet.resource.Loader([<span class="py-string">'@'</span> + __name__])
+image = loader.image(<span class="py-string">'logo.png'</span>)</pre>
+<p>This is particularly suitable for &quot;plugin&quot; modules.</p>
+<p>You can also use a <cite>Loader</cite> instance to load a set of resources relative to
+some user-specified document directory.  The following example creates a
+loader for a directory specified on the command line:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> sys
+home = sys.argv[1]
+loader = pyglet.resource.Loader(script_home=[home])</pre>
+<p>This is the only way that absolute directories and resources not bundled with
+an application should be used with <cite>pyglet.resource</cite>.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="specifying_the_resource_path.html" title="Specifying the resource path">Specifying the ...</a></span><span class="next">Next: <a class="reference" href="saving_user_preferences.html" title="Saving user preferences">Saving user preferences</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="application_resources.html" title="Application resources">Application resources</a> » Multiple loaders</span></div>
+</div>
+</body>
+</html>

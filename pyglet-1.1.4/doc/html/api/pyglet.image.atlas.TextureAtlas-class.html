@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.image.atlas.TextureAtlas</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;<a href="pyglet.image.atlas-module.html">atlas</a>&nbsp;.&nbsp;TextureAtlas
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.image.atlas.TextureAtlas</h1>
+Collection of images within a texture.
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.atlas.TextureAtlas-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">width</span>=<span class="summary-sig-default">256</span>,
+        <span class="summary-sig-arg">height</span>=<span class="summary-sig-default">256</span>)</span>
+<div class="summary-description">Create a texture atlas of the given size.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.TextureRegion-class.html" class="link">TextureRegion</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.atlas.TextureAtlas-class.html#add" class="summary-sig-name">add</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">img</span>)</span>
+<div class="summary-description">Add an image to the atlas.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">width</span>=<span class="sig-default">256</span>,
+        <span class="sig-arg">height</span>=<span class="sig-default">256</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a texture atlas of the given size.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>Width of the underlying texture.</dd>
+        <dt><span class="pname">height</span> : <span class='ptype'>int</span></dt>
+        <dd>Height of the underlying texture.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="add"></a>
+<div class=" detail">
+  <h3>add</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">add</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">img</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Add an image to the atlas.</p>
+<p>This method will fail if the given image cannot be transferred
+directly to a texture (for example, if it is another texture).
+<a href="pyglet.image.ImageData-class.html" class="link">ImageData</a> is the usual image type for this method.</p>
+<p><a href="pyglet.image.atlas.AllocatorException-class.html" class="link">AllocatorException</a> will be raised if there is no room in the atlas
+for the image.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">img</span> : <span class='ptype'><a href="pyglet.image.AbstractImage-class.html" class="link">AbstractImage</a></span></dt>
+        <dd>The image to add.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype"><a href="pyglet.image.TextureRegion-class.html" class="link">TextureRegion</a></span>: The region of the atlas containing the newly added image.</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;<a href="pyglet.image.atlas-module.html">atlas</a>&nbsp;.&nbsp;TextureAtlas
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

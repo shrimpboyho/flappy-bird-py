@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>The OpenGL interface</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="sharing_objects_between_contexts.html" title="Sharing objects between contexts">Sharing objects ...</a></span><span class="next">Next: <a class="reference" href="using_opengl.html" title="Using OpenGL">Using OpenGL</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » The OpenGL interface</span></div>
+<h1 class="title">The OpenGL interface</h1>
+
+<p>pyglet provides an interface to OpenGL and GLU.  The interface is used by all
+of pyglet's higher-level API's, so that all rendering is done efficiently by
+the graphics card, rather than the operating system.  You can access this
+interface directly; using it is much like using OpenGL from C.</p>
+<p>The interface is a &quot;thin-wrapper&quot; around <tt class="docutils literal">libGL.so</tt> on Linux,
+<tt class="docutils literal">opengl32.dll</tt> on Windows and <tt class="docutils literal">OpenGL.framework</tt> on OS X.  The pyglet
+maintainers regenerate the interface from the latest specifications, so it is
+always up-to-date with the latest version and almost all extensions.</p>
+<p>The interface is provided by the <tt class="docutils literal">pyglet.gl</tt> package.  To use it you will
+need a good knowledge of OpenGL, C and ctypes.  You may prefer to use OpenGL
+without using ctypes, in which case you should investigate <a class="reference" href="http://pyopengl.sourceforge.net/">PyOpenGL</a>.
+<a class="reference" href="http://pyopengl.sourceforge.net/">PyOpenGL</a> provides similar functionality with a more &quot;Pythonic&quot; interface,
+and will work with pyglet without any modification.</p>
+<div class="contents local topic" id="id5">
+<ul class="simple">
+<li><a class="reference" href="using_opengl.html" id="id228">Using OpenGL</a></li>
+<li><a class="reference" href="resizing_the_window.html" id="id229">Resizing the window</a></li>
+<li><a class="reference" href="error_checking.html" id="id230">Error checking</a></li>
+<li><a class="reference" href="using_extension_functions.html" id="id231">Using extension functions</a></li>
+<li><a class="reference" href="using_multiple_windows.html" id="id232">Using multiple windows</a></li>
+<li><a class="reference" href="agl_glx_and_wgl.html" id="id233">AGL, GLX and WGL</a></li>
+</ul>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="sharing_objects_between_contexts.html" title="Sharing objects between contexts">Sharing objects ...</a></span><span class="next">Next: <a class="reference" href="using_opengl.html" title="Using OpenGL">Using OpenGL</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » The OpenGL interface</span></div>
+</div>
+</body>
+</html>

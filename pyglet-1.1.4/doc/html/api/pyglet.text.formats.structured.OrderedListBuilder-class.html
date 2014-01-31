@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.formats.structured.OrderedListBuilder</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.formats-module.html">formats</a>&nbsp;.&nbsp;<a href="pyglet.text.formats.structured-module.html">structured</a>&nbsp;.&nbsp;OrderedListBuilder
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.formats.structured.OrderedListBuilder</h1>
+<pre class="base-tree">
+<a href="pyglet.text.formats.structured.ListBuilder-class.html">ListBuilder</a> --+
+              |
+             <strong class="uidshort">OrderedListBuilder</strong>
+</pre>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.structured.OrderedListBuilder-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">format</span>)</span>
+<div class="summary-description">Create an ordered list with sequentially numbered mark text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.structured.OrderedListBuilder-class.html#get_mark" class="summary-sig-name">get_mark</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span>
+<div class="summary-description">Get the mark text for the next list item.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.structured.ListBuilder-class.html#begin" class="summary-sig-name">begin</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">decoder</span>,
+        <span class="summary-sig-arg">style</span>)</span>
+<div class="summary-description">Begin a list.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.formats.structured.ListBuilder-class.html">pyglet.text.formats.structured.ListBuilder</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.structured.ListBuilder-class.html#item" class="summary-sig-name">item</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">decoder</span>,
+        <span class="summary-sig-arg">style</span>,
+        <span class="summary-sig-arg">value</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Begin a list item.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.formats.structured.ListBuilder-class.html">pyglet.text.formats.structured.ListBuilder</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="format_re"></a><span class="summary-name">format_re</span> = <code title="re.compile(r'(.*?)([1aAiI])(.*)')">re.compile(r'<code class="re-group">(</code>.<code class="re-op">*?</code><code class="re-group">)</code><code class="re-group">(</code><code class="re-group">[</code>1aAiI<code class="re-group">]</code><code class="re-group">)</code><code class="re-group">(</code>.<code class="re-op">*</code><code class="re-group">)</code>')</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">format</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create an ordered list with sequentially numbered mark text.</p>
+<p>The format is composed of an optional prefix text, a numbering
+scheme character followed by suffix text. Valid numbering schemes
+are:</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">1</tt></dt>
+<dd>Decimal Arabic</dd>
+<dt><tt class="rst-docutils literal">a</tt></dt>
+<dd>Lowercase alphanumeric</dd>
+<dt><tt class="rst-docutils literal">A</tt></dt>
+<dd>Uppercase alphanumeric</dd>
+<dt><tt class="rst-docutils literal">i</tt></dt>
+<dd>Lowercase Roman</dd>
+<dt><tt class="rst-docutils literal">I</tt></dt>
+<dd>Uppercase Roman</dd>
+</dl>
+<p>Prefix text may typically be <tt class="rst-docutils literal">(</tt> or <tt class="rst-docutils literal">[</tt> and suffix text is
+typically <tt class="rst-docutils literal">.</tt>, <tt class="rst-docutils literal">)</tt> or empty, but either can be any string.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">start</span> : <span class='ptype'>int</span></dt>
+        <dd>First list item number.</dd>
+        <dt><span class="pname">format</span> : <span class='ptype'>str</span></dt>
+        <dd>Format style, for example <tt class="rst-docutils literal">&quot;1.&quot;</tt>.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="get_mark"></a>
+<div class=" detail">
+  <h3>get_mark</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_mark</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">value</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the mark text for the next list item.
+  <dl class="fields">
+    <dt>Returns: str</dt>
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.formats.structured.ListBuilder-class.html#get_mark">ListBuilder.get_mark</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.formats-module.html">formats</a>&nbsp;.&nbsp;<a href="pyglet.text.formats.structured-module.html">structured</a>&nbsp;.&nbsp;OrderedListBuilder
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

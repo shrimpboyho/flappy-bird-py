@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Simple text rendering</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a></span><span class="next">Next: <a class="reference" href="the_document_layout_model.html" title="The document/layout model">The document/layout model</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Simple text rendering</span></div>
+<h1 class="title">Simple text rendering</h1>
+
+<p>The following complete example creates a window that displays &quot;Hello, World&quot;
+centered vertically and horizontally:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window()
+label = pyglet.text.Label(<span class="py-string">'Hello, world'</span>,
+                          font_name=<span class="py-string">'Times New Roman'</span>,
+                          font_size=36,
+                          x=window.width//2, y=window.height//2,
+                          anchor_x=<span class="py-string">'center'</span>, anchor_y=<span class="py-string">'center'</span>)
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+    label.draw()
+
+pyglet.app.run()</pre>
+<p>The example demonstrates the most common uses of text rendering:</p>
+<ul class="simple">
+<li>The font name and size are specified directly in the constructor.
+Additional parameters exist for setting the bold and italic styles and the
+color of the text.</li>
+<li>The position of the text is given by the <tt class="docutils literal">x</tt> and <tt class="docutils literal">y</tt> coordinates.  The
+meaning of these coordinates is given by the <tt class="docutils literal">anchor_x</tt> and <tt class="docutils literal">anchor_y</tt>
+parameters.</li>
+<li>The actual text is drawn with the <cite>Label.draw</cite> method.  Labels can also be
+added to a graphics batch; see <a class="reference sectionlink" href="graphics.html">Graphics</a> for details.</li>
+</ul>
+<p>The <a class="reference apilink" href="../api/pyglet.text.HTMLLabel-class.html " title="pyglet.text.HTMLLabel">HTMLLabel</a> class is used similarly, but accepts an HTML formatted string
+instead of parameters describing the style.  This allows the label to display
+text with mixed style:</p>
+<pre class="py-doctest">
+label = pyglet.text.HTMLLabel(
+    <span class="py-string">'&lt;font face=&quot;Times New Roman&quot; size=&quot;4&quot;&gt;Hello, &lt;i&gt;world&lt;/i&gt;&lt;/font&gt;'</span>,
+    x=window.width//2, y=window.height//2,
+    anchor_x=<span class="py-string">'center'</span>, anchor_y=<span class="py-string">'center'</span>)</pre>
+<p>See <a class="reference sectionlink" href="formatted_text.html">Formatted text</a> for details on the subset of HTML that is supported.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a></span><span class="next">Next: <a class="reference" href="the_document_layout_model.html" title="The document/layout model">The document/layout model</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Simple text rendering</span></div>
+</div>
+</body>
+</html>

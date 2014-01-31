@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.media.Player</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;media&nbsp;.&nbsp;Player
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.media.Player</h1>
+<pre class="base-tree">
+<a href="pyglet.event.EventDispatcher-class.html">event.EventDispatcher</a> --+
+                        |
+                       <strong class="uidshort">Player</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.media.ManagedSoundPlayer-class.html">ManagedSoundPlayer</a>
+</dd></dl>
+
+<p>A sound and/or video player.</p>
+<p>Queue sources on this player to play them.</p>
+
+<!-- ==================== EVENTS ==================== -->
+<a name="section-Events"></a>
+        <h2>Events</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Player-class.html#on_eos" class="summary-sig-name">on_eos</a>()</span>
+<div class="summary-description">The player has reached the end of the current source.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Player-class.html#queue" class="summary-sig-name">queue</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">source</span>)</span>
+<div class="summary-description">Queue the source on this player.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Player-class.html#play" class="summary-sig-name">play</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Begin playing the current source.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Player-class.html#pause" class="summary-sig-name">pause</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Pause playback of the current source.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Player-class.html#seek" class="summary-sig-name">seek</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">timestamp</span>)</span>
+<div class="summary-description">Seek for playback to the indicated timestamp in seconds on the
+current source.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Player-class.html#next" class="summary-sig-name">next</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Move immediately to the next queued source.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Player-class.html#dispatch_events" class="summary-sig-name">dispatch_events</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dt</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Dispatch any pending events and perform regular heartbeat functions
+to maintain playback.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Texture-class.html" class="link">pyglet.image.Texture</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Player-class.html#get_texture" class="summary-sig-name">get_texture</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the texture for the current video frame.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#dispatch_event" class="summary-sig-name">dispatch_event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event_type</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Dispatch a single event to the attached handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#event" class="summary-sig-name">event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Function decorator for an event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="pop_handlers"></a><span class="summary-sig-name">pop_handlers</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Pop the top level of event handlers off the stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="summary-sig-name">push_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Push a level onto the top of the handler stack, then attach zero or
+more event handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#register_event_type" class="summary-sig-name">register_event_type</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Register an event type with the dispatcher.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handler" class="summary-sig-name">remove_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Remove a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handlers" class="summary-sig-name">remove_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Remove event handlers from the event stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handler" class="summary-sig-name">set_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Attach a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handlers" class="summary-sig-name">set_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Attach one or more event handlers to the top level of the handler
+stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#time" class="summary-name">time</a>
+<div class="summary-description">Retrieve the current playback time of the current
+source.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Source</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#source" class="summary-name">source</a>
+<div class="summary-description">Return the current source.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#eos_action" class="summary-name">eos_action</a>
+<div class="summary-description">Set the behaviour of the player when it
+reaches the end of the current source.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#playing" class="summary-name">playing</a>
+<div class="summary-description">Determine if the player state is playing.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#volume" class="summary-name">volume</a>
+<div class="summary-description">The volume level of sound playback.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">3-tuple of float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#position" class="summary-name">position</a>
+<div class="summary-description">The position of the sound in 3D space.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#min_distance" class="summary-name">min_distance</a>
+<div class="summary-description">The distance beyond which the sound volume
+drops by half, and within which no attenuation is applied.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#max_distance" class="summary-name">max_distance</a>
+<div class="summary-description">The distance at which no further attenuation
+is applied.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#pitch" class="summary-name">pitch</a>
+<div class="summary-description">The pitch shift to apply to the sound.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">3-tuple of float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#cone_orientation" class="summary-name">cone_orientation</a>
+<div class="summary-description">The direction of the sound in 3D space.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#cone_inner_angle" class="summary-name">cone_inner_angle</a>
+<div class="summary-description">The interior angle of the inner cone.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#cone_outer_angle" class="summary-name">cone_outer_angle</a>
+<div class="summary-description">The interior angle of the outer cone.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#cone_outer_gain" class="summary-name">cone_outer_gain</a>
+<div class="summary-description">The gain applied outside the cone.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Texture-class.html" class="link">pyglet.image.Texture</a></span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html#texture" class="summary-name">texture</a>
+<div class="summary-description">The video texture.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="event_types"></a><span class="summary-name">event_types</span> = <code title="['on_eos']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">on_eos</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CONSTANTS ==================== -->
+<a name="section-Constants"></a>
+        <h2>Constants</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EOS_PAUSE"></a><span class="summary-name">EOS_PAUSE</span> = <code title="'pause'"><code class="variable-quote">'</code><code class="variable-string">pause</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EOS_LOOP"></a><span class="summary-name">EOS_LOOP</span> = <code title="'loop'"><code class="variable-quote">'</code><code class="variable-string">loop</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EOS_NEXT"></a><span class="summary-name">EOS_NEXT</span> = <code title="'next'"><code class="variable-quote">'</code><code class="variable-string">next</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EOS_STOP"></a><span class="summary-name">EOS_STOP</span> = <code title="'stop'"><code class="variable-quote">'</code><code class="variable-string">stop</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== EVENT DETAILS ==================== -->
+<a name="section-EventDetails"></a>
+        <h2>Event Details</h2>
+<table class="details">
+</table>
+<a name="on_eos"></a>
+<div class=" detail">
+  <h3>on_eos</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_eos</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The player has reached the end of the current source.</p>
+<p>This event is dispatched regardless of the EOS action.  You
+can alter the EOS action in this event handler, however playback
+may stutter as the media device will not have enough time to
+decode and buffer the new data in advance.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="queue"></a>
+<div class=" detail">
+  <h3>queue</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">queue</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">source</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Queue the source on this player.</p>
+<p>If the player has no source, the player will be paused immediately
+on this source.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">source</span> : <span class='ptype'>Source</span></dt>
+        <dd>The source to queue.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="play"></a>
+<div class=" detail">
+  <h3>play</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">play</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Begin playing the current source.</p>
+<p>This has no effect if the player is already playing.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="pause"></a>
+<div class=" detail">
+  <h3>pause</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">pause</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Pause playback of the current source.</p>
+<p>This has no effect if the player is already paused.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="seek"></a>
+<div class=" detail">
+  <h3>seek</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">seek</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">timestamp</span>)</span>
+    </div>
+  <div class="detail-description">
+  Seek for playback to the indicated timestamp in seconds on the
+current source.  If the timestamp is outside the duration of the
+source, it will be clamped to the end.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">timestamp</span> : <span class='ptype'>float</span></dt>
+        <dd>Timestamp to seek to.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="next"></a>
+<div class=" detail">
+  <h3>next</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">next</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Move immediately to the next queued source.</p>
+<p>There may be a gap in playback while the audio buffer is refilled.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="dispatch_events"></a>
+<div class=" detail">
+  <h3>dispatch_events</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">dispatch_events</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dt</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Dispatch any pending events and perform regular heartbeat functions
+to maintain playback.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">dt</span> : <span class='ptype'>None</span></dt>
+        <dd>Ignored (for compatibility with pyglet.clock.schedule)</dd>
+    </dl></dd>
+  </dl>
+<div class="fields">      <p><strong>Deprecated:</strong>
+        Since pyglet 1.1, Player objects schedule themselves on
+the default clock automatically.  Applications should not call
+this method.
+      </p>
+</div>  </div>
+</div>
+<a name="get_texture"></a>
+<div class=" detail">
+  <h3>get_texture</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_texture</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the texture for the current video frame.</p>
+<p>You should call this method every time you display a frame
+of video, as multiple textures might be used.  The return value will
+be <code class="link">None</code> if there is no video in the current source.</p>
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.image.Texture-class.html" class="link">pyglet.image.Texture</a></dt>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div>  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="time"></a>
+<div class=" detail">
+  <h3>time</h3>
+  <div class="detail-description">
+  <p>Retrieve the current playback time of the current
+source.</p>
+<p>The playback time is a float expressed in seconds, with 0.0 being
+the beginning of the sound.  The playback time returned represents
+the time encoded in the source, and may not reflect actual time
+passed due to pitch shifting or pausing.</p>
+<p>Read-only.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="source"></a>
+<div class=" detail">
+  <h3>source</h3>
+  <div class="detail-description">
+  <p>Return the current source.</p>
+<p>Read-only.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>Source</dd>
+  </dl>
+  </div>
+</div>
+<a name="eos_action"></a>
+<div class=" detail">
+  <h3>eos_action</h3>
+  <div class="detail-description">
+  <p>Set the behaviour of the player when it
+reaches the end of the current source.</p>
+<p>This must be one of the constants <a href="pyglet.media.Player-class.html#EOS_NEXT" class="link">EOS_NEXT</a>, <a href="pyglet.media.Player-class.html#EOS_PAUSE" class="link">EOS_PAUSE</a> or
+<a href="pyglet.media.Player-class.html#EOS_LOOP" class="link">EOS_LOOP</a>.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>str</dd>
+  </dl>
+  </div>
+</div>
+<a name="playing"></a>
+<div class=" detail">
+  <h3>playing</h3>
+  <div class="detail-description">
+  <p>Determine if the player state is playing.</p>
+<p>The <a href="pyglet.media.Player-class.html#playing" class="link">playing</a> property is irrespective of whether or not there is
+actually a source to play.  If <a href="pyglet.media.Player-class.html#playing" class="link">playing</a> is True and a source is
+queued, it will begin playing immediately.  If <a href="pyglet.media.Player-class.html#playing" class="link">playing</a> is False,
+it is implied that the player is paused.  There is no other possible
+state.</p>
+<p>Read-only.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>bool</dd>
+  </dl>
+  </div>
+</div>
+<a name="volume"></a>
+<div class=" detail">
+  <h3>volume</h3>
+  <div class="detail-description">
+  <p>The volume level of sound playback.</p>
+<p>The nominal level is 1.0, and 0.0 is silence.</p>
+<p>The volume level is affected by the distance from the listener (if
+positioned).</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="position"></a>
+<div class=" detail">
+  <h3>position</h3>
+  <div class="detail-description">
+  <p>The position of the sound in 3D space.</p>
+<p>The position is given as a tuple of floats (x, y, z).  The unit
+defaults to meters, but can be modified with the listener
+properties.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>3-tuple of float</dd>
+  </dl>
+  </div>
+</div>
+<a name="min_distance"></a>
+<div class=" detail">
+  <h3>min_distance</h3>
+  <div class="detail-description">
+  <p>The distance beyond which the sound volume
+drops by half, and within which no attenuation is applied.</p>
+<p>The minimum distance controls how quickly a sound is attenuated
+as it moves away from the listener.  The gain is clamped at the
+nominal value within the min distance.  By default the value is
+1.0.</p>
+<p>The unit defaults to meters, but can be modified with the listener
+properties.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="max_distance"></a>
+<div class=" detail">
+  <h3>max_distance</h3>
+  <div class="detail-description">
+  <p>The distance at which no further attenuation
+is applied.</p>
+<p>When the distance from the listener to the player is greater than
+this value, attenuation is calculated as if the distance
+were value.  By default the maximum distance is infinity.</p>
+<p>The unit defaults to meters, but can be modified with the listener
+properties.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="pitch"></a>
+<div class=" detail">
+  <h3>pitch</h3>
+  <div class="detail-description">
+  <p>The pitch shift to apply to the sound.</p>
+<p>The nominal pitch is 1.0.  A pitch of 2.0 will sound one octave
+higher, and play twice as fast.  A pitch of 0.5 will sound one octave
+lower, and play twice as slow.  A pitch of 0.0 is not permitted.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="cone_orientation"></a>
+<div class=" detail">
+  <h3>cone_orientation</h3>
+  <div class="detail-description">
+  <p>The direction of the sound in 3D space.</p>
+<p>The direction is specified as a tuple of floats (x, y, z), and has no
+unit.  The default direction is (0, 0, -1).  Directional effects are
+only noticeable if the other cone properties are changed from their
+default values.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>3-tuple of float</dd>
+  </dl>
+  </div>
+</div>
+<a name="cone_inner_angle"></a>
+<div class=" detail">
+  <h3>cone_inner_angle</h3>
+  <div class="detail-description">
+  <p>The interior angle of the inner cone.</p>
+<p>The angle is given in degrees, and defaults to 360.  When the listener
+is positioned within the volume defined by the inner cone, the sound
+is played at normal gain (see <a href="pyglet.media.Player-class.html#volume" class="link">volume</a>).</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="cone_outer_angle"></a>
+<div class=" detail">
+  <h3>cone_outer_angle</h3>
+  <div class="detail-description">
+  <p>The interior angle of the outer cone.</p>
+<p>The angle is given in degrees, and defaults to 360.  When the listener
+is positioned within the volume defined by the outer cone, but outside
+the volume defined by the inner cone, the gain applied is a smooth
+interpolation between <a href="pyglet.media.Player-class.html#volume" class="link">volume</a> and <a href="pyglet.media.Player-class.html#cone_outer_gain" class="link">cone_outer_gain</a>.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="cone_outer_gain"></a>
+<div class=" detail">
+  <h3>cone_outer_gain</h3>
+  <div class="detail-description">
+  <p>The gain applied outside the cone.</p>
+<p>When the listener is positioned outside the volume defined by the
+outer cone, this gain is applied instead of <a href="pyglet.media.Player-class.html#volume" class="link">volume</a>.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="texture"></a>
+<div class=" detail">
+  <h3>texture</h3>
+  <div class="detail-description">
+  <p>The video texture.</p>
+<p>You should rerequest this property every time you display a frame
+of video, as multiple textures might be used.  This property will
+be <code class="link">None</code> if there is no video in the current source.</p>
+<div class="fields">      <p><strong>Deprecated:</strong>
+        Use <a href="pyglet.media.Player-class.html#get_texture" class="link">get_texture</a>.
+      </p>
+</div>  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><a href="pyglet.image.Texture-class.html" class="link">pyglet.image.Texture</a></dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;media&nbsp;.&nbsp;Player
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

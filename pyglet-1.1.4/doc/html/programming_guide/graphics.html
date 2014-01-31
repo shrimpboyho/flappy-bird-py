@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Graphics</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="agl_glx_and_wgl.html" title="AGL, GLX and WGL">AGL, GLX ...</a></span><span class="next">Next: <a class="reference" href="drawing_primitives.html" title="Drawing primitives">Drawing primitives</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » Graphics</span></div>
+<h1 class="title">Graphics</h1>
+
+<p>At the lowest level, pyglet uses OpenGL to draw in windows.  The OpenGL
+interface is exposed via the <a class="reference apilink" href="../api/pyglet.gl-module.html ">pyglet.gl</a> module (see <a class="reference sectionlink" href="the_opengl_interface.html">The OpenGL interface</a>).</p>
+<p>However, using the OpenGL interface directly for drawing graphics is difficult
+and inefficient.  The <a class="reference apilink" href="../api/pyglet.graphics-module.html ">pyglet.graphics</a> module provides a simpler means for
+drawing graphics that uses vertex arrays and vertex buffer objects internally
+to deliver better performance.</p>
+<div class="contents local topic" id="id7">
+<ul class="simple">
+<li><a class="reference" href="drawing_primitives.html" id="id234">Drawing primitives</a></li>
+<li><a class="reference" href="vertex_attributes.html" id="id235">Vertex attributes</a></li>
+<li><a class="reference" href="vertex_lists.html" id="id236">Vertex lists</a><ul>
+<li><a class="reference" href="vertex_lists.html#updating-vertex-data" id="id237">Updating vertex data</a></li>
+<li><a class="reference" href="vertex_lists.html#data-usage" id="id238">Data usage</a></li>
+<li><a class="reference" href="vertex_lists.html#indexed-vertex-lists" id="id239">Indexed vertex lists</a></li>
+</ul>
+</li>
+<li><a class="reference" href="batched_rendering.html" id="id240">Batched rendering</a><ul>
+<li><a class="reference" href="batched_rendering.html#setting-the-opengl-state" id="id241">Setting the OpenGL state</a></li>
+<li><a class="reference" href="batched_rendering.html#hierarchical-state" id="id242">Hierarchical state</a></li>
+<li><a class="reference" href="batched_rendering.html#sorting-vertex-lists" id="id243">Sorting vertex lists</a></li>
+</ul>
+</li>
+<li><a class="reference" href="batches_and_groups_in_other_modules.html" id="id244">Batches and groups in other modules</a></li>
+</ul>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="agl_glx_and_wgl.html" title="AGL, GLX and WGL">AGL, GLX ...</a></span><span class="next">Next: <a class="reference" href="drawing_primitives.html" title="Drawing primitives">Drawing primitives</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » Graphics</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Subclassing Window</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="visibility.html" title="Visibility">Visibility</a></span><span class="next">Next: <a class="reference" href="windows_and_opengl_contexts.html" title="Windows and OpenGL contexts">Windows and ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Subclassing Window</span></div>
+<h1 class="title">Subclassing Window</h1>
+
+<p>A useful pattern in pyglet is to subclass <a class="reference apilink" href="../api/pyglet.window.Window-class.html " title="pyglet.window.Window">Window</a> for each type of window
+you will display, or as your main application class.  There are several
+benefits:</p>
+<ul class="simple">
+<li>You can load font and other resources from the constructor, ensuring the
+OpenGL context has already been created.</li>
+<li>You can add event handlers simply be defining them on the class.  The
+<cite>on_resize</cite> event will be called as soon as the window is created (this
+doesn't usually happen, as you must create the window before you can attach
+event handlers).</li>
+<li>There is reduced need for global variables, as you can maintain application
+state on the window.</li>
+</ul>
+<p>The following example shows the same &quot;Hello World&quot; application as presented
+in <a class="reference sectionlink" href="writing_a_pyglet_application.html">Writing a pyglet application</a>, using a subclass of <cite>Window</cite>:</p>
+<pre class="py-doctest">
+<span class="py-keyword">class</span> <span class="py-defname">HelloWorldWindow</span>(pyglet.window.Window):
+    <span class="py-keyword">def</span> <span class="py-defname">__init__</span>(self):
+        super(HelloWorldWindow, self).__init__()
+
+        self.label = pyglet.text.Label(<span class="py-string">'Hello, world!'</span>)
+
+    <span class="py-keyword">def</span> <span class="py-defname">on_draw</span>(self):
+        self.clear()
+        self.label.draw()
+
+<span class="py-keyword">if</span> __name__ == <span class="py-string">'__main__'</span>:
+    window = HelloWorldWindow()
+    pyglet.app.run()</pre>
+<p>This example program is located in
+<a class="reference filelink" href="window_subclass.py">examples/programming_guide/window_subclass.py</a>.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="visibility.html" title="Visibility">Visibility</a></span><span class="next">Next: <a class="reference" href="windows_and_opengl_contexts.html" title="Windows and OpenGL contexts">Windows and ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Subclassing Window</span></div>
+</div>
+</body>
+</html>

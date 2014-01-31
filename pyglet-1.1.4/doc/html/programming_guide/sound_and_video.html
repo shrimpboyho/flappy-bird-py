@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Sound and video</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="saving_an_image.html" title="Saving an image">Saving an image</a></span><span class="next">Next: <a class="reference" href="audio_drivers.html" title="Audio drivers">Audio drivers</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » Sound and video</span></div>
+<h1 class="title">Sound and video</h1>
+
+<p>pyglet can play many audio and video formats.  Audio is played back with
+either OpenAL, DirectSound or ALSA, permitting hardware-accelerated mixing and
+surround-sound 3D positioning.  Video is played into OpenGL textures, and so
+can be easily be manipulated in real-time by applications and incorporated
+into 3D environments.</p>
+<p>Decoding of compressed audio and video is provided by <a class="reference" href="http://code.google.com/p/avbin">AVbin</a>, an optional
+component available for Linux, Windows and Mac OS X.  AVbin is installed
+alongside pyglet by default if the Windows or Mac OS X installation is used.
+If pyglet was installed from source, AVbin can be installed separately.</p>
+<p>If AVbin is not present, pyglet will fall back to reading uncompressed WAV
+files only.  This may be sufficient for many applications that require only a
+small number of short sounds, in which case those applications need not
+distribute AVbin.</p>
+<div class="contents local topic" id="id28">
+<ul class="simple">
+<li><a class="reference" href="audio_drivers.html" id="id318">Audio drivers</a><ul>
+<li><a class="reference" href="audio_drivers.html#directsound" id="id319">DirectSound</a></li>
+<li><a class="reference" href="audio_drivers.html#openal" id="id320">OpenAL</a></li>
+<li><a class="reference" href="audio_drivers.html#alsa" id="id321">ALSA</a></li>
+<li><a class="reference" href="audio_drivers.html#linux-issues" id="id322">Linux Issues</a></li>
+</ul>
+</li>
+<li><a class="reference" href="supported_media_types.html" id="id323">Supported media types</a></li>
+<li><a class="reference" href="loading_media.html" id="id324">Loading media</a></li>
+<li><a class="reference" href="simple_audio_playback.html" id="id325">Simple audio playback</a></li>
+<li><a class="reference" href="controlling_playback.html" id="id326">Controlling playback</a></li>
+<li><a class="reference" href="incorporating_video.html" id="id327">Incorporating video</a></li>
+<li><a class="reference" href="positional_audio.html" id="id328">Positional audio</a></li>
+</ul>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="saving_an_image.html" title="Saving an image">Saving an image</a></span><span class="next">Next: <a class="reference" href="audio_drivers.html" title="Audio drivers">Audio drivers</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » Sound and video</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.font.base.Font</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.font-module.html">font</a>&nbsp;.&nbsp;<a href="pyglet.font.base-module.html">base</a>&nbsp;.&nbsp;Font
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.font.base.Font</h1>
+<p>Abstract font class able to produce glyphs.</p>
+<p>To construct a font, use pyglet.font.load, which will instantiate the
+platform-specific font class.</p>
+<p>Internally, this class is used by the platform classes to manage the set
+of textures into which glyphs are written.</p>
+
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+        <h2>Nested Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.font.base.GlyphRenderer-class.html" class="summary-name">glyph_renderer_class</a>
+<div class="summary-description">Abstract class for creating glyph images.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.font.base.GlyphTextureAtlas-class.html" class="summary-name">texture_class</a>
+<div class="summary-description">A texture within which glyphs can be drawn.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font.base.Font-class.html#add_font_data" class="summary-sig-name">add_font_data</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">data</span>)</span>
+<div class="summary-description">Add font data to the font loader.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font.base.Font-class.html#have_font" class="summary-sig-name">have_font</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Determine if a font with the given name is installed.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.font.base.Glyph-class.html" class="link">Glyph</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font.base.Font-class.html#create_glyph" class="summary-sig-name">create_glyph</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">image</span>)</span>
+<div class="summary-description">Create a glyph using the given image.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of <a href="pyglet.font.base.Glyph-class.html" class="link">Glyph</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font.base.Font-class.html#get_glyphs" class="summary-sig-name">get_glyphs</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span>
+<div class="summary-description">Create and return a list of Glyphs for text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of <a href="pyglet.font.base.Glyph-class.html" class="link">Glyph</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font.base.Font-class.html#get_glyphs_for_width" class="summary-sig-name">get_glyphs_for_width</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>,
+        <span class="summary-sig-arg">width</span>)</span>
+<div class="summary-description">Return a list of glyphs for text that fit within the given width.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="ascent"></a><span class="summary-name">ascent</span> = <code title="0">0</code>
+<div class="summary-description">Maximum ascent above the baseline, in pixels.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.font.base.Font-class.html#descent" class="summary-name">descent</a> = <code title="0">0</code>
+<div class="summary-description">Maximum descent below the baseline, in pixels.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="texture_width"></a><span class="summary-name">texture_width</span> = <code title="256">256</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="texture_height"></a><span class="summary-name">texture_height</span> = <code title="256">256</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="texture_internalformat"></a><span class="summary-name">texture_internalformat</span> = <code title="6406">6406</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="add_font_data"></a>
+<div class=" detail">
+  <h3>add_font_data</h3>
+  <div class="detail-signature">
+    <span class="fspecial">Class Method</span>
+    <span class="sig"><span class="sig-name">add_font_data</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">data</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Add font data to the font loader.</p>
+<p>This is a class method and affects all fonts loaded.  Data must be
+some byte string of data, for example, the contents of a TrueType font
+file.  Subclasses can override this method to add the font data into
+the font registry.</p>
+<p>There is no way to instantiate a font given the data directly, you
+must use pyglet.font.load specifying the font name.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="have_font"></a>
+<div class=" detail">
+  <h3>have_font</h3>
+  <div class="detail-signature">
+    <span class="fspecial">Class Method</span>
+    <span class="sig"><span class="sig-name">have_font</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  Determine if a font with the given name is installed.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Name of a font to search for</dd>
+    </dl></dd>
+    <dt>Returns: bool</dt>
+  </dl>
+  </div>
+</div>
+<a name="create_glyph"></a>
+<div class=" detail">
+  <h3>create_glyph</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">create_glyph</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">image</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create a glyph using the given image.</p>
+<p>This is used internally by <a href="pyglet.font.base.Font-class.html" class="link">Font</a> subclasses to add glyph data
+to the font.  Glyphs are packed within large textures maintained by
+<a href="pyglet.font.base.Font-class.html" class="link">Font</a>.  This method inserts the image into a font texture and returns
+a glyph reference; it is up to the subclass to add metadata to the
+glyph.</p>
+<p>Applications should not use this method directly.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">image</span> : <span class='ptype'><a href="pyglet.image.AbstractImage-class.html" class="link">pyglet.image.AbstractImage</a></span></dt>
+        <dd>The image to write to the font texture.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.font.base.Glyph-class.html" class="link">Glyph</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="get_glyphs"></a>
+<div class=" detail">
+  <h3>get_glyphs</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_glyphs</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create and return a list of Glyphs for text.</p>
+<p>If any characters do not have a known glyph representation in this
+font, a substitution will be made.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">text</span> : <span class='ptype'>str or unicode</span></dt>
+        <dd>Text to render.</dd>
+    </dl></dd>
+    <dt>Returns: list of <a href="pyglet.font.base.Glyph-class.html" class="link">Glyph</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="get_glyphs_for_width"></a>
+<div class=" detail">
+  <h3>get_glyphs_for_width</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_glyphs_for_width</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>,
+        <span class="sig-arg">width</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Return a list of glyphs for text that fit within the given width.</p>
+<p>If the entire text is larger than 'width', as much as possible will be
+used while breaking after a space or zero-width space character.  If a
+newline is encountered in text, only text up to that newline will be
+used.  If no break opportunities (newlines or spaces) occur within
+<code class="link">width</code>, the text up to the first break opportunity will be used (this
+will exceed <code class="link">width</code>).  If there are no break opportunities, the entire
+text will be used.</p>
+<p>You can assume that each character of the text is represented by
+exactly one glyph; so the amount of text &quot;used up&quot; can be determined
+by examining the length of the returned glyph list.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">text</span> : <span class='ptype'>str or unicode</span></dt>
+        <dd>Text to render.</dd>
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>Maximum width of returned glyphs.</dd>
+    </dl></dd>
+    <dt>Returns: list of <a href="pyglet.font.base.Glyph-class.html" class="link">Glyph</a></dt>
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="pyglet.font.GlyphString-class.html" class="link">GlyphString</a>
+      </p>
+</div>  </div>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+        <h2>Instance Variable Details</h2>
+<table class="details">
+</table>
+<a name="descent"></a>
+<div class=" detail">
+  <h3>descent</h3>
+  <div class="detail-description">
+  Maximum descent below the baseline, in pixels. Usually negative.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+0
+</pre></td></tr></table>
+</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.font-module.html">font</a>&nbsp;.&nbsp;<a href="pyglet.font.base-module.html">base</a>&nbsp;.&nbsp;Font
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

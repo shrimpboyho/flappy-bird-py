@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.image.BufferManager</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;BufferManager
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.image.BufferManager</h1>
+<p>Manages the set of framebuffers for a context.</p>
+<p>Use get_buffer_manager to obtain the instance of this class for the
+current context.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">4-tuple of float.</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.BufferManager-class.html#get_viewport" class="summary-sig-name">get_viewport</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the current OpenGL viewport dimensions.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.ColorBufferImage-class.html" class="link">ColorBufferImage</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_color_buffer"></a><span class="summary-sig-name">get_color_buffer</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the color buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.ColorBufferImage-class.html" class="link">ColorBufferImage</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.BufferManager-class.html#get_aux_buffer" class="summary-sig-name">get_aux_buffer</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get a free auxiliary buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.DepthBufferImage-class.html" class="link">DepthBufferImage</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_depth_buffer"></a><span class="summary-sig-name">get_depth_buffer</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the depth buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.BufferImageMask-class.html" class="link">BufferImageMask</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.BufferManager-class.html#get_buffer_mask" class="summary-sig-name">get_buffer_mask</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get a free bitmask buffer.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="get_viewport"></a>
+<div class=" detail">
+  <h3>get_viewport</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_viewport</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the current OpenGL viewport dimensions.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">4-tuple of float.</span>: Left, top, right and bottom dimensions.</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_aux_buffer"></a>
+<div class=" detail">
+  <h3>get_aux_buffer</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_aux_buffer</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a free auxiliary buffer.</p>
+<p>If not aux buffers are available, <a href="pyglet.image.ImageException-class.html" class="link">ImageException</a> is raised.  Buffers
+are released when they are garbage collected.</p>
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.image.ColorBufferImage-class.html" class="link">ColorBufferImage</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="get_buffer_mask"></a>
+<div class=" detail">
+  <h3>get_buffer_mask</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_buffer_mask</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a free bitmask buffer.</p>
+<p>A bitmask buffer is a buffer referencing a single bit in the stencil
+buffer.  If no bits are free, <a href="pyglet.image.ImageException-class.html" class="link">ImageException</a> is raised.  Bits are
+released when the bitmask buffer is garbage collected.</p>
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.image.BufferImageMask-class.html" class="link">BufferImageMask</a></dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;BufferManager
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

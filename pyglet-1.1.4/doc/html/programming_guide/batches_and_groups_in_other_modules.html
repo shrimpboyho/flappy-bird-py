@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Batches and groups in other modules</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="batched_rendering.html" title="Batched rendering">Batched rendering</a></span><span class="next">Next: <a class="reference" href="windowing.html" title="Windowing">Windowing</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="graphics.html" title="Graphics">Graphics</a> » Batches and ...</span></div>
+<h1 class="title">Batches and groups in other modules</h1>
+
+<p>The <a class="reference apilink" href="../api/pyglet.sprite.Sprite-class.html " title="pyglet.sprite.Sprite">Sprite</a>, <a class="reference apilink" href="../api/pyglet.text.Label-class.html " title="pyglet.text.Label">Label</a> and <a class="reference apilink" href="../api/pyglet.text.layout.TextLayout-class.html " title="pyglet.text.layout.TextLayout">TextLayout</a> classes all accept <tt class="docutils literal">batch</tt> and
+<tt class="docutils literal">group</tt> parameters in their constructors.  This allows you to add any of
+these higher-level pyglet drawables into arbitrary places in your rendering
+code.</p>
+<p>For example, multiple sprites can be grouped into a single batch and then
+drawn at once, instead of calling <a class="reference apilink" href="../api/pyglet.sprite.Sprite-class.html#draw " title="pyglet.sprite.Sprite.draw">Sprite.draw</a> on each one individually:</p>
+<pre class="py-doctest">
+batch = pyglet.graphics.Batch()
+sprites = [pyglet.sprite.Sprite(image, batch=batch) <span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(100)]
+
+batch.draw()</pre>
+<p>The <tt class="docutils literal">group</tt> parameter can be used to set the drawing order (and hence which
+objects overlap others) within a single batch, as described  on the previous
+page.</p>
+<p>In general you should batch all drawing objects into as few batches as
+possible, and use groups to manage the draw order and other OpenGL state
+changes for optimal performance.   If you are creating your own drawable
+classes, consider adding <tt class="docutils literal">batch</tt> and <tt class="docutils literal">group</tt> parameters in a similar way.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="batched_rendering.html" title="Batched rendering">Batched rendering</a></span><span class="next">Next: <a class="reference" href="windowing.html" title="Windowing">Windowing</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="graphics.html" title="Graphics">Graphics</a> » Batches and ...</span></div>
+</div>
+</body>
+</html>

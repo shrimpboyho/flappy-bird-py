@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.window.ImageMouseCursor</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.window-module.html">window</a>&nbsp;.&nbsp;ImageMouseCursor
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.window.ImageMouseCursor</h1>
+<pre class="base-tree">
+<a href="pyglet.window.MouseCursor-class.html">MouseCursor</a> --+
+              |
+             <strong class="uidshort">ImageMouseCursor</strong>
+</pre>
+
+<p>A user-defined mouse cursor created from an image.</p>
+<p>Use this class to create your own mouse cursors and assign them
+to windows.  There are no constraints on the image size or format.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.ImageMouseCursor-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">image</span>,
+        <span class="summary-sig-arg">hot_x</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">hot_y</span>=<span class="summary-sig-default">0</span>)</span>
+<div class="summary-description">Create a mouse cursor from an image.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.ImageMouseCursor-class.html#draw" class="summary-sig-name">draw</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">Abstract render method.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="drawable"></a><span class="summary-name">drawable</span> = <code title="True">True</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">image</span>,
+        <span class="sig-arg">hot_x</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">hot_y</span>=<span class="sig-default">0</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a mouse cursor from an image.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">image</span> : <span class='ptype'><a href="pyglet.image.AbstractImage-class.html" class="link">pyglet.image.AbstractImage</a></span></dt>
+        <dd>Image to use for the mouse cursor.  It must have a
+valid <tt class="rst-docutils literal">texture</tt> attribute.</dd>
+        <dt><span class="pname">hot_x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate of the &quot;hot&quot; spot in the image relative to the
+image's anchor.</dd>
+        <dt><span class="pname">hot_y</span> : <span class='ptype'>int</span></dt>
+        <dd>Y coordinate of the &quot;hot&quot; spot in the image, relative to the
+image's anchor.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="draw"></a>
+<div class=" detail">
+  <h3>draw</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">draw</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Abstract render method.</p>
+<p>The cursor should be drawn with the &quot;hot&quot; spot at the given
+coordinates.  The projection is set to the pyglet default (i.e.,
+orthographic in window-space), however no other aspects of the
+state can be assumed.</p>
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.window.MouseCursor-class.html#draw">MouseCursor.draw</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.window-module.html">window</a>&nbsp;.&nbsp;ImageMouseCursor
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:20 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

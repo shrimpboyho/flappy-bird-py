@@ -1,0 +1,409 @@
+INFO:root:Beginning test at Wed Dec 30 17:16:19 2009
+INFO:root:Capabilities are: GENERIC, X11
+INFO:root:sys.platform = linux2
+INFO:root:Reading test plan from plan.txt
+INFO:root:Testing top.IMPORT.
+INFO:root:Begin unit tests for top.IMPORT
+INFO:root:27 tests run
+INFO:root:Testing graphics.GRAPHICS_ALLOCATION.
+INFO:root:Begin unit tests for graphics.GRAPHICS_ALLOCATION
+INFO:root:23 tests run
+INFO:root:Testing graphics.IMMEDIATE.
+INFO:root:Begin unit tests for graphics.IMMEDIATE
+INFO:root:10 tests run
+INFO:root:Testing graphics.IMMEDIATE_INDEXED.
+INFO:root:Begin unit tests for graphics.IMMEDIATE_INDEXED
+INFO:root:10 tests run
+INFO:root:Testing graphics.RETAINED.
+INFO:root:Begin unit tests for graphics.RETAINED
+INFO:root:10 tests run
+INFO:root:Testing graphics.RETAINED_INDEXED.
+INFO:root:Begin unit tests for graphics.RETAINED_INDEXED
+INFO:root:10 tests run
+INFO:root:Testing window.WINDOW_OPEN.
+INFO:root:Begin unit tests for window.WINDOW_OPEN
+INFO:root:1 tests run
+INFO:root:Testing window.MULTIPLE_WINDOW_OPEN.
+INFO:root:Begin unit tests for window.MULTIPLE_WINDOW_OPEN
+INFO:root:1 tests run
+INFO:root:Testing window.CONTEXT_SHARE.
+INFO:root:Begin unit tests for window.CONTEXT_SHARE
+INFO:root:3 tests run
+INFO:root:Testing window.WINDOW_SET_VSYNC.
+INFO:root:Begin unit tests for window.WINDOW_SET_VSYNC
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_MULTISAMPLE.
+INFO:root:Begin unit tests for window.WINDOW_MULTISAMPLE
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_STYLE_DIALOG.
+INFO:root:Begin unit tests for window.WINDOW_STYLE_DIALOG
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_STYLE_TOOL.
+INFO:root:Begin unit tests for window.WINDOW_STYLE_TOOL
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_STYLE_BORDERLESS.
+INFO:root:Begin unit tests for window.WINDOW_STYLE_BORDERLESS
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_CAPTION.
+INFO:root:Begin unit tests for window.WINDOW_CAPTION
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_ICON.
+INFO:root:Begin unit tests for window.WINDOW_SET_ICON
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_RESIZABLE.
+INFO:root:Begin unit tests for window.WINDOW_RESIZABLE
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_SIZE.
+INFO:root:Begin unit tests for window.WINDOW_SET_SIZE
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_FIXED_SET_SIZE.
+INFO:root:Begin unit tests for window.WINDOW_FIXED_SET_SIZE
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_MIN_MAX_SIZE.
+INFO:root:Begin unit tests for window.WINDOW_SET_MIN_MAX_SIZE
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_LOCATION.
+INFO:root:Begin unit tests for window.WINDOW_SET_LOCATION
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_ACTIVATE.
+INFO:root:Begin unit tests for window.WINDOW_ACTIVATE
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_VISIBLE.
+INFO:root:Begin unit tests for window.WINDOW_SET_VISIBLE
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_MINIMIZE_MAXIMIZE.
+INFO:root:Begin unit tests for window.WINDOW_MINIMIZE_MAXIMIZE
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_EXCLUSIVE_MOUSE.
+INFO:root:Begin unit tests for window.WINDOW_SET_EXCLUSIVE_MOUSE
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_MOUSE_VISIBLE.
+INFO:root:Begin unit tests for window.WINDOW_SET_MOUSE_VISIBLE
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_MOUSE_CURSOR.
+INFO:root:Begin unit tests for window.WINDOW_SET_MOUSE_CURSOR
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_MOUSE_SYSTEM_CURSOR.
+INFO:root:Begin unit tests for window.WINDOW_SET_MOUSE_SYSTEM_CURSOR
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_EXCLUSIVE_KEYBOARD.
+INFO:root:Begin unit tests for window.WINDOW_SET_EXCLUSIVE_KEYBOARD
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_INITIAL_FULLSCREEN.
+INFO:root:Begin unit tests for window.WINDOW_INITIAL_FULLSCREEN
+INFO:root:1 tests run
+INFO:root:Testing window.WINDOW_SET_FULLSCREEN.
+INFO:root:Begin unit tests for window.WINDOW_SET_FULLSCREEN
+INFO:root:1 tests run
+INFO:root:Testing window.MULTIPLE_SCREEN.
+INFO:root:Begin unit tests for window.MULTIPLE_SCREEN
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_KEY.
+INFO:root:Begin unit tests for window.EVENT_KEY
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_TEXT.
+INFO:root:Begin unit tests for window.EVENT_TEXT
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_BUTTON.
+INFO:root:Begin unit tests for window.EVENT_BUTTON
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_MOUSE_MOTION.
+INFO:root:Begin unit tests for window.EVENT_MOUSE_MOTION
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_MOUSE_DRAG.
+INFO:root:Begin unit tests for window.EVENT_MOUSE_DRAG
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_MOUSE_ENTER_LEAVE.
+INFO:root:Begin unit tests for window.EVENT_MOUSE_ENTER_LEAVE
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_MOUSE_SCROLL.
+INFO:root:Begin unit tests for window.EVENT_MOUSE_SCROLL
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_CLOSE.
+INFO:root:Begin unit tests for window.EVENT_CLOSE
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_EXPOSE.
+INFO:root:Begin unit tests for window.EVENT_EXPOSE
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_RESIZE.
+INFO:root:Begin unit tests for window.EVENT_RESIZE
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_MOVE.
+INFO:root:Begin unit tests for window.EVENT_MOVE
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_ACTIVATE_DEACTIVATE.
+INFO:root:Begin unit tests for window.EVENT_ACTIVATE_DEACTIVATE
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_SHOW_HIDE.
+INFO:root:Begin unit tests for window.EVENT_SHOW_HIDE
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_SEQUENCE_CREATE.
+INFO:root:Begin unit tests for window.EVENT_SEQUENCE_CREATE
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_SEQUENCE_SHOW.
+INFO:root:Begin unit tests for window.EVENT_SEQUENCE_SHOW
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_SEQUENCE_CREATE_FULLSCREEN.
+INFO:root:Begin unit tests for window.EVENT_SEQUENCE_CREATE_FULLSCREEN
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_SEQUENCE_SET_FULLSCREEN.
+INFO:root:Begin unit tests for window.EVENT_SEQUENCE_SET_FULLSCREEN
+INFO:root:1 tests run
+INFO:root:Testing window.EVENT_SEQUENCE_UNSET_FULLSCREEN.
+INFO:root:Begin unit tests for window.EVENT_SEQUENCE_UNSET_FULLSCREEN
+INFO:root:1 tests run
+INFO:root:Testing clock.TICK.
+INFO:root:Begin unit tests for clock.TICK
+INFO:root:1 tests run
+INFO:root:Testing clock.FPS.
+INFO:root:Begin unit tests for clock.FPS
+INFO:root:1 tests run
+INFO:root:Testing clock.FPS_LIMIT.
+INFO:root:Begin unit tests for clock.FPS_LIMIT
+ERROR:root:Error in clock.FPS_LIMIT
+ERROR:root:Traceback (most recent call last):
+  File "../tests/clock/FPS_LIMIT.py", line 19, in test_fps_limit
+    clock.set_fps_limit(20)
+TypeError: 'int' object is not callable
+
+INFO:root:1 tests run
+INFO:root:Testing clock.SCHEDULE.
+INFO:root:Begin unit tests for clock.SCHEDULE
+INFO:root:3 tests run
+INFO:root:Testing clock.SCHEDULE_INTERVAL.
+INFO:root:Begin unit tests for clock.SCHEDULE_INTERVAL
+INFO:root:1 tests run
+INFO:root:Testing clock.SCHEDULE_ONCE.
+INFO:root:Begin unit tests for clock.SCHEDULE_ONCE
+INFO:root:1 tests run
+INFO:root:Testing image.CHECKERBOARD.
+INFO:root:Begin unit tests for image.CHECKERBOARD
+INFO:root:1 tests run
+INFO:root:Testing image.PYPNG_RGBA_LOAD.
+INFO:root:Begin unit tests for image.PYPNG_RGBA_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PYPNG_RGB_LOAD.
+INFO:root:Begin unit tests for image.PYPNG_RGB_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PYPNG_LA_LOAD.
+INFO:root:Begin unit tests for image.PYPNG_LA_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PYPNG_L_LOAD.
+INFO:root:Begin unit tests for image.PYPNG_L_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PYPNG_RGBA_SAVE.
+INFO:root:Begin unit tests for image.PYPNG_RGBA_SAVE
+INFO:root:1 tests run
+INFO:root:Testing image.PYPNG_RGB_SAVE.
+INFO:root:Begin unit tests for image.PYPNG_RGB_SAVE
+INFO:root:1 tests run
+INFO:root:Testing image.PYPNG_LA_SAVE.
+INFO:root:Begin unit tests for image.PYPNG_LA_SAVE
+INFO:root:1 tests run
+INFO:root:Testing image.PYPNG_L_SAVE.
+INFO:root:Begin unit tests for image.PYPNG_L_SAVE
+INFO:root:1 tests run
+INFO:root:Testing image.BMP_RGB_1BPP_LOAD.
+INFO:root:Begin unit tests for image.BMP_RGB_1BPP_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.BMP_RGB_4BPP_LOAD.
+INFO:root:Begin unit tests for image.BMP_RGB_4BPP_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.BMP_RGB_8BPP_LOAD.
+INFO:root:Begin unit tests for image.BMP_RGB_8BPP_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.BMP_RGB_16BPP_LOAD.
+INFO:root:Begin unit tests for image.BMP_RGB_16BPP_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.BMP_RGB_24BPP_LOAD.
+INFO:root:Begin unit tests for image.BMP_RGB_24BPP_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.BMP_RGB_32BPP_LOAD.
+INFO:root:Begin unit tests for image.BMP_RGB_32BPP_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.BMP_RGBA_32BPP_LOAD.
+INFO:root:Begin unit tests for image.BMP_RGBA_32BPP_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PIL_RGBA_LOAD.
+INFO:root:Begin unit tests for image.PIL_RGBA_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PIL_RGB_LOAD.
+INFO:root:Begin unit tests for image.PIL_RGB_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PIL_LA_LOAD.
+INFO:root:Begin unit tests for image.PIL_LA_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PIL_L_LOAD.
+INFO:root:Begin unit tests for image.PIL_L_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PIL_RGBA_SAVE.
+INFO:root:Begin unit tests for image.PIL_RGBA_SAVE
+INFO:root:1 tests run
+INFO:root:Testing image.PIL_RGB_SAVE.
+INFO:root:Begin unit tests for image.PIL_RGB_SAVE
+INFO:root:1 tests run
+INFO:root:Testing image.PIL_LA_SAVE.
+INFO:root:Begin unit tests for image.PIL_LA_SAVE
+INFO:root:1 tests run
+INFO:root:Testing image.PIL_L_SAVE.
+INFO:root:Begin unit tests for image.PIL_L_SAVE
+INFO:root:1 tests run
+INFO:root:Testing image.PLATFORM_RGBA_LOAD.
+INFO:root:Begin unit tests for image.PLATFORM_RGBA_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PLATFORM_RGB_LOAD.
+INFO:root:Begin unit tests for image.PLATFORM_RGB_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PLATFORM_LA_LOAD.
+INFO:root:Begin unit tests for image.PLATFORM_LA_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.PLATFORM_L_LOAD.
+INFO:root:Begin unit tests for image.PLATFORM_L_LOAD
+INFO:root:1 tests run
+INFO:root:Testing image.MATRIX_RGB.
+INFO:root:Begin unit tests for image.MATRIX_RGB
+INFO:root:1 tests run
+INFO:root:Testing image.MATRIX_RGBA.
+INFO:root:Begin unit tests for image.MATRIX_RGBA
+INFO:root:1 tests run
+INFO:root:Testing image.DDS_RGB_DXT1_LOAD.
+INFO:root:Begin unit tests for image.DDS_RGB_DXT1_LOAD
+ERROR:root:Error in image.DDS_RGB_DXT1_LOAD
+ERROR:root:Traceback (most recent call last):
+  File "../tests/image/base_load.py", line 77, in test_load
+    self.texture = self.image.texture
+  File "../pyglet/image/__init__.py", line 368, in <lambda>
+    texture = property(lambda self: self.get_texture(),
+  File "../pyglet/image/__init__.py", line 1279, in get_texture
+    texture = image.get_texture()
+  File "../pyglet/image/__init__.py", line 366, in get_texture
+    raise ImageException('Cannot retrieve texture for %r' % self)
+ImageException: Cannot retrieve texture for <PackedImageData 256x256>
+
+INFO:root:1 tests run
+INFO:root:Testing image.DDS_RGBA_DXT1_LOAD.
+INFO:root:Begin unit tests for image.DDS_RGBA_DXT1_LOAD
+ERROR:root:Error in image.DDS_RGBA_DXT1_LOAD
+ERROR:root:Traceback (most recent call last):
+  File "../tests/image/base_load.py", line 77, in test_load
+    self.texture = self.image.texture
+  File "../pyglet/image/__init__.py", line 368, in <lambda>
+    texture = property(lambda self: self.get_texture(),
+  File "../pyglet/image/__init__.py", line 1279, in get_texture
+    texture = image.get_texture()
+  File "../pyglet/image/__init__.py", line 366, in get_texture
+    raise ImageException('Cannot retrieve texture for %r' % self)
+ImageException: Cannot retrieve texture for <PackedImageData 256x256>
+
+INFO:root:1 tests run
+INFO:root:Testing image.DDS_RGBA_DXT3_LOAD.
+INFO:root:Begin unit tests for image.DDS_RGBA_DXT3_LOAD
+ERROR:root:Error in image.DDS_RGBA_DXT3_LOAD
+ERROR:root:Traceback (most recent call last):
+  File "../tests/image/base_load.py", line 77, in test_load
+    self.texture = self.image.texture
+  File "../pyglet/image/__init__.py", line 368, in <lambda>
+    texture = property(lambda self: self.get_texture(),
+  File "../pyglet/image/__init__.py", line 1279, in get_texture
+    texture = image.get_texture()
+  File "../pyglet/image/__init__.py", line 366, in get_texture
+    raise ImageException('Cannot retrieve texture for %r' % self)
+ImageException: Cannot retrieve texture for <PackedImageData 256x256>
+
+INFO:root:1 tests run
+INFO:root:Testing image.DDS_RGBA_DXT5_LOAD.
+INFO:root:Begin unit tests for image.DDS_RGBA_DXT5_LOAD
+ERROR:root:Error in image.DDS_RGBA_DXT5_LOAD
+ERROR:root:Traceback (most recent call last):
+  File "../tests/image/base_load.py", line 77, in test_load
+    self.texture = self.image.texture
+  File "../pyglet/image/__init__.py", line 368, in <lambda>
+    texture = property(lambda self: self.get_texture(),
+  File "../pyglet/image/__init__.py", line 1279, in get_texture
+    texture = image.get_texture()
+  File "../pyglet/image/__init__.py", line 366, in get_texture
+    raise ImageException('Cannot retrieve texture for %r' % self)
+ImageException: Cannot retrieve texture for <PackedImageData 256x256>
+
+INFO:root:1 tests run
+INFO:root:Testing image.BUFFER_COPY.
+INFO:root:Begin unit tests for image.BUFFER_COPY
+INFO:root:1 tests run
+INFO:root:Testing image.BUFFER_SAVE.
+INFO:root:Begin unit tests for image.BUFFER_SAVE
+INFO:root:1 tests run
+INFO:root:Testing image.DEPTH_SAVE.
+INFO:root:Begin unit tests for image.DEPTH_SAVE
+INFO:root:1 tests run
+INFO:root:Testing image.TEXTURE_GRID.
+INFO:root:Begin unit tests for image.TEXTURE_GRID
+INFO:root:6 tests run
+INFO:root:Testing image.TEXTURE_3D.
+INFO:root:Begin unit tests for image.TEXTURE_3D
+ERROR:root:Failure in image.TEXTURE_3D
+ERROR:root:Traceback (most recent call last):
+  File "../tests/image/TEXTURE_3D.py", line 104, in testRect
+    self.check_cell(self.grid[i], i)
+  File "../tests/image/TEXTURE_3D.py", line 59, in check_cell
+    self.assertTrue(data == color * len(data))
+AssertionError
+
+ERROR:root:Failure in image.TEXTURE_3D
+ERROR:root:Traceback (most recent call last):
+  File "../tests/image/TEXTURE_3D.py", line 97, in testSquare
+    self.check_cell(self.grid[i], i)
+  File "../tests/image/TEXTURE_3D.py", line 59, in check_cell
+    self.assertTrue(data == color * len(data))
+AssertionError
+
+INFO:root:6 tests run
+INFO:root:Testing image.ATLAS.
+INFO:root:Begin unit tests for image.ATLAS
+INFO:root:7 tests run
+INFO:root:Testing font.DEFAULT.
+INFO:root:Begin unit tests for font.DEFAULT
+INFO:root:1 tests run
+INFO:root:Testing font.SYSTEM.
+INFO:root:Begin unit tests for font.SYSTEM
+INFO:root:1 tests run
+INFO:root:Testing font.COLOR.
+INFO:root:Begin unit tests for font.COLOR
+INFO:root:1 tests run
+INFO:root:Testing font.COLOR_BLEND.
+INFO:root:Begin unit tests for font.COLOR_BLEND
+INFO:root:1 tests run
+INFO:root:Testing font.ADD_FONT.
+INFO:root:Begin unit tests for font.ADD_FONT
+INFO:root:1 tests run
+INFO:root:Testing font.SET_DPI.
+INFO:root:Begin unit tests for font.SET_DPI
+INFO:root:1 tests run
+INFO:root:Testing font.HALIGN.
+INFO:root:Begin unit tests for font.HALIGN
+INFO:root:1 tests run
+INFO:root:Testing font.VALIGN.
+INFO:root:Begin unit tests for font.VALIGN
+INFO:root:1 tests run
+INFO:root:Testing font.ALIGN_MULTILINE.
+INFO:root:Begin unit tests for font.ALIGN_MULTILINE
+INFO:root:1 tests run
+INFO:root:Testing font.HORIZONTAL_METRICS.
+INFO:root:Begin unit tests for font.HORIZONTAL_METRICS
+INFO:root:1 tests run
+INFO:root:Testing font.WRAP_INVARIANT.
+INFO:root:Begin unit tests for font.WRAP_INVARIANT
+ERROR:root:Failure in font.WRAP_INVARIANT
+ERROR:root:Traceback (most recent call last):
+  File "../tests/font/base_text.py", line 47, in test_main
+    self.render()
+  File "../tests/font/WRAP_INVARIANT.py", line 25, in render
+    self.label2 = font.Text(fnt, 'SPAM SPAM\nSPAM', 10, 50)
+  File "../pyglet/font/__init__.py", line 347, in __init__
+    group=self._group)
+  File "../pyglet/text/layout.py", line 774, in __init__
+    assert not multiline or width, 'Must specify width with multiline'
+AssertionError: Must specify width with multiline
+
+INFO:root:1 tests run
+INFO:root:Testing media.PLAYER_QUEUE_PLAY.
+INFO:root:Begin unit tests for media.PLAYER_QUEUE_PLAY

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.layout</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;layout
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module pyglet.text.layout</h1>
+<p>Render simple text and formatted documents efficiently.</p>
+<p>Three layout classes are provided:</p>
+<dl class="rst-docutils">
+<dt><a href="pyglet.text.layout.TextLayout-class.html" class="link">TextLayout</a></dt>
+<dd><p class="rst-first">The entire document is laid out before it is rendered.  The layout will
+be grouped with other layouts in the same batch (allowing for efficient
+rendering of multiple layouts).</p>
+<p class="rst-last">Any change to the layout or document,
+and even querying some properties, will cause the entire document
+to be laid out again.</p>
+</dd>
+<dt><a href="pyglet.text.layout.ScrollableTextLayout-class.html" class="link">ScrollableTextLayout</a></dt>
+<dd><p class="rst-first">Based on <a href="pyglet.text.layout.TextLayout-class.html" class="link">TextLayout</a>.</p>
+<p class="rst-last">A separate group is used for layout which crops the contents of the
+layout to the layout rectangle.  Additionally, the contents of the
+layout can be &quot;scrolled&quot; within that rectangle with the <tt class="rst-docutils literal">view_x</tt> and
+<tt class="rst-docutils literal">view_y</tt> properties.</p>
+</dd>
+<dt><a href="pyglet.text.layout.IncrementalTextLayout-class.html" class="link">IncrementalTextLayout</a></dt>
+<dd><p class="rst-first">Based on <a href="pyglet.text.layout.ScrollableTextLayout-class.html" class="link">ScrollableTextLayout</a>.</p>
+<p>When the layout or document are modified, only the affected regions
+are laid out again.  This permits efficient interactive editing and
+styling of text.</p>
+<p>Only the visible portion of the layout is actually rendered; as the
+viewport is scrolled additional sections are rendered and discarded as
+required.  This permits efficient viewing and editing of large documents.</p>
+<p class="rst-last">Additionally, this class provides methods for locating the position of a
+caret in the document, and for displaying interactive text selections.</p>
+</dd>
+</dl>
+<p>All three layout classes can be used with either <a href="pyglet.text.document.UnformattedDocument-class.html" class="link">UnformattedDocument</a> or
+<a href="pyglet.text.document.FormattedDocument-class.html" class="link">FormattedDocument</a>, and can be either single-line or <tt class="rst-docutils literal">multiline</tt>.  The
+combinations of these options effectively provides 12 different text display
+possibilities.</p>
+<div class="rst-section" id="rst-style-attributes">
+<h1 class="heading">Style attributes</h1>
+<p>The following character style attribute names are recognised by the layout
+classes.  Data types and units are as specified.</p>
+<p>Where an attribute is marked &quot;as a distance&quot; the value is assumed to be
+in pixels if given as an int or float, otherwise a string of the form
+<tt class="rst-docutils literal">&quot;0u&quot;</tt> is required, where <tt class="rst-docutils literal">0</tt> is the distance and <tt class="rst-docutils literal">u</tt> is the unit; one
+of <tt class="rst-docutils literal">&quot;px&quot;</tt> (pixels), <tt class="rst-docutils literal">&quot;pt&quot;</tt> (points), <tt class="rst-docutils literal">&quot;pc&quot;</tt> (picas), <tt class="rst-docutils literal">&quot;cm&quot;</tt>
+(centimeters), <tt class="rst-docutils literal">&quot;mm&quot;</tt> (millimeters) or <tt class="rst-docutils literal">&quot;in&quot;</tt> (inches).  For example,
+<tt class="rst-docutils literal">&quot;14pt&quot;</tt> is the distance covering 14 points, which at the default DPI of 96
+is 18 pixels.</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">font_name</tt></dt>
+<dd>Font family name, as given to pyglet.font.load.</dd>
+<dt><tt class="rst-docutils literal">font_size</tt></dt>
+<dd>Font size, in points.</dd>
+<dt><tt class="rst-docutils literal">bold</tt></dt>
+<dd>Boolean.</dd>
+<dt><tt class="rst-docutils literal">italic</tt></dt>
+<dd>Boolean.</dd>
+<dt><tt class="rst-docutils literal">underline</tt></dt>
+<dd>4-tuple of ints in range (0, 255) giving RGBA underline color, or None
+(default) for no underline.</dd>
+<dt><tt class="rst-docutils literal">kerning</tt></dt>
+<dd>Additional space to insert between glyphs, as a distance.  Defaults to 0.</dd>
+<dt><tt class="rst-docutils literal">baseline</tt></dt>
+<dd>Offset of glyph baseline from line baseline, as a distance.  Positive
+values give a superscript, negative values give a subscript.  Defaults to
+0.</dd>
+<dt><tt class="rst-docutils literal">color</tt></dt>
+<dd>4-tuple of ints in range (0, 255) giving RGBA text color</dd>
+<dt><tt class="rst-docutils literal">background_color</tt></dt>
+<dd>4-tuple of ints in range (0, 255) giving RGBA text background color; or
+<tt class="rst-docutils literal">None</tt> for no background fill.</dd>
+</dl>
+<p>The following paragraph style attribute names are recognised.  Note
+that paragraph styles are handled no differently from character styles by the
+document: it is the application's responsibility to set the style over an
+entire paragraph, otherwise results are undefined.</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">align</tt></dt>
+<dd><tt class="rst-docutils literal">left</tt> (default), <tt class="rst-docutils literal">center</tt> or <tt class="rst-docutils literal">right</tt>.</dd>
+<dt><tt class="rst-docutils literal">indent</tt></dt>
+<dd>Additional horizontal space to insert before the first glyph of the
+first line of a paragraph, as a distance.</dd>
+<dt><tt class="rst-docutils literal">leading</tt></dt>
+<dd>Additional space to insert between consecutive lines within a paragraph,
+as a distance.  Defaults to 0.</dd>
+<dt><tt class="rst-docutils literal">line_spacing</tt></dt>
+<dd>Distance between consecutive baselines in a paragraph, as a distance.
+Defaults to <tt class="rst-docutils literal">None</tt>, which automatically calculates the tightest line
+spacing for each line based on the font ascent and descent.</dd>
+<dt><tt class="rst-docutils literal">margin_left</tt></dt>
+<dd>Left paragraph margin, as a distance.</dd>
+<dt><tt class="rst-docutils literal">margin_right</tt></dt>
+<dd>Right paragraph margin, as a distance.</dd>
+<dt><tt class="rst-docutils literal">margin_top</tt></dt>
+<dd>Margin above paragraph, as a distance.</dd>
+<dt><tt class="rst-docutils literal">margin_bottom</tt></dt>
+<dd>Margin below paragraph, as a distance.  Adjacent margins do not collapse.</dd>
+<dt><tt class="rst-docutils literal">tab_stops</tt></dt>
+<dd>List of horizontal tab stops, as distances, measured from the left edge of
+the text layout.  Defaults to the empty list.  When the tab stops
+are exhausted, they implicitly continue at 50 pixel intervals.</dd>
+<dt><tt class="rst-docutils literal">wrap</tt></dt>
+<dd>Boolean.  If True (the default), text wraps within the width of the layout.</dd>
+</dl>
+<p>Other attributes can be used to store additional style information within the
+document; they will be ignored by the built-in text classes.</p>
+</div>
+
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayoutGroup-class.html" class="summary-name">TextLayoutGroup</a>
+<div class="summary-description">Top-level rendering group for <a href="pyglet.text.layout.TextLayout-class.html" class="link">TextLayout</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayoutGroup-class.html" class="summary-name">ScrollableTextLayoutGroup</a>
+<div class="summary-description">Top-level rendering group for <a href="pyglet.text.layout.ScrollableTextLayout-class.html" class="link">ScrollableTextLayout</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayoutForegroundGroup-class.html" class="summary-name">TextLayoutForegroundGroup</a>
+<div class="summary-description">Rendering group for foreground elements (glyphs) in all text layouts.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayoutForegroundDecorationGroup-class.html" class="summary-name">TextLayoutForegroundDecorationGroup</a>
+<div class="summary-description">Rendering group for decorative elements (e.g., glyph underlines) in all
+text layouts.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayoutTextureGroup-class.html" class="summary-name">TextLayoutTextureGroup</a>
+<div class="summary-description">Rendering group for a glyph texture in all text layouts.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html" class="summary-name">TextLayout</a>
+<div class="summary-description">Lay out and display documents.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html" class="summary-name">ScrollableTextLayout</a>
+<div class="summary-description">Display text in a scrollable viewport.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html" class="summary-name">IncrementalTextLayout</a>
+<div class="summary-description">Displayed text suitable for interactive editing and/or scrolling
+large documents.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.text'"><code class="variable-quote">'</code><code class="variable-string">pyglet.text</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;layout
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

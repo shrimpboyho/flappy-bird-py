@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.image.TextureGrid</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;TextureGrid
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.image.TextureGrid</h1>
+<pre class="base-tree">
+        <a href="pyglet.image.AbstractImage-class.html">AbstractImage</a> --+        
+                        |        
+                  <a href="pyglet.image.Texture-class.html">Texture</a> --+    
+                            |    
+                <a href="pyglet.image.TextureRegion-class.html">TextureRegion</a> --+
+                                |
+<a href="pyglet.image.AbstractImageSequence-class.html">AbstractImageSequence</a> --+       |
+                        |       |
+          <a href="pyglet.image.TextureSequence-class.html">TextureSequence</a> --+   |
+                            |   |
+       <a href="pyglet.image.UniformTextureSequence-class.html">UniformTextureSequence</a> --+
+                                |
+                               <strong class="uidshort">TextureGrid</strong>
+</pre>
+
+<p>A texture containing a regular grid of texture regions.</p>
+<p>To construct, create an <a href="pyglet.image.ImageGrid-class.html" class="link">ImageGrid</a> first:</p>
+<pre class="py-doctest">
+image_grid = ImageGrid(...)
+texture_grid = TextureGrid(image_grid)</pre>
+<p>The texture grid can be accessed as a single texture, or as a sequence
+of <a href="pyglet.image.TextureRegion-class.html" class="link">TextureRegion</a>.  When accessing as a sequence, you can specify
+integer indexes, in which the images are arranged in rows from the
+bottom-left to the top-right:</p>
+<pre class="py-doctest">
+<span class="py-comment"># assume the texture_grid is 3x3:</span>
+current_texture = texture_grid[3] <span class="py-comment"># get the middle-left image</span></pre>
+<p>You can also specify tuples in the sequence methods, which are addressed
+as <tt class="rst-docutils literal">row, column</tt>:</p>
+<pre class="py-doctest">
+<span class="py-comment"># equivalent to the previous example:</span>
+current_texture = texture_grid[1, 0]</pre>
+<p>When using tuples in a slice, the returned sequence is over the
+rectangular region defined by the slice:</p>
+<pre class="py-doctest">
+<span class="py-comment"># returns center, center-right, center-top, top-right images in that</span>
+<span class="py-comment"># order:</span>
+images = texture_grid[(1,1):]
+<span class="py-comment"># equivalent to</span>
+images = texture_grid[(1,1):(3,3)]</pre>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.TextureGrid-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">grid</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get"></a><span class="summary-sig-name">get</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">row</span>,
+        <span class="summary-sig-arg">column</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">AbstractImage</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.TextureGrid-class.html#__getitem__" class="summary-sig-name">__getitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">index</span>)</span>
+<div class="summary-description">Retrieve a (list of) image.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.TextureGrid-class.html#__setitem__" class="summary-sig-name">__setitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">index</span>,
+        <span class="summary-sig-arg">value</span>)</span>
+<div class="summary-description">Replace one or more images in the sequence.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.TextureGrid-class.html#__len__" class="summary-sig-name">__len__</a>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Iterator</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.TextureGrid-class.html#__iter__" class="summary-sig-name">__iter__</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Iterate over the images in sequence.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.TextureRegion-class.html#__del__" class="summary-sig-name">__del__</a>(<span class="summary-sig-arg">self</span>)</span>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.TextureRegion-class.html">pyglet.image.TextureRegion</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__repr__"></a><span class="summary-sig-name">__repr__</span>(<span class="summary-sig-arg">self</span>)</span>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImage-class.html">pyglet.image.AbstractImage</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Texture-class.html#blit" class="summary-sig-name">blit</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">z</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">width</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">height</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Draw this image to the active framebuffers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.TextureRegion-class.html#blit_into" class="summary-sig-name">blit_into</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">source</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">z</span>)</span>
+<div class="summary-description">Draw <code class="link">source</code> on this image.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.TextureRegion-class.html">pyglet.image.TextureRegion</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.AbstractImage-class.html#blit_to_texture" class="summary-sig-name">blit_to_texture</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">target</span>,
+        <span class="summary-sig-arg">level</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">z</span>=<span class="summary-sig-default">0</span>)</span>
+<div class="summary-description">Draw this image on the currently bound texture at <code class="link">target</code>.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImage-class.html">pyglet.image.AbstractImage</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Texture-class.html" class="link">Texture</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Texture-class.html#create" class="summary-sig-name">create</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>,
+        <span class="summary-sig-arg">internalformat</span>=<span class="summary-sig-default">6408</span>,
+        <span class="summary-sig-arg">rectangle</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">force_rectangle</span>=<span class="summary-sig-default">False</span>)</span>
+<div class="summary-description">Create an empty Texture.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Texture-class.html" class="link">Texture</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Texture-class.html#create_for_size" class="summary-sig-name">create_for_size</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">target</span>,
+        <span class="summary-sig-arg">min_width</span>,
+        <span class="summary-sig-arg">min_height</span>,
+        <span class="summary-sig-arg">internalformat</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Create a Texture with dimensions at least min_width, min_height.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Texture-class.html#delete" class="summary-sig-name">delete</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Delete the texture from video memory.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Animation-class.html" class="link">Animation</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.AbstractImageSequence-class.html#get_animation" class="summary-sig-name">get_animation</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">period</span>,
+        <span class="summary-sig-arg">loop</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Create an animation over this image sequence for the given constant
+framerate.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImageSequence-class.html">pyglet.image.AbstractImageSequence</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.ImageData-class.html" class="link">ImageData</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.TextureRegion-class.html#get_image_data" class="summary-sig-name">get_image_data</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the image data of this texture.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.TextureRegion-class.html">pyglet.image.TextureRegion</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Texture-class.html" class="link">Texture</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.AbstractImage-class.html#get_mipmapped_texture" class="summary-sig-name">get_mipmapped_texture</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Retrieve a <a href="pyglet.image.Texture-class.html" class="link">Texture</a> instance with all mipmap levels filled in.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImage-class.html">pyglet.image.AbstractImage</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">AbstractImage</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.TextureRegion-class.html#get_region" class="summary-sig-name">get_region</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>)</span>
+<div class="summary-description">Retrieve a rectangular region of this image.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.TextureRegion-class.html">pyglet.image.TextureRegion</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Texture-class.html" class="link">Texture</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Texture-class.html#get_texture" class="summary-sig-name">get_texture</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">rectangle</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">force_rectangle</span>=<span class="summary-sig-default">False</span>)</span>
+<div class="summary-description">A <a href="pyglet.image.Texture-class.html" class="link">Texture</a> view of this image.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.TextureSequence-class.html" class="link">TextureSequence</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.TextureSequence-class.html#get_texture_sequence" class="summary-sig-name">get_texture_sequence</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get a TextureSequence.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.TextureSequence-class.html">pyglet.image.TextureSequence</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.TextureRegion-class.html" class="link">TextureRegion</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.Texture-class.html#get_transform" class="summary-sig-name">get_transform</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">flip_x</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">flip_y</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">rotate</span>=<span class="summary-sig-default">0</span>)</span>
+<div class="summary-description">Create a copy of this image applying a simple transformation.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.AbstractImage-class.html#save" class="summary-sig-name">save</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">filename</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">file</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">encoder</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Save this image to a file.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImage-class.html">pyglet.image.AbstractImage</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.ImageData-class.html" class="link">ImageData</a></span>
+    </td><td class="summary">
+        <a href="pyglet.image.Texture-class.html#image_data" class="summary-name">image_data</a>
+<div class="summary-description">An ImageData view of this texture.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Texture-class.html" class="link">Texture</a></span>
+    </td><td class="summary">
+        <a href="pyglet.image.AbstractImage-class.html#mipmapped_texture" class="summary-name">mipmapped_texture</a>
+<div class="summary-description">A Texture view of this image.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImage-class.html">pyglet.image.AbstractImage</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Texture-class.html" class="link">Texture</a></span>
+    </td><td class="summary">
+        <a href="pyglet.image.AbstractImage-class.html#texture" class="summary-name">texture</a>
+<div class="summary-description">Get a <a href="pyglet.image.Texture-class.html" class="link">Texture</a> view of this image.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImage-class.html">pyglet.image.AbstractImage</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.TextureSequence-class.html" class="link">TextureSequence</a></span>
+    </td><td class="summary">
+        <a href="pyglet.image.AbstractImageSequence-class.html#texture_sequence" class="summary-name">texture_sequence</a>
+<div class="summary-description">Access this image sequence as a texture sequence.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImageSequence-class.html">pyglet.image.AbstractImageSequence</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="anchor_x"></a><span class="summary-name">anchor_x</span> = <code title="0">0</code>
+<div class="summary-description">X coordinate of anchor, relative to left edge of image data</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImage-class.html">pyglet.image.AbstractImage</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="anchor_y"></a><span class="summary-name">anchor_y</span> = <code title="0">0</code>
+<div class="summary-description">Y coordinate of anchor, relative to bottom edge of image data</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImage-class.html">pyglet.image.AbstractImage</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="height"></a><span class="summary-name">height</span>
+<div class="summary-description">Height of image</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImage-class.html">pyglet.image.AbstractImage</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="level"></a><span class="summary-name">level</span> = <code title="0">0</code>
+<div class="summary-description">The mipmap level of this texture.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">class (subclass of TextureRegion)</span>
+    </td><td class="summary">
+        <a href="pyglet.image.TextureRegion-class.html" class="summary-name">region_class</a>
+<div class="summary-description">Class to use when constructing regions of this texture.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="target"></a><span class="summary-name">target</span>
+<div class="summary-description">The GL texture target (e.g., <tt class="rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">GL_TEXTURE_2D</tt>).</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">tuple</span>
+    </td><td class="summary">
+        <a href="pyglet.image.Texture-class.html#tex_coords" class="summary-name">tex_coords</a> = <code title="(0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0)"><code class="variable-group">(</code>0.0<code class="variable-op">, </code>0.0<code class="variable-op">, </code>0.0<code class="variable-op">, </code>1.0<code class="variable-op">, </code>0.0<code class="variable-op">, </code>0.0<code class="variable-op">, </code>1.0<code class="variable-op">, </code>1.0<code class="variable-op">, </code>0.0<code class="variable-op">, </code>0.0<code class="variable-ellipsis">...</code></code>
+<div class="summary-description">12-tuple of float, named (u1, v1, r1, u2, v2, r2, ...).</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="width"></a><span class="summary-name">width</span>
+<div class="summary-description">Width of image</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.AbstractImage-class.html">pyglet.image.AbstractImage</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="items"></a><span class="summary-name">items</span> = <code title="()"><code class="variable-group">(</code><code class="variable-group">)</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="rows"></a><span class="summary-name">rows</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="columns"></a><span class="summary-name">columns</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="item_width"></a><span class="summary-name">item_width</span> = <code title="0">0</code>
+<div class="summary-description">Width of each texture in the sequence.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="item_height"></a><span class="summary-name">item_height</span> = <code title="0">0</code>
+<div class="summary-description">Height of each texture in the sequence.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="images"></a><span class="summary-name">images</span> = <code title="1">1</code>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="tex_coords_order"></a><span class="summary-name">tex_coords_order</span> = <code title="(0, 1, 2, 3)"><code class="variable-group">(</code>0<code class="variable-op">, </code>1<code class="variable-op">, </code>2<code class="variable-op">, </code>3<code class="variable-group">)</code></code>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="x"></a><span class="summary-name">x</span> = <code title="0">0</code>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="y"></a><span class="summary-name">y</span> = <code title="0">0</code>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="z"></a><span class="summary-name">z</span> = <code title="0">0</code>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.image.Texture-class.html">pyglet.image.Texture</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">grid</span>)</span>
+    </div>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.image.TextureRegion-class.html#__init__">TextureRegion.__init__</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="__getitem__"></a>
+<div class=" detail">
+  <h3>__getitem__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Indexing operator)</span>
+    <span class="sig"><span class="sig-name">__getitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">index</span>)</span>
+    </div>
+  <div class="detail-description">
+  Retrieve a (list of) image.
+  <dl class="fields">
+    <dt>Returns: AbstractImage</dt>
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.image.AbstractImageSequence-class.html#__getitem__">AbstractImageSequence.__getitem__</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="__setitem__"></a>
+<div class=" detail">
+  <h3>__setitem__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Index assignment operator)</span>
+    <span class="sig"><span class="sig-name">__setitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">index</span>,
+        <span class="sig-arg">value</span>)</span>
+    </div>
+  <div class="detail-description">
+  Replace one or more images in the sequence.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.image.AbstractImageSequence-class.html#__setitem__">AbstractImageSequence.__setitem__</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="__len__"></a>
+<div class=" detail">
+  <h3>__len__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Length operator)</span>
+    <span class="sig"><span class="sig-name">__len__</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.image.AbstractImageSequence-class.html#__len__">AbstractImageSequence.__len__</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="__iter__"></a>
+<div class=" detail">
+  <h3>__iter__</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">__iter__</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Iterate over the images in sequence.
+  <dl class="fields">
+    <dt>Returns: Iterator</dt>
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.image.AbstractImageSequence-class.html#__iter__">AbstractImageSequence.__iter__</a>
+    </dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div>  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;TextureGrid
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.formats.structured.ListBuilder</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.formats-module.html">formats</a>&nbsp;.&nbsp;<a href="pyglet.text.formats.structured-module.html">structured</a>&nbsp;.&nbsp;ListBuilder
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.formats.structured.ListBuilder</h1>
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.text.formats.structured.OrderedListBuilder-class.html">OrderedListBuilder</a>,
+    <a href="pyglet.text.formats.structured.UnorderedListBuilder-class.html">UnorderedListBuilder</a>
+</dd></dl>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.structured.ListBuilder-class.html#begin" class="summary-sig-name">begin</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">decoder</span>,
+        <span class="summary-sig-arg">style</span>)</span>
+<div class="summary-description">Begin a list.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.structured.ListBuilder-class.html#item" class="summary-sig-name">item</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">decoder</span>,
+        <span class="summary-sig-arg">style</span>,
+        <span class="summary-sig-arg">value</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Begin a list item.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.formats.structured.ListBuilder-class.html#get_mark" class="summary-sig-name">get_mark</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Get the mark text for the next list item.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="begin"></a>
+<div class=" detail">
+  <h3>begin</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">begin</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">decoder</span>,
+        <span class="sig-arg">style</span>)</span>
+    </div>
+  <div class="detail-description">
+  Begin a list.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">decoder</span> : <span class='ptype'><a href="pyglet.text.formats.structured.StructuredTextDecoder-class.html" class="link">StructuredTextDecoder</a></span></dt>
+        <dd>Decoder.</dd>
+        <dt><span class="pname">style</span> : <span class='ptype'>dict</span></dt>
+        <dd>Style dictionary that applies over the entire list.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="item"></a>
+<div class=" detail">
+  <h3>item</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">item</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">decoder</span>,
+        <span class="sig-arg">style</span>,
+        <span class="sig-arg">value</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Begin a list item.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">decoder</span> : <span class='ptype'><a href="pyglet.text.formats.structured.StructuredTextDecoder-class.html" class="link">StructuredTextDecoder</a></span></dt>
+        <dd>Decoder.</dd>
+        <dt><span class="pname">style</span> : <span class='ptype'>dict</span></dt>
+        <dd>Style dictionary that applies over the list item.</dd>
+        <dt><span class="pname">value</span> : <span class='ptype'>str</span></dt>
+        <dd>Optional value of the list item.  The meaning is list-type
+dependent.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="get_mark"></a>
+<div class=" detail">
+  <h3>get_mark</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_mark</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">value</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the mark text for the next list item.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">value</span> : <span class='ptype'>str</span></dt>
+        <dd>Optional value of the list item.  The meaning is list-type
+dependent.</dd>
+    </dl></dd>
+    <dt>Returns: str</dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.formats-module.html">formats</a>&nbsp;.&nbsp;<a href="pyglet.text.formats.structured-module.html">structured</a>&nbsp;.&nbsp;ListBuilder
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

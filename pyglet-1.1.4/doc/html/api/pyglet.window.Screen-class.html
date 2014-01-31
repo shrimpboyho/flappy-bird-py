@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.window.Screen</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.window-module.html">window</a>&nbsp;.&nbsp;Screen
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.window.Screen</h1>
+<p>A virtual monitor that supports fullscreen windows.</p>
+<p>Screens typically map onto a physical display such as a
+monitor, television or projector.  Selecting a screen for a window
+has no effect unless the window is made fullscreen, in which case
+the window will fill only that particular virtual screen.</p>
+<p>The <a href="pyglet.window.Screen-class.html#width" class="link">width</a> and <a href="pyglet.window.Screen-class.html#height" class="link">height</a> attributes of a screen give the current
+resolution of the screen.  The <a href="pyglet.window.Screen-class.html#x" class="link">x</a> and <a href="pyglet.window.Screen-class.html#y" class="link">y</a> attributes give the global
+location of the top-left corner of the screen.  This is useful for
+determining if screens arranged above or next to one another.</p>
+<p>You cannot always rely on the origin to give the placement of monitors.
+For example, an X server with two displays without Xinerama enabled
+will present two logically separate screens with no relation to each
+other.</p>
+<p>Use <a href="pyglet.window.Display-class.html#get_screens" class="link">Display.get_screens</a> or <a href="pyglet.window.Display-class.html#get_default_screen" class="link">Display.get_default_screen</a> to obtain an
+instance of this class.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__repr__"></a><span class="summary-sig-name">__repr__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.gl.Config-class.html" class="link">pyglet.gl.Config</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Screen-class.html#get_best_config" class="summary-sig-name">get_best_config</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">template</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Get the best available GL config.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of <a href="pyglet.gl.Config-class.html" class="link">pyglet.gl.Config</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Screen-class.html#get_matching_configs" class="summary-sig-name">get_matching_configs</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">template</span>)</span>
+<div class="summary-description">Get a list of configs that match a specification.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="height"></a><span class="summary-name">height</span>
+<div class="summary-description">Height of the screen, in pixels.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="width"></a><span class="summary-name">width</span>
+<div class="summary-description">Width of the screen, in pixels.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="x"></a><span class="summary-name">x</span>
+<div class="summary-description">Left edge of the screen on the virtual desktop.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="y"></a><span class="summary-name">y</span>
+<div class="summary-description">Top edge of the screen on the virtual desktop.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="get_best_config"></a>
+<div class=" detail">
+  <h3>get_best_config</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_best_config</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">template</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the best available GL config.</p>
+<p>Any required attributes can be specified in <code class="link">template</code>.  If
+no configuration matches the template, <a href="pyglet.window.NoSuchConfigException-class.html" class="link">NoSuchConfigException</a> will
+be raised.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">template</span> : <span class='ptype'><a href="pyglet.gl.Config-class.html" class="link">pyglet.gl.Config</a></span></dt>
+        <dd>A configuration with desired attributes filled in.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype"><a href="pyglet.gl.Config-class.html" class="link">pyglet.gl.Config</a></span>: A configuration supported by the platform that best
+fulfils the needs described by the template.</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_matching_configs"></a>
+<div class=" detail">
+  <h3>get_matching_configs</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_matching_configs</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">template</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a list of configs that match a specification.</p>
+<p>Any attributes specified in <code class="link">template</code> will have values equal
+to or greater in each returned config.  If no configs satisfy
+the template, an empty list is returned.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">template</span> : <span class='ptype'><a href="pyglet.gl.Config-class.html" class="link">pyglet.gl.Config</a></span></dt>
+        <dd>A configuration with desired attributes filled in.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">list of <a href="pyglet.gl.Config-class.html" class="link">pyglet.gl.Config</a></span>: A list of matching configs.</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.window-module.html">window</a>&nbsp;.&nbsp;Screen
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:20 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

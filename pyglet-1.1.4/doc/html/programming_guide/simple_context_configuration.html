@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Simple context configuration</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="opengl_configuration_options.html" title="OpenGL configuration options">OpenGL configuration options</a></span><span class="next">Next: <a class="reference" href="selecting_the_best_configuration.html" title="Selecting the best configuration">Selecting the ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="creating_an_opengl_context.html" title="Creating an OpenGL context">Creating an ...</a> » Simple context configuration</span></div>
+<h1 class="title">Simple context configuration</h1>
+
+<p>A context can only be created from a config that was provided by the system.
+Enumerating and comparing the attributes of all the possible configs is
+a complicated process, so pyglet provides a simpler interface based on
+&quot;template&quot; configs.</p>
+<p>To get the config with the attributes you need, construct a <a class="reference apilink" href="../api/pyglet.gl.Config-class.html " title="pyglet.gl.Config">Config</a> and set
+only the attributes you are interested in. You can then supply this config to
+the <a class="reference apilink" href="../api/pyglet.window.Window-class.html " title="pyglet.window.Window">Window</a> constructor to create the context.</p>
+<p>For example, to create a window with an alpha channel:</p>
+<pre class="py-doctest">
+config = pyglet.gl.Config(alpha_size=8)
+window = pyglet.window.Window(config=config)</pre>
+<p>It is sometimes necessary to create the context yourself, rather than letting
+the <cite>Window</cite> constructor do this for you.  In this case use
+<a class="reference apilink" href="../api/pyglet.window.Screen-class.html#get_best_config " title="pyglet.window.Screen.get_best_config">Screen.get_best_config</a> to obtain a &quot;complete&quot; config, which you can then use
+to create the context:</p>
+<pre class="py-doctest">
+platform = pyglet.window.get_platform()
+display = platform.get_default_display()
+screen = display.get_default_screen()
+
+template = pyglet.gl.Config(alpha_size=8)
+config = screen.get_best_config(template)
+context = config.create_context(None)
+window = pyglet.window.Window(context=context)</pre>
+<p>Note that you cannot create a context directly from a template (any <cite>Config</cite>
+you constructed yourself).  The <cite>Window</cite> constructor performs a similar
+process to the above to create the context if a template config is given.</p>
+<p>Not all configs will be possible on all machines.  The call to
+<cite>get_best_config</cite> will raise <a class="reference apilink" href="../api/pyglet.window.NoSuchConfigException-class.html " title="pyglet.window.NoSuchConfigException">NoSuchConfigException</a> if the hardware does not
+support the requested attributes.  It will never return a config that does not
+meet or exceed the attributes you specify in the template.</p>
+<p>You can use this to support newer hardware features where available, but also
+accept a lesser config if necessary.  For example, the following code creates
+a window with multisampling if possible, otherwise leaves multisampling off:</p>
+<pre class="py-doctest">
+template = gl.Config(sample_buffers=1, samples=4)
+<span class="py-keyword">try</span>:
+    config = screen.get_best_config(template)
+<span class="py-keyword">except</span> pyglet.window.NoSuchConfigException:
+    template = gl.Config()
+    config = screen.get_best_config(template)
+window = pyglet.window.Window(config=config)</pre>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="opengl_configuration_options.html" title="OpenGL configuration options">OpenGL configuration options</a></span><span class="next">Next: <a class="reference" href="selecting_the_best_configuration.html" title="Selecting the best configuration">Selecting the ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="creating_an_opengl_context.html" title="Creating an OpenGL context">Creating an ...</a> » Simple context configuration</span></div>
+</div>
+</body>
+</html>

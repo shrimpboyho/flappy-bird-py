@@ -1,0 +1,1580 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.window.key</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.window-module.html">window</a>&nbsp;.&nbsp;key
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module pyglet.window.key</h1>
+<p>Key constants and utilities for pyglet.window.</p>
+<p>Usage:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.window <span class="py-keyword">import</span> Window
+<span class="py-keyword">from</span> pyglet.window <span class="py-keyword">import</span> key
+
+window = Window()
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_key_press</span>(symbol, modifiers):
+    <span class="py-comment"># Symbolic names:</span>
+    <span class="py-keyword">if</span> symbol == key.RETURN:
+
+    <span class="py-comment"># Alphabet keys:</span>
+    <span class="py-keyword">elif</span> symbol == key.Z:
+
+    <span class="py-comment"># Number keys:</span>
+    <span class="py-keyword">elif</span> symbol == key._1:
+
+    <span class="py-comment"># Number keypad keys:</span>
+    <span class="py-keyword">elif</span> symbol == key.NUM_1:
+
+    <span class="py-comment"># Modifiers:</span>
+    <span class="py-keyword">if</span> modifiers &amp; key.MOD_CTRL:</pre>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.key.KeyStateHandler-class.html" class="summary-name">KeyStateHandler</a>
+<div class="summary-description">Simple handler that tracks the state of keys on the keyboard.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.key-module.html#modifiers_string" class="summary-sig-name">modifiers_string</a>(<span class="summary-sig-arg">modifiers</span>)</span>
+<div class="summary-description">Return a string describing a set of modifiers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.key-module.html#symbol_string" class="summary-sig-name">symbol_string</a>(<span class="summary-sig-arg">symbol</span>)</span>
+<div class="summary-description">Return a string describing a key symbol.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.key-module.html#motion_string" class="summary-sig-name">motion_string</a>(<span class="summary-sig-arg">motion</span>)</span>
+<div class="summary-description">Return a string describing a text motion.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.key-module.html#user_key" class="summary-sig-name">user_key</a>(<span class="summary-sig-arg">scancode</span>)</span>
+<div class="summary-description">Return a key symbol for a key not supported by pyglet.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CONSTANTS ==================== -->
+<a name="section-Constants"></a>
+        <h2>Constants</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOD_SHIFT"></a><span class="summary-name">MOD_SHIFT</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOD_CTRL"></a><span class="summary-name">MOD_CTRL</span> = <code title="2">2</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOD_ALT"></a><span class="summary-name">MOD_ALT</span> = <code title="4">4</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOD_CAPSLOCK"></a><span class="summary-name">MOD_CAPSLOCK</span> = <code title="8">8</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOD_NUMLOCK"></a><span class="summary-name">MOD_NUMLOCK</span> = <code title="16">16</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOD_WINDOWS"></a><span class="summary-name">MOD_WINDOWS</span> = <code title="32">32</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOD_COMMAND"></a><span class="summary-name">MOD_COMMAND</span> = <code title="64">64</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOD_OPTION"></a><span class="summary-name">MOD_OPTION</span> = <code title="128">128</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOD_SCROLLLOCK"></a><span class="summary-name">MOD_SCROLLLOCK</span> = <code title="256">256</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOD_ACCEL"></a><span class="summary-name">MOD_ACCEL</span> = <code title="2">2</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BACKSPACE"></a><span class="summary-name">BACKSPACE</span> = <code title="65288">65288</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TAB"></a><span class="summary-name">TAB</span> = <code title="65289">65289</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LINEFEED"></a><span class="summary-name">LINEFEED</span> = <code title="65290">65290</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CLEAR"></a><span class="summary-name">CLEAR</span> = <code title="65291">65291</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RETURN"></a><span class="summary-name">RETURN</span> = <code title="65293">65293</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ENTER"></a><span class="summary-name">ENTER</span> = <code title="65293">65293</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PAUSE"></a><span class="summary-name">PAUSE</span> = <code title="65299">65299</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SCROLLLOCK"></a><span class="summary-name">SCROLLLOCK</span> = <code title="65300">65300</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SYSREQ"></a><span class="summary-name">SYSREQ</span> = <code title="65301">65301</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ESCAPE"></a><span class="summary-name">ESCAPE</span> = <code title="65307">65307</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="HOME"></a><span class="summary-name">HOME</span> = <code title="65360">65360</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LEFT"></a><span class="summary-name">LEFT</span> = <code title="65361">65361</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="UP"></a><span class="summary-name">UP</span> = <code title="65362">65362</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RIGHT"></a><span class="summary-name">RIGHT</span> = <code title="65363">65363</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DOWN"></a><span class="summary-name">DOWN</span> = <code title="65364">65364</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PAGEUP"></a><span class="summary-name">PAGEUP</span> = <code title="65365">65365</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PAGEDOWN"></a><span class="summary-name">PAGEDOWN</span> = <code title="65366">65366</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="END"></a><span class="summary-name">END</span> = <code title="65367">65367</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BEGIN"></a><span class="summary-name">BEGIN</span> = <code title="65368">65368</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DELETE"></a><span class="summary-name">DELETE</span> = <code title="65535">65535</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SELECT"></a><span class="summary-name">SELECT</span> = <code title="65376">65376</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PRINT"></a><span class="summary-name">PRINT</span> = <code title="65377">65377</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EXECUTE"></a><span class="summary-name">EXECUTE</span> = <code title="65378">65378</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="INSERT"></a><span class="summary-name">INSERT</span> = <code title="65379">65379</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="UNDO"></a><span class="summary-name">UNDO</span> = <code title="65381">65381</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="REDO"></a><span class="summary-name">REDO</span> = <code title="65382">65382</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MENU"></a><span class="summary-name">MENU</span> = <code title="65383">65383</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="FIND"></a><span class="summary-name">FIND</span> = <code title="65384">65384</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CANCEL"></a><span class="summary-name">CANCEL</span> = <code title="65385">65385</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="HELP"></a><span class="summary-name">HELP</span> = <code title="65386">65386</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BREAK"></a><span class="summary-name">BREAK</span> = <code title="65387">65387</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MODESWITCH"></a><span class="summary-name">MODESWITCH</span> = <code title="65406">65406</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SCRIPTSWITCH"></a><span class="summary-name">SCRIPTSWITCH</span> = <code title="65406">65406</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_UP"></a><span class="summary-name">MOTION_UP</span> = <code title="65362">65362</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_RIGHT"></a><span class="summary-name">MOTION_RIGHT</span> = <code title="65363">65363</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_DOWN"></a><span class="summary-name">MOTION_DOWN</span> = <code title="65364">65364</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_LEFT"></a><span class="summary-name">MOTION_LEFT</span> = <code title="65361">65361</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_NEXT_WORD"></a><span class="summary-name">MOTION_NEXT_WORD</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_PREVIOUS_WORD"></a><span class="summary-name">MOTION_PREVIOUS_WORD</span> = <code title="2">2</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_BEGINNING_OF_LINE"></a><span class="summary-name">MOTION_BEGINNING_OF_LINE</span> = <code title="3">3</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_END_OF_LINE"></a><span class="summary-name">MOTION_END_OF_LINE</span> = <code title="4">4</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_NEXT_PAGE"></a><span class="summary-name">MOTION_NEXT_PAGE</span> = <code title="65366">65366</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_PREVIOUS_PAGE"></a><span class="summary-name">MOTION_PREVIOUS_PAGE</span> = <code title="65365">65365</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_BEGINNING_OF_FILE"></a><span class="summary-name">MOTION_BEGINNING_OF_FILE</span> = <code title="5">5</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_END_OF_FILE"></a><span class="summary-name">MOTION_END_OF_FILE</span> = <code title="6">6</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_BACKSPACE"></a><span class="summary-name">MOTION_BACKSPACE</span> = <code title="65288">65288</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MOTION_DELETE"></a><span class="summary-name">MOTION_DELETE</span> = <code title="65535">65535</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUMLOCK"></a><span class="summary-name">NUMLOCK</span> = <code title="65407">65407</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_SPACE"></a><span class="summary-name">NUM_SPACE</span> = <code title="65408">65408</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_TAB"></a><span class="summary-name">NUM_TAB</span> = <code title="65417">65417</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_ENTER"></a><span class="summary-name">NUM_ENTER</span> = <code title="65421">65421</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_F1"></a><span class="summary-name">NUM_F1</span> = <code title="65425">65425</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_F2"></a><span class="summary-name">NUM_F2</span> = <code title="65426">65426</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_F3"></a><span class="summary-name">NUM_F3</span> = <code title="65427">65427</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_F4"></a><span class="summary-name">NUM_F4</span> = <code title="65428">65428</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_HOME"></a><span class="summary-name">NUM_HOME</span> = <code title="65429">65429</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_LEFT"></a><span class="summary-name">NUM_LEFT</span> = <code title="65430">65430</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_UP"></a><span class="summary-name">NUM_UP</span> = <code title="65431">65431</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_RIGHT"></a><span class="summary-name">NUM_RIGHT</span> = <code title="65432">65432</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_DOWN"></a><span class="summary-name">NUM_DOWN</span> = <code title="65433">65433</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_PRIOR"></a><span class="summary-name">NUM_PRIOR</span> = <code title="65434">65434</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_PAGE_UP"></a><span class="summary-name">NUM_PAGE_UP</span> = <code title="65434">65434</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_NEXT"></a><span class="summary-name">NUM_NEXT</span> = <code title="65435">65435</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_PAGE_DOWN"></a><span class="summary-name">NUM_PAGE_DOWN</span> = <code title="65435">65435</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_END"></a><span class="summary-name">NUM_END</span> = <code title="65436">65436</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_BEGIN"></a><span class="summary-name">NUM_BEGIN</span> = <code title="65437">65437</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_INSERT"></a><span class="summary-name">NUM_INSERT</span> = <code title="65438">65438</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_DELETE"></a><span class="summary-name">NUM_DELETE</span> = <code title="65439">65439</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_EQUAL"></a><span class="summary-name">NUM_EQUAL</span> = <code title="65469">65469</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_MULTIPLY"></a><span class="summary-name">NUM_MULTIPLY</span> = <code title="65450">65450</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_ADD"></a><span class="summary-name">NUM_ADD</span> = <code title="65451">65451</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_SEPARATOR"></a><span class="summary-name">NUM_SEPARATOR</span> = <code title="65452">65452</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_SUBTRACT"></a><span class="summary-name">NUM_SUBTRACT</span> = <code title="65453">65453</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_DECIMAL"></a><span class="summary-name">NUM_DECIMAL</span> = <code title="65454">65454</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_DIVIDE"></a><span class="summary-name">NUM_DIVIDE</span> = <code title="65455">65455</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_0"></a><span class="summary-name">NUM_0</span> = <code title="65456">65456</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_1"></a><span class="summary-name">NUM_1</span> = <code title="65457">65457</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_2"></a><span class="summary-name">NUM_2</span> = <code title="65458">65458</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_3"></a><span class="summary-name">NUM_3</span> = <code title="65459">65459</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_4"></a><span class="summary-name">NUM_4</span> = <code title="65460">65460</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_5"></a><span class="summary-name">NUM_5</span> = <code title="65461">65461</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_6"></a><span class="summary-name">NUM_6</span> = <code title="65462">65462</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_7"></a><span class="summary-name">NUM_7</span> = <code title="65463">65463</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_8"></a><span class="summary-name">NUM_8</span> = <code title="65464">65464</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_9"></a><span class="summary-name">NUM_9</span> = <code title="65465">65465</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F1"></a><span class="summary-name">F1</span> = <code title="65470">65470</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F2"></a><span class="summary-name">F2</span> = <code title="65471">65471</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F3"></a><span class="summary-name">F3</span> = <code title="65472">65472</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F4"></a><span class="summary-name">F4</span> = <code title="65473">65473</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F5"></a><span class="summary-name">F5</span> = <code title="65474">65474</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F6"></a><span class="summary-name">F6</span> = <code title="65475">65475</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F7"></a><span class="summary-name">F7</span> = <code title="65476">65476</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F8"></a><span class="summary-name">F8</span> = <code title="65477">65477</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F9"></a><span class="summary-name">F9</span> = <code title="65478">65478</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F10"></a><span class="summary-name">F10</span> = <code title="65479">65479</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F11"></a><span class="summary-name">F11</span> = <code title="65480">65480</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F12"></a><span class="summary-name">F12</span> = <code title="65481">65481</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F13"></a><span class="summary-name">F13</span> = <code title="65482">65482</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F14"></a><span class="summary-name">F14</span> = <code title="65483">65483</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F15"></a><span class="summary-name">F15</span> = <code title="65484">65484</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F16"></a><span class="summary-name">F16</span> = <code title="65485">65485</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LSHIFT"></a><span class="summary-name">LSHIFT</span> = <code title="65505">65505</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RSHIFT"></a><span class="summary-name">RSHIFT</span> = <code title="65506">65506</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LCTRL"></a><span class="summary-name">LCTRL</span> = <code title="65507">65507</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RCTRL"></a><span class="summary-name">RCTRL</span> = <code title="65508">65508</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CAPSLOCK"></a><span class="summary-name">CAPSLOCK</span> = <code title="65509">65509</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LMETA"></a><span class="summary-name">LMETA</span> = <code title="65511">65511</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RMETA"></a><span class="summary-name">RMETA</span> = <code title="65512">65512</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LALT"></a><span class="summary-name">LALT</span> = <code title="65513">65513</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RALT"></a><span class="summary-name">RALT</span> = <code title="65514">65514</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LWINDOWS"></a><span class="summary-name">LWINDOWS</span> = <code title="65515">65515</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RWINDOWS"></a><span class="summary-name">RWINDOWS</span> = <code title="65516">65516</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LCOMMAND"></a><span class="summary-name">LCOMMAND</span> = <code title="65517">65517</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RCOMMAND"></a><span class="summary-name">RCOMMAND</span> = <code title="65518">65518</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LOPTION"></a><span class="summary-name">LOPTION</span> = <code title="65488">65488</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ROPTION"></a><span class="summary-name">ROPTION</span> = <code title="65489">65489</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SPACE"></a><span class="summary-name">SPACE</span> = <code title="32">32</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EXCLAMATION"></a><span class="summary-name">EXCLAMATION</span> = <code title="33">33</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DOUBLEQUOTE"></a><span class="summary-name">DOUBLEQUOTE</span> = <code title="34">34</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="HASH"></a><span class="summary-name">HASH</span> = <code title="35">35</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="POUND"></a><span class="summary-name">POUND</span> = <code title="35">35</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DOLLAR"></a><span class="summary-name">DOLLAR</span> = <code title="36">36</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PERCENT"></a><span class="summary-name">PERCENT</span> = <code title="37">37</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="AMPERSAND"></a><span class="summary-name">AMPERSAND</span> = <code title="38">38</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="APOSTROPHE"></a><span class="summary-name">APOSTROPHE</span> = <code title="39">39</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PARENLEFT"></a><span class="summary-name">PARENLEFT</span> = <code title="40">40</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PARENRIGHT"></a><span class="summary-name">PARENRIGHT</span> = <code title="41">41</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ASTERISK"></a><span class="summary-name">ASTERISK</span> = <code title="42">42</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PLUS"></a><span class="summary-name">PLUS</span> = <code title="43">43</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="COMMA"></a><span class="summary-name">COMMA</span> = <code title="44">44</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="MINUS"></a><span class="summary-name">MINUS</span> = <code title="45">45</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PERIOD"></a><span class="summary-name">PERIOD</span> = <code title="46">46</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SLASH"></a><span class="summary-name">SLASH</span> = <code title="47">47</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="COLON"></a><span class="summary-name">COLON</span> = <code title="58">58</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SEMICOLON"></a><span class="summary-name">SEMICOLON</span> = <code title="59">59</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LESS"></a><span class="summary-name">LESS</span> = <code title="60">60</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EQUAL"></a><span class="summary-name">EQUAL</span> = <code title="61">61</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="GREATER"></a><span class="summary-name">GREATER</span> = <code title="62">62</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="QUESTION"></a><span class="summary-name">QUESTION</span> = <code title="63">63</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="AT"></a><span class="summary-name">AT</span> = <code title="64">64</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BRACKETLEFT"></a><span class="summary-name">BRACKETLEFT</span> = <code title="91">91</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BACKSLASH"></a><span class="summary-name">BACKSLASH</span> = <code title="92">92</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BRACKETRIGHT"></a><span class="summary-name">BRACKETRIGHT</span> = <code title="93">93</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ASCIICIRCUM"></a><span class="summary-name">ASCIICIRCUM</span> = <code title="94">94</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="UNDERSCORE"></a><span class="summary-name">UNDERSCORE</span> = <code title="95">95</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="GRAVE"></a><span class="summary-name">GRAVE</span> = <code title="96">96</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="QUOTELEFT"></a><span class="summary-name">QUOTELEFT</span> = <code title="96">96</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="A"></a><span class="summary-name">A</span> = <code title="97">97</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="B"></a><span class="summary-name">B</span> = <code title="98">98</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="C"></a><span class="summary-name">C</span> = <code title="99">99</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="D"></a><span class="summary-name">D</span> = <code title="100">100</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="E"></a><span class="summary-name">E</span> = <code title="101">101</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="F"></a><span class="summary-name">F</span> = <code title="102">102</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="G"></a><span class="summary-name">G</span> = <code title="103">103</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="H"></a><span class="summary-name">H</span> = <code title="104">104</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="I"></a><span class="summary-name">I</span> = <code title="105">105</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="J"></a><span class="summary-name">J</span> = <code title="106">106</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="K"></a><span class="summary-name">K</span> = <code title="107">107</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="L"></a><span class="summary-name">L</span> = <code title="108">108</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="M"></a><span class="summary-name">M</span> = <code title="109">109</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="N"></a><span class="summary-name">N</span> = <code title="110">110</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="O"></a><span class="summary-name">O</span> = <code title="111">111</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="P"></a><span class="summary-name">P</span> = <code title="112">112</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Q"></a><span class="summary-name">Q</span> = <code title="113">113</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="R"></a><span class="summary-name">R</span> = <code title="114">114</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="S"></a><span class="summary-name">S</span> = <code title="115">115</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="T"></a><span class="summary-name">T</span> = <code title="116">116</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="U"></a><span class="summary-name">U</span> = <code title="117">117</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="V"></a><span class="summary-name">V</span> = <code title="118">118</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="W"></a><span class="summary-name">W</span> = <code title="119">119</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="X"></a><span class="summary-name">X</span> = <code title="120">120</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Y"></a><span class="summary-name">Y</span> = <code title="121">121</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Z"></a><span class="summary-name">Z</span> = <code title="122">122</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BRACELEFT"></a><span class="summary-name">BRACELEFT</span> = <code title="123">123</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BAR"></a><span class="summary-name">BAR</span> = <code title="124">124</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BRACERIGHT"></a><span class="summary-name">BRACERIGHT</span> = <code title="125">125</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="ASCIITILDE"></a><span class="summary-name">ASCIITILDE</span> = <code title="126">126</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.window'"><code class="variable-quote">'</code><code class="variable-string">pyglet.window</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="modifiers_string"></a>
+<div class=" detail">
+  <h3>modifiers_string</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">modifiers_string</span>(<span class="sig-arg">modifiers</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Return a string describing a set of modifiers.</p>
+<p>Example:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>modifiers_string(MOD_SHIFT | MOD_CTRL)
+<span class="py-string">'MOD_SHIFT|MOD_CTRL'</span></pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">modifiers</span> : <span class='ptype'>int</span></dt>
+        <dd>Bitwise combination of modifier constants.</dd>
+    </dl></dd>
+    <dt>Returns: str</dt>
+  </dl>
+  </div>
+</div>
+<a name="symbol_string"></a>
+<div class=" detail">
+  <h3>symbol_string</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">symbol_string</span>(<span class="sig-arg">symbol</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Return a string describing a key symbol.</p>
+<p>Example:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>symbol_string(BACKSPACE)
+<span class="py-string">'BACKSPACE'</span></pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">symbol</span> : <span class='ptype'>int</span></dt>
+        <dd>Symbolic key constant.</dd>
+    </dl></dd>
+    <dt>Returns: str</dt>
+  </dl>
+  </div>
+</div>
+<a name="motion_string"></a>
+<div class=" detail">
+  <h3>motion_string</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">motion_string</span>(<span class="sig-arg">motion</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Return a string describing a text motion.</p>
+<p>Example:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>motion_string(MOTION_NEXT_WORD):
+<span class="py-string">'MOTION_NEXT_WORD'</span></pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">motion</span> : <span class='ptype'>int</span></dt>
+        <dd>Text motion constant.</dd>
+    </dl></dd>
+    <dt>Returns: str</dt>
+  </dl>
+  </div>
+</div>
+<a name="user_key"></a>
+<div class=" detail">
+  <h3>user_key</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">user_key</span>(<span class="sig-arg">scancode</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Return a key symbol for a key not supported by pyglet.</p>
+<p>This can be used to map virtual keys or scancodes from unsupported
+keyboard layouts into a machine-specific symbol.  The symbol will
+be meaningless on any other machine, or under a different keyboard layout.</p>
+<p>Applications should use user-keys only when user explicitly binds them
+(for example, mapping keys to actions in a game options screen).</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.window-module.html">window</a>&nbsp;.&nbsp;key
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

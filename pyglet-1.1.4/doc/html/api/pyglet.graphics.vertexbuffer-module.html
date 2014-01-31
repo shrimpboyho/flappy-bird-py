@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.graphics.vertexbuffer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;vertexbuffer
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module pyglet.graphics.vertexbuffer</h1>
+<p>Byte abstractions of Vertex Buffer Objects and vertex arrays.</p>
+<p>Use <a href="pyglet.graphics.vertexbuffer-module.html#create_buffer" class="link">create_buffer</a> or <a href="pyglet.graphics.vertexbuffer-module.html#create_mappable_buffer" class="link">create_mappable_buffer</a> to create a Vertex Buffer
+Object, or a vertex array if VBOs are not supported by the current context.</p>
+<p>Buffers can optionally be created &quot;mappable&quot; (incorporating the
+<a href="pyglet.graphics.vertexbuffer.AbstractMappable-class.html" class="link">AbstractMappable</a> mix-in).  In this case the buffer provides a <tt class="rst-docutils literal">get_region</tt>
+method which provides the most efficient path for updating partial data within
+the buffer.</p>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html" class="summary-name">AbstractBuffer</a>
+<div class="summary-description">Abstract buffer of byte data.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexbuffer.AbstractMappable-class.html" class="summary-name">AbstractMappable</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexbuffer.VertexArray-class.html" class="summary-name">VertexArray</a>
+<div class="summary-description">A ctypes implementation of a vertex array.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html" class="summary-name">VertexBufferObject</a>
+<div class="summary-description">Lightweight representation of an OpenGL VBO.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexbuffer.MappableVertexBufferObject-class.html" class="summary-name">MappableVertexBufferObject</a>
+<div class="summary-description">A VBO with system-memory backed store.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexbuffer.AbstractBufferRegion-class.html" class="summary-name">AbstractBufferRegion</a>
+<div class="summary-description">A mapped region of a buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexbuffer.VertexBufferObjectRegion-class.html" class="summary-name">VertexBufferObjectRegion</a>
+<div class="summary-description">A mapped region of a VBO.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexbuffer.VertexArrayRegion-class.html" class="summary-name">VertexArrayRegion</a>
+<div class="summary-description">A mapped region of a vertex array.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.graphics.vertexbuffer.IndirectArrayRegion-class.html" class="summary-name">IndirectArrayRegion</a>
+<div class="summary-description">A mapped region in which data elements are not necessarily contiguous.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html" class="link">AbstractBuffer</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer-module.html#create_buffer" class="summary-sig-name">create_buffer</a>(<span class="summary-sig-arg">size</span>,
+        <span class="summary-sig-arg">target</span>=<span class="summary-sig-default">34962</span>,
+        <span class="summary-sig-arg">usage</span>=<span class="summary-sig-default">35048</span>,
+        <span class="summary-sig-arg">vbo</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Create a buffer of vertex data.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html" class="link">AbstractBuffer</a> with <a href="pyglet.graphics.vertexbuffer.AbstractMappable-class.html" class="link">AbstractMappable</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer-module.html#create_mappable_buffer" class="summary-sig-name">create_mappable_buffer</a>(<span class="summary-sig-arg">size</span>,
+        <span class="summary-sig-arg">target</span>=<span class="summary-sig-default">34962</span>,
+        <span class="summary-sig-arg">usage</span>=<span class="summary-sig-default">35048</span>,
+        <span class="summary-sig-arg">vbo</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Create a mappable buffer of vertex data.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.graphics'"><code class="variable-quote">'</code><code class="variable-string">pyglet.graphics</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="create_buffer"></a>
+<div class=" detail">
+  <h3>create_buffer</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">create_buffer</span>(<span class="sig-arg">size</span>,
+        <span class="sig-arg">target</span>=<span class="sig-default">34962</span>,
+        <span class="sig-arg">usage</span>=<span class="sig-default">35048</span>,
+        <span class="sig-arg">vbo</span>=<span class="sig-default">True</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a buffer of vertex data.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">size</span> : <span class='ptype'>int</span></dt>
+        <dd>Size of the buffer, in bytes</dd>
+        <dt><span class="pname">target</span> : <span class='ptype'>int</span></dt>
+        <dd>OpenGL target buffer</dd>
+        <dt><span class="pname">usage</span> : <span class='ptype'>int</span></dt>
+        <dd>OpenGL usage constant</dd>
+        <dt><span class="pname">vbo</span> : <span class='ptype'>bool</span></dt>
+        <dd>True if a <a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html" class="link">VertexBufferObject</a> should be created if the driver
+supports it; otherwise only a <a href="pyglet.graphics.vertexbuffer.VertexArray-class.html" class="link">VertexArray</a> is created.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html" class="link">AbstractBuffer</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="create_mappable_buffer"></a>
+<div class=" detail">
+  <h3>create_mappable_buffer</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">create_mappable_buffer</span>(<span class="sig-arg">size</span>,
+        <span class="sig-arg">target</span>=<span class="sig-default">34962</span>,
+        <span class="sig-arg">usage</span>=<span class="sig-default">35048</span>,
+        <span class="sig-arg">vbo</span>=<span class="sig-default">True</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a mappable buffer of vertex data.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">size</span> : <span class='ptype'>int</span></dt>
+        <dd>Size of the buffer, in bytes</dd>
+        <dt><span class="pname">target</span> : <span class='ptype'>int</span></dt>
+        <dd>OpenGL target buffer</dd>
+        <dt><span class="pname">usage</span> : <span class='ptype'>int</span></dt>
+        <dd>OpenGL usage constant</dd>
+        <dt><span class="pname">vbo</span> : <span class='ptype'>bool</span></dt>
+        <dd>True if a <a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html" class="link">VertexBufferObject</a> should be created if the driver
+supports it; otherwise only a <a href="pyglet.graphics.vertexbuffer.VertexArray-class.html" class="link">VertexArray</a> is created.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html" class="link">AbstractBuffer</a> with <a href="pyglet.graphics.vertexbuffer.AbstractMappable-class.html" class="link">AbstractMappable</a></dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;vertexbuffer
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

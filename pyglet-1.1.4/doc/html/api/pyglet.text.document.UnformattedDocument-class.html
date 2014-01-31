@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.document.UnformattedDocument</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.document-module.html">document</a>&nbsp;.&nbsp;UnformattedDocument
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.document.UnformattedDocument</h1>
+<pre class="base-tree">
+<a href="pyglet.event.EventDispatcher-class.html">event.EventDispatcher</a> --+    
+                        |    
+         <a href="pyglet.text.document.AbstractDocument-class.html">AbstractDocument</a> --+
+                            |
+                           <strong class="uidshort">UnformattedDocument</strong>
+</pre>
+
+<p>A document having uniform style over all text.</p>
+<p>Changes to the style of text within the document affects the entire
+document.  For convenience, the <tt class="rst-docutils literal">position</tt> parameters of the style
+methods may therefore be omitted.</p>
+
+<!-- ==================== EVENTS ==================== -->
+<a name="section-Events"></a>
+        <h2>Events</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.AbstractDocument-class.html#on_delete_text" class="summary-sig-name">on_delete_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>)</span>
+<div class="summary-description">Text was deleted from the document.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.AbstractDocument-class.html#on_insert_text" class="summary-sig-name">on_insert_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">text</span>)</span>
+<div class="summary-description">Text was inserted into the document.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.AbstractDocument-class.html#on_style_text" class="summary-sig-name">on_style_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>,
+        <span class="summary-sig-arg">attributes</span>)</span>
+<div class="summary-description">Text character style was modified.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.UnformattedDocument-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.runlist.AbstractRunIterator-class.html" class="link">AbstractRunIterator</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.UnformattedDocument-class.html#get_style_runs" class="summary-sig-name">get_style_runs</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attribute</span>)</span>
+<div class="summary-description">Get a style iterator over the given style attribute.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.UnformattedDocument-class.html#get_style" class="summary-sig-name">get_style</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attribute</span>,
+        <span class="summary-sig-arg">position</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Get an attribute style at the given position.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.UnformattedDocument-class.html#set_style" class="summary-sig-name">set_style</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>,
+        <span class="summary-sig-arg">attributes</span>)</span>
+<div class="summary-description">Set text style of some or all of the document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.UnformattedDocument-class.html#set_paragraph_style" class="summary-sig-name">set_paragraph_style</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>,
+        <span class="summary-sig-arg">attributes</span>)</span>
+<div class="summary-description">Set the style for a range of paragraphs.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.runlist.AbstractRunIterator-class.html" class="link">AbstractRunIterator</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.UnformattedDocument-class.html#get_font_runs" class="summary-sig-name">get_font_runs</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dpi</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Get a style iterator over the <a href="pyglet.font.base.Font-class.html" class="link">pyglet.font.Font</a> instances used in
+the document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.font.base.Font-class.html" class="link">pyglet.font.Font</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.UnformattedDocument-class.html#get_font" class="summary-sig-name">get_font</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">position</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dpi</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Get the font instance used at the given position.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_element_runs"></a><span class="summary-sig-name">get_element_runs</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.AbstractDocument-class.html#delete_text" class="summary-sig-name">delete_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>)</span>
+<div class="summary-description">Delete text from the document.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#dispatch_event" class="summary-sig-name">dispatch_event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event_type</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Dispatch a single event to the attached handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#event" class="summary-sig-name">event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Function decorator for an event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.document.InlineElement-class.html" class="link">InlineElement</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.AbstractDocument-class.html#get_element" class="summary-sig-name">get_element</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">position</span>)</span>
+<div class="summary-description">Get the element at a specified position.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.AbstractDocument-class.html#get_paragraph_end" class="summary-sig-name">get_paragraph_end</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pos</span>)</span>
+<div class="summary-description">Get the end position of a paragraph.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.AbstractDocument-class.html#get_paragraph_start" class="summary-sig-name">get_paragraph_start</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pos</span>)</span>
+<div class="summary-description">Get the starting position of a paragraph.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.AbstractDocument-class.html#get_style_range" class="summary-sig-name">get_style_range</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attribute</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>)</span>
+<div class="summary-description">Get an attribute style over the given range.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.AbstractDocument-class.html#insert_element" class="summary-sig-name">insert_element</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">position</span>,
+        <span class="summary-sig-arg">element</span>,
+        <span class="summary-sig-arg">attributes</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Insert a element into the document.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.document.AbstractDocument-class.html#insert_text" class="summary-sig-name">insert_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">text</span>,
+        <span class="summary-sig-arg">attributes</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Insert text into the document.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="pop_handlers"></a><span class="summary-sig-name">pop_handlers</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Pop the top level of event handlers off the stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="summary-sig-name">push_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Push a level onto the top of the handler stack, then attach zero or
+more event handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#register_event_type" class="summary-sig-name">register_event_type</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Register an event type with the dispatcher.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handler" class="summary-sig-name">remove_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Remove a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handlers" class="summary-sig-name">remove_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Remove event handlers from the event stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handler" class="summary-sig-name">set_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Attach a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handlers" class="summary-sig-name">set_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Attach one or more event handlers to the top level of the handler
+stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.document.AbstractDocument-class.html#text" class="summary-name">text</a>
+<div class="summary-description">Document text.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.document.AbstractDocument-class.html#event_types" class="summary-name">event_types</a> = <code title="['on_insert_text', 'on_delete_text', 'on_style_text']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">on_insert_text</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">on_delete_text</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">on_style_t</code><code class="variable-ellipsis">...</code></code>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.document.AbstractDocument-class.html">pyglet.text.document.AbstractDocument</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>)</span>
+    </div>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.document.AbstractDocument-class.html#__init__">AbstractDocument.__init__</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="get_style_runs"></a>
+<div class=" detail">
+  <h3>get_style_runs</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_style_runs</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">attribute</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get a style iterator over the given style attribute.
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.text.runlist.AbstractRunIterator-class.html" class="link">AbstractRunIterator</a></dt>
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.document.AbstractDocument-class.html#get_style_runs">AbstractDocument.get_style_runs</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="get_style"></a>
+<div class=" detail">
+  <h3>get_style</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_style</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">attribute</span>,
+        <span class="sig-arg">position</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get an attribute style at the given position.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>The style set for the attribute at the given position.</dd>
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.document.AbstractDocument-class.html#get_style">AbstractDocument.get_style</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="set_style"></a>
+<div class=" detail">
+  <h3>set_style</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_style</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">end</span>,
+        <span class="sig-arg">attributes</span>)</span>
+    </div>
+  <div class="detail-description">
+  Set text style of some or all of the document.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.document.AbstractDocument-class.html#set_style">AbstractDocument.set_style</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="set_paragraph_style"></a>
+<div class=" detail">
+  <h3>set_paragraph_style</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_paragraph_style</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">end</span>,
+        <span class="sig-arg">attributes</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Set the style for a range of paragraphs.</p>
+<p>This is a convenience method for <a href="pyglet.text.document.UnformattedDocument-class.html#set_style" class="link">set_style</a> that aligns the
+character range to the enclosing paragraph(s).</p>
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.document.AbstractDocument-class.html#set_paragraph_style">AbstractDocument.set_paragraph_style</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="get_font_runs"></a>
+<div class=" detail">
+  <h3>get_font_runs</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_font_runs</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dpi</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a style iterator over the <a href="pyglet.font.base.Font-class.html" class="link">pyglet.font.Font</a> instances used in
+the document.</p>
+<p>The font instances are created on-demand by inspection of the
+<tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">font_name</tt>, <tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">font_size</tt>, <tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">bold</tt> and <tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">italic</tt> style
+attributes.</p>
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.text.runlist.AbstractRunIterator-class.html" class="link">AbstractRunIterator</a></dt>
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.document.AbstractDocument-class.html#get_font_runs">AbstractDocument.get_font_runs</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="get_font"></a>
+<div class=" detail">
+  <h3>get_font</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_font</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">position</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">dpi</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the font instance used at the given position.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype"><a href="pyglet.font.base.Font-class.html" class="link">pyglet.font.Font</a></span>: The font at the given position.</dd>
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.document.AbstractDocument-class.html#get_font">AbstractDocument.get_font</a>
+    </dd>
+  </dl>
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="pyglet.text.document.UnformattedDocument-class.html#get_font_runs" class="link">get_font_runs</a>
+      </p>
+</div>  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.document-module.html">document</a>&nbsp;.&nbsp;UnformattedDocument
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

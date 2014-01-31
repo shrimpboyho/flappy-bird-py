@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.DocumentLabel</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;DocumentLabel
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.DocumentLabel</h1>
+<pre class="base-tree">
+<a href="pyglet.text.layout.TextLayout-class.html">layout.TextLayout</a> --+
+                    |
+                   <strong class="uidshort">DocumentLabel</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.text.HTMLLabel-class.html">HTMLLabel</a>,
+    <a href="pyglet.text.Label-class.html">Label</a>
+</dd></dl>
+
+<p>Base label class.</p>
+<p>A label is a layout that exposes convenience methods for manipulating the
+associated document.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.DocumentLabel-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">document</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">x</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">y</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">width</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">height</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">anchor_x</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">left</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">anchor_y</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">baseline</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">multiline</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">dpi</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">batch</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">group</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Create a label for a given document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">object</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.DocumentLabel-class.html#get_style" class="summary-sig-name">get_style</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Get a document style value by name.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.DocumentLabel-class.html#set_style" class="summary-sig-name">set_style</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">value</span>)</span>
+<div class="summary-description">Set a document style value by name over the whole document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#begin_update" class="summary-sig-name">begin_update</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Indicate that a number of changes to the layout or document
+are about to occur.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="delete"></a><span class="summary-sig-name">delete</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Remove this layout from its batch.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#draw" class="summary-sig-name">draw</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Draw this text layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#end_update" class="summary-sig-name">end_update</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Perform pending layout changes since <a href="pyglet.text.layout.TextLayout-class.html#begin_update" class="link">begin_update</a>.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#on_delete_text" class="summary-sig-name">on_delete_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>)</span>
+<div class="summary-description">Event handler for <code class="link">AbstractDocument.on_delete_text</code>.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#on_insert_text" class="summary-sig-name">on_insert_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">text</span>)</span>
+<div class="summary-description">Event handler for <code class="link">AbstractDocument.on_insert_text</code>.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#on_style_text" class="summary-sig-name">on_style_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>,
+        <span class="summary-sig-arg">attributes</span>)</span>
+<div class="summary-description">Event handler for <code class="link">AbstractDocument.on_style_text</code>.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.DocumentLabel-class.html#text" class="summary-name">text</a>
+<div class="summary-description">The text of the label.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(int, int, int, int)</span>
+    </td><td class="summary">
+        <a href="pyglet.text.DocumentLabel-class.html#color" class="summary-name">color</a>
+<div class="summary-description">Text color.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str or list</span>
+    </td><td class="summary">
+        <a href="pyglet.text.DocumentLabel-class.html#font_name" class="summary-name">font_name</a>
+<div class="summary-description">Font family name.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.text.DocumentLabel-class.html#font_size" class="summary-name">font_size</a>
+<div class="summary-description">Font size, in points.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.text.DocumentLabel-class.html#bold" class="summary-name">bold</a>
+<div class="summary-description">Bold font style.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.text.DocumentLabel-class.html#italic" class="summary-name">italic</a>
+<div class="summary-description">Italic font style.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#anchor_x" class="summary-name">anchor_x</a>
+<div class="summary-description">Horizontal anchor alignment.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#anchor_y" class="summary-name">anchor_y</a>
+<div class="summary-description">Vertical anchor alignment.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#content_valign" class="summary-name">content_valign</a>
+<div class="summary-description">Vertical alignment of content within
+larger layout box.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#document" class="summary-name">document</a>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#dpi" class="summary-name">dpi</a>
+<div class="summary-description">Get DPI used by this layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#height" class="summary-name">height</a>
+<div class="summary-description">Height of the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#multiline" class="summary-name">multiline</a>
+<div class="summary-description">Set if multiline layout is enabled.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#width" class="summary-name">width</a>
+<div class="summary-description">Width of the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#x" class="summary-name">x</a>
+<div class="summary-description">X coordinate of the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#y" class="summary-name">y</a>
+<div class="summary-description">Y coordinate of the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a name="background_group"></a><span class="summary-name">background_group</span> = <code title="OrderedGroup(0)">OrderedGroup(0)</code>
+<div class="summary-description">Rendering group for background color.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="content_height"></a><span class="summary-name">content_height</span>
+<div class="summary-description">Calculated height of the text in the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#content_width" class="summary-name">content_width</a>
+<div class="summary-description">Calculated width of the text in the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#foreground_decoration_group" class="summary-name">foreground_decoration_group</a> = <code title="TextLayoutForegroundDecorationGroup(2)">TextLayoutForegroundDecorationGr<code class="variable-ellipsis">...</code></code>
+<div class="summary-description">Rendering group for glyph underlines.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a name="foreground_group"></a><span class="summary-name">foreground_group</span> = <code title="TextLayoutForegroundGroup(1)">TextLayoutForegroundGroup(1)</code>
+<div class="summary-description">Rendering group for glyphs.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#top_group" class="summary-name">top_group</a> = <code title="TextLayoutGroup()">&lt;pyglet.text.layout.TextLayoutGroup object at 0xfa<code class="variable-ellipsis">...</code></code>
+<div class="summary-description">Top-level rendering group.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">document</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">x</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">y</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">width</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">height</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">anchor_x</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">left</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">anchor_y</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">baseline</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">multiline</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">dpi</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">batch</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">group</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a label for a given document.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">document</span> : <span class='ptype'><a href="pyglet.text.document.AbstractDocument-class.html" class="link">AbstractDocument</a></span></dt>
+        <dd>Document to attach to the layout.</dd>
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate of the label.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Y coordinate of the label.</dd>
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>Width of the label in pixels, or None</dd>
+        <dt><span class="pname">height</span> : <span class='ptype'>int</span></dt>
+        <dd>Height of the label in pixels, or None</dd>
+        <dt><span class="pname">anchor_x</span> : <span class='ptype'>str</span></dt>
+        <dd>Anchor point of the X coordinate: one of <tt class="rst-docutils literal">&quot;left&quot;</tt>,
+<tt class="rst-docutils literal">&quot;center&quot;</tt> or <tt class="rst-docutils literal">&quot;right&quot;</tt>.</dd>
+        <dt><span class="pname">anchor_y</span> : <span class='ptype'>str</span></dt>
+        <dd>Anchor point of the Y coordinate: one of <tt class="rst-docutils literal">&quot;bottom&quot;</tt>,
+<tt class="rst-docutils literal">&quot;baseline&quot;</tt>, <tt class="rst-docutils literal">&quot;center&quot;</tt> or <tt class="rst-docutils literal">&quot;top&quot;</tt>.</dd>
+        <dt><span class="pname">multiline</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the label will be word-wrapped and accept newline
+characters.  You must also set the width of the label.</dd>
+        <dt><span class="pname">dpi</span> : <span class='ptype'>float</span></dt>
+        <dd>Resolution of the fonts in this layout.  Defaults to 96.</dd>
+        <dt><span class="pname">batch</span> : <span class='ptype'><a href="pyglet.graphics.Batch-class.html" class="link">Batch</a></span></dt>
+        <dd>Optional graphics batch to add the label to.</dd>
+        <dt><span class="pname">group</span> : <span class='ptype'><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span></dt>
+        <dd>Optional graphics group to use.</dd>
+    </dl></dd>
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.layout.TextLayout-class.html#__init__">layout.TextLayout.__init__</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="get_style"></a>
+<div class=" detail">
+  <h3>get_style</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_style</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a document style value by name.</p>
+<p>If the document has more than one value of the named style,
+<a href="pyglet.text.document-module.html#STYLE_INDETERMINATE" class="link">pyglet.text.document.STYLE_INDETERMINATE</a> is returned.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Style name to query.  See documentation for
+<a href="pyglet.text.layout-module.html" class="link">pyglet.text.layout</a> for known style names.</dd>
+    </dl></dd>
+    <dt>Returns: object</dt>
+  </dl>
+  </div>
+</div>
+<a name="set_style"></a>
+<div class=" detail">
+  <h3>set_style</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_style</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>,
+        <span class="sig-arg">value</span>)</span>
+    </div>
+  <div class="detail-description">
+  Set a document style value by name over the whole document.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Name of the style to set.  See documentation for
+<a href="pyglet.text.layout-module.html" class="link">pyglet.text.layout</a> for known style names.</dd>
+        <dt><span class="pname">value</span> : <span class='ptype'>object</span></dt>
+        <dd>Value of the style.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="text"></a>
+<div class=" detail">
+  <h3>text</h3>
+  <div class="detail-description">
+  The text of the label.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>str</dd>
+  </dl>
+  </div>
+</div>
+<a name="color"></a>
+<div class=" detail">
+  <h3>color</h3>
+  <div class="detail-description">
+  <p>Text color.</p>
+<p>Color is a 4-tuple of RGBA components, each in range [0, 255].</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>(int, int, int, int)</dd>
+  </dl>
+  </div>
+</div>
+<a name="font_name"></a>
+<div class=" detail">
+  <h3>font_name</h3>
+  <div class="detail-description">
+  <p>Font family name.</p>
+<p>The font name, as passed to pyglet.font.load.  A list of names can
+optionally be given: the first matching font will be used.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>str or list</dd>
+  </dl>
+  </div>
+</div>
+<a name="font_size"></a>
+<div class=" detail">
+  <h3>font_size</h3>
+  <div class="detail-description">
+  Font size, in points.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="bold"></a>
+<div class=" detail">
+  <h3>bold</h3>
+  <div class="detail-description">
+  Bold font style.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>bool</dd>
+  </dl>
+  </div>
+</div>
+<a name="italic"></a>
+<div class=" detail">
+  <h3>italic</h3>
+  <div class="detail-description">
+  Italic font style.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>bool</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;DocumentLabel
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

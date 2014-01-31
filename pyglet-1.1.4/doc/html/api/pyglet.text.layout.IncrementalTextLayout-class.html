@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.layout.IncrementalTextLayout</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.layout-module.html">layout</a>&nbsp;.&nbsp;IncrementalTextLayout
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.layout.IncrementalTextLayout</h1>
+<pre class="base-tree">
+       <a href="pyglet.text.layout.TextLayout-class.html">TextLayout</a> --+    
+                    |    
+ <a href="pyglet.text.layout.ScrollableTextLayout-class.html">ScrollableTextLayout</a> --+
+                        |
+<a href="pyglet.event.EventDispatcher-class.html">event.EventDispatcher</a> --+
+                        |
+                       <strong class="uidshort">IncrementalTextLayout</strong>
+</pre>
+
+<p>Displayed text suitable for interactive editing and/or scrolling
+large documents.</p>
+<p>Unlike <a href="pyglet.text.layout.TextLayout-class.html" class="link">TextLayout</a> and <a href="pyglet.text.layout.ScrollableTextLayout-class.html" class="link">ScrollableTextLayout</a>, this class generates
+vertex lists only for lines of text that are visible.  As the document is
+scrolled, vertex lists are deleted and created as appropriate to keep
+video memory usage to a minimum and improve rendering speed.</p>
+<p>Changes to the document are quickly reflected in this layout, as only the
+affected line(s) are reflowed.  Use <a href="pyglet.text.layout.TextLayout-class.html#begin_update" class="link">begin_update</a> and <a href="pyglet.text.layout.TextLayout-class.html#end_update" class="link">end_update</a> to
+further reduce the amount of processing required.</p>
+<p>The layout can also display a text selection (text with a different
+background color).  The <a href="pyglet.text.caret.Caret-class.html" class="link">Caret</a> class implements a visible text cursor and
+provides event handlers for scrolling, selecting and editing text in an
+incremental text layout.</p>
+
+<!-- ==================== EVENTS ==================== -->
+<a name="section-Events"></a>
+        <h2>Events</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#on_layout_update" class="summary-sig-name">on_layout_update</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Some or all of the layout text was reflowed.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">document</span>,
+        <span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>,
+        <span class="summary-sig-arg">multiline</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">dpi</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">batch</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">group</span>=<span class="summary-sig-default">None</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#delete" class="summary-sig-name">delete</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Remove this layout from its batch.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#on_insert_text" class="summary-sig-name">on_insert_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">text</span>)</span>
+<div class="summary-description">Event handler for <code class="link">AbstractDocument.on_insert_text</code>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#on_delete_text" class="summary-sig-name">on_delete_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>)</span>
+<div class="summary-description">Event handler for <code class="link">AbstractDocument.on_delete_text</code>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#on_style_text" class="summary-sig-name">on_style_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>,
+        <span class="summary-sig-arg">attributes</span>)</span>
+<div class="summary-description">Event handler for <code class="link">AbstractDocument.on_style_text</code>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#set_selection" class="summary-sig-name">set_selection</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>)</span>
+<div class="summary-description">Set the text selection range.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#get_position_from_point" class="summary-sig-name">get_position_from_point</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">Get the closest document position to a point.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(int, int)</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#get_point_from_position" class="summary-sig-name">get_point_from_position</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">position</span>,
+        <span class="summary-sig-arg">line</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Get the X, Y coordinates of a position in the document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#get_line_from_point" class="summary-sig-name">get_line_from_point</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">Get the closest line index to a point.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(int, int)</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#get_point_from_line" class="summary-sig-name">get_point_from_line</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">line</span>)</span>
+<div class="summary-description">Get the X, Y coordinates of a line index.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#get_line_from_position" class="summary-sig-name">get_line_from_position</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">position</span>)</span>
+<div class="summary-description">Get the line index of a character position in the document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#get_position_from_line" class="summary-sig-name">get_position_from_line</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">line</span>)</span>
+<div class="summary-description">Get the first document character position of a given line index.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#get_position_on_line" class="summary-sig-name">get_position_on_line</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">line</span>,
+        <span class="summary-sig-arg">x</span>)</span>
+<div class="summary-description">Get the closest document position for a given line index and X
+coordinate.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_line_count"></a><span class="summary-sig-name">get_line_count</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the number of lines in the text layout.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#ensure_line_visible" class="summary-sig-name">ensure_line_visible</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">line</span>)</span>
+<div class="summary-description">Adjust <a href="pyglet.text.layout.IncrementalTextLayout-class.html#view_y" class="link">view_y</a> so that the line with the given index is visible.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.IncrementalTextLayout-class.html#ensure_x_visible" class="summary-sig-name">ensure_x_visible</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>)</span>
+<div class="summary-description">Adjust <a href="pyglet.text.layout.ScrollableTextLayout-class.html#view_x" class="link">view_x</a> so that the given X coordinate is visible.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#begin_update" class="summary-sig-name">begin_update</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Indicate that a number of changes to the layout or document
+are about to occur.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#dispatch_event" class="summary-sig-name">dispatch_event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event_type</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Dispatch a single event to the attached handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#draw" class="summary-sig-name">draw</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Draw this text layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#end_update" class="summary-sig-name">end_update</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Perform pending layout changes since <a href="pyglet.text.layout.TextLayout-class.html#begin_update" class="link">begin_update</a>.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#event" class="summary-sig-name">event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Function decorator for an event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="pop_handlers"></a><span class="summary-sig-name">pop_handlers</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Pop the top level of event handlers off the stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="summary-sig-name">push_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Push a level onto the top of the handler stack, then attach zero or
+more event handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#register_event_type" class="summary-sig-name">register_event_type</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Register an event type with the dispatcher.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handler" class="summary-sig-name">remove_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Remove a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handlers" class="summary-sig-name">remove_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Remove event handlers from the event stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handler" class="summary-sig-name">set_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Attach a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handlers" class="summary-sig-name">set_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Attach one or more event handlers to the top level of the handler
+stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html#width" class="summary-name">width</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html#height" class="summary-name">height</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html#multiline" class="summary-name">multiline</a>
+<div class="summary-description">Set if multiline layout is enabled.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html#view_y" class="summary-name">view_y</a>
+<div class="summary-description">Vertical scroll offset.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html#selection_start" class="summary-name">selection_start</a>
+<div class="summary-description">Starting position of the active selection.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html#selection_end" class="summary-name">selection_end</a>
+<div class="summary-description">End position of the active selection (exclusive).</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(int, int, int, int)</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html#selection_color" class="summary-name">selection_color</a>
+<div class="summary-description">Text color of active selection.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(int, int, int, int)</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html#selection_background_color" class="summary-name">selection_background_color</a>
+<div class="summary-description">Background color of active
+selection.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#anchor_x" class="summary-name">anchor_x</a>
+<div class="summary-description">Horizontal anchor alignment.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.ScrollableTextLayout-class.html">pyglet.text.layout.ScrollableTextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#anchor_y" class="summary-name">anchor_y</a>
+<div class="summary-description">Vertical anchor alignment.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.ScrollableTextLayout-class.html">pyglet.text.layout.ScrollableTextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#content_valign" class="summary-name">content_valign</a>
+<div class="summary-description">Vertical alignment of content within
+larger layout box.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#document" class="summary-name">document</a>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#dpi" class="summary-name">dpi</a>
+<div class="summary-description">Get DPI used by this layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#view_x" class="summary-name">view_x</a>
+<div class="summary-description">Horizontal scroll offset.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.ScrollableTextLayout-class.html">pyglet.text.layout.ScrollableTextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#x" class="summary-name">x</a>
+<div class="summary-description">X coordinate of the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.ScrollableTextLayout-class.html">pyglet.text.layout.ScrollableTextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#y" class="summary-name">y</a>
+<div class="summary-description">Y coordinate of the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.ScrollableTextLayout-class.html">pyglet.text.layout.ScrollableTextLayout</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a name="background_group"></a><span class="summary-name">background_group</span> = <code title="OrderedGroup(0)">OrderedGroup(0)</code>
+<div class="summary-description">Rendering group for background color.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="content_height"></a><span class="summary-name">content_height</span>
+<div class="summary-description">Calculated height of the text in the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#content_width" class="summary-name">content_width</a>
+<div class="summary-description">Calculated width of the text in the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#foreground_decoration_group" class="summary-name">foreground_decoration_group</a> = <code title="TextLayoutForegroundDecorationGroup(2)">TextLayoutForegroundDecorationGr<code class="variable-ellipsis">...</code></code>
+<div class="summary-description">Rendering group for glyph underlines.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a name="foreground_group"></a><span class="summary-name">foreground_group</span> = <code title="TextLayoutForegroundGroup(1)">TextLayoutForegroundGroup(1)</code>
+<div class="summary-description">Rendering group for glyphs.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#top_group" class="summary-name">top_group</a> = <code title="TextLayoutGroup()">&lt;pyglet.text.layout.TextLayoutGroup object at 0xfa<code class="variable-ellipsis">...</code></code>
+<div class="summary-description">Top-level rendering group.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="event_types"></a><span class="summary-name">event_types</span> = <code title="['on_layout_update']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">on_layout_update</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== EVENT DETAILS ==================== -->
+<a name="section-EventDetails"></a>
+        <h2>Event Details</h2>
+<table class="details">
+</table>
+<a name="on_layout_update"></a>
+<div class=" detail">
+  <h3>on_layout_update</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_layout_update</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Some or all of the layout text was reflowed.</p>
+<p>Text reflow is caused by document edits or changes to the layout's
+size.  Changes to the layout's position or active selection, and
+certain document edits such as text color, do not cause a reflow.</p>
+<p>Handle this event to update the position of a graphical element
+that depends on the laid out position of a glyph or line.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">document</span>,
+        <span class="sig-arg">width</span>,
+        <span class="sig-arg">height</span>,
+        <span class="sig-arg">multiline</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">dpi</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">batch</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">group</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.layout.ScrollableTextLayout-class.html#__init__">ScrollableTextLayout.__init__</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="delete"></a>
+<div class=" detail">
+  <h3>delete</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">delete</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Remove this layout from its batch.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.layout.TextLayout-class.html#delete">TextLayout.delete</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="on_insert_text"></a>
+<div class=" detail">
+  <h3>on_insert_text</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_insert_text</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">text</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Event handler for <code class="link">AbstractDocument.on_insert_text</code>.</p>
+<p>The event handler is bound by the text layout; there is no need for
+applications to interact with this method.</p>
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.layout.TextLayout-class.html#on_insert_text">TextLayout.on_insert_text</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="on_delete_text"></a>
+<div class=" detail">
+  <h3>on_delete_text</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_delete_text</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">end</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Event handler for <code class="link">AbstractDocument.on_delete_text</code>.</p>
+<p>The event handler is bound by the text layout; there is no need for
+applications to interact with this method.</p>
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.layout.TextLayout-class.html#on_delete_text">TextLayout.on_delete_text</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="on_style_text"></a>
+<div class=" detail">
+  <h3>on_style_text</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_style_text</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">end</span>,
+        <span class="sig-arg">attributes</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Event handler for <code class="link">AbstractDocument.on_style_text</code>.</p>
+<p>The event handler is bound by the text layout; there is no need for
+applications to interact with this method.</p>
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.layout.TextLayout-class.html#on_style_text">TextLayout.on_style_text</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="set_selection"></a>
+<div class=" detail">
+  <h3>set_selection</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_selection</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">end</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Set the text selection range.</p>
+<p>If <tt class="rst-docutils literal">start</tt> equals <tt class="rst-docutils literal">end</tt> no selection will be visible.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">start</span> : <span class='ptype'>int</span></dt>
+        <dd>Starting character position of selection.</dd>
+        <dt><span class="pname">end</span> : <span class='ptype'>int</span></dt>
+        <dd>End of selection, exclusive.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="get_position_from_point"></a>
+<div class=" detail">
+  <h3>get_position_from_point</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_position_from_point</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the closest document position to a point.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Y coordinate</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="get_point_from_position"></a>
+<div class=" detail">
+  <h3>get_point_from_position</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_point_from_position</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">position</span>,
+        <span class="sig-arg">line</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the X, Y coordinates of a position in the document.</p>
+<p>The position that ends a line has an ambiguous point: it can be either
+the end of the line, or the beginning of the next line.  You may
+optionally specify a line index to disambiguate the case.</p>
+<p>The resulting Y coordinate gives the baseline of the line.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">position</span> : <span class='ptype'>int</span></dt>
+        <dd>Character position within document.</dd>
+        <dt><span class="pname">line</span> : <span class='ptype'>int</span></dt>
+        <dd>Line index.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">(int, int)</span>: (x, y)</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_line_from_point"></a>
+<div class=" detail">
+  <h3>get_line_from_point</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_line_from_point</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the closest line index to a point.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Y coordinate.</dd>
+    </dl></dd>
+    <dt>Returns: int</dt>
+  </dl>
+  </div>
+</div>
+<a name="get_point_from_line"></a>
+<div class=" detail">
+  <h3>get_point_from_line</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_point_from_line</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">line</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the X, Y coordinates of a line index.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">line</span> : <span class='ptype'>int</span></dt>
+        <dd>Line index.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">(int, int)</span>: (x, y)</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_line_from_position"></a>
+<div class=" detail">
+  <h3>get_line_from_position</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_line_from_position</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">position</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the line index of a character position in the document.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">position</span> : <span class='ptype'>int</span></dt>
+        <dd>Document position.</dd>
+    </dl></dd>
+    <dt>Returns: int</dt>
+  </dl>
+  </div>
+</div>
+<a name="get_position_from_line"></a>
+<div class=" detail">
+  <h3>get_position_from_line</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_position_from_line</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">line</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the first document character position of a given line index.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">line</span> : <span class='ptype'>int</span></dt>
+        <dd>Line index.</dd>
+    </dl></dd>
+    <dt>Returns: int</dt>
+  </dl>
+  </div>
+</div>
+<a name="get_position_on_line"></a>
+<div class=" detail">
+  <h3>get_position_on_line</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_position_on_line</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">line</span>,
+        <span class="sig-arg">x</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the closest document position for a given line index and X
+coordinate.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">line</span> : <span class='ptype'>int</span></dt>
+        <dd>Line index.</dd>
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate.</dd>
+    </dl></dd>
+    <dt>Returns: int</dt>
+  </dl>
+  </div>
+</div>
+<a name="ensure_line_visible"></a>
+<div class=" detail">
+  <h3>ensure_line_visible</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">ensure_line_visible</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">line</span>)</span>
+    </div>
+  <div class="detail-description">
+  Adjust <a href="pyglet.text.layout.IncrementalTextLayout-class.html#view_y" class="link">view_y</a> so that the line with the given index is visible.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">line</span> : <span class='ptype'>int</span></dt>
+        <dd>Line index.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="ensure_x_visible"></a>
+<div class=" detail">
+  <h3>ensure_x_visible</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">ensure_x_visible</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Adjust <a href="pyglet.text.layout.ScrollableTextLayout-class.html#view_x" class="link">view_x</a> so that the given X coordinate is visible.</p>
+<p>The X coordinate is given relative to the current <a href="pyglet.text.layout.ScrollableTextLayout-class.html#view_x" class="link">view_x</a>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="width"></a>
+<div class=" detail">
+  <h3>width</h3>
+  <div class="detail-description">
+  
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="height"></a>
+<div class=" detail">
+  <h3>height</h3>
+  <div class="detail-description">
+  
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="multiline"></a>
+<div class=" detail">
+  <h3>multiline</h3>
+  <div class="detail-description">
+  <p>Set if multiline layout is enabled.</p>
+<p>If multiline is False, newline and paragraph characters are ignored and
+text is not word-wrapped.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>bool</dd>
+  </dl>
+  </div>
+</div>
+<a name="view_y"></a>
+<div class=" detail">
+  <h3>view_y</h3>
+  <div class="detail-description">
+  <p>Vertical scroll offset.</p>
+<p>The initial value is 0, and the top of the text will touch the top of the
+layout bounds (unless the content height is less than the layout height,
+in which case <a href="pyglet.text.layout.TextLayout-class.html#content_valign" class="link">content_valign</a> is used).</p>
+<p>A negative value causes the text to &quot;scroll&quot; upwards.  Values outside of
+the range <tt class="rst-docutils literal">[height - content_height, 0]</tt> are automatically clipped in
+range.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="selection_start"></a>
+<div class=" detail">
+  <h3>selection_start</h3>
+  <div class="detail-description">
+  Starting position of the active selection.
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html#set_selection" class="link">set_selection</a>
+      </p>
+</div>  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="selection_end"></a>
+<div class=" detail">
+  <h3>selection_end</h3>
+  <div class="detail-description">
+  End position of the active selection (exclusive).
+<div class="fields">      <p><strong>See Also:</strong>
+        <a href="pyglet.text.layout.IncrementalTextLayout-class.html#set_selection" class="link">set_selection</a>
+      </p>
+</div>  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="selection_color"></a>
+<div class=" detail">
+  <h3>selection_color</h3>
+  <div class="detail-description">
+  <p>Text color of active selection.</p>
+<p>The color is an RGBA tuple with components in range [0, 255].</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>(int, int, int, int)</dd>
+  </dl>
+  </div>
+</div>
+<a name="selection_background_color"></a>
+<div class=" detail">
+  <h3>selection_background_color</h3>
+  <div class="detail-description">
+  <p>Background color of active
+selection.</p>
+<p>The color is an RGBA tuple with components in range [0, 255].</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>(int, int, int, int)</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.layout-module.html">layout</a>&nbsp;.&nbsp;IncrementalTextLayout
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:20 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

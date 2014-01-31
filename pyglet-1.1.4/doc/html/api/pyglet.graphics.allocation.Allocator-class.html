@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.graphics.allocation.Allocator</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;<a href="pyglet.graphics.allocation-module.html">allocation</a>&nbsp;.&nbsp;Allocator
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.graphics.allocation.Allocator</h1>
+Buffer space allocation implementation.
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.allocation.Allocator-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">capacity</span>)</span>
+<div class="summary-description">Create an allocator for a buffer of the specified capacity.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.allocation.Allocator-class.html#set_capacity" class="summary-sig-name">set_capacity</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">size</span>)</span>
+<div class="summary-description">Resize the maximum buffer size.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.allocation.Allocator-class.html#alloc" class="summary-sig-name">alloc</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">size</span>)</span>
+<div class="summary-description">Allocate memory in the buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.allocation.Allocator-class.html#realloc" class="summary-sig-name">realloc</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">size</span>,
+        <span class="summary-sig-arg">new_size</span>)</span>
+<div class="summary-description">Reallocate a region of the buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.allocation.Allocator-class.html#dealloc" class="summary-sig-name">dealloc</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">size</span>)</span>
+<div class="summary-description">Free a region of the buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(list, list)</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.allocation.Allocator-class.html#get_allocated_regions" class="summary-sig-name">get_allocated_regions</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get a list of (aggregate) allocated regions.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_fragmented_free_size"></a><span class="summary-sig-name">get_fragmented_free_size</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Returns the amount of space unused, not including the final
+free block.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_free_size"></a><span class="summary-sig-name">get_free_size</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Return the amount of space unused.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_usage"></a><span class="summary-sig-name">get_usage</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Return fraction of capacity currently allocated.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_fragmentation"></a><span class="summary-sig-name">get_fragmentation</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Return fraction of free space that is not expandable.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__str__"></a><span class="summary-sig-name">__str__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__repr__"></a><span class="summary-sig-name">__repr__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">capacity</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create an allocator for a buffer of the specified capacity.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">capacity</span> : <span class='ptype'>int</span></dt>
+        <dd>Maximum size of the buffer.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_capacity"></a>
+<div class=" detail">
+  <h3>set_capacity</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_capacity</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">size</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Resize the maximum buffer size.</p>
+<p>The capacity cannot be reduced.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">size</span> : <span class='ptype'>int</span></dt>
+        <dd>New maximum size of the buffer.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="alloc"></a>
+<div class=" detail">
+  <h3>alloc</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">alloc</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">size</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Allocate memory in the buffer.</p>
+<p>Raises <a href="pyglet.graphics.allocation.AllocatorMemoryException-class.html" class="link">AllocatorMemoryException</a> if the allocation cannot be
+fulfilled.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">size</span> : <span class='ptype'>int</span></dt>
+        <dd>Size of region to allocate.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">int</span>: Starting index of the allocated region.</dd>
+  </dl>
+  </div>
+</div>
+<a name="realloc"></a>
+<div class=" detail">
+  <h3>realloc</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">realloc</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">size</span>,
+        <span class="sig-arg">new_size</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Reallocate a region of the buffer.</p>
+<p>This is more efficient than separate <a href="pyglet.graphics.allocation.Allocator-class.html#dealloc" class="link">dealloc</a> and <a href="pyglet.graphics.allocation.Allocator-class.html#alloc" class="link">alloc</a> calls, as
+the region can often be resized in-place.</p>
+<p>Raises <a href="pyglet.graphics.allocation.AllocatorMemoryException-class.html" class="link">AllocatorMemoryException</a> if the allocation cannot be
+fulfilled.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">start</span> : <span class='ptype'>int</span></dt>
+        <dd>Current starting index of the region.</dd>
+        <dt><span class="pname">size</span> : <span class='ptype'>int</span></dt>
+        <dd>Current size of the region.</dd>
+        <dt><span class="pname">new_size</span> : <span class='ptype'>int</span></dt>
+        <dd>New size of the region.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="dealloc"></a>
+<div class=" detail">
+  <h3>dealloc</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">dealloc</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">size</span>)</span>
+    </div>
+  <div class="detail-description">
+  Free a region of the buffer.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">start</span> : <span class='ptype'>int</span></dt>
+        <dd>Starting index of the region.</dd>
+        <dt><span class="pname">size</span> : <span class='ptype'>int</span></dt>
+        <dd>Size of the region.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="get_allocated_regions"></a>
+<div class=" detail">
+  <h3>get_allocated_regions</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_allocated_regions</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a list of (aggregate) allocated regions.</p>
+<p>The result of this method is <tt class="rst-docutils literal">(starts, sizes)</tt>, where <tt class="rst-docutils literal">starts</tt> is
+a list of starting indices of the regions and <tt class="rst-docutils literal">sizes</tt> their
+corresponding lengths.</p>
+  <dl class="fields">
+    <dt>Returns: (list, list)</dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;<a href="pyglet.graphics.allocation-module.html">allocation</a>&nbsp;.&nbsp;Allocator
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

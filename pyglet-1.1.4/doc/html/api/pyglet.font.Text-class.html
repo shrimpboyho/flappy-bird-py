@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.font.Text</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.font-module.html">font</a>&nbsp;.&nbsp;Text
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.font.Text</h1>
+<p>Simple displayable text.</p>
+<p>This is a convenience class for rendering strings of text.  It takes
+care of caching the vertices so the text can be rendered every frame with
+little performance penalty.</p>
+<p>Text can be word-wrapped by specifying a <a href="pyglet.font.Text-class.html#width" class="link">width</a> to wrap into.  If the
+width is not specified, it gives the width of the text as laid out.</p>
+
+<div class="fields">      <p><strong>Deprecated:</strong>
+        Use <a href="pyglet.text.Label-class.html" class="link">pyglet.text.Label</a>.
+      </p>
+</div><!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font.Text-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>,
+        <span class="summary-sig-arg">text</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">x</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">y</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">z</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">color</span>=<span class="summary-sig-default"><code class="variable-group">(</code>1<code class="variable-op">, </code>1<code class="variable-op">, </code>1<code class="variable-op">, </code>1<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">width</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">halign</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">left</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">valign</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">baseline</code><code class="variable-quote">'</code></span>)</span>
+<div class="summary-description">Create displayable text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="draw"></a><span class="summary-sig-name">draw</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#font" class="summary-name">font</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#color" class="summary-name">color</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#z" class="summary-name">z</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#width" class="summary-name">width</a>
+<div class="summary-description">Width of the text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#height" class="summary-name">height</a>
+<div class="summary-description">Height of the text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#text" class="summary-name">text</a>
+<div class="summary-description">Text to render.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#halign" class="summary-name">halign</a>
+<div class="summary-description">Horizontal alignment of the text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#valign" class="summary-name">valign</a>
+<div class="summary-description">Vertical alignment of the text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#leading" class="summary-name">leading</a>
+<div class="summary-description">Vertical space between adjacent lines, in pixels.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#line_height" class="summary-name">line_height</a>
+<div class="summary-description">Vertical distance between adjacent baselines, in pixels.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#x" class="summary-name">x</a>
+<div class="summary-description">X coordinate of the text</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html#y" class="summary-name">y</a>
+<div class="summary-description">Y coordinate of the text</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CONSTANTS ==================== -->
+<a name="section-Constants"></a>
+        <h2>Constants</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LEFT"></a><span class="summary-name">LEFT</span> = <code title="'left'"><code class="variable-quote">'</code><code class="variable-string">left</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CENTER"></a><span class="summary-name">CENTER</span> = <code title="'center'"><code class="variable-quote">'</code><code class="variable-string">center</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="RIGHT"></a><span class="summary-name">RIGHT</span> = <code title="'right'"><code class="variable-quote">'</code><code class="variable-string">right</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BOTTOM"></a><span class="summary-name">BOTTOM</span> = <code title="'bottom'"><code class="variable-quote">'</code><code class="variable-string">bottom</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BASELINE"></a><span class="summary-name">BASELINE</span> = <code title="'baseline'"><code class="variable-quote">'</code><code class="variable-string">baseline</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TOP"></a><span class="summary-name">TOP</span> = <code title="'top'"><code class="variable-quote">'</code><code class="variable-string">top</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>,
+        <span class="sig-arg">text</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string"></code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">x</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">y</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">z</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">color</span>=<span class="sig-default"><code class="variable-group">(</code>1<code class="variable-op">, </code>1<code class="variable-op">, </code>1<code class="variable-op">, </code>1<code class="variable-group">)</code></span>,
+        <span class="sig-arg">width</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">halign</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">left</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">valign</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">baseline</code><code class="variable-quote">'</code></span>)</span>
+    </div>
+  <div class="detail-description">
+  Create displayable text.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">font</span> : <span class='ptype'><a href="pyglet.font.base.Font-class.html" class="link">Font</a></span></dt>
+        <dd>Font to render the text in.</dd>
+        <dt><span class="pname">text</span> : <span class='ptype'>str</span></dt>
+        <dd>Initial string to render.</dd>
+        <dt><span class="pname">x</span> : <span class='ptype'>float</span></dt>
+        <dd>X coordinate of the left edge of the text.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>float</span></dt>
+        <dd>Y coordinate of the baseline of the text.  If the text is
+word-wrapped, this refers to the first line of text.</dd>
+        <dt><span class="pname">z</span> : <span class='ptype'>float</span></dt>
+        <dd>Z coordinate of the text plane.</dd>
+        <dt><span class="pname">color</span> : <span class='ptype'>4-tuple of float</span></dt>
+        <dd>Color to render the text in.  Alpha values can be specified
+in the fourth component.</dd>
+        <dt><span class="pname">width</span> : <span class='ptype'>float</span></dt>
+        <dd>Width to limit the rendering to. Text will be word-wrapped
+if necessary.</dd>
+        <dt><span class="pname">halign</span> : <span class='ptype'>str</span></dt>
+        <dd>Alignment of the text.  See <a href="pyglet.font.Text-class.html#halign" class="link">Text.halign</a> for details.</dd>
+        <dt><span class="pname">valign</span> : <span class='ptype'>str</span></dt>
+        <dd>Controls positioning of the text based off the y coordinate.
+One of BASELINE, BOTTOM, CENTER or TOP. Defaults to BASELINE.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="font"></a>
+<div class=" detail">
+  <h3>font</h3>
+  <div class="detail-description">
+  
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="color"></a>
+<div class=" detail">
+  <h3>color</h3>
+  <div class="detail-description">
+  
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="z"></a>
+<div class=" detail">
+  <h3>z</h3>
+  <div class="detail-description">
+  
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="width"></a>
+<div class=" detail">
+  <h3>width</h3>
+  <div class="detail-description">
+  <p>Width of the text.</p>
+<p>When set, this enables word-wrapping to the specified width.
+Otherwise, the width of the text as it will be rendered can be
+determined.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="height"></a>
+<div class=" detail">
+  <h3>height</h3>
+  <div class="detail-description">
+  <p>Height of the text.</p>
+<p>This property is the ascent minus the descent of the font, unless
+there is more than one line of word-wrapped text, in which case
+the height takes into account the line leading.  Read-only.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<a name="text"></a>
+<div class=" detail">
+  <h3>text</h3>
+  <div class="detail-description">
+  <p>Text to render.</p>
+<p>The glyph vertices are only recalculated as needed, so multiple
+changes to the text can be performed with no performance penalty.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>str</dd>
+  </dl>
+  </div>
+</div>
+<a name="halign"></a>
+<div class=" detail">
+  <h3>halign</h3>
+  <div class="detail-description">
+  <p>Horizontal alignment of the text.</p>
+<p>The text is positioned relative to <a href="pyglet.font.Text-class.html#x" class="link">x</a> and <a href="pyglet.font.Text-class.html#width" class="link">width</a> according to this
+property, which must be one of the alignment constants <a href="pyglet.font.Text-class.html#LEFT" class="link">LEFT</a>,
+<a href="pyglet.font.Text-class.html#CENTER" class="link">CENTER</a> or <a href="pyglet.font.Text-class.html#RIGHT" class="link">RIGHT</a>.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>str</dd>
+  </dl>
+  </div>
+</div>
+<a name="valign"></a>
+<div class=" detail">
+  <h3>valign</h3>
+  <div class="detail-description">
+  <p>Vertical alignment of the text.</p>
+<p>The text is positioned relative to <a href="pyglet.font.Text-class.html#y" class="link">y</a> according to this property,
+which must be one of the alignment constants <a href="pyglet.font.Text-class.html#BOTTOM" class="link">BOTTOM</a>, <a href="pyglet.font.Text-class.html#BASELINE" class="link">BASELINE</a>,
+<a href="pyglet.font.Text-class.html#CENTER" class="link">CENTER</a> or <a href="pyglet.font.Text-class.html#TOP" class="link">TOP</a>.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>str</dd>
+  </dl>
+  </div>
+</div>
+<a name="leading"></a>
+<div class=" detail">
+  <h3>leading</h3>
+  <div class="detail-description">
+  Vertical space between adjacent lines, in pixels.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="line_height"></a>
+<div class=" detail">
+  <h3>line_height</h3>
+  <div class="detail-description">
+  Vertical distance between adjacent baselines, in pixels.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+        <h2>Instance Variable Details</h2>
+<table class="details">
+</table>
+<a name="x"></a>
+<div class=" detail">
+  <h3>x</h3>
+  <div class="detail-description">
+  X coordinate of the text
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="y"></a>
+<div class=" detail">
+  <h3>y</h3>
+  <div class="detail-description">
+  Y coordinate of the text
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.font-module.html">font</a>&nbsp;.&nbsp;Text
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

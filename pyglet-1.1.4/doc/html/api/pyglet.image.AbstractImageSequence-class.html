@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.image.AbstractImageSequence</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;AbstractImageSequence
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.image.AbstractImageSequence</h1>
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.image.ImageGrid-class.html">ImageGrid</a>,
+    <a href="pyglet.image.TextureSequence-class.html">TextureSequence</a>
+</dd></dl>
+
+<p>Abstract sequence of images.</p>
+<p>The sequence is useful for storing image animations or slices of a volume.
+For efficient access, use the <a href="pyglet.image.AbstractImageSequence-class.html#texture_sequence" class="link">texture_sequence</a> member.  The class
+also implements the sequence interface (<a href="pyglet.image.AbstractImageSequence-class.html#__len__" class="link">__len__</a>, <a href="pyglet.image.AbstractImageSequence-class.html#__getitem__" class="link">__getitem__</a>,
+<a href="pyglet.image.AbstractImageSequence-class.html#__setitem__" class="link">__setitem__</a>).</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.TextureSequence-class.html" class="link">TextureSequence</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.AbstractImageSequence-class.html#get_texture_sequence" class="summary-sig-name">get_texture_sequence</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get a TextureSequence.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Animation-class.html" class="link">Animation</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.AbstractImageSequence-class.html#get_animation" class="summary-sig-name">get_animation</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">period</span>,
+        <span class="summary-sig-arg">loop</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Create an animation over this image sequence for the given constant
+framerate.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">AbstractImage</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__getitem__"></a><span class="summary-sig-name">__getitem__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">slice</span>)</span>
+<div class="summary-description">Retrieve a (list of) image.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.AbstractImageSequence-class.html#__setitem__" class="summary-sig-name">__setitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">slice</span>,
+        <span class="summary-sig-arg">image</span>)</span>
+<div class="summary-description">Replace one or more images in the sequence.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__len__"></a><span class="summary-sig-name">__len__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Iterator</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.AbstractImageSequence-class.html#__iter__" class="summary-sig-name">__iter__</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Iterate over the images in sequence.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.TextureSequence-class.html" class="link">TextureSequence</a></span>
+    </td><td class="summary">
+        <a href="pyglet.image.AbstractImageSequence-class.html#texture_sequence" class="summary-name">texture_sequence</a>
+<div class="summary-description">Access this image sequence as a texture sequence.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="get_texture_sequence"></a>
+<div class=" detail">
+  <h3>get_texture_sequence</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_texture_sequence</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get a TextureSequence.
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.image.TextureSequence-class.html" class="link">TextureSequence</a></dt>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div>  </div>
+</div>
+<a name="get_animation"></a>
+<div class=" detail">
+  <h3>get_animation</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_animation</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">period</span>,
+        <span class="sig-arg">loop</span>=<span class="sig-default">True</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create an animation over this image sequence for the given constant
+framerate.</p>
+<dl class="rst-docutils">
+<dt>:Parameters</dt>
+<dd><dl class="rst-first rst-last rst-docutils">
+<dt><code class="link">period</code> <span class="classifier-delimiter">:</span> <span class="rst-classifier">float</span></dt>
+<dd>Number of seconds to display each frame.</dd>
+<dt><code class="link">loop</code> <span class="classifier-delimiter">:</span> <span class="rst-classifier">bool</span></dt>
+<dd>If True, the animation will loop continuously.</dd>
+</dl>
+</dd>
+</dl>
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.image.Animation-class.html" class="link">Animation</a></dt>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div>  </div>
+</div>
+<a name="__setitem__"></a>
+<div class=" detail">
+  <h3>__setitem__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Index assignment operator)</span>
+    <span class="sig"><span class="sig-name">__setitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">slice</span>,
+        <span class="sig-arg">image</span>)</span>
+    </div>
+  <div class="detail-description">
+  Replace one or more images in the sequence.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">image</span> : <span class='ptype'><a href="pyglet.image.AbstractImage-class.html" class="link">AbstractImage</a></span></dt>
+        <dd>The replacement image.  The actual instance may not be used,
+depending on this implementation.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="__iter__"></a>
+<div class=" detail">
+  <h3>__iter__</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">__iter__</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Iterate over the images in sequence.
+  <dl class="fields">
+    <dt>Returns: Iterator</dt>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div>  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="texture_sequence"></a>
+<div class=" detail">
+  <h3>texture_sequence</h3>
+  <div class="detail-description">
+  Access this image sequence as a texture sequence.
+<div class="fields">      <p><strong>Deprecated:</strong>
+        Use <a href="pyglet.image.AbstractImageSequence-class.html#get_texture_sequence" class="link">get_texture_sequence</a>
+      </p>
+</div>  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><a href="pyglet.image.TextureSequence-class.html" class="link">TextureSequence</a></dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;AbstractImageSequence
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

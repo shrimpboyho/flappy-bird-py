@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.gl.Config</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.gl-module.html">gl</a>&nbsp;.&nbsp;Config
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.gl.Config</h1>
+<p>Graphics configuration.</p>
+<p>A GLConfig stores the preferences for OpenGL attributes such as the
+number of auxiliary buffers, size of the colour and depth buffers,
+double buffering, stenciling, multi- and super-sampling, and so on.</p>
+<p>Different platforms support a different set of attributes, so these
+are set with a string key and a value which is integer or boolean.</p>
+<p>See also <a href="pyglet.window.Screen-class.html#get_best_config" class="link">pyglet.window.Screen.get_best_config</a> and
+<a href="pyglet.window.Screen-class.html#get_matching_configs" class="link">pyglet.window.Screen.get_matching_configs</a>.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.Config-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Create a template config with the given attributes.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of tuple (name, value)</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.Config-class.html#get_gl_attributes" class="summary-sig-name">get_gl_attributes</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Return a list of attributes set on this config.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.gl.Context-class.html" class="link">Context</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.Config-class.html#create_context" class="summary-sig-name">create_context</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">share</span>)</span>
+<div class="summary-description">Create a GL context that satisfies this configuration.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.Config-class.html#is_complete" class="summary-sig-name">is_complete</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Determine if this config is complete and able to create a context.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__repr__"></a><span class="summary-sig-name">__repr__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="accum_alpha_size"></a><span class="summary-name">accum_alpha_size</span>
+<div class="summary-description">Bits per pixel devoted to the alpha component in the accumulation
+buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="accum_blue_size"></a><span class="summary-name">accum_blue_size</span>
+<div class="summary-description">Bits per pixel devoted to the blue component in the accumulation
+buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="accum_green_size"></a><span class="summary-name">accum_green_size</span>
+<div class="summary-description">Bits per pixel devoted to the green component in the accumulation
+buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="accum_red_size"></a><span class="summary-name">accum_red_size</span>
+<div class="summary-description">Bits per pixel devoted to the red component in the accumulation
+buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="alpha_size"></a><span class="summary-name">alpha_size</span>
+<div class="summary-description">Bits per sample per buffer devoted to the alpha component.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="aux_buffers"></a><span class="summary-name">aux_buffers</span>
+<div class="summary-description">The number of auxiliary color buffers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="blue_size"></a><span class="summary-name">blue_size</span>
+<div class="summary-description">Bits per sample per buffer devoted to the blue component.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="buffer_size"></a><span class="summary-name">buffer_size</span>
+<div class="summary-description">Total bits per sample per color buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="depth_size"></a><span class="summary-name">depth_size</span>
+<div class="summary-description">Bits per sample in the depth buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a name="double_buffer"></a><span class="summary-name">double_buffer</span>
+<div class="summary-description">Specify the presence of a back-buffer for every color buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="green_size"></a><span class="summary-name">green_size</span>
+<div class="summary-description">Bits per sample per buffer devoted to the green component.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="red_size"></a><span class="summary-name">red_size</span>
+<div class="summary-description">Bits per sample per buffer devoted to the red component.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="sample_buffers"></a><span class="summary-name">sample_buffers</span>
+<div class="summary-description">The number of multisample buffers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="samples"></a><span class="summary-name">samples</span>
+<div class="summary-description">The number of samples per pixel, or 0 if there are no multisample
+buffers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="stencil_size"></a><span class="summary-name">stencil_size</span>
+<div class="summary-description">Bits per sample in the stencil buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a name="stereo"></a><span class="summary-name">stereo</span>
+<div class="summary-description">Specify the presence of separate left and right buffer sets.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create a template config with the given attributes.</p>
+<p>Specify attributes as keyword arguments, for example:</p>
+<pre class="py-doctest">
+template = Config(double_buffer=True)</pre>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="get_gl_attributes"></a>
+<div class=" detail">
+  <h3>get_gl_attributes</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_gl_attributes</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Return a list of attributes set on this config.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">list of tuple (name, value)</span>: All attributes, with unset attributes having a value of
+<tt class="rst-docutils literal">None</tt>.</dd>
+  </dl>
+  </div>
+</div>
+<a name="create_context"></a>
+<div class=" detail">
+  <h3>create_context</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">create_context</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">share</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a GL context that satisfies this configuration.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">share</span> : <span class='ptype'><a href="pyglet.gl.Context-class.html" class="link">Context</a></span></dt>
+        <dd>If not None, a context with which to share objects with.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype"><a href="pyglet.gl.Context-class.html" class="link">Context</a></span>: The new context.</dd>
+  </dl>
+  </div>
+</div>
+<a name="is_complete"></a>
+<div class=" detail">
+  <h3>is_complete</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">is_complete</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Determine if this config is complete and able to create a context.</p>
+<p>Configs created directly are not complete, they can only serve
+as templates for retrieving a supported config from the system.
+For example, <a href="pyglet.window.Screen-class.html#get_matching_configs" class="link">pyglet.window.Screen.get_matching_configs</a> returns
+complete configs.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">bool</span>: True if the config is complete and can create a context.</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.gl-module.html">gl</a>&nbsp;.&nbsp;Config
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

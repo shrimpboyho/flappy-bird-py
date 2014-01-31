@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.font</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;font
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package pyglet.font</h1>
+<p>Load fonts and render text.</p>
+<p>This is a fairly-low level interface to text rendering.  Obtain a font using
+load:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet <span class="py-keyword">import</span> font
+arial = font.load(<span class="py-string">'Arial'</span>, 14, bold=True, italic=False)</pre>
+<p>pyglet will load any system-installed fonts.  You can add additional fonts
+(for example, from your program resources) using add_file or
+add_directory.</p>
+<p>Obtain a list of <a href="pyglet.font.base.Glyph-class.html" class="link">Glyph</a> objects for a string of text using the <a href="pyglet.font.base.Font-class.html" class="link">Font</a>
+object:</p>
+<pre class="py-doctest">
+text = <span class="py-string">'Hello, world!'</span>
+glyphs = arial.get_glyphs(text)</pre>
+<p>The most efficient way to render these glyphs is with a <a href="pyglet.font.GlyphString-class.html" class="link">GlyphString</a>:</p>
+<pre class="py-doctest">
+glyph_string = GlyphString(text, glyphs)
+glyph_string.draw()</pre>
+<p>There are also a variety of methods in both <a href="pyglet.font.base.Font-class.html" class="link">Font</a> and
+<a href="pyglet.font.GlyphString-class.html" class="link">GlyphString</a> to facilitate word-wrapping.</p>
+<p>A convenient way to render a string of text is with a <a href="pyglet.font.Text-class.html" class="link">Text</a>:</p>
+<pre class="py-doctest">
+text = Text(font, text)
+text.draw()</pre>
+<p>See the <a href="pyglet.font.base-module.html" class="link">pyglet.font.base</a> module for documentation on the base classes used
+by this package.</p>
+
+<!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+        <h2>Submodules</h2>
+<table class="summary">
+<tr><td width="15%"></td><td><a href="pyglet.font.base-module.html" class="summary-name">pyglet.font.base</a><div class="summary-description">Abstract classes used by pyglet.font implementations.</div></td></tr></table>
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.font.GlyphString-class.html" class="summary-name">GlyphString</a>
+<div class="summary-description">An immutable string of glyphs that can be rendered quickly.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.font.Text-class.html" class="summary-name">Text</a>
+<div class="summary-description">Simple displayable text.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.font.base.Font-class.html" class="link">Font</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font-module.html#load" class="summary-sig-name">load</a>(<span class="summary-sig-arg">name</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">bold</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">italic</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">dpi</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Load a font for rendering.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font-module.html#add_file" class="summary-sig-name">add_file</a>(<span class="summary-sig-arg">font</span>)</span>
+<div class="summary-description">Add a font to pyglet's search path.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.font-module.html#add_directory" class="summary-sig-name">add_directory</a>(<span class="summary-sig-arg">dir</span>)</span>
+<div class="summary-description">Add a directory of fonts to pyglet's search path.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.font'"><code class="variable-quote">'</code><code class="variable-string">pyglet.font</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="load"></a>
+<div class=" detail">
+  <h3>load</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">load</span>(<span class="sig-arg">name</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">size</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">bold</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">italic</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">dpi</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Load a font for rendering.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str, or list of str</span></dt>
+        <dd>Font family, for example, &quot;Times New Roman&quot;.  If a list of names
+is provided, the first one matching a known font is used.  If no
+font can be matched to the name(s), a default font is used.  In
+pyglet 1.1, the name may be omitted.</dd>
+        <dt><span class="pname">size</span> : <span class='ptype'>float</span></dt>
+        <dd>Size of the font, in points.  The returned font may be an exact
+match or the closest available.  In pyglet 1.1, the size may be
+omitted, and defaults to 12pt.</dd>
+        <dt><span class="pname">bold</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, a bold variant is returned, if one exists for the given
+family and size.</dd>
+        <dt><span class="pname">italic</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, an italic variant is returned, if one exists for the given
+family and size.</dd>
+        <dt><span class="pname">dpi</span> : <span class='ptype'>float</span></dt>
+        <dd>The assumed resolution of the display device, for the purposes of
+determining the pixel size of the font.  Defaults to 96.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.font.base.Font-class.html" class="link">Font</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="add_file"></a>
+<div class=" detail">
+  <h3>add_file</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">add_file</span>(<span class="sig-arg">font</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Add a font to pyglet's search path.</p>
+<p>In order to load a font that is not installed on the system, you must
+call this method to tell pyglet that it exists.  You can supply
+either a filename or any file-like object.</p>
+<p>The font format is platform-dependent, but is typically a TrueType font
+file containing a single font face.  Note that to load this file after
+adding it you must specify the face name to load, not the filename.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">font</span> : <span class='ptype'>str or file</span></dt>
+        <dd>Filename or file-like object to load fonts from.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="add_directory"></a>
+<div class=" detail">
+  <h3>add_directory</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">add_directory</span>(<span class="sig-arg">dir</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Add a directory of fonts to pyglet's search path.</p>
+<p>This function simply calls add_file for each file with a <tt class="rst-docutils literal">.ttf</tt>
+extension in the given directory.  Subdirectories are not searched.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">dir</span> : <span class='ptype'>str</span></dt>
+        <dd>Directory that contains font files.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;font
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:17 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

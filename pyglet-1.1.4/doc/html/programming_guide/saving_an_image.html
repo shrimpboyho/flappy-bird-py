@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Saving an image</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="opengl_imaging.html" title="OpenGL imaging">OpenGL imaging</a></span><span class="next">Next: <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Saving an image</span></div>
+<h1 class="title">Saving an image</h1>
+
+<p>Any image can be saved using the <a class="reference apilink" href="../api/pyglet.image.AbstractImage-class.html#save " title="pyglet.image.AbstractImage.save">save</a> method:</p>
+<pre class="py-doctest">
+kitten.save(<span class="py-string">'kitten.png'</span>)</pre>
+<p>or, specifying a file-like object:</p>
+<pre class="py-doctest">
+kitten_stream = open(<span class="py-string">'kitten.png'</span>, <span class="py-string">'wb'</span>)
+kitten.save(<span class="py-string">'kitten.png'</span>, file=kitten_stream)</pre>
+<p>The following example shows how to grab a screenshot of your application
+window:</p>
+<pre class="py-doctest">
+pyglet.image.get_buffer_manager().get_color_buffer().save(<span class="py-string">'screenshot.png'</span>)</pre>
+<p>Note that images can only be saved in the PNG format unless PIL is installed.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="opengl_imaging.html" title="OpenGL imaging">OpenGL imaging</a></span><span class="next">Next: <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Saving an image</span></div>
+</div>
+</body>
+</html>

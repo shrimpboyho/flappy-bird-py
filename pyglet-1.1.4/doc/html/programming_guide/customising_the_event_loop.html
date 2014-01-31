@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Customising the event loop</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="the_application_event_loop.html" title="The application event loop">The application ...</a></span><span class="next">Next: <a class="reference" href="dispatching_events_manually.html" title="Dispatching events manually">Dispatching events manually</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_application_event_loop.html" title="The application event loop">The application ...</a> » Customising the ...</span></div>
+<h1 class="title">Customising the event loop</h1>
+
+<p>The pyglet event loop is encapsulated in the <a class="reference apilink" href="../api/pyglet.app.EventLoop-class.html " title="pyglet.app.EventLoop">EventLoop</a> class, which provides
+several hooks that can be overridden for customising its behaviour.  This is
+recommended only for advanced users -- typical applications and games are
+unlikely to require this functionality.</p>
+<p>To use the <cite>EventLoop</cite> class directly, instantiate it and call <cite>run</cite>:</p>
+<pre class="py-doctest">
+pyglet.app.EventLoop().run()</pre>
+<p>Only one <cite>EventLoop</cite> can be running at a time; when the <cite>run</cite> method is called
+the module variable <a class="reference apilink" href="../api/pyglet.app-module.html#event_loop ">pyglet.app.event_loop</a> is set to the running instance.
+Other pyglet modules such as <a class="reference apilink" href="../api/pyglet.window-module.html ">pyglet.window</a> depend on this.</p>
+<div class="section" id="event-loop-events">
+<h1><a class="toc-backref" href="#id107">Event loop events</a></h1>
+<p>You can listen for several events on the event loop instance.  The most useful
+of these is <a class="reference apilink" href="../api/pyglet.app.EventLoop-class.html#on_window_close " title="pyglet.app.EventLoop.on_window_close">on_window_close</a>, which is dispatched whenever a window is
+closed.  The default handler for this event exits the event loop if there are
+no more windows.  The following example overrides this behaviour to exit the
+application whenever any window is closed:</p>
+<pre class="py-doctest">
+event_loop = pyglet.app.EventLoop()
+
+@event_loop.event
+<span class="py-keyword">def</span> <span class="py-defname">on_window_close</span>(window):
+    event_loop.exit()
+    <span class="py-keyword">return</span> pyglet.event.EVENT_HANDLED
+
+event_loop.run()</pre>
+</div>
+<div class="section" id="overriding-the-default-idle-policy">
+<h1><a class="toc-backref" href="#id108">Overriding the default idle policy</a></h1>
+<p>The <a class="reference apilink" href="../api/pyglet.app.EventLoop-class.html#idle " title="pyglet.app.EventLoop.idle">EventLoop.idle</a> method is called every iteration of the event loop.  It
+is responsible for calling scheduled clock functions, redrawing windows, and
+deciding how idle the application is.  You can override this method if you
+have specific requirements for tuning the performance of your application;
+especially if it uses many windows.</p>
+<p>The default implementation has the following algorithm:</p>
+<ol class="arabic simple">
+<li>Call <a class="reference apilink" href="../api/pyglet.clock-module.html#tick " title="pyglet.clock.tick">clock.tick</a> with <tt class="docutils literal">poll=True</tt> to call any scheduled functions.</li>
+<li>Dispatch the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_draw " title="pyglet.window.Window.on_draw">on_draw</a> event and call <a class="reference apilink" href="../api/pyglet.window.Window-class.html#flip " title="pyglet.window.Window.flip">flip</a> on every open window.</li>
+<li>Return the value of <a class="reference apilink" href="../api/pyglet.clock-module.html#get_sleep_time " title="pyglet.clock.get_sleep_time">clock.get_sleep_time</a>.</li>
+</ol>
+<p>The return value of the method is the number of seconds until the event loop
+needs to iterate again (unless there is an earlier user-input event); or
+<tt class="docutils literal">None</tt> if the loop can wait for input indefinitely.</p>
+<p>Note that this default policy causes every window to be redrawn during every
+user event -- if you have more knowledge about which events have an effect on
+which windows you can improve on the performance of this method.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="the_application_event_loop.html" title="The application event loop">The application ...</a></span><span class="next">Next: <a class="reference" href="dispatching_events_manually.html" title="Dispatching events manually">Dispatching events manually</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_application_event_loop.html" title="The application event loop">The application ...</a> » Customising the ...</span></div>
+</div>
+</body>
+</html>

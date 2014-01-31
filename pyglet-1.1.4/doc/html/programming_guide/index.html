@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Programming Guide</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document" id="pyglet-programming-guide">
+<div class="navigation navigation-header container">
+<span class="next">Next: <a class="reference" href="installation.html" title="Installation">Installation</a></span></div>
+<h1 class="title">pyglet Programming Guide</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+</tbody>
+</table>
+<p>The pyglet Programming Guide provides in-depth documentation for writing
+applications that use pyglet.  Many topics described here reference the pyglet
+API reference, provided separately.</p>
+<p>If this is your first time reading about pyglet, we suggest you start at
+<a class="reference sectionlink" href="writing_a_pyglet_application.html">Writing a pyglet application</a>.</p>
+<div class="contents topic" id="sections">
+<p class="topic-title first">Sections</p>
+<ul class="simple">
+<li><a class="reference" href="installation.html" id="id36">Installation</a></li>
+<li><a class="reference" href="writing_a_pyglet_application.html" id="id37">Writing a pyglet application</a></li>
+<li><a class="reference" href="creating_an_opengl_context.html" id="id38">Creating an OpenGL context</a></li>
+<li><a class="reference" href="the_opengl_interface.html" id="id39">The OpenGL interface</a></li>
+<li><a class="reference" href="graphics.html" id="id40">Graphics</a></li>
+<li><a class="reference" href="windowing.html" id="id41">Windowing</a></li>
+<li><a class="reference" href="the_application_event_loop.html" id="id42">The application event loop</a></li>
+<li><a class="reference" href="the_pyglet_event_framework.html" id="id43">The pyglet event framework</a></li>
+<li><a class="reference" href="working_with_the_keyboard.html" id="id44">Working with the keyboard</a></li>
+<li><a class="reference" href="working_with_the_mouse.html" id="id45">Working with the mouse</a></li>
+<li><a class="reference" href="keeping_track_of_time.html" id="id46">Keeping track of time</a></li>
+<li><a class="reference" href="displaying_text.html" id="id47">Displaying text</a></li>
+<li><a class="reference" href="images.html" id="id48">Images</a></li>
+<li><a class="reference" href="sound_and_video.html" id="id49">Sound and video</a></li>
+<li><a class="reference" href="application_resources.html" id="id50">Application resources</a></li>
+<li><a class="reference" href="debugging_tools.html" id="id51">Debugging tools</a></li>
+<li><a class="reference" href="appendix_migrating_to_pyglet_1_1.html" id="id52">Appendix: Migrating to pyglet 1.1</a></li>
+</ul>
+</div>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of contents</p>
+<ul class="simple">
+<li><a class="reference" href="installation.html" id="id53">Installation</a><ul>
+<li><a class="reference" href="installing_using_setup_py.html" id="id54">Installing using setup.py</a></li>
+<li><a class="reference" href="installation_from_the_runtime_eggs.html" id="id55">Installation from the runtime eggs</a></li>
+</ul>
+</li>
+<li><a class="reference" href="writing_a_pyglet_application.html" id="id56">Writing a pyglet application</a><ul>
+<li><a class="reference" href="hello_world.html" id="id57">Hello, World</a></li>
+<li><a class="reference" href="image_viewer.html" id="id58">Image viewer</a></li>
+<li><a class="reference" href="handling_mouse_and_keyboard_events.html" id="id59">Handling mouse and keyboard events</a></li>
+<li><a class="reference" href="playing_sounds_and_music.html" id="id60">Playing sounds and music</a></li>
+<li><a class="reference" href="where_to_next.html" id="id61">Where to next?</a></li>
+</ul>
+</li>
+<li><a class="reference" href="creating_an_opengl_context.html" id="id62">Creating an OpenGL context</a><ul>
+<li><a class="reference" href="displays_screens_configs_and_contexts.html" id="id63">Displays, screens, configs and contexts</a><ul>
+<li><a class="reference" href="displays_screens_configs_and_contexts.html#contexts-and-configs" id="id64">Contexts and configs</a></li>
+<li><a class="reference" href="displays_screens_configs_and_contexts.html#displays" id="id65">Displays</a></li>
+<li><a class="reference" href="displays_screens_configs_and_contexts.html#screens" id="id66">Screens</a></li>
+</ul>
+</li>
+<li><a class="reference" href="opengl_configuration_options.html" id="id67">OpenGL configuration options</a><ul>
+<li><a class="reference" href="opengl_configuration_options.html#the-default-configuration" id="id68">The default configuration</a></li>
+</ul>
+</li>
+<li><a class="reference" href="simple_context_configuration.html" id="id69">Simple context configuration</a></li>
+<li><a class="reference" href="selecting_the_best_configuration.html" id="id70">Selecting the best configuration</a></li>
+<li><a class="reference" href="sharing_objects_between_contexts.html" id="id71">Sharing objects between contexts</a></li>
+</ul>
+</li>
+<li><a class="reference" href="the_opengl_interface.html" id="id72">The OpenGL interface</a><ul>
+<li><a class="reference" href="using_opengl.html" id="id73">Using OpenGL</a></li>
+<li><a class="reference" href="resizing_the_window.html" id="id74">Resizing the window</a></li>
+<li><a class="reference" href="error_checking.html" id="id75">Error checking</a></li>
+<li><a class="reference" href="using_extension_functions.html" id="id76">Using extension functions</a></li>
+<li><a class="reference" href="using_multiple_windows.html" id="id77">Using multiple windows</a></li>
+<li><a class="reference" href="agl_glx_and_wgl.html" id="id78">AGL, GLX and WGL</a></li>
+</ul>
+</li>
+<li><a class="reference" href="graphics.html" id="id79">Graphics</a><ul>
+<li><a class="reference" href="drawing_primitives.html" id="id80">Drawing primitives</a></li>
+<li><a class="reference" href="vertex_attributes.html" id="id81">Vertex attributes</a></li>
+<li><a class="reference" href="vertex_lists.html" id="id82">Vertex lists</a><ul>
+<li><a class="reference" href="vertex_lists.html#updating-vertex-data" id="id83">Updating vertex data</a></li>
+<li><a class="reference" href="vertex_lists.html#data-usage" id="id84">Data usage</a></li>
+<li><a class="reference" href="vertex_lists.html#indexed-vertex-lists" id="id85">Indexed vertex lists</a></li>
+</ul>
+</li>
+<li><a class="reference" href="batched_rendering.html" id="id86">Batched rendering</a><ul>
+<li><a class="reference" href="batched_rendering.html#setting-the-opengl-state" id="id87">Setting the OpenGL state</a></li>
+<li><a class="reference" href="batched_rendering.html#hierarchical-state" id="id88">Hierarchical state</a></li>
+<li><a class="reference" href="batched_rendering.html#sorting-vertex-lists" id="id89">Sorting vertex lists</a></li>
+</ul>
+</li>
+<li><a class="reference" href="batches_and_groups_in_other_modules.html" id="id90">Batches and groups in other modules</a></li>
+</ul>
+</li>
+<li><a class="reference" href="windowing.html" id="id91">Windowing</a><ul>
+<li><a class="reference" href="creating_a_window.html" id="id92">Creating a window</a><ul>
+<li><a class="reference" href="creating_a_window.html#context-configuration" id="id93">Context configuration</a></li>
+<li><a class="reference" href="creating_a_window.html#fullscreen-windows" id="id94">Fullscreen windows</a></li>
+</ul>
+</li>
+<li><a class="reference" href="size_and_position.html" id="id95">Size and position</a></li>
+<li><a class="reference" href="appearance.html" id="id96">Appearance</a><ul>
+<li><a class="reference" href="appearance.html#window-style" id="id97">Window style</a></li>
+<li><a class="reference" href="appearance.html#caption" id="id98">Caption</a></li>
+<li><a class="reference" href="appearance.html#icon" id="id99">Icon</a></li>
+</ul>
+</li>
+<li><a class="reference" href="visibility.html" id="id100">Visibility</a></li>
+<li><a class="reference" href="subclassing_window.html" id="id101">Subclassing Window</a></li>
+<li><a class="reference" href="windows_and_opengl_contexts.html" id="id102">Windows and OpenGL contexts</a><ul>
+<li><a class="reference" href="windows_and_opengl_contexts.html#double-buffering" id="id103">Double-buffering</a></li>
+<li><a class="reference" href="windows_and_opengl_contexts.html#vertical-retrace-synchronisation" id="id104">Vertical retrace synchronisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="the_application_event_loop.html" id="id105">The application event loop</a><ul>
+<li><a class="reference" href="customising_the_event_loop.html" id="id106">Customising the event loop</a><ul>
+<li><a class="reference" href="customising_the_event_loop.html#event-loop-events" id="id107">Event loop events</a></li>
+<li><a class="reference" href="customising_the_event_loop.html#overriding-the-default-idle-policy" id="id108">Overriding the default idle policy</a></li>
+</ul>
+</li>
+<li><a class="reference" href="dispatching_events_manually.html" id="id109">Dispatching events manually</a></li>
+</ul>
+</li>
+<li><a class="reference" href="the_pyglet_event_framework.html" id="id110">The pyglet event framework</a><ul>
+<li><a class="reference" href="setting_event_handlers.html" id="id111">Setting event handlers</a></li>
+<li><a class="reference" href="stacking_event_handlers.html" id="id112">Stacking event handlers</a></li>
+<li><a class="reference" href="creating_your_own_event_dispatcher.html" id="id113">Creating your own event dispatcher</a><ul>
+<li><a class="reference" href="creating_your_own_event_dispatcher.html#implementing-the-observer-pattern" id="id114">Implementing the Observer pattern</a></li>
+<li><a class="reference" href="creating_your_own_event_dispatcher.html#documenting-events" id="id115">Documenting events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="working_with_the_keyboard.html" id="id116">Working with the keyboard</a><ul>
+<li><a class="reference" href="keyboard_events.html" id="id117">Keyboard events</a><ul>
+<li><a class="reference" href="keyboard_events.html#defined-key-symbols" id="id118">Defined key symbols</a></li>
+<li><a class="reference" href="keyboard_events.html#modifiers" id="id119">Modifiers</a></li>
+<li><a class="reference" href="keyboard_events.html#user-defined-key-symbols" id="id120">User-defined key symbols</a></li>
+<li><a class="reference" href="keyboard_events.html#remembering-key-state" id="id121">Remembering key state</a></li>
+</ul>
+</li>
+<li><a class="reference" href="text_and_motion_events.html" id="id122">Text and motion events</a><ul>
+<li><a class="reference" href="text_and_motion_events.html#motion-events" id="id123">Motion events</a></li>
+</ul>
+</li>
+<li><a class="reference" href="keyboard_exclusivity.html" id="id124">Keyboard exclusivity</a></li>
+</ul>
+</li>
+<li><a class="reference" href="working_with_the_mouse.html" id="id125">Working with the mouse</a><ul>
+<li><a class="reference" href="mouse_events.html" id="id126">Mouse events</a></li>
+<li><a class="reference" href="changing_the_mouse_cursor.html" id="id127">Changing the mouse cursor</a></li>
+<li><a class="reference" href="mouse_exclusivity.html" id="id128">Mouse exclusivity</a></li>
+</ul>
+</li>
+<li><a class="reference" href="keeping_track_of_time.html" id="id129">Keeping track of time</a><ul>
+<li><a class="reference" href="calling_functions_periodically.html" id="id130">Calling functions periodically</a></li>
+<li><a class="reference" href="animation_techniques.html" id="id131">Animation techniques</a></li>
+<li><a class="reference" href="the_frame_rate.html" id="id132">The frame rate</a><ul>
+<li><a class="reference" href="the_frame_rate.html#displaying-the-frame-rate" id="id133">Displaying the frame rate</a></li>
+</ul>
+</li>
+<li><a class="reference" href="user_defined_clocks.html" id="id134">User-defined clocks</a></li>
+</ul>
+</li>
+<li><a class="reference" href="displaying_text.html" id="id135">Displaying text</a><ul>
+<li><a class="reference" href="simple_text_rendering.html" id="id136">Simple text rendering</a></li>
+<li><a class="reference" href="the_document_layout_model.html" id="id137">The document/layout model</a><ul>
+<li><a class="reference" href="the_document_layout_model.html#documents" id="id138">Documents</a></li>
+<li><a class="reference" href="the_document_layout_model.html#layouts" id="id139">Layouts</a></li>
+</ul>
+</li>
+<li><a class="reference" href="formatted_text.html" id="id140">Formatted text</a><ul>
+<li><a class="reference" href="formatted_text.html#character-styles" id="id141">Character styles</a></li>
+<li><a class="reference" href="formatted_text.html#paragraph-styles" id="id142">Paragraph styles</a></li>
+<li><a class="reference" href="formatted_text.html#attributed-text" id="id143">Attributed text</a></li>
+<li><a class="reference" href="formatted_text.html#html" id="id144">HTML</a></li>
+</ul>
+</li>
+<li><a class="reference" href="custom_elements.html" id="id145">Custom elements</a></li>
+<li><a class="reference" href="user_editable_text.html" id="id146">User-editable text</a></li>
+<li><a class="reference" href="loading_system_fonts.html" id="id147">Loading system fonts</a></li>
+<li><a class="reference" href="font_sizes.html" id="id148">Font sizes</a><ul>
+<li><a class="reference" href="font_sizes.html#font-resolution" id="id149">Font resolution</a></li>
+<li><a class="reference" href="font_sizes.html#determining-font-size" id="id150">Determining font size</a></li>
+</ul>
+</li>
+<li><a class="reference" href="loading_custom_fonts.html" id="id151">Loading custom fonts</a><ul>
+<li><a class="reference" href="loading_custom_fonts.html#supported-font-formats" id="id152">Supported font formats</a></li>
+</ul>
+</li>
+<li><a class="reference" href="opengl_font_considerations.html" id="id153">OpenGL font considerations</a><ul>
+<li><a class="reference" href="opengl_font_considerations.html#context-affinity" id="id154">Context affinity</a></li>
+<li><a class="reference" href="opengl_font_considerations.html#blend-state" id="id155">Blend state</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="images.html" id="id156">Images</a><ul>
+<li><a class="reference" href="loading_an_image.html" id="id157">Loading an image</a></li>
+<li><a class="reference" href="supported_image_formats.html" id="id158">Supported image formats</a></li>
+<li><a class="reference" href="working_with_images.html" id="id159">Working with images</a></li>
+<li><a class="reference" href="the_abstractimage_hierarchy.html" id="id160">The AbstractImage hierarchy</a></li>
+<li><a class="reference" href="accessing_or_providing_pixel_data.html" id="id161">Accessing or providing pixel data</a><ul>
+<li><a class="reference" href="accessing_or_providing_pixel_data.html#performance-concerns" id="id162">Performance concerns</a></li>
+</ul>
+</li>
+<li><a class="reference" href="image_sequences_and_atlases.html" id="id163">Image sequences and atlases</a><ul>
+<li><a class="reference" href="image_sequences_and_atlases.html#image-grids" id="id164">Image grids</a></li>
+<li><a class="reference" href="image_sequences_and_atlases.html#d-textures" id="id165">3D textures</a></li>
+<li><a class="reference" href="image_sequences_and_atlases.html#texture-bins-and-atlases" id="id166">Texture bins and atlases</a></li>
+</ul>
+</li>
+<li><a class="reference" href="animations.html" id="id167">Animations</a></li>
+<li><a class="reference" href="buffer_images.html" id="id168">Buffer images</a></li>
+<li><a class="reference" href="displaying_images.html" id="id169">Displaying images</a><ul>
+<li><a class="reference" href="displaying_images.html#sprites" id="id170">Sprites</a></li>
+<li><a class="reference" href="displaying_images.html#simple-image-blitting" id="id171">Simple image blitting</a></li>
+</ul>
+</li>
+<li><a class="reference" href="opengl_imaging.html" id="id172">OpenGL imaging</a><ul>
+<li><a class="reference" href="opengl_imaging.html#texture-dimensions" id="id173">Texture dimensions</a></li>
+<li><a class="reference" href="opengl_imaging.html#texture-internal-format" id="id174">Texture internal format</a></li>
+</ul>
+</li>
+<li><a class="reference" href="saving_an_image.html" id="id175">Saving an image</a></li>
+</ul>
+</li>
+<li><a class="reference" href="sound_and_video.html" id="id176">Sound and video</a><ul>
+<li><a class="reference" href="audio_drivers.html" id="id177">Audio drivers</a><ul>
+<li><a class="reference" href="audio_drivers.html#directsound" id="id178">DirectSound</a></li>
+<li><a class="reference" href="audio_drivers.html#openal" id="id179">OpenAL</a></li>
+<li><a class="reference" href="audio_drivers.html#alsa" id="id180">ALSA</a></li>
+<li><a class="reference" href="audio_drivers.html#linux-issues" id="id181">Linux Issues</a></li>
+</ul>
+</li>
+<li><a class="reference" href="supported_media_types.html" id="id182">Supported media types</a></li>
+<li><a class="reference" href="loading_media.html" id="id183">Loading media</a></li>
+<li><a class="reference" href="simple_audio_playback.html" id="id184">Simple audio playback</a></li>
+<li><a class="reference" href="controlling_playback.html" id="id185">Controlling playback</a></li>
+<li><a class="reference" href="incorporating_video.html" id="id186">Incorporating video</a></li>
+<li><a class="reference" href="positional_audio.html" id="id187">Positional audio</a></li>
+</ul>
+</li>
+<li><a class="reference" href="application_resources.html" id="id188">Application resources</a><ul>
+<li><a class="reference" href="loading_resources.html" id="id189">Loading resources</a><ul>
+<li><a class="reference" href="loading_resources.html#resource-locations" id="id190">Resource locations</a></li>
+</ul>
+</li>
+<li><a class="reference" href="specifying_the_resource_path.html" id="id191">Specifying the resource path</a></li>
+<li><a class="reference" href="multiple_loaders.html" id="id192">Multiple loaders</a></li>
+<li><a class="reference" href="saving_user_preferences.html" id="id193">Saving user preferences</a></li>
+</ul>
+</li>
+<li><a class="reference" href="debugging_tools.html" id="id194">Debugging tools</a><ul>
+<li><a class="reference" href="debugging_opengl.html" id="id195">Debugging OpenGL</a><ul>
+<li><a class="reference" href="debugging_opengl.html#id32" id="id196">Error checking</a></li>
+<li><a class="reference" href="debugging_opengl.html#tracing" id="id197">Tracing</a></li>
+</ul>
+</li>
+<li><a class="reference" href="tracing_execution.html" id="id198">Tracing execution</a></li>
+<li><a class="reference" href="platform_specific_debugging.html" id="id199">Platform-specific debugging</a><ul>
+<li><a class="reference" href="platform_specific_debugging.html#id33" id="id200">Linux</a></li>
+<li><a class="reference" href="platform_specific_debugging.html#windows" id="id201">Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="appendix_migrating_to_pyglet_1_1.html" id="id202">Appendix: Migrating to pyglet 1.1</a><ul>
+<li><a class="reference" href="compatibility_and_deprecation.html" id="id203">Compatibility and deprecation</a></li>
+<li><a class="reference" href="deprecated_methods.html" id="id204">Deprecated methods</a></li>
+<li><a class="reference" href="new_features_replacing_standard_practice.html" id="id205">New features replacing standard practice</a><ul>
+<li><a class="reference" href="new_features_replacing_standard_practice.html#importing-pyglet" id="id206">Importing pyglet</a></li>
+<li><a class="reference" href="new_features_replacing_standard_practice.html#application-event-loop" id="id207">Application event loop</a></li>
+<li><a class="reference" href="new_features_replacing_standard_practice.html#id35" id="id208">Loading resources</a></li>
+</ul>
+</li>
+<li><a class="reference" href="new_graphics_features.html" id="id209">New graphics features</a></li>
+<li><a class="reference" href="new_text_features.html" id="id210">New text features</a></li>
+<li><a class="reference" href="other_new_features.html" id="id211">Other new features</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="navigation navigation-footer container">
+<span class="next">Next: <a class="reference" href="installation.html" title="Installation">Installation</a></span></div>
+</div>
+</body>
+</html>

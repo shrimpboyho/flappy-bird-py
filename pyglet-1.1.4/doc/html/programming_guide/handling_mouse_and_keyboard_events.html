@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Handling mouse and keyboard events</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="image_viewer.html" title="Image viewer">Image viewer</a></span><span class="next">Next: <a class="reference" href="playing_sounds_and_music.html" title="Playing sounds and music">Playing sounds ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="writing_a_pyglet_application.html" title="Writing a pyglet application">Writing a ...</a> » Handling mouse ...</span></div>
+<h1 class="title">Handling mouse and keyboard events</h1>
+
+<p>So far the only event used is the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_draw " title="pyglet.window.Window.on_draw">on_draw</a> event.  To react to keyboard and
+mouse events, it's necessary to write and attach event handlers for these
+events as well:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> pyglet
+
+window = pyglet.window.Window()
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_key_press</span>(symbol, modifiers):
+    <span class="py-keyword">print</span> <span class="py-string">'A key was pressed'</span>
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+
+pyglet.app.run()</pre>
+<p>Keyboard events have two parameters: the virtual key <cite>symbol</cite> that was
+pressed, and a bitwise combination of any <a class="reference sectionlink" href="keyboard_events.html#modifiers">modifiers</a> that are present (for
+example, the <tt class="docutils literal">CTRL</tt> and <tt class="docutils literal">SHIFT</tt> keys).</p>
+<p>The key symbols are defined in <a class="reference apilink" href="../api/pyglet.window.key-module.html ">pyglet.window.key</a>:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.window <span class="py-keyword">import</span> key
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_key_press</span>(symbol, modifiers):
+    <span class="py-keyword">if</span> symbol == key.A:
+        <span class="py-keyword">print</span> <span class="py-string">'The &quot;A&quot; key was pressed.'</span>
+    <span class="py-keyword">elif</span> symbol == key.LEFT:
+        <span class="py-keyword">print</span> <span class="py-string">'The left arrow key was pressed.'</span>
+    <span class="py-keyword">elif</span> symbol == key.ENTER:
+        <span class="py-keyword">print</span> <span class="py-string">'The enter key was pressed.'</span></pre>
+<p>See the <cite>pyglet.window.key</cite> documentation for a complete list of key symbols.</p>
+<p>Mouse events are handled in a similar way:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.window <span class="py-keyword">import</span> mouse
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_mouse_press</span>(x, y, button, modifiers):
+    <span class="py-keyword">if</span> button == mouse.LEFT:
+        <span class="py-keyword">print</span> <span class="py-string">'The left mouse button was pressed.'</span></pre>
+<p>The <tt class="docutils literal">x</tt> and <tt class="docutils literal">y</tt> parameters give the position of the mouse when the button
+was pressed, relative to the lower-left corner of the window.</p>
+<p>There are more than 20 event types that you can handle on a window.  The
+easiest way to find the event name and parameters you need is to add the
+following line to your program:</p>
+<pre class="py-doctest">
+window.push_handlers(pyglet.window.event.WindowEventLogger())</pre>
+<p>This will cause all events received on the window to be printed to the
+console.</p>
+<p>An example program using keyboard and mouse events is in
+<a class="reference filelink" href="events.py">examples/programming_guide/events.py</a></p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="image_viewer.html" title="Image viewer">Image viewer</a></span><span class="next">Next: <a class="reference" href="playing_sounds_and_music.html" title="Playing sounds and music">Playing sounds ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="writing_a_pyglet_application.html" title="Writing a pyglet application">Writing a ...</a> » Handling mouse ...</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Creating a window</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="windowing.html" title="Windowing">Windowing</a></span><span class="next">Next: <a class="reference" href="size_and_position.html" title="Size and position">Size and position</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Creating a window</span></div>
+<h1 class="title">Creating a window</h1>
+
+<p>If the <a class="reference apilink" href="../api/pyglet.window.Window-class.html " title="pyglet.window.Window">Window</a> constructor is called with no arguments, defaults will be
+assumed for all parameters:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window()</pre>
+<p>The default parameters used are:</p>
+<ul class="simple">
+<li>The window will have a size of 640x480, and not be resizable.</li>
+<li>A default context will be created using template config described in <cite>OpenGL
+configuration options</cite>.</li>
+<li>The window caption will be the name of the executing Python script (i.e.,
+<tt class="docutils literal">sys.argv[0]</tt>).</li>
+</ul>
+<p>Windows are visible as soon as they are created, unless you give the
+<tt class="docutils literal">visible=False</tt> argument to the constructor.  The following
+example shows how to create and display a window in two steps:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window(visible=False)
+<span class="py-comment"># ... perform some additional initialisation</span>
+window.set_visible()</pre>
+<div class="section" id="context-configuration">
+<h1><a class="toc-backref" href="#id246">Context configuration</a></h1>
+<p>The context of a window cannot be changed once created.  There are several
+ways to control the context that is created:</p>
+<ul>
+<li><p class="first">Supply an already-created <a class="reference apilink" href="../api/pyglet.gl.Context-class.html " title="pyglet.gl.Context">Context</a> using the <tt class="docutils literal">context</tt> argument:</p>
+<pre class="py-doctest">
+context = config.create_context(share)
+window = pyglet.window.Window(context=context)</pre>
+</li>
+<li><p class="first">Supply a complete <a class="reference apilink" href="../api/pyglet.gl.Config-class.html " title="pyglet.gl.Config">Config</a> obtained from a <a class="reference apilink" href="../api/pyglet.window.Screen-class.html " title="pyglet.window.Screen">Screen</a> using the <tt class="docutils literal">config</tt>
+argument.  The context will be created from this config and will share object
+space with the most recently created existing context:</p>
+<pre class="py-doctest">
+config = screen.get_best_config(template)
+window = pyglet.window.Window(config=config)</pre>
+</li>
+<li><p class="first">Supply a template <cite>Config</cite> using the <tt class="docutils literal">config</tt> argument.  The context will
+use the best config obtained from the default screen of the default display:</p>
+<pre class="py-doctest">
+config = gl.Config(double_buffer=True)
+window = pyglet.window.Window(config=config)</pre>
+</li>
+<li><p class="first">Specify a <cite>Screen</cite> using the <tt class="docutils literal">screen</tt> argument.  The context will use a
+config created from default template configuration and this screen:</p>
+<pre class="py-doctest">
+screen = display.get_screens()[screen_number]
+window = pyglet.window.Window(screen=screen)</pre>
+</li>
+<li><p class="first">Specify a <a class="reference apilink" href="../api/pyglet.window.Display-class.html " title="pyglet.window.Display">Display</a> using the <tt class="docutils literal">display</tt> argument.  The default screen on
+this display will be used to obtain a context using the default template
+configuration:</p>
+<pre class="py-doctest">
+display = platform.get_display(display_name)
+window = pyglet.window.Window(display=display)</pre>
+</li>
+</ul>
+<p>If a template <cite>Config</cite> is given, a <cite>Screen</cite> or <cite>Display</cite> may also be
+specified; however any other combination of parameters overconstrains the
+configuration and some parameters will be ignored.</p>
+</div>
+<div class="section" id="fullscreen-windows">
+<h1><a class="toc-backref" href="#id247">Fullscreen windows</a></h1>
+<p>If the <tt class="docutils literal">fullscreen=True</tt> argument is given to the window constructor, the
+window will draw to an entire screen rather than a floating window.  No window
+border or controls will be shown, so you must ensure you provide some other
+means to exit the application.</p>
+<p>By default, the default screen on the default display will be used, however
+you can optionally specify another screen to use instead.  For example, the
+following code creates a fullscreen window on the secondary screen:</p>
+<pre class="py-doctest">
+screens = display.get_screens()
+window = pyglet.window.Window(fullscreen=True, screens[1])</pre>
+<p>There is no way to create a fullscreen window that spans more than one window
+(for example, if you wanted to create an immersive 3D environment across
+multiple monitors).  Instead, you should create a separate fullscreen window
+for each screen and attach identical event handlers to all windows.</p>
+<p>Windows can be toggled in and out of fullscreen mode with the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#set_fullscreen " title="pyglet.window.Window.set_fullscreen">set_fullscreen</a>
+method.  For example, to return to windowed mode from fullscreen:</p>
+<pre class="py-doctest">
+window.set_fullscreen(False)</pre>
+<p>The previous window size and location, if any, will attempt to be restored,
+however the operating system does not always permit this, and the window may
+have relocated.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="windowing.html" title="Windowing">Windowing</a></span><span class="next">Next: <a class="reference" href="size_and_position.html" title="Size and position">Size and position</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Creating a window</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Tracing execution</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="debugging_opengl.html" title="Debugging OpenGL">Debugging OpenGL</a></span><span class="next">Next: <a class="reference" href="platform_specific_debugging.html" title="Platform-specific debugging">Platform-specific debugging</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="debugging_tools.html" title="Debugging tools">Debugging tools</a> » Tracing execution</span></div>
+<h1 class="title">Tracing execution</h1>
+
+<p>The <tt class="docutils literal">debug_trace</tt> option enables Python-wide function tracing.  This causes
+every function call to be printed to standard out.  Due to the large number of
+function calls required just to initialise pyglet, it is recommended to
+redirect standard output to a file when using this option.</p>
+<p>The <tt class="docutils literal">debug_trace_args</tt> option additionally prints the arguments to each
+function call.</p>
+<p>When <tt class="docutils literal">debug_trace_depth</tt> is greater than 1 the caller(s) of each function
+(and their arguments, if <tt class="docutils literal">debug_trace_args</tt> is set) are also printed.  Each
+caller is indented beneath the callee.  The default depth is 1, specifying
+that no callers are printed.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="debugging_opengl.html" title="Debugging OpenGL">Debugging OpenGL</a></span><span class="next">Next: <a class="reference" href="platform_specific_debugging.html" title="Platform-specific debugging">Platform-specific debugging</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="debugging_tools.html" title="Debugging tools">Debugging tools</a> » Tracing execution</span></div>
+</div>
+</body>
+</html>

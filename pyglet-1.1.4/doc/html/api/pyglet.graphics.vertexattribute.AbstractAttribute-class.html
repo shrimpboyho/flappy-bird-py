@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.graphics.vertexattribute.AbstractAttribute</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;<a href="pyglet.graphics.vertexattribute-module.html">vertexattribute</a>&nbsp;.&nbsp;AbstractAttribute
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.graphics.vertexattribute.AbstractAttribute</h1>
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.graphics.vertexattribute.ColorAttribute-class.html">ColorAttribute</a>,
+    <a href="pyglet.graphics.vertexattribute.EdgeFlagAttribute-class.html">EdgeFlagAttribute</a>,
+    <a href="pyglet.graphics.vertexattribute.FogCoordAttribute-class.html">FogCoordAttribute</a>,
+    <a href="pyglet.graphics.vertexattribute.GenericAttribute-class.html">GenericAttribute</a>,
+    <a href="pyglet.graphics.vertexattribute.NormalAttribute-class.html">NormalAttribute</a>,
+    <a href="pyglet.graphics.vertexattribute.SecondaryColorAttribute-class.html">SecondaryColorAttribute</a>,
+    <a href="pyglet.graphics.vertexattribute.TexCoordAttribute-class.html">TexCoordAttribute</a>,
+    <a href="pyglet.graphics.vertexattribute.VertexAttribute-class.html">VertexAttribute</a>
+</dd></dl>
+
+Abstract accessor for an attribute in a mapped buffer.
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexattribute.AbstractAttribute-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">count</span>,
+        <span class="summary-sig-arg">gl_type</span>)</span>
+<div class="summary-description">Create the attribute accessor.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="enable"></a><span class="summary-sig-name">enable</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Enable the attribute using <tt class="rst-docutils literal">glEnableClientState</tt>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexattribute.AbstractAttribute-class.html#set_pointer" class="summary-sig-name">set_pointer</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">offset</span>)</span>
+<div class="summary-description">Setup this attribute to point to the currently bound buffer at
+the given offset.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.vertexbuffer.AbstractBufferRegion-class.html" class="link">AbstractBufferRegion</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexattribute.AbstractAttribute-class.html#get_region" class="summary-sig-name">get_region</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">buffer</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">count</span>)</span>
+<div class="summary-description">Map a buffer region using this attribute as an accessor.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexattribute.AbstractAttribute-class.html#set_region" class="summary-sig-name">set_region</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">buffer</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">count</span>,
+        <span class="summary-sig-arg">data</span>)</span>
+<div class="summary-description">Set the data over a region of the buffer.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">count</span>,
+        <span class="sig-arg">gl_type</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create the attribute accessor.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">count</span> : <span class='ptype'>int</span></dt>
+        <dd>Number of components in the attribute.</dd>
+        <dt><span class="pname">gl_type</span> : <span class='ptype'>int</span></dt>
+        <dd>OpenGL type enumerant; for example, <tt class="rst-docutils literal">GL_FLOAT</tt></dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_pointer"></a>
+<div class=" detail">
+  <h3>set_pointer</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_pointer</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">offset</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Setup this attribute to point to the currently bound buffer at
+the given offset.</p>
+<p><tt class="rst-docutils literal">offset</tt> should be based on the currently bound buffer's <tt class="rst-docutils literal">ptr</tt>
+member.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">offset</span> : <span class='ptype'>int</span></dt>
+        <dd>Pointer offset to the currently bound buffer for this
+attribute.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="get_region"></a>
+<div class=" detail">
+  <h3>get_region</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_region</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">buffer</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">count</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Map a buffer region using this attribute as an accessor.</p>
+<p>The returned region can be modified as if the buffer was a contiguous
+array of this attribute (though it may actually be interleaved or
+otherwise non-contiguous).</p>
+<p>The returned region consists of a contiguous array of component
+data elements.  For example, if this attribute uses 3 floats per
+vertex, and the <code class="link">count</code> parameter is 4, the number of floats mapped
+will be <tt class="rst-docutils literal">3 * 4 = 12</tt>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">buffer</span> : <span class='ptype'><a href="pyglet.graphics.vertexbuffer.AbstractMappable-class.html" class="link">AbstractMappable</a></span></dt>
+        <dd>The buffer to map.</dd>
+        <dt><span class="pname">start</span> : <span class='ptype'>int</span></dt>
+        <dd>Offset of the first vertex to map.</dd>
+        <dt><span class="pname">count</span> : <span class='ptype'>int</span></dt>
+        <dd>Number of vertices to map</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.graphics.vertexbuffer.AbstractBufferRegion-class.html" class="link">AbstractBufferRegion</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="set_region"></a>
+<div class=" detail">
+  <h3>set_region</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_region</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">buffer</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">count</span>,
+        <span class="sig-arg">data</span>)</span>
+    </div>
+  <div class="detail-description">
+  Set the data over a region of the buffer.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">buffer</span> : <span class='ptype'>AbstractMappable`</span></dt>
+        <dd>The buffer to modify.</dd>
+        <dt><span class="pname">start</span> : <span class='ptype'>int</span></dt>
+        <dd>Offset of the first vertex to set.</dd>
+        <dt><span class="pname">count</span> : <span class='ptype'>int</span></dt>
+        <dd>Number of vertices to set.</dd>
+        <dt><span class="pname">data</span> : <span class='ptype'>sequence</span></dt>
+        <dd>Sequence of data components.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;<a href="pyglet.graphics.vertexattribute-module.html">vertexattribute</a>&nbsp;.&nbsp;AbstractAttribute
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

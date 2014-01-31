@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Custom elements</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="formatted_text.html" title="Formatted text">Formatted text</a></span><span class="next">Next: <a class="reference" href="user_editable_text.html" title="User-editable text">User-editable text</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Custom elements</span></div>
+<h1 class="title">Custom elements</h1>
+
+<p>Graphics and other visual elements can be inserted inline into a document
+using <a class="reference apilink" href="../api/pyglet.text.document.AbstractDocument-class.html#insert_element " title="pyglet.text.document.AbstractDocument.insert_element">AbstractDocument.insert_element</a>.  For example, inline elements are
+used to render HTML images included with the <tt class="docutils literal">IMG</tt> tag.  There is currently
+no support for floating or absolutely-positioned elements.</p>
+<p>Elements must subclass <a class="reference apilink" href="../api/pyglet.text.document.InlineElement-class.html " title="pyglet.text.document.InlineElement">InlineElement</a> and override the <cite>place</cite> and <cite>remove</cite>
+methods.  These methods are called by <a class="reference apilink" href="../api/pyglet.text.layout.TextLayout-class.html " title="pyglet.text.layout.TextLayout">TextLayout</a> when the element becomes
+or ceases to be visible.  For <cite>TextLayout</cite> and <a class="reference apilink" href="../api/pyglet.text.layout.ScrollableTextLayout-class.html " title="pyglet.text.layout.ScrollableTextLayout">ScrollableTextLayout</a>, this is
+when the element is added or removed from the document; but for
+<a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html " title="pyglet.text.layout.IncrementalTextLayout">IncrementalTextLayout</a> the methods are also called as the element scrolls in
+and out of the viewport.</p>
+<p>The constructor of <cite>InlineElement</cite> gives the width and height (separated into
+the ascent above the baseline, and descent below the baseline) of the element.</p>
+<p>Typically an <cite>InlineElement</cite> subclass will add graphics primitives to the
+layout's graphics batch; though applications may choose to simply record the
+position of the element and render it separately.</p>
+<p>The position of the element in the document text is marked with a NUL
+character (U+0000) placeholder.  This has the effect that inserting an element
+into a document increases the length of the document text by one.  Elements
+can also be styled as if they were ordinary character text, though the layout
+ignores any such style attributes.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="formatted_text.html" title="Formatted text">Formatted text</a></span><span class="next">Next: <a class="reference" href="user_editable_text.html" title="User-editable text">User-editable text</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Custom elements</span></div>
+</div>
+</body>
+</html>

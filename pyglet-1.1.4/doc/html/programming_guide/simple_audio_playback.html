@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Simple audio playback</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="loading_media.html" title="Loading media">Loading media</a></span><span class="next">Next: <a class="reference" href="controlling_playback.html" title="Controlling playback">Controlling playback</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a> » Simple audio playback</span></div>
+<h1 class="title">Simple audio playback</h1>
+
+<p>Many applications, especially games, need to play sounds in their entirety
+without needing to keep track of them.  For example, a sound needs to be
+played when the player's space ship explodes, but this sound never needs to
+have its volume adjusted, or be rewound, or interrupted.</p>
+<p>pyglet provides a simple interface for this kind of use-case.  Call the <cite>play</cite>
+method of any <a class="reference apilink" href="../api/pyglet.media.Source-class.html " title="pyglet.media.Source">Source</a> to play it immediately and completely:</p>
+<pre class="py-doctest">
+explosion = pyglet.media.load(<span class="py-string">'explosion.wav'</span>, streaming=False)
+explosion.play()</pre>
+<p>You can call <cite>play</cite> on any <cite>Source</cite>, not just <a class="reference apilink" href="../api/pyglet.media.StaticSource-class.html " title="pyglet.media.StaticSource">StaticSource</a>.</p>
+<p>The return value of <a class="reference apilink" href="../api/pyglet.media.Source-class.html#play " title="pyglet.media.Source.play">Source.play</a> is a <cite>ManagedPlayer</cite>, which can either be
+discarded, or retained to maintain control over the sound's playback.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="loading_media.html" title="Loading media">Loading media</a></span><span class="next">Next: <a class="reference" href="controlling_playback.html" title="Controlling playback">Controlling playback</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a> » Simple audio playback</span></div>
+</div>
+</body>
+</html>

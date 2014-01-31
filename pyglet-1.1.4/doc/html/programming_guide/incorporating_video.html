@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Incorporating video</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="controlling_playback.html" title="Controlling playback">Controlling playback</a></span><span class="next">Next: <a class="reference" href="positional_audio.html" title="Positional audio">Positional audio</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a> » Incorporating video</span></div>
+<h1 class="title">Incorporating video</h1>
+
+<p>When a <a class="reference apilink" href="../api/pyglet.media.Player-class.html " title="pyglet.media.Player">Player</a> is playing back a source with video, use the <cite>get_texture</cite>
+method to obtain the video frame image.  This can be used to display
+the current video image syncronised with the audio track, for example:</p>
+<pre class="py-doctest">
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    player.get_texture().blit(0, 0)</pre>
+<p>The texture is an instance of <a class="reference apilink" href="../api/pyglet.image.Texture-class.html ">pyglet.image.Texture</a>, with an internal format
+of either <tt class="docutils literal">GL_TEXTURE_2D</tt> or <tt class="docutils literal">GL_TEXTURE_RECTANGLE_ARB</tt>.  While the
+texture will typically be created only once and subsequentally updated each
+frame, you should make no such assumption in your application -- future
+versions of pyglet may use multiple texture objects.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="controlling_playback.html" title="Controlling playback">Controlling playback</a></span><span class="next">Next: <a class="reference" href="positional_audio.html" title="Positional audio">Positional audio</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a> » Incorporating video</span></div>
+</div>
+</body>
+</html>

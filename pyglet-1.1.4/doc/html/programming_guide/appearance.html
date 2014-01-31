@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Appearance</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="size_and_position.html" title="Size and position">Size and position</a></span><span class="next">Next: <a class="reference" href="visibility.html" title="Visibility">Visibility</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Appearance</span></div>
+<h1 class="title">Appearance</h1>
+
+<div class="section" id="window-style">
+<h1><a class="toc-backref" href="#id250">Window style</a></h1>
+<p>Non-fullscreen windows can be created in one of four styles: default, dialog,
+tool or borderless.  Examples of the appearances of each of these styles under
+Windows XP and Mac OS X 10.4 are shown below.</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Style</th>
+<th class="head">Windows XP</th>
+<th class="head">Mac OS X</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference apilink" href="../api/pyglet.window.Window-class.html#WINDOW_STYLE_DEFAULT " title="pyglet.window.Window.WINDOW_STYLE_DEFAULT">WINDOW_STYLE_DEFAULT</a></td>
+<td><img alt="window_xp_default.png" class="first last" src="window_xp_default.png" />
+</td>
+<td><img alt="window_osx_default.png" class="first last" src="window_osx_default.png" />
+</td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.window.Window-class.html#WINDOW_STYLE_DIALOG " title="pyglet.window.Window.WINDOW_STYLE_DIALOG">WINDOW_STYLE_DIALOG</a></td>
+<td><img alt="window_xp_dialog.png" class="first last" src="window_xp_dialog.png" />
+</td>
+<td><img alt="window_osx_dialog.png" class="first last" src="window_osx_dialog.png" />
+</td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.window.Window-class.html#WINDOW_STYLE_TOOL " title="pyglet.window.Window.WINDOW_STYLE_TOOL">WINDOW_STYLE_TOOL</a></td>
+<td><img alt="window_xp_tool.png" class="first last" src="window_xp_tool.png" />
+</td>
+<td><img alt="window_osx_tool.png" class="first last" src="window_osx_tool.png" />
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Non-resizable variants of these window styles may appear slightly different
+(for example, the maximize button will either be disabled or absent).</p>
+<p>Besides the change in appearance, the window styles affect how the window
+behaves.  For example, tool windows do not usually appear in the task bar and
+cannot receive keyboard focus.  Dialog windows cannot be minimized.  Selecting
+the appropriate window style for your windows means your application will
+behave correctly for the platform on which it is running, however that
+behaviour may not be consistent across Windows, Linux and Mac OS X.</p>
+<p>The appearance and behaviour of windows in Linux will vary greatly depending
+on the distribution, window manager and user preferences.</p>
+<p>Borderless windows (<a class="reference apilink" href="../api/pyglet.window.Window-class.html#WINDOW_STYLE_BORDERLESS " title="pyglet.window.Window.WINDOW_STYLE_BORDERLESS">WINDOW_STYLE_BORDERLESS</a>) are not decorated by the
+operating system at all, and have no way to be resized or moved around the
+desktop.  These are useful for implementing splash screens or custom window
+borders.</p>
+<p>You can specify the style of the window in the <a class="reference apilink" href="../api/pyglet.window.Window-class.html " title="pyglet.window.Window">Window</a> constructor.  Once
+created, the window style cannot be altered:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window(style=window.Window.WINDOW_STYLE_DIALOG)</pre>
+</div>
+<div class="section" id="caption">
+<h1><a class="toc-backref" href="#id251">Caption</a></h1>
+<p>The window's caption appears in its title bar and task bar icon (on Windows
+and some Linux window managers).  You can set the caption during window
+creation or at any later time using the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#set_caption " title="pyglet.window.Window.set_caption">set_caption</a> method:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window(caption=<span class="py-string">'Initial caption'</span>)
+window.set_caption(<span class="py-string">'A different caption'</span>)</pre>
+</div>
+<div class="section" id="icon">
+<h1><a class="toc-backref" href="#id252">Icon</a></h1>
+<p>The window icon appears in the title bar and task bar icon on Windows and
+Linux, and in the dock icon on Mac OS X.  Dialog and tool windows do not
+necessarily show their icon.</p>
+<p>Windows, Mac OS X and the Linux window managers each have their own preferred
+icon sizes:</p>
+<blockquote>
+<dl class="docutils">
+<dt>Windows XP</dt>
+<dd><ul class="first last simple">
+<li>A 16x16 icon for the title bar and task bar.</li>
+<li>A 32x32 icon for the Alt+Tab switcher.</li>
+</ul>
+</dd>
+<dt>Mac OS X</dt>
+<dd><ul class="first last simple">
+<li>Any number of icons of resolutions 16x16, 24x24, 32x32, 48x48, 72x72
+and 128x128.  The actual image displayed will be interpolated to the
+correct size from those provided.</li>
+</ul>
+</dd>
+<dt>Linux</dt>
+<dd><ul class="first last simple">
+<li>No constraints, however most window managers will use a 16x16 and a
+32x32 icon in the same way as Windows XP.</li>
+</ul>
+</dd>
+</dl>
+</blockquote>
+<p>The <a class="reference apilink" href="../api/pyglet.window.Window-class.html#set_icon " title="pyglet.window.Window.set_icon">Window.set_icon</a> method allows you to set any number of images as the
+icon.  pyglet will select the most appropriate ones to use and apply them to
+the window.  If an alternate size is required but not provided, pyglet will
+scale the image to the correct size using a simple interpolation algorithm.</p>
+<p>The following example provides both a 16x16 and a 32x32 image as the window
+icon:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window()
+icon1 = pyglet.image.load(<span class="py-string">'16x16.png'</span>)
+icon2 = pyglet.image.load(<span class="py-string">'32x32.png'</span>)
+window.set_icon(icon1, icon2)</pre>
+<p>You can use images in any format supported by pyglet, however it is
+recommended to use a format that supports alpha transparency such as PNG.
+Windows .ico files are supported only on Windows, so their use is discouraged.
+Mac OS X .icons files are not supported at all.</p>
+<p>Note that the icon that you set at runtime need not have anything to do with
+the application icon, which must be encoded specially in the application
+binary (see <cite>Self-contained executables</cite>).</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="size_and_position.html" title="Size and position">Size and position</a></span><span class="next">Next: <a class="reference" href="visibility.html" title="Visibility">Visibility</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Appearance</span></div>
+</div>
+</body>
+</html>

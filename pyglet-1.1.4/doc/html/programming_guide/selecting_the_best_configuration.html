@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Selecting the best configuration</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="simple_context_configuration.html" title="Simple context configuration">Simple context configuration</a></span><span class="next">Next: <a class="reference" href="sharing_objects_between_contexts.html" title="Sharing objects between contexts">Sharing objects ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="creating_an_opengl_context.html" title="Creating an OpenGL context">Creating an ...</a> » Selecting the ...</span></div>
+<h1 class="title">Selecting the best configuration</h1>
+
+<p>Allowing pyglet to select the best configuration based on a template is
+sufficient for most applications, however some complex programs may want to
+specify their own algorithm for selecting a set of OpenGL attributes.</p>
+<p>You can enumerate a screen's configs using the <a class="reference apilink" href="../api/pyglet.window.Screen-class.html#get_matching_configs " title="pyglet.window.Screen.get_matching_configs">get_matching_configs</a> method.
+You must supply a template as a minimum specification, but you can supply an
+&quot;empty&quot; template (one with no attributes set) to get a list of all
+configurations supported by the screen.</p>
+<p>In the following example, all configurations with either an auxilliary buffer
+or an accumulation buffer are printed:</p>
+<pre class="py-doctest">
+platform = pyglet.window.get_platform()
+display = platform.get_default_display()
+screen = display.get_default_screen()
+
+<span class="py-keyword">for</span> config <span class="py-keyword">in</span> screen.get_matching_configs(gl.Config()):
+    <span class="py-keyword">if</span> config.aux_buffers <span class="py-keyword">or</span> config.accum_red_size:
+        <span class="py-keyword">print</span> config</pre>
+<p>As well as supporting more complex configuration selection algorithms,
+enumeration allows you to efficiently find the maximum value of an attribute
+(for example, the maximum samples per pixel), or present a list of possible
+configurations to the user.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="simple_context_configuration.html" title="Simple context configuration">Simple context configuration</a></span><span class="next">Next: <a class="reference" href="sharing_objects_between_contexts.html" title="Sharing objects between contexts">Sharing objects ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="creating_an_opengl_context.html" title="Creating an OpenGL context">Creating an ...</a> » Selecting the ...</span></div>
+</div>
+</body>
+</html>

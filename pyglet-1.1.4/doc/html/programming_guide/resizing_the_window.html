@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Resizing the window</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="using_opengl.html" title="Using OpenGL">Using OpenGL</a></span><span class="next">Next: <a class="reference" href="error_checking.html" title="Error checking">Error checking</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a> » Resizing the window</span></div>
+<h1 class="title">Resizing the window</h1>
+
+<p>pyglet sets up the viewport and an orthographic projection on each window
+automatically.  It does this in a default <cite>on_resize</cite> handler defined on
+<a class="reference apilink" href="../api/pyglet.window.Window-class.html " title="pyglet.window.Window">Window</a>:</p>
+<pre class="py-doctest">
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_resize</span>(width, height):
+    glViewport(0, 0, width, height)
+    glMatrixMode(gl.GL_PROJECTION)
+    glLoadIdentity()
+    glOrtho(0, width, 0, height, -1, 1)
+    glMatrixMode(gl.GL_MODELVIEW)</pre>
+<p>If you need to define your own projection (for example, to use
+a 3-dimensional perspective projection), you should override this
+event with your own; for example:</p>
+<pre class="py-doctest">
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_resize</span>(width, height):
+    glViewport(0, 0, width, height)
+    glMatrixMode(GL_PROJECTION)
+    glLoadIdentity()
+    gluPerspective(65, width / float(height), .1, 1000)
+    glMatrixMode(GL_MODELVIEW)
+    <span class="py-keyword">return</span> pyglet.event.EVENT_HANDLED</pre>
+<p>Note that the <cite>on_resize</cite> handler is called for a window the first time
+it is displayed, as well as any time it is later resized.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="using_opengl.html" title="Using OpenGL">Using OpenGL</a></span><span class="next">Next: <a class="reference" href="error_checking.html" title="Error checking">Error checking</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a> » Resizing the window</span></div>
+</div>
+</body>
+</html>

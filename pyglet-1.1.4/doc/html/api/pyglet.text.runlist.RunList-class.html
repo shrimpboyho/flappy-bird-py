@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.runlist.RunList</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.runlist-module.html">runlist</a>&nbsp;.&nbsp;RunList
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.runlist.RunList</h1>
+<p>List of contiguous runs of values.</p>
+<p>A <a href="pyglet.text.runlist.RunList-class.html" class="link">RunList</a> is an efficient encoding of a sequence of values.  For
+example, the sequence <tt class="rst-docutils literal">aaaabbccccc</tt> is encoded as <tt class="rst-docutils literal">(4, a), (2, b),
+(5, c)</tt>.  The class provides methods for modifying and querying the
+run list without needing to deal with the tricky cases of splitting and
+merging the run list entries.</p>
+<p>Run lists are used to represent formatted character data in pyglet.  A
+separate run list is maintained for each style attribute, for example,
+bold, italic, font size, and so on.  Unless you are overriding the
+document interfaces, the only interaction with run lists is via
+<a href="pyglet.text.runlist.RunIterator-class.html" class="link">RunIterator</a>.</p>
+<p>The length and ranges of a run list always refer to the character
+positions in the decoded list.  For example, in the above sequence,
+<tt class="rst-docutils literal">set_run(2, 5, 'x')</tt> would change the sequence to <tt class="rst-docutils literal">aaxxxbccccc</tt>.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.runlist.RunList-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">size</span>,
+        <span class="summary-sig-arg">initial</span>)</span>
+<div class="summary-description">Create a run list of the given size and a default value.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.runlist.RunList-class.html#insert" class="summary-sig-name">insert</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pos</span>,
+        <span class="summary-sig-arg">length</span>)</span>
+<div class="summary-description">Insert characters into the run list.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.runlist.RunList-class.html#delete" class="summary-sig-name">delete</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>)</span>
+<div class="summary-description">Remove characters from the run list.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.runlist.RunList-class.html#set_run" class="summary-sig-name">set_run</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>,
+        <span class="summary-sig-arg">value</span>)</span>
+<div class="summary-description">Set the value of a range of characters.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__iter__"></a><span class="summary-sig-name">__iter__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.runlist.RunIterator-class.html" class="link">RunIterator</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_run_iterator"></a><span class="summary-sig-name">get_run_iterator</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get an extended iterator over the run list.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">object</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.runlist.RunList-class.html#__getitem__" class="summary-sig-name">__getitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">index</span>)</span>
+<div class="summary-description">Get the value at a character position.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__repr__"></a><span class="summary-sig-name">__repr__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">size</span>,
+        <span class="sig-arg">initial</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a run list of the given size and a default value.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">size</span> : <span class='ptype'>int</span></dt>
+        <dd>Number of characters to represent initially.</dd>
+        <dt><span class="pname">initial</span> : <span class='ptype'>object</span></dt>
+        <dd>The value of all characters in the run list.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="insert"></a>
+<div class=" detail">
+  <h3>insert</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">insert</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">pos</span>,
+        <span class="sig-arg">length</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Insert characters into the run list.</p>
+<p>The inserted characters will take on the value immediately preceding
+the insertion point (or the value of the first character, if <code class="link">pos</code> is
+0).</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">pos</span> : <span class='ptype'>int</span></dt>
+        <dd>Insertion index</dd>
+        <dt><span class="pname">length</span> : <span class='ptype'>int</span></dt>
+        <dd>Number of characters to insert.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="delete"></a>
+<div class=" detail">
+  <h3>delete</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">delete</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">end</span>)</span>
+    </div>
+  <div class="detail-description">
+  Remove characters from the run list.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">start</span> : <span class='ptype'>int</span></dt>
+        <dd>Starting index to remove from.</dd>
+        <dt><span class="pname">end</span> : <span class='ptype'>int</span></dt>
+        <dd>End index, exclusive.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_run"></a>
+<div class=" detail">
+  <h3>set_run</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_run</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">end</span>,
+        <span class="sig-arg">value</span>)</span>
+    </div>
+  <div class="detail-description">
+  Set the value of a range of characters.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">start</span> : <span class='ptype'>int</span></dt>
+        <dd>Start index of range.</dd>
+        <dt><span class="pname">end</span> : <span class='ptype'>int</span></dt>
+        <dd>End of range, exclusive.</dd>
+        <dt><span class="pname">value</span> : <span class='ptype'>object</span></dt>
+        <dd>Value to set over the range.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="__getitem__"></a>
+<div class=" detail">
+  <h3>__getitem__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Indexing operator)</span>
+    <span class="sig"><span class="sig-name">__getitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">index</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the value at a character position.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">index</span> : <span class='ptype'>int</span></dt>
+        <dd>Index of character.  Must be within range and non-negative.</dd>
+    </dl></dd>
+    <dt>Returns: object</dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.runlist-module.html">runlist</a>&nbsp;.&nbsp;RunList
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:20 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

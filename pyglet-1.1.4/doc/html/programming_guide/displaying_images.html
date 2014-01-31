@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Displaying images</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="buffer_images.html" title="Buffer images">Buffer images</a></span><span class="next">Next: <a class="reference" href="opengl_imaging.html" title="OpenGL imaging">OpenGL imaging</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Displaying images</span></div>
+<h1 class="title">Displaying images</h1>
+
+<p>Images should be drawn into a window in the window's <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_draw " title="pyglet.window.Window.on_draw">on_draw</a> event handler.
+Usually a &quot;sprite&quot; should be created for each appearance of the image
+on-screen.  Images can also be drawn directly without creating a sprite.</p>
+<div class="section" id="sprites">
+<h1><a class="toc-backref" href="#id312">Sprites</a></h1>
+<p>A sprite is an instance of an image displayed in the window.  Multiple sprites
+can share the same image; for example, hundreds of bullet sprites might share
+the same bullet image.</p>
+<p>A sprite is constructed given an image or animation, and drawn with the
+<a class="reference apilink" href="../api/pyglet.sprite.Sprite-class.html#draw " title="pyglet.sprite.Sprite.draw">Sprite.draw</a> method:</p>
+<pre class="py-doctest">
+sprite = pyglet.sprite.Sprite(image)
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+    sprite.draw()</pre>
+<p>Sprites have properties for setting the position, rotation, scale, opacity,
+color tint and visibility of the displayed image.  Sprites automatically
+handle displaying the most up-to-date frame of an animation.  The following
+example uses a scheduled function to gradually move the sprite across the
+screen:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">update</span>(dt):
+    <span class="py-comment"># Move 10 pixels per second</span>
+    sprite.x += dt * 10
+
+<span class="py-comment"># Call update 60 times a second</span>
+pyglet.clock.schedule_interval(<span class="py-builtin">update</span>, 1/60.)</pre>
+<p>If you need to draw many sprites, use a <a class="reference apilink" href="../api/pyglet.graphics.Batch-class.html " title="pyglet.graphics.Batch">Batch</a> to draw them all at once.
+This is far more efficient than calling <cite>draw</cite> on each of them in a loop:</p>
+<pre class="py-doctest">
+batch = pyglet.graphics.Batch()
+
+sprites = [pyglet.sprite.Sprite(image, batch=batch),
+           pyglet.sprite.Sprite(image, batch=batch),
+           <span class="py-comment"># ...  ]</span>
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+    batch.draw()</pre>
+<p>When sprites are collected into a batch, no guarantee is made about the order
+in which they will be drawn.  If you need to ensure some sprites are drawn
+before others (for example, landscape tiles might be drawn before character
+sprites, which might be drawn before some particle effect sprites), use two or
+more <a class="reference apilink" href="../api/pyglet.graphics.OrderedGroup-class.html " title="pyglet.graphics.OrderedGroup">OrderedGroup</a> objects to specify the draw order:</p>
+<pre class="py-doctest">
+batch = pyglet.graphics.Batch()
+background = pyglet.graphics.OrderedGroup(0)
+foreground = pyglet.graphics.OrderedGroup(1)
+
+sprites = [pyglet.sprite.Sprite(image, batch=batch, group=background),
+           pyglet.sprite.Sprite(image, batch=batch, group=background),
+           pyglet.sprite.Sprite(image, batch=batch, group=foreground),
+           pyglet.sprite.Sprite(image, batch=batch, group=foreground),
+           <span class="py-comment"># ...]</span>
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+    batch.draw()</pre>
+<p>See the <a class="reference sectionlink" href="graphics.html">Graphics</a> section for more details on batch and group rendering.</p>
+<p>For best performance, try to collect all batch images into as few textures as
+possible; for example, by loading images with <a class="reference apilink" href="../api/pyglet.resource-module.html#image ">pyglet.resource.image</a> (see
+<a class="reference sectionlink" href="application_resources.html">Application resources</a>) or with <a class="reference sectionlink" href="image_sequences_and_atlases.html#texture-bins-and-atlases">Texture bins and atlases</a>).</p>
+</div>
+<div class="section" id="simple-image-blitting">
+<h1><a class="toc-backref" href="#id313">Simple image blitting</a></h1>
+<p>A simple but less efficient way to draw an image directly into a window is
+with the <cite>blit</cite> method:</p>
+<pre class="py-doctest">
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    window.clear()
+    image.blit(x, y)</pre>
+<p>The <cite>x</cite> and <cite>y</cite> coordinates locate where to draw the anchor point of the
+image.  For example, to center the image at <tt class="docutils literal">(x, y)</tt>:</p>
+<pre class="py-doctest">
+kitten.anchor_x = kitten.width // 2
+kitten.anchor_y = kitten.height // 2
+kitten.blit(x, y)</pre>
+<p>You can also specify an optional <cite>z</cite> component to the <cite>blit</cite> method.  This has
+no effect unless you have changed the default projection or enabled depth
+testing.  In the following example, the second image is drawn <em>behind</em> the
+first, even though it is drawn after it:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> *
+glEnable(GL_DEPTH_TEST)
+
+kitten.blit(x, y, 0)
+kitten.blit(x, y, -0.5)</pre>
+<p>The default pyglet projection has a depth range of (-1, 1) -- images drawn
+with a z value outside this range will not be visible, regardless of whether
+depth testing is enabled or not.</p>
+<p>Images with an alpha channel can be blended with the existing framebuffer.  To
+do this you need to supply OpenGL with a blend equation.  The following code
+fragment implements the most common form of alpha blending, however other
+techniques are also possible:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> *
+glEnable(GL_BLEND)
+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)</pre>
+<p>You would only need to call the code above once during your program, before
+you draw any images (this is not necessary when using only sprites).</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="buffer_images.html" title="Buffer images">Buffer images</a></span><span class="next">Next: <a class="reference" href="opengl_imaging.html" title="OpenGL imaging">OpenGL imaging</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Displaying images</span></div>
+</div>
+</body>
+</html>

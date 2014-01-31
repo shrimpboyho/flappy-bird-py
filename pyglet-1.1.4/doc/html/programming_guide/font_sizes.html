@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Font sizes</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="loading_system_fonts.html" title="Loading system fonts">Loading system fonts</a></span><span class="next">Next: <a class="reference" href="loading_custom_fonts.html" title="Loading custom fonts">Loading custom fonts</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Font sizes</span></div>
+<h1 class="title">Font sizes</h1>
+
+<p>When loading a font you must specify the font size it is to be rendered at, in
+points.  Points are a somewhat historical but conventional unit used in both
+display and print media.  There are various conflicting definitions for the
+actual length of a point, but pyglet uses the PostScript definition: 1 point =
+1/72 inches.</p>
+<div class="section" id="font-resolution">
+<h1><a class="toc-backref" href="#id292">Font resolution</a></h1>
+<p>The actual rendered size of the font on screen depends on the display
+resolution. pyglet uses a default DPI of 96 on all operating systems.  Most
+Mac OS X applications use a DPI of 72, so the font sizes will not match up on
+that operating system.  However, application developers can be assured that
+font sizes remain consistent in pyglet across platforms.</p>
+<p>The DPI can be specified directly in the <a class="reference apilink" href="../api/pyglet.font-module.html#load ">pyglet.font.load</a> function, and as
+an argument to the <a class="reference apilink" href="../api/pyglet.text.layout.TextLayout-class.html " title="pyglet.text.layout.TextLayout">TextLayout</a> constructor.</p>
+</div>
+<div class="section" id="determining-font-size">
+<h1><a class="toc-backref" href="#id293">Determining font size</a></h1>
+<p>Once a font is loaded at a particular size, you can query its pixel size with
+the attributes:</p>
+<pre class="py-doctest">
+Font.ascent
+Font.descent</pre>
+<p>These measurements are shown in the diagram below.</p>
+<div class="figure">
+<img alt="font_metrics.png" src="font_metrics.png" />
+<p class="caption">Font metrics.  Note that the descent is usually negative as it descends
+below the baseline.</p>
+</div>
+<p>You can calculate the distance between successive lines of text as:</p>
+<pre class="py-doctest">
+ascent - descent + leading</pre>
+<p>where <a class="reference apilink" href="../api/pyglet.font.Text-class.html#leading " title="pyglet.font.Text.leading">leading</a> is the number of pixels to insert between each line of text.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="loading_system_fonts.html" title="Loading system fonts">Loading system fonts</a></span><span class="next">Next: <a class="reference" href="loading_custom_fonts.html" title="Loading custom fonts">Loading custom fonts</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Font sizes</span></div>
+</div>
+</body>
+</html>

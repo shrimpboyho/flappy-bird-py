@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Loading custom fonts</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="font_sizes.html" title="Font sizes">Font sizes</a></span><span class="next">Next: <a class="reference" href="opengl_font_considerations.html" title="OpenGL font considerations">OpenGL font considerations</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Loading custom fonts</span></div>
+<h1 class="title">Loading custom fonts</h1>
+
+<p>You can supply a font with your application if it's not commonly installed on
+the target platform.  You should ensure you have a license to distribute the
+font -- the terms are often specified within the font file itself, and can be
+viewed with your operating system's font viewer.</p>
+<p>Loading a custom font must be performed in two steps:</p>
+<ol class="arabic simple">
+<li>Let pyglet know about the additional font or font files.</li>
+<li>Load the font by its family name.</li>
+</ol>
+<p>For example, let's say you have the <em>Action Man</em> font in a file called
+<tt class="docutils literal">action_man.ttf</tt>.  The following code will load an instance of that font:</p>
+<pre class="py-doctest">
+pyglet.font.add_file(<span class="py-string">'action_man.ttf'</span>)
+action_man = pyglet.font.load(<span class="py-string">'Action Man'</span>)</pre>
+<p>Similarly, once the font file has been added, the font name can be specified
+as a style on a label or layout:</p>
+<pre class="py-doctest">
+label = pyglet.text.Label(<span class="py-string">'Hello'</span>, font_name=<span class="py-string">'Action Man'</span>)</pre>
+<p>Fonts are often distributed in separate files for each variant.  <em>Action Man
+Bold</em> would probably be distributed as a separate file called
+<tt class="docutils literal">action_man_bold.ttf</tt>; you need to let pyglet know about this as well:</p>
+<pre class="py-doctest">
+font.add_file(<span class="py-string">'action_man_bold.ttf'</span>)
+action_man_bold = font.load(<span class="py-string">'Action Man'</span>, bold=True)</pre>
+<p>Note that even when you know the filename of the font you want to load, you
+must specify the font's family name to <a class="reference apilink" href="../api/pyglet.font-module.html#load ">pyglet.font.load</a>.</p>
+<p>You need not have the file on disk to add it to pyglet; you can specify any
+file-like object supporting the <cite>read</cite> method.  This can be useful for
+extracting fonts from a resource archive or over a network.</p>
+<p>If the custom font is distributed with your application, consider using the
+<a class="reference sectionlink" href="application_resources.html">Application resources</a>.</p>
+<div class="section" id="supported-font-formats">
+<h1><a class="toc-backref" href="#id295">Supported font formats</a></h1>
+<p>pyglet can load any font file that the operating system natively supports.
+The list of supported formats is shown in the table below.</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Font Format</th>
+<th class="head">Windows XP</th>
+<th class="head">Mac OS X</th>
+<th class="head">Linux (FreeType)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>TrueType (.ttf)</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr><td>PostScript Type 1 (.pfm, .pfb)</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr><td>Windows Bitmap (.fnt)</td>
+<td>X</td>
+<td>&nbsp;</td>
+<td>X</td>
+</tr>
+<tr><td>Mac OS X Data Fork Font (.dfont)</td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>OpenType (.ttf) <a class="footnote-reference" href="#opentype" id="id14">[8]</a></td>
+<td>&nbsp;</td>
+<td>X</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>X11 font formats PCF, BDF, SFONT</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+</tr>
+<tr><td>Bitstream PFR (.pfr)</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<table class="docutils footnote" frame="void" id="opentype" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id14">[8]</a></td><td>All OpenType fonts are backward compatible with TrueType, so
+while the advanced OpenType features can only be rendered with
+Mac OS X, the files can be used on any platform.  pyglet
+does not currently make use of the additional kerning and
+ligature information within OpenType fonts.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="font_sizes.html" title="Font sizes">Font sizes</a></span><span class="next">Next: <a class="reference" href="opengl_font_considerations.html" title="OpenGL font considerations">OpenGL font considerations</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Loading custom fonts</span></div>
+</div>
+</body>
+</html>

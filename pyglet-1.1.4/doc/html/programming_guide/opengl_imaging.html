@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>OpenGL imaging</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="displaying_images.html" title="Displaying images">Displaying images</a></span><span class="next">Next: <a class="reference" href="saving_an_image.html" title="Saving an image">Saving an image</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » OpenGL imaging</span></div>
+<h1 class="title">OpenGL imaging</h1>
+
+<p>This section assumes you are familiar with texture mapping in OpenGL (for
+example, chapter 9 of the <a class="reference" href="http://opengl.org/documentation/red_book/">OpenGL Programming Guide</a>).</p>
+<p>To create a texture from any <a class="reference apilink" href="../api/pyglet.image.AbstractImage-class.html " title="pyglet.image.AbstractImage">AbstractImage</a>, call <cite>get_texture</cite>:</p>
+<pre class="py-doctest">
+kitten = image.load(<span class="py-string">'kitten.jpg'</span>)
+texture = kitten.get_texture()</pre>
+<p>Textures are automatically created and used by <a class="reference apilink" href="../api/pyglet.image.ImageData-class.html " title="pyglet.image.ImageData">ImageData</a> when blitted.  It
+is useful to use textures directly when aiming for high performance or 3D
+applications.</p>
+<p>The <a class="reference apilink" href="../api/pyglet.image.Texture-class.html " title="pyglet.image.Texture">Texture</a> class represents any texture object.  The <cite>target</cite> attribute
+gives the texture target (for example, <tt class="docutils literal">GL_TEXTURE_2D</tt>) and <cite>id</cite> the texture
+name.  For example, to bind a texture:</p>
+<pre class="py-doctest">
+glBindTexture(texture.target, texture.id)</pre>
+<div class="section" id="texture-dimensions">
+<h1><a class="toc-backref" href="#id315">Texture dimensions</a></h1>
+<p>Implementations of OpenGL prior to 2.0 require textures to have dimensions
+that are powers of two (i.e., 1, 2, 4, 8, 16, ...).  Because of this
+restriction, pyglet will always create textures of these dimensions (there are
+several non-conformant post-2.0 implementations).  This could have unexpected
+results for a user blitting a texture loaded from a file of non-standard
+dimensions.  To remedy this, pyglet returns a <a class="reference apilink" href="../api/pyglet.image.TextureRegion-class.html " title="pyglet.image.TextureRegion">TextureRegion</a> of the larger
+texture corresponding to just the part of the texture covered by the original
+image.</p>
+<p>A <cite>TextureRegion</cite> has an <a class="reference apilink" href="../api/pyglet.image.BufferImage-class.html#owner " title="pyglet.image.BufferImage.owner">owner</a> attribute that references the larger texture.
+The following session demonstrates this:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>rgba = image.load(<span class="py-string">'tests/image/rgba.png'</span>)
+<span class="py-prompt">&gt;&gt;&gt; </span>rgba
+&lt;ImageData 235x257&gt;         <span class="py-comment"># The image is 235x257</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>rgba.get_texture()
+&lt;TextureRegion 235x257&gt;     <span class="py-comment"># The returned texture is a region</span>
+<span class="py-prompt">&gt;&gt;&gt; </span>rgba.get_texture().owner
+&lt;Texture 256x512&gt;           <span class="py-comment"># The owning texture has power-2 dimensions</span>
+<span class="py-prompt">&gt;&gt;&gt;</span></pre>
+<p>A <cite>TextureRegion</cite> defines a <cite>tex_coords</cite> attribute that gives the texture
+coordinates to use for a quad mapping the whole image.  <cite>tex_coords</cite> is a
+4-tuple of 3-tuple of floats; i.e., each texture coordinate is given in 3
+dimensions.  The following code can be used to render a quad for a texture
+region:</p>
+<pre class="py-doctest">
+texture = kitten.get_texture()
+t = texture.tex_coords
+w, h = texture.width, texture.height
+array = (GLfloat * 32)(
+     t[0][0], t[0][1], t[0][2], 1.,
+     x,       y,       z,       1.,
+     t[1][0], t[1][1], t[1][2], 1.,
+     x + w,   y,       z,       1.,
+     t[2][0], t[2][1], t[2][2], 1.,
+     x + w,   y + h,   z,       1.,
+     t[3][0], t[3][1], t[3][2], 1.,
+     x,       y + h,   z,       1.)
+
+glPushClientAttrib(GL_CLIENT_VERTEX_ARRAY_BIT)
+glInterleavedArrays(GL_T4F_V4F, 0, array)
+glDrawArrays(GL_QUADS, 0, 4)
+glPopClientAttrib()</pre>
+<p>The <a class="reference apilink" href="../api/pyglet.image.Texture-class.html#blit " title="pyglet.image.Texture.blit">Texture.blit</a> method does this.</p>
+<p>Use the <tt class="docutils literal">Texture.create</tt> method to create either a texture region from a
+larger power-2 sized texture, or a texture with the exact dimensions using
+the <tt class="docutils literal">GL_texture_rectangle_ARB</tt> extension.</p>
+</div>
+<div class="section" id="texture-internal-format">
+<h1><a class="toc-backref" href="#id316">Texture internal format</a></h1>
+<p>pyglet automatically selects an internal format for the texture based on the
+source image's <cite>format</cite> attribute.  The following table describes how it is
+selected.</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Format</th>
+<th class="head">Internal format</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Any format with 3 components</td>
+<td><tt class="docutils literal">GL_RGB</tt></td>
+</tr>
+<tr><td>Any format with 2 components</td>
+<td><tt class="docutils literal">GL_LUMINANCE_ALPHA</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;A&quot;</tt></td>
+<td><tt class="docutils literal">GL_ALPHA</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;L&quot;</tt></td>
+<td><tt class="docutils literal">GL_LUMINANCE</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;I&quot;</tt></td>
+<td><tt class="docutils literal">GL_INTENSITY</tt></td>
+</tr>
+<tr><td>Any other format</td>
+<td><tt class="docutils literal">GL_RGBA</tt></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Note that this table does not imply any mapping between format components and
+their OpenGL counterparts.  For example, an image with format <tt class="docutils literal">&quot;RG&quot;</tt> will use
+<tt class="docutils literal">GL_LUMINANCE_ALPHA</tt> as its internal format; the luminance channel will be
+averaged from the red and green components, and the alpha channel will be
+empty (maximal).</p>
+<p>Use the <tt class="docutils literal">Texture.create</tt> class method to create a texture with a specific
+internal format.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="displaying_images.html" title="Displaying images">Displaying images</a></span><span class="next">Next: <a class="reference" href="saving_an_image.html" title="Saving an image">Saving an image</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » OpenGL imaging</span></div>
+</div>
+</body>
+</html>

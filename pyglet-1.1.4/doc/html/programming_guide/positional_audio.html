@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Positional audio</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="incorporating_video.html" title="Incorporating video">Incorporating video</a></span><span class="next">Next: <a class="reference" href="application_resources.html" title="Application resources">Application resources</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a> » Positional audio</span></div>
+<h1 class="title">Positional audio</h1>
+
+<p>pyglet uses OpenAL for audio playback, which includes many features for
+positioning sound within a 3D space.  This is particularly effective with a
+surround-sound setup, but is also applicable to stereo systems.</p>
+<p>A <a class="reference apilink" href="../api/pyglet.media.Player-class.html " title="pyglet.media.Player">Player</a> in pyglet has an associated position in 3D space --
+that is, it is equivalent to an OpenAL &quot;source&quot;.  The properties for setting
+these parameters are described in more detail in the API documentation; see
+for example <a class="reference apilink" href="../api/pyglet.media.Player-class.html#position " title="pyglet.media.Player.position">Player.position</a> and <a class="reference apilink" href="../api/pyglet.media.Player-class.html#pitch " title="pyglet.media.Player.pitch">Player.pitch</a>.</p>
+<p>The OpenAL &quot;listener&quot; object is provided by the <a class="reference apilink" href="../api/pyglet.media-module.html#listener ">pyglet.media.listener</a>
+singleton, an instance of <a class="reference apilink" href="../api/pyglet.media.Listener-class.html " title="pyglet.media.Listener">Listener</a>.  This provides similar properties such
+as <a class="reference apilink" href="../api/pyglet.media.Listener-class.html#position " title="pyglet.media.Listener.position">Listener.position</a>, <a class="reference apilink" href="../api/pyglet.media.Listener-class.html#forward_orientation " title="pyglet.media.Listener.forward_orientation">Listener.forward_orientation</a> and
+<a class="reference apilink" href="../api/pyglet.media.Listener-class.html#up_orientation " title="pyglet.media.Listener.up_orientation">Listener.up_orientation</a> that describe the position of the user in 3D space.</p>
+<p>Note that only mono sounds can be positioned.  Stereo sounds will play back as
+normal, and only their volume and pitch properties will affect the sound.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="incorporating_video.html" title="Incorporating video">Incorporating video</a></span><span class="next">Next: <a class="reference" href="application_resources.html" title="Application resources">Application resources</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="sound_and_video.html" title="Sound and video">Sound and video</a> » Positional audio</span></div>
+</div>
+</body>
+</html>

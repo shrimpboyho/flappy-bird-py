@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.layout.ScrollableTextLayout</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.layout-module.html">layout</a>&nbsp;.&nbsp;ScrollableTextLayout
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.layout.ScrollableTextLayout</h1>
+<pre class="base-tree">
+<a href="pyglet.text.layout.TextLayout-class.html">TextLayout</a> --+
+             |
+            <strong class="uidshort">ScrollableTextLayout</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.text.layout.IncrementalTextLayout-class.html">IncrementalTextLayout</a>
+</dd></dl>
+
+<p>Display text in a scrollable viewport.</p>
+<p>This class does not display a scrollbar or handle scroll events; it merely
+clips the text that would be drawn in <a href="pyglet.text.layout.TextLayout-class.html" class="link">TextLayout</a> to the bounds of the
+layout given by <a href="pyglet.text.layout.ScrollableTextLayout-class.html#x" class="link">x</a>, <a href="pyglet.text.layout.ScrollableTextLayout-class.html#y" class="link">y</a>, <a href="pyglet.text.layout.ScrollableTextLayout-class.html#width" class="link">width</a> and <a href="pyglet.text.layout.ScrollableTextLayout-class.html#height" class="link">height</a>; and offsets the text by a
+scroll offset.</p>
+<p>Use <a href="pyglet.text.layout.ScrollableTextLayout-class.html#view_x" class="link">view_x</a> and <a href="pyglet.text.layout.ScrollableTextLayout-class.html#view_y" class="link">view_y</a> to scroll the text within the viewport.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.ScrollableTextLayout-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">document</span>,
+        <span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>,
+        <span class="summary-sig-arg">multiline</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">dpi</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">batch</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">group</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Create a text layout.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#begin_update" class="summary-sig-name">begin_update</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Indicate that a number of changes to the layout or document
+are about to occur.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="delete"></a><span class="summary-sig-name">delete</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Remove this layout from its batch.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#draw" class="summary-sig-name">draw</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Draw this text layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#end_update" class="summary-sig-name">end_update</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Perform pending layout changes since <a href="pyglet.text.layout.TextLayout-class.html#begin_update" class="link">begin_update</a>.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#on_delete_text" class="summary-sig-name">on_delete_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>)</span>
+<div class="summary-description">Event handler for <code class="link">AbstractDocument.on_delete_text</code>.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#on_insert_text" class="summary-sig-name">on_insert_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">text</span>)</span>
+<div class="summary-description">Event handler for <code class="link">AbstractDocument.on_insert_text</code>.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.layout.TextLayout-class.html#on_style_text" class="summary-sig-name">on_style_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>,
+        <span class="summary-sig-arg">attributes</span>)</span>
+<div class="summary-description">Event handler for <code class="link">AbstractDocument.on_style_text</code>.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#x" class="summary-name">x</a>
+<div class="summary-description">X coordinate of the layout.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#y" class="summary-name">y</a>
+<div class="summary-description">Y coordinate of the layout.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#width" class="summary-name">width</a>
+<div class="summary-description">Width of the layout.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#height" class="summary-name">height</a>
+<div class="summary-description">Height of the layout.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#anchor_x" class="summary-name">anchor_x</a>
+<div class="summary-description">Horizontal anchor alignment.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#anchor_y" class="summary-name">anchor_y</a>
+<div class="summary-description">Vertical anchor alignment.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#view_x" class="summary-name">view_x</a>
+<div class="summary-description">Horizontal scroll offset.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.ScrollableTextLayout-class.html#view_y" class="summary-name">view_y</a>
+<div class="summary-description">Vertical scroll offset.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#content_valign" class="summary-name">content_valign</a>
+<div class="summary-description">Vertical alignment of content within
+larger layout box.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#document" class="summary-name">document</a>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#dpi" class="summary-name">dpi</a>
+<div class="summary-description">Get DPI used by this layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#multiline" class="summary-name">multiline</a>
+<div class="summary-description">Set if multiline layout is enabled.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a name="background_group"></a><span class="summary-name">background_group</span> = <code title="OrderedGroup(0)">OrderedGroup(0)</code>
+<div class="summary-description">Rendering group for background color.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="content_height"></a><span class="summary-name">content_height</span>
+<div class="summary-description">Calculated height of the text in the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#content_width" class="summary-name">content_width</a>
+<div class="summary-description">Calculated width of the text in the layout.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#foreground_decoration_group" class="summary-name">foreground_decoration_group</a> = <code title="TextLayoutForegroundDecorationGroup(2)">TextLayoutForegroundDecorationGr<code class="variable-ellipsis">...</code></code>
+<div class="summary-description">Rendering group for glyph underlines.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a name="foreground_group"></a><span class="summary-name">foreground_group</span> = <code title="TextLayoutForegroundGroup(1)">TextLayoutForegroundGroup(1)</code>
+<div class="summary-description">Rendering group for glyphs.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.Group-class.html" class="link">Group</a></span>
+    </td><td class="summary">
+        <a href="pyglet.text.layout.TextLayout-class.html#top_group" class="summary-name">top_group</a> = <code title="TextLayoutGroup()">&lt;pyglet.text.layout.TextLayoutGroup object at 0xfa<code class="variable-ellipsis">...</code></code>
+<div class="summary-description">Top-level rendering group.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.text.layout.TextLayout-class.html">pyglet.text.layout.TextLayout</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">document</span>,
+        <span class="sig-arg">width</span>,
+        <span class="sig-arg">height</span>,
+        <span class="sig-arg">multiline</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">dpi</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">batch</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">group</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a text layout.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.text.layout.TextLayout-class.html#__init__">TextLayout.__init__</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="x"></a>
+<div class=" detail">
+  <h3>x</h3>
+  <div class="detail-description">
+  <p>X coordinate of the layout.</p>
+<p>See also <a href="pyglet.text.layout.ScrollableTextLayout-class.html#anchor_x" class="link">anchor_x</a>.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="y"></a>
+<div class=" detail">
+  <h3>y</h3>
+  <div class="detail-description">
+  <p>Y coordinate of the layout.</p>
+<p>See also <a href="pyglet.text.layout.ScrollableTextLayout-class.html#anchor_y" class="link">anchor_y</a>.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="width"></a>
+<div class=" detail">
+  <h3>width</h3>
+  <div class="detail-description">
+  <p>Width of the layout.</p>
+<p>This property has no effect if <a href="pyglet.text.layout.TextLayout-class.html#multiline" class="link">multiline</a> is False.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="height"></a>
+<div class=" detail">
+  <h3>height</h3>
+  <div class="detail-description">
+  Height of the layout.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="anchor_x"></a>
+<div class=" detail">
+  <h3>anchor_x</h3>
+  <div class="detail-description">
+  <p>Horizontal anchor alignment.</p>
+<p>This property determines the meaning of the <a href="pyglet.text.layout.ScrollableTextLayout-class.html#x" class="link">x</a> coordinate.  It is one of
+the enumerants:</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">&quot;left&quot;</tt> (default)</dt>
+<dd>The X coordinate gives the position of the left edge of the layout.</dd>
+<dt><tt class="rst-docutils literal">&quot;center&quot;</tt></dt>
+<dd>The X coordinate gives the position of the center of the layout.</dd>
+<dt><tt class="rst-docutils literal">&quot;right&quot;</tt></dt>
+<dd>The X coordinate gives the position of the right edge of the layout.</dd>
+</dl>
+<p>For the purposes of calculating the position resulting from this
+alignment, the width of the layout is taken to be <a href="pyglet.text.layout.ScrollableTextLayout-class.html#width" class="link">width</a> if <a href="pyglet.text.layout.TextLayout-class.html#multiline" class="link">multiline</a>
+is True, otherwise <a href="pyglet.text.layout.TextLayout-class.html#content_width" class="link">content_width</a>.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>str</dd>
+  </dl>
+  </div>
+</div>
+<a name="anchor_y"></a>
+<div class=" detail">
+  <h3>anchor_y</h3>
+  <div class="detail-description">
+  <p>Vertical anchor alignment.</p>
+<p>This property determines the meaning of the <a href="pyglet.text.layout.ScrollableTextLayout-class.html#y" class="link">y</a> coordinate.  It is one of
+the enumerants:</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">&quot;top&quot;</tt></dt>
+<dd>The Y coordinate gives the position of the top edge of the layout.</dd>
+<dt><tt class="rst-docutils literal">&quot;center&quot;</tt></dt>
+<dd>The Y coordinate gives the position of the center of the layout.</dd>
+<dt><tt class="rst-docutils literal">&quot;baseline&quot;</tt></dt>
+<dd>The Y coordinate gives the position of the baseline of the first
+line of text in the layout.</dd>
+<dt><tt class="rst-docutils literal">&quot;bottom&quot;</tt> (default)</dt>
+<dd>The Y coordinate gives the position of the bottom edge of the layout.</dd>
+</dl>
+<p>For the purposes of calculating the position resulting from this
+alignment, the height of the layout is taken to be the smaller of
+<a href="pyglet.text.layout.ScrollableTextLayout-class.html#height" class="link">height</a> and <a href="pyglet.text.layout.TextLayout-class.html#content_height" class="link">content_height</a>.</p>
+<p>See also <a href="pyglet.text.layout.TextLayout-class.html#content_valign" class="link">content_valign</a>.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>str</dd>
+  </dl>
+  </div>
+</div>
+<a name="view_x"></a>
+<div class=" detail">
+  <h3>view_x</h3>
+  <div class="detail-description">
+  <p>Horizontal scroll offset.</p>
+<p>The initial value is 0, and the left edge of the text will touch the left
+side of the layout bounds.  A positive value causes the text to &quot;scroll&quot;
+to the right.  Values are automatically clipped into the range
+<tt class="rst-docutils literal">[0, content_width - width]</tt></p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="view_y"></a>
+<div class=" detail">
+  <h3>view_y</h3>
+  <div class="detail-description">
+  <p>Vertical scroll offset.</p>
+<p>The initial value is 0, and the top of the text will touch the top of the
+layout bounds (unless the content height is less than the layout height,
+in which case <a href="pyglet.text.layout.TextLayout-class.html#content_valign" class="link">content_valign</a> is used).</p>
+<p>A negative value causes the text to &quot;scroll&quot; upwards.  Values outside of
+the range <tt class="rst-rst-docutils literal rst-docutils literal">[height - content_height, 0]</tt> are automatically clipped in
+range.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.layout-module.html">layout</a>&nbsp;.&nbsp;ScrollableTextLayout
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:20 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

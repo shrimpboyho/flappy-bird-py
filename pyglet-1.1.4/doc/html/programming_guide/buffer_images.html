@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Buffer images</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="animations.html" title="Animations">Animations</a></span><span class="next">Next: <a class="reference" href="displaying_images.html" title="Displaying images">Displaying images</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Buffer images</span></div>
+<h1 class="title">Buffer images</h1>
+
+<p>pyglet provides a basic representation of the framebuffer as components of the
+<a class="reference apilink" href="../api/pyglet.image.AbstractImage-class.html " title="pyglet.image.AbstractImage">AbstractImage</a> hierarchy.  At this stage this representation is based off
+OpenGL 1.1, and there is no support for newer features such as framebuffer
+objects.  Of course, this doesn't prevent you using framebuffer objects in
+your programs -- <a class="reference apilink" href="../api/pyglet.gl-module.html ">pyglet.gl</a> provides this functionality -- just that they are
+not represented as <cite>AbstractImage</cite> types.</p>
+<div class="figure">
+<img alt="buffer_image.png" src="buffer_image.png" />
+<p class="caption">The <a class="reference apilink" href="../api/pyglet.image.BufferImage-class.html " title="pyglet.image.BufferImage">BufferImage</a> hierarchy.</p>
+</div>
+<p>A framebuffer consists of</p>
+<ul class="simple">
+<li>One or more colour buffers, represented by <a class="reference apilink" href="../api/pyglet.image.ColorBufferImage-class.html " title="pyglet.image.ColorBufferImage">ColorBufferImage</a></li>
+<li>An optional depth buffer, represented by <a class="reference apilink" href="../api/pyglet.image.DepthBufferImage-class.html " title="pyglet.image.DepthBufferImage">DepthBufferImage</a></li>
+<li>An optional stencil buffer, with each bit represented by <a class="reference apilink" href="../api/pyglet.image.BufferImageMask-class.html " title="pyglet.image.BufferImageMask">BufferImageMask</a></li>
+<li>Any number of auxilliary buffers, also represented by <cite>ColorBufferImage</cite></li>
+</ul>
+<p>You cannot create the buffer images directly; instead you must obtain
+instances via the <a class="reference apilink" href="../api/pyglet.image.BufferManager-class.html " title="pyglet.image.BufferManager">BufferManager</a>.  Use <a class="reference apilink" href="../api/pyglet.image-module.html#get_buffer_manager " title="pyglet.image.get_buffer_manager">get_buffer_manager</a> to
+get this singleton:</p>
+<pre class="py-doctest">
+buffers = image.get_buffer_manager()</pre>
+<p>Only the back-left color buffer can be obtained (i.e., the front buffer is
+inaccessible, and stereo contexts are not supported by the buffer manager):</p>
+<pre class="py-doctest">
+color_buffer = buffers.get_color_buffer()</pre>
+<p>This buffer can be treated like any other image.  For example, you could copy
+it to a texture, obtain its pixel data, save it to a file, and so on.  Using
+the <cite>texture</cite> attribute is particularly useful, as it allows you to perform
+multipass rendering effects without needing a render-to-texture extension.</p>
+<p>The depth buffer can be obtained similarly:</p>
+<pre class="py-doctest">
+depth_buffer = buffers.get_depth_buffer()</pre>
+<p>When a depth buffer is converted to a texture, the class used will be a
+<a class="reference apilink" href="../api/pyglet.image.DepthTexture-class.html " title="pyglet.image.DepthTexture">DepthTexture</a>, suitable for use with shadow map techniques.</p>
+<p>The auxilliary buffers and stencil bits are obtained by requesting one, which
+will then be marked as &quot;in-use&quot;.  This permits multiple libraries and your
+application to work together without clashes in stencil bits or auxilliary
+buffer names.  For example, to obtain a free stencil bit:</p>
+<pre class="py-doctest">
+mask = buffers.get_buffer_mask()</pre>
+<p>The buffer manager maintains a weak reference to the buffer mask, so that when
+you release all references to it, it will be returned to the pool of available
+masks.</p>
+<p>Similarly, a free auxilliary buffer is obtained:</p>
+<pre class="py-doctest">
+aux_buffer = buffers.get_aux_buffer()</pre>
+<p>When using the stencil or auxilliary buffers, make sure you explicitly request
+these when creating the window.  See <a class="reference sectionlink" href="opengl_configuration_options.html">OpenGL configuration options</a> for
+details.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="animations.html" title="Animations">Animations</a></span><span class="next">Next: <a class="reference" href="displaying_images.html" title="Displaying images">Displaying images</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Buffer images</span></div>
+</div>
+</body>
+</html>

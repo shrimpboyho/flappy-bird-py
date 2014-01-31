@@ -1,0 +1,2320 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.window.Window</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.window-module.html">window</a>&nbsp;.&nbsp;Window
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.window.Window</h1>
+<pre class="base-tree">
+<a href="pyglet.event.EventDispatcher-class.html">event.EventDispatcher</a> --+
+                        |
+                       <strong class="uidshort">Window</strong>
+</pre>
+
+<p>Platform-independent application window.</p>
+<p>A window is a &quot;heavyweight&quot; object occupying operating system resources.
+The &quot;client&quot; or &quot;content&quot; area of a window is filled entirely with
+an OpenGL viewport.  Applications have no access to operating system
+widgets or controls; all rendering must be done via OpenGL.</p>
+<p>Windows may appear as floating regions or can be set to fill an entire
+screen (fullscreen).  When floating, windows may appear borderless or
+decorated with a platform-specific frame (including, for example, the
+title bar, minimize and close buttons, resize handles, and so on).</p>
+<p>While it is possible to set the location of a window, it is recommended
+that applications allow the platform to place it according to local
+conventions.  This will ensure it is not obscured by other windows,
+and appears on an appropriate screen for the user.</p>
+<p>To render into a window, you must first call <a href="pyglet.window.Window-class.html#switch_to" class="link">switch_to</a>, to make
+it the current OpenGL context.  If you use only one window in the
+application, there is no need to do this.</p>
+
+<div class="fields">      <p><strong>Deprecated:</strong>
+        Windows are closed immediately by the default
+<a href="pyglet.window.Window-class.html#on_close" class="link">on_close</a> handler when <a href="pyglet.app-module.html#event_loop" class="link">pyglet.app.event_loop</a> is being
+used.
+      </p>
+</div><!-- ==================== EVENTS ==================== -->
+<a name="section-Events"></a>
+        <h2>Events</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_activate" class="summary-sig-name">on_activate</a>()</span>
+<div class="summary-description">The window was activated.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_close" class="summary-sig-name">on_close</a>()</span>
+<div class="summary-description">The user attempted to close the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_context_lost" class="summary-sig-name">on_context_lost</a>()</span>
+<div class="summary-description">The window's GL context was lost.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_context_state_lost" class="summary-sig-name">on_context_state_lost</a>()</span>
+<div class="summary-description">The state of the window's GL context was lost.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_deactivate" class="summary-sig-name">on_deactivate</a>()</span>
+<div class="summary-description">The window was deactivated.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_draw" class="summary-sig-name">on_draw</a>()</span>
+<div class="summary-description">The window contents must be redrawn.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_expose" class="summary-sig-name">on_expose</a>()</span>
+<div class="summary-description">A portion of the window needs to be redrawn.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_hide" class="summary-sig-name">on_hide</a>()</span>
+<div class="summary-description">The window was hidden.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_key_press" class="summary-sig-name">on_key_press</a>(<span class="summary-sig-arg">symbol</span>,
+        <span class="summary-sig-arg">modifiers</span>)</span>
+<div class="summary-description">A key on the keyboard was pressed (and held down).</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_key_release" class="summary-sig-name">on_key_release</a>(<span class="summary-sig-arg">symbol</span>,
+        <span class="summary-sig-arg">modifiers</span>)</span>
+<div class="summary-description">A key on the keyboard was released.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_mouse_drag" class="summary-sig-name">on_mouse_drag</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">dx</span>,
+        <span class="summary-sig-arg">dy</span>,
+        <span class="summary-sig-arg">buttons</span>,
+        <span class="summary-sig-arg">modifiers</span>)</span>
+<div class="summary-description">The mouse was moved with one or more mouse buttons pressed.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_mouse_enter" class="summary-sig-name">on_mouse_enter</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">The mouse was moved into the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_mouse_leave" class="summary-sig-name">on_mouse_leave</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">The mouse was moved outside of the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_mouse_motion" class="summary-sig-name">on_mouse_motion</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">dx</span>,
+        <span class="summary-sig-arg">dy</span>)</span>
+<div class="summary-description">The mouse was moved with no buttons held down.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_mouse_press" class="summary-sig-name">on_mouse_press</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">button</span>,
+        <span class="summary-sig-arg">modifiers</span>)</span>
+<div class="summary-description">A mouse button was pressed (and held down).</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_mouse_release" class="summary-sig-name">on_mouse_release</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">button</span>,
+        <span class="summary-sig-arg">modifiers</span>)</span>
+<div class="summary-description">A mouse button was released.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_mouse_scroll" class="summary-sig-name">on_mouse_scroll</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">scroll_x</span>,
+        <span class="summary-sig-arg">scroll_y</span>)</span>
+<div class="summary-description">The mouse wheel was scrolled.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_move" class="summary-sig-name">on_move</a>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">The window was moved.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_resize" class="summary-sig-name">on_resize</a>(<span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>)</span>
+<div class="summary-description">The window was resized.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_show" class="summary-sig-name">on_show</a>()</span>
+<div class="summary-description">The window was shown.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_text" class="summary-sig-name">on_text</a>(<span class="summary-sig-arg">text</span>)</span>
+<div class="summary-description">The user input some text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_text_motion" class="summary-sig-name">on_text_motion</a>(<span class="summary-sig-arg">motion</span>)</span>
+<div class="summary-description">The user moved the text input cursor.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#on_text_motion_select" class="summary-sig-name">on_text_motion_select</a>(<span class="summary-sig-arg">motion</span>)</span>
+<div class="summary-description">The user moved the text input cursor while extending the
+selection.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">width</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">height</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">caption</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">resizable</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">style</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">fullscreen</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">visible</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">vsync</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">display</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">screen</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">config</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">context</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Create a window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#activate" class="summary-sig-name">activate</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Attempt to restore keyboard focus to the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#clear" class="summary-sig-name">clear</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Clear the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#close" class="summary-sig-name">close</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Close the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#dispatch_event" class="summary-sig-name">dispatch_event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Dispatch a single event to the attached handlers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#dispatch_events" class="summary-sig-name">dispatch_events</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Poll the operating system event queue for new events and call
+attached event handlers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#draw_mouse_cursor" class="summary-sig-name">draw_mouse_cursor</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Draw the custom mouse cursor.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#event" class="summary-sig-name">event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Function decorator for an event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#flip" class="summary-sig-name">flip</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Swap the OpenGL front and back buffers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(int, int)</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#get_location" class="summary-sig-name">get_location</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Return the current position of the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(int, int)</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#get_size" class="summary-sig-name">get_size</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Return the current size of the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.window.MouseCursor-class.html" class="link">MouseCursor</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#get_system_mouse_cursor" class="summary-sig-name">get_system_mouse_cursor</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Obtain a system mouse cursor.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#maximize" class="summary-sig-name">maximize</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Maximize the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="minimize"></a><span class="summary-sig-name">minimize</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Minimize the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="pop_handlers"></a><span class="summary-sig-name">pop_handlers</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Pop the top level of event handlers off the stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="summary-sig-name">push_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Push a level onto the top of the handler stack, then attach zero or
+more event handlers.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#register_event_type" class="summary-sig-name">register_event_type</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Register an event type with the dispatcher.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handler" class="summary-sig-name">remove_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Remove a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handlers" class="summary-sig-name">remove_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Remove event handlers from the event stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_caption" class="summary-sig-name">set_caption</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">caption</span>)</span>
+<div class="summary-description">Set the window's caption.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_exclusive_keyboard" class="summary-sig-name">set_exclusive_keyboard</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">exclusive</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Prevent the user from switching away from this window using
+keyboard accelerators.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_exclusive_mouse" class="summary-sig-name">set_exclusive_mouse</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">exclusive</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Hide the mouse cursor and direct all mouse events to this
+window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_fullscreen" class="summary-sig-name">set_fullscreen</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">fullscreen</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">screen</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Toggle to or from fullscreen.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handler" class="summary-sig-name">set_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Attach a single event handler.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handlers" class="summary-sig-name">set_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Attach one or more event handlers to the top level of the handler
+stack.</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.event.EventDispatcher-class.html">pyglet.event.EventDispatcher</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_icon" class="summary-sig-name">set_icon</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*images</span>)</span>
+<div class="summary-description">Set the window icon.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_location" class="summary-sig-name">set_location</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">Set the position of the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_maximum_size" class="summary-sig-name">set_maximum_size</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>)</span>
+<div class="summary-description">Set the maximum size of the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_minimum_size" class="summary-sig-name">set_minimum_size</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>)</span>
+<div class="summary-description">Set the minimum size of the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_mouse_cursor" class="summary-sig-name">set_mouse_cursor</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cursor</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Change the appearance of the mouse cursor.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_mouse_platform_visible" class="summary-sig-name">set_mouse_platform_visible</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">platform_visible</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Set the platform-drawn mouse cursor visibility.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_mouse_visible" class="summary-sig-name">set_mouse_visible</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">visible</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Show or hide the mouse cursor.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_size" class="summary-sig-name">set_size</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>)</span>
+<div class="summary-description">Resize the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_visible" class="summary-sig-name">set_visible</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">visible</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Show or hide the window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#set_vsync" class="summary-sig-name">set_vsync</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">vsync</span>)</span>
+<div class="summary-description">Enable or disable vertical sync control.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Window-class.html#switch_to" class="summary-sig-name">switch_to</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Make this window the current OpenGL rendering context.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#caption" class="summary-name">caption</a>
+<div class="summary-description">The window caption (title).</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.gl.Config-class.html" class="link">pyglet.gl.Config</a></span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#config" class="summary-name">config</a>
+<div class="summary-description">A GL config describing the context of this window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.gl.Context-class.html" class="link">pyglet.gl.Context</a></span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#context" class="summary-name">context</a>
+<div class="summary-description">The OpenGL context attached to this window.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.window.Display-class.html" class="link">Display</a></span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#display" class="summary-name">display</a>
+<div class="summary-description">The display this window belongs to.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#fullscreen" class="summary-name">fullscreen</a>
+<div class="summary-description">True if the window is currently fullscreen.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#height" class="summary-name">height</a>
+<div class="summary-description">The height of the window, in pixels.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#resizable" class="summary-name">resizable</a>
+<div class="summary-description">True if the window is resizable.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.window.Screen-class.html" class="link">Screen</a></span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#screen" class="summary-name">screen</a>
+<div class="summary-description">The screen this window is fullscreen in.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#style" class="summary-name">style</a>
+<div class="summary-description">The window style; one of the <tt class="rst-docutils literal">WINDOW_STYLE_*</tt> constants.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#visible" class="summary-name">visible</a>
+<div class="summary-description">True if the window is currently visible.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#vsync" class="summary-name">vsync</a>
+<div class="summary-description">True if buffer flips are synchronised to the screen's vertical
+retrace.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#width" class="summary-name">width</a>
+<div class="summary-description">The width of the window, in pixels.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a name="has_exit"></a><span class="summary-name">has_exit</span> = <code title="False">False</code>
+<div class="summary-description">True if the user has attempted to close the window.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html#event_types" class="summary-name">event_types</a> = <code title="['on_key_press',
+ 'on_key_release',
+ 'on_text',
+ 'on_text_motion',
+ 'on_text_motion_select',
+ 'on_mouse_motion',
+ 'on_mouse_drag',
+ 'on_mouse_press',
+..."><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">on_key_press</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">on_key_release</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">on_text</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">o</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="invalid"></a><span class="summary-name">invalid</span> = <code title="True">True</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CONSTANTS ==================== -->
+<a name="section-Constants"></a>
+        <h2>Constants</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_CROSSHAIR"></a><span class="summary-name">CURSOR_CROSSHAIR</span> = <code title="'crosshair'"><code class="variable-quote">'</code><code class="variable-string">crosshair</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_DEFAULT"></a><span class="summary-name">CURSOR_DEFAULT</span> = <code title="None">None</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_HAND"></a><span class="summary-name">CURSOR_HAND</span> = <code title="'hand'"><code class="variable-quote">'</code><code class="variable-string">hand</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_HELP"></a><span class="summary-name">CURSOR_HELP</span> = <code title="'help'"><code class="variable-quote">'</code><code class="variable-string">help</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_NO"></a><span class="summary-name">CURSOR_NO</span> = <code title="'no'"><code class="variable-quote">'</code><code class="variable-string">no</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE"></a><span class="summary-name">CURSOR_SIZE</span> = <code title="'size'"><code class="variable-quote">'</code><code class="variable-string">size</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE_DOWN"></a><span class="summary-name">CURSOR_SIZE_DOWN</span> = <code title="'size_down'"><code class="variable-quote">'</code><code class="variable-string">size_down</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE_DOWN_LEFT"></a><span class="summary-name">CURSOR_SIZE_DOWN_LEFT</span> = <code title="'size_down_left'"><code class="variable-quote">'</code><code class="variable-string">size_down_left</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE_DOWN_RIGHT"></a><span class="summary-name">CURSOR_SIZE_DOWN_RIGHT</span> = <code title="'size_down_right'"><code class="variable-quote">'</code><code class="variable-string">size_down_right</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE_LEFT"></a><span class="summary-name">CURSOR_SIZE_LEFT</span> = <code title="'size_left'"><code class="variable-quote">'</code><code class="variable-string">size_left</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE_LEFT_RIGHT"></a><span class="summary-name">CURSOR_SIZE_LEFT_RIGHT</span> = <code title="'size_left_right'"><code class="variable-quote">'</code><code class="variable-string">size_left_right</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE_RIGHT"></a><span class="summary-name">CURSOR_SIZE_RIGHT</span> = <code title="'size_right'"><code class="variable-quote">'</code><code class="variable-string">size_right</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE_UP"></a><span class="summary-name">CURSOR_SIZE_UP</span> = <code title="'size_up'"><code class="variable-quote">'</code><code class="variable-string">size_up</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE_UP_DOWN"></a><span class="summary-name">CURSOR_SIZE_UP_DOWN</span> = <code title="'size_up_down'"><code class="variable-quote">'</code><code class="variable-string">size_up_down</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE_UP_LEFT"></a><span class="summary-name">CURSOR_SIZE_UP_LEFT</span> = <code title="'size_up_left'"><code class="variable-quote">'</code><code class="variable-string">size_up_left</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_SIZE_UP_RIGHT"></a><span class="summary-name">CURSOR_SIZE_UP_RIGHT</span> = <code title="'size_up_right'"><code class="variable-quote">'</code><code class="variable-string">size_up_right</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_TEXT"></a><span class="summary-name">CURSOR_TEXT</span> = <code title="'text'"><code class="variable-quote">'</code><code class="variable-string">text</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_WAIT"></a><span class="summary-name">CURSOR_WAIT</span> = <code title="'wait'"><code class="variable-quote">'</code><code class="variable-string">wait</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="CURSOR_WAIT_ARROW"></a><span class="summary-name">CURSOR_WAIT_ARROW</span> = <code title="'wait_arrow'"><code class="variable-quote">'</code><code class="variable-string">wait_arrow</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="WINDOW_STYLE_BORDERLESS"></a><span class="summary-name">WINDOW_STYLE_BORDERLESS</span> = <code title="'borderless'"><code class="variable-quote">'</code><code class="variable-string">borderless</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="WINDOW_STYLE_DEFAULT"></a><span class="summary-name">WINDOW_STYLE_DEFAULT</span> = <code title="None">None</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="WINDOW_STYLE_DIALOG"></a><span class="summary-name">WINDOW_STYLE_DIALOG</span> = <code title="'dialog'"><code class="variable-quote">'</code><code class="variable-string">dialog</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="WINDOW_STYLE_TOOL"></a><span class="summary-name">WINDOW_STYLE_TOOL</span> = <code title="'tool'"><code class="variable-quote">'</code><code class="variable-string">tool</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== EVENT DETAILS ==================== -->
+<a name="section-EventDetails"></a>
+        <h2>Event Details</h2>
+<table class="details">
+</table>
+<a name="on_activate"></a>
+<div class=" detail">
+  <h3>on_activate</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_activate</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The window was activated.</p>
+<p>This event can be triggered by clicking on the title bar, bringing
+it to the foreground; or by some platform-specific method.</p>
+<p>When a window is &quot;active&quot; it has the keyboard focus.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_close"></a>
+<div class=" detail">
+  <h3>on_close</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_close</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The user attempted to close the window.</p>
+<p>This event can be triggered by clicking on the &quot;X&quot; control box in
+the window title bar, or by some other platform-dependent manner.</p>
+<p>The default handler sets <a href="pyglet.window.Window-class.html#has_exit" class="link">has_exit</a> to <tt class="rst-docutils literal">True</tt>.  In pyglet 1.1, if
+<a href="pyglet.app-module.html#event_loop" class="link">pyglet.app.event_loop</a> is being used, <a href="pyglet.window.Window-class.html#close" class="link">close</a> is also called,
+closing the window immediately.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_context_lost"></a>
+<div class=" detail">
+  <h3>on_context_lost</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_context_lost</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The window's GL context was lost.</p>
+<p>When the context is lost no more GL methods can be called until it
+is recreated.  This is a rare event, triggered perhaps by the user
+switching to an incompatible video mode.  When it occurs, an
+application will need to reload all objects (display lists, texture
+objects, shaders) as well as restore the GL state.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_context_state_lost"></a>
+<div class=" detail">
+  <h3>on_context_state_lost</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_context_state_lost</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The state of the window's GL context was lost.</p>
+<p>pyglet may sometimes need to recreate the window's GL context if
+the window is moved to another video device, or between fullscreen
+or windowed mode.  In this case it will try to share the objects
+(display lists, texture objects, shaders) between the old and new
+contexts.  If this is possible, only the current state of the GL
+context is lost, and the application should simply restore state.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_deactivate"></a>
+<div class=" detail">
+  <h3>on_deactivate</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_deactivate</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The window was deactivated.</p>
+<p>This event can be triggered by clicking on another application
+window.  When a window is deactivated it no longer has the
+keyboard focus.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_draw"></a>
+<div class=" detail">
+  <h3>on_draw</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_draw</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The window contents must be redrawn.</p>
+<p>The <a href="pyglet.app.EventLoop-class.html" class="link">EventLoop</a> will dispatch this event when the window
+should be redrawn.  This will happen during idle time after
+any window events and after any scheduled functions were called.</p>
+<p>The window will already have the GL context, so there is no
+need to call <a href="pyglet.window.Window-class.html#switch_to" class="link">switch_to</a>.  The window's <a href="pyglet.window.Window-class.html#flip" class="link">flip</a> method will
+be called after this event, so your event handler should not.</p>
+<p>You should make no assumptions about the window contents when
+this event is triggered; a resize or expose event may have
+invalidated the framebuffer since the last time it was drawn.</p>
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div>  </div>
+</div>
+<a name="on_expose"></a>
+<div class=" detail">
+  <h3>on_expose</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_expose</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>A portion of the window needs to be redrawn.</p>
+<p>This event is triggered when the window first appears, and any time
+the contents of the window is invalidated due to another window
+obscuring it.</p>
+<p>There is no way to determine which portion of the window needs
+redrawing.  Note that the use of this method is becoming
+increasingly uncommon, as newer window managers composite windows
+automatically and keep a backing store of the window contents.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_hide"></a>
+<div class=" detail">
+  <h3>on_hide</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_hide</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The window was hidden.</p>
+<p>This event is triggered when a window is minimised or (on Mac OS X)
+hidden by the user.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_key_press"></a>
+<div class=" detail">
+  <h3>on_key_press</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_key_press</span>(<span class="sig-arg">symbol</span>,
+        <span class="sig-arg">modifiers</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>A key on the keyboard was pressed (and held down).</p>
+<p>In pyglet 1.0 the default handler sets <a href="pyglet.window.Window-class.html#has_exit" class="link">has_exit</a> to <tt class="rst-docutils literal">True</tt> if
+the <tt class="rst-docutils literal">ESC</tt> key is pressed.</p>
+<p>In pyglet 1.1 the default handler dispatches the <a href="pyglet.window.Window-class.html#on_close" class="link">on_close</a>
+event if the <tt class="rst-docutils literal">ESC</tt> key is pressed.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">symbol</span> : <span class='ptype'>int</span></dt>
+        <dd>The key symbol pressed.</dd>
+        <dt><span class="pname">modifiers</span> : <span class='ptype'>int</span></dt>
+        <dd>Bitwise combination of the key modifiers active.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_key_release"></a>
+<div class=" detail">
+  <h3>on_key_release</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_key_release</span>(<span class="sig-arg">symbol</span>,
+        <span class="sig-arg">modifiers</span>)</span>
+    </div>
+  <div class="detail-description">
+  A key on the keyboard was released.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">symbol</span> : <span class='ptype'>int</span></dt>
+        <dd>The key symbol pressed.</dd>
+        <dt><span class="pname">modifiers</span> : <span class='ptype'>int</span></dt>
+        <dd>Bitwise combination of the key modifiers active.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_mouse_drag"></a>
+<div class=" detail">
+  <h3>on_mouse_drag</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_mouse_drag</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">dx</span>,
+        <span class="sig-arg">dy</span>,
+        <span class="sig-arg">buttons</span>,
+        <span class="sig-arg">modifiers</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>The mouse was moved with one or more mouse buttons pressed.</p>
+<p>This event will continue to be fired even if the mouse leaves
+the window, so long as the drag buttons are continuously held down.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the left edge of the window.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the bottom edge of the window.</dd>
+        <dt><span class="pname">dx</span> : <span class='ptype'>int</span></dt>
+        <dd>Relative X position from the previous mouse position.</dd>
+        <dt><span class="pname">dy</span> : <span class='ptype'>int</span></dt>
+        <dd>Relative Y position from the previous mouse position.</dd>
+        <dt><span class="pname">buttons</span> : <span class='ptype'>int</span></dt>
+        <dd>Bitwise combination of the mouse buttons currently pressed.</dd>
+        <dt><span class="pname">modifiers</span> : <span class='ptype'>int</span></dt>
+        <dd>Bitwise combination of any keyboard modifiers currently
+active.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_mouse_enter"></a>
+<div class=" detail">
+  <h3>on_mouse_enter</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_mouse_enter</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>The mouse was moved into the window.</p>
+<p>This event will not be trigged if the mouse is currently being
+dragged.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the left edge of the window.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the bottom edge of the window.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_mouse_leave"></a>
+<div class=" detail">
+  <h3>on_mouse_leave</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_mouse_leave</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>The mouse was moved outside of the window.</p>
+<p>This event will not be trigged if the mouse is currently being
+dragged.  Note that the coordinates of the mouse pointer will be
+outside of the window rectangle.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the left edge of the window.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the bottom edge of the window.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_mouse_motion"></a>
+<div class=" detail">
+  <h3>on_mouse_motion</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_mouse_motion</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">dx</span>,
+        <span class="sig-arg">dy</span>)</span>
+    </div>
+  <div class="detail-description">
+  The mouse was moved with no buttons held down.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the left edge of the window.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the bottom edge of the window.</dd>
+        <dt><span class="pname">dx</span> : <span class='ptype'>int</span></dt>
+        <dd>Relative X position from the previous mouse position.</dd>
+        <dt><span class="pname">dy</span> : <span class='ptype'>int</span></dt>
+        <dd>Relative Y position from the previous mouse position.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_mouse_press"></a>
+<div class=" detail">
+  <h3>on_mouse_press</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_mouse_press</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">button</span>,
+        <span class="sig-arg">modifiers</span>)</span>
+    </div>
+  <div class="detail-description">
+  A mouse button was pressed (and held down).
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the left edge of the window.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the bottom edge of the window.</dd>
+        <dt><span class="pname">button</span> : <span class='ptype'>int</span></dt>
+        <dd>The mouse button that was pressed.</dd>
+        <dt><span class="pname">modifiers</span> : <span class='ptype'>int</span></dt>
+        <dd>Bitwise combination of any keyboard modifiers currently
+active.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_mouse_release"></a>
+<div class=" detail">
+  <h3>on_mouse_release</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_mouse_release</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">button</span>,
+        <span class="sig-arg">modifiers</span>)</span>
+    </div>
+  <div class="detail-description">
+  A mouse button was released.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the left edge of the window.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the bottom edge of the window.</dd>
+        <dt><span class="pname">button</span> : <span class='ptype'>int</span></dt>
+        <dd>The mouse button that was released.</dd>
+        <dt><span class="pname">modifiers</span> : <span class='ptype'>int</span></dt>
+        <dd>Bitwise combination of any keyboard modifiers currently
+active.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_mouse_scroll"></a>
+<div class=" detail">
+  <h3>on_mouse_scroll</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_mouse_scroll</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">scroll_x</span>,
+        <span class="sig-arg">scroll_y</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>The mouse wheel was scrolled.</p>
+<p>Note that most mice have only a vertical scroll wheel, so
+<code class="link">scroll_x</code> is usually 0.  An exception to this is the Apple Mighty
+Mouse, which has a mouse ball in place of the wheel which allows
+both <code class="link">scroll_x</code> and <code class="link">scroll_y</code> movement.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the left edge of the window.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance in pixels from the bottom edge of the window.</dd>
+        <dt><span class="pname">scroll_x</span> : <span class='ptype'>int</span></dt>
+        <dd>Number of &quot;clicks&quot; towards the right (left if negative).</dd>
+        <dt><span class="pname">scroll_y</span> : <span class='ptype'>int</span></dt>
+        <dd>Number of &quot;clicks&quot; upwards (downwards if negative).</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_move"></a>
+<div class=" detail">
+  <h3>on_move</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_move</span>(<span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  The window was moved.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance from the left edge of the screen to the left edge
+of the window.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance from the top edge of the screen to the top edge of
+the window.  Note that this is one of few methods in pyglet
+which use a Y-down coordinate system.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_resize"></a>
+<div class=" detail">
+  <h3>on_resize</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_resize</span>(<span class="sig-arg">width</span>,
+        <span class="sig-arg">height</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>The window was resized.</p>
+<p>The window will have the GL context when this event is dispatched;
+there is no need to call <a href="pyglet.window.Window-class.html#switch_to" class="link">switch_to</a> in this handler.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>The new width of the window, in pixels.</dd>
+        <dt><span class="pname">height</span> : <span class='ptype'>int</span></dt>
+        <dd>The new height of the window, in pixels.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_show"></a>
+<div class=" detail">
+  <h3>on_show</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_show</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>The window was shown.</p>
+<p>This event is triggered when a window is restored after being
+minimised, or after being displayed for the first time.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_text"></a>
+<div class=" detail">
+  <h3>on_text</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_text</span>(<span class="sig-arg">text</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>The user input some text.</p>
+<p>Typically this is called after <a href="pyglet.window.Window-class.html#on_key_press" class="link">on_key_press</a> and before
+<a href="pyglet.window.Window-class.html#on_key_release" class="link">on_key_release</a>, but may also be called multiple times if the key
+is held down (key repeating); or called without key presses if
+another input method was used (e.g., a pen input).</p>
+<p>You should always use this method for interpreting text, as the
+key symbols often have complex mappings to their unicode
+representation which this event takes care of.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">text</span> : <span class='ptype'>unicode</span></dt>
+        <dd>The text entered by the user.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_text_motion"></a>
+<div class=" detail">
+  <h3>on_text_motion</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_text_motion</span>(<span class="sig-arg">motion</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>The user moved the text input cursor.</p>
+<p>Typically this is called after <a href="pyglet.window.Window-class.html#on_key_press" class="link">on_key_press</a> and before
+<a href="pyglet.window.Window-class.html#on_key_release" class="link">on_key_release</a>, but may also be called multiple times if the key
+is help down (key repeating).</p>
+<p>You should always use this method for moving the text input cursor
+(caret), as different platforms have different default keyboard
+mappings, and key repeats are handled correctly.</p>
+<p>The values that <code class="link">motion</code> can take are defined in
+<a href="pyglet.window.key-module.html" class="link">pyglet.window.key</a>:</p>
+<ul class="rst-simple">
+<li>MOTION_UP</li>
+<li>MOTION_RIGHT</li>
+<li>MOTION_DOWN</li>
+<li>MOTION_LEFT</li>
+<li>MOTION_NEXT_WORD</li>
+<li>MOTION_PREVIOUS_WORD</li>
+<li>MOTION_BEGINNING_OF_LINE</li>
+<li>MOTION_END_OF_LINE</li>
+<li>MOTION_NEXT_PAGE</li>
+<li>MOTION_PREVIOUS_PAGE</li>
+<li>MOTION_BEGINNING_OF_FILE</li>
+<li>MOTION_END_OF_FILE</li>
+<li>MOTION_BACKSPACE</li>
+<li>MOTION_DELETE</li>
+</ul>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">motion</span> : <span class='ptype'>int</span></dt>
+        <dd>The direction of motion; see remarks.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_text_motion_select"></a>
+<div class=" detail">
+  <h3>on_text_motion_select</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_text_motion_select</span>(<span class="sig-arg">motion</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>The user moved the text input cursor while extending the
+selection.</p>
+<p>Typically this is called after <a href="pyglet.window.Window-class.html#on_key_press" class="link">on_key_press</a> and before
+<a href="pyglet.window.Window-class.html#on_key_release" class="link">on_key_release</a>, but may also be called multiple times if the key
+is help down (key repeating).</p>
+<p>You should always use this method for responding to text selection
+events rather than the raw <a href="pyglet.window.Window-class.html#on_key_press" class="link">on_key_press</a>, as different platforms
+have different default keyboard mappings, and key repeats are
+handled correctly.</p>
+<p>The values that <code class="link">motion</code> can take are defined in <a href="pyglet.window.key-module.html" class="link">pyglet.window.key</a>:</p>
+<ul class="rst-simple">
+<li>MOTION_UP</li>
+<li>MOTION_RIGHT</li>
+<li>MOTION_DOWN</li>
+<li>MOTION_LEFT</li>
+<li>MOTION_NEXT_WORD</li>
+<li>MOTION_PREVIOUS_WORD</li>
+<li>MOTION_BEGINNING_OF_LINE</li>
+<li>MOTION_END_OF_LINE</li>
+<li>MOTION_NEXT_PAGE</li>
+<li>MOTION_PREVIOUS_PAGE</li>
+<li>MOTION_BEGINNING_OF_FILE</li>
+<li>MOTION_END_OF_FILE</li>
+</ul>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">motion</span> : <span class='ptype'>int</span></dt>
+        <dd>The direction of selection motion; see remarks.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">width</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">height</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">caption</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">resizable</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">style</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">fullscreen</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">visible</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">vsync</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">display</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">screen</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">config</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">context</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create a window.</p>
+<p>All parameters are optional, and reasonable defaults are assumed
+where they are not specified.</p>
+<p>The <a href="pyglet.window.Window-class.html#display" class="link">display</a>, <a href="pyglet.window.Window-class.html#screen" class="link">screen</a>, <a href="pyglet.window.Window-class.html#config" class="link">config</a> and <a href="pyglet.window.Window-class.html#context" class="link">context</a> parameters form
+a hierarchy of control: there is no need to specify more than
+one of these.  For example, if you specify <a href="pyglet.window.Window-class.html#screen" class="link">screen</a> the <a href="pyglet.window.Window-class.html#display" class="link">display</a>
+will be inferred, and a default <a href="pyglet.window.Window-class.html#config" class="link">config</a> and <a href="pyglet.window.Window-class.html#context" class="link">context</a> will be
+created.</p>
+<p><a href="pyglet.window.Window-class.html#config" class="link">config</a> is a special case; it can be a template created by the
+user specifying the attributes desired, or it can be a complete
+<a href="pyglet.window.Window-class.html#config" class="link">config</a> as returned from <a href="pyglet.window.Screen-class.html#get_matching_configs" class="link">Screen.get_matching_configs</a> or similar.</p>
+<p>The context will be active as soon as the window is created, as if
+<a href="pyglet.window.Window-class.html#switch_to" class="link">switch_to</a> was just called.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>Width of the window, in pixels.  Not valid if <a href="pyglet.window.Window-class.html#fullscreen" class="link">fullscreen</a>
+is True.  Defaults to 640.</dd>
+        <dt><span class="pname">height</span> : <span class='ptype'>int</span></dt>
+        <dd>Height of the window, in pixels.  Not valid if <a href="pyglet.window.Window-class.html#fullscreen" class="link">fullscreen</a>
+is True.  Defaults to 480.</dd>
+        <dt><span class="pname">caption</span> : <span class='ptype'>str or unicode</span></dt>
+        <dd>Initial caption (title) of the window.  Defaults to
+<tt class="rst-docutils literal">sys.argv[0]</tt>.</dd>
+        <dt><span class="pname">resizable</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the window will be resizable.  Defaults to False.</dd>
+        <dt><span class="pname">style</span> : <span class='ptype'>int</span></dt>
+        <dd>One of the <tt class="rst-docutils literal">WINDOW_STYLE_*</tt> constants specifying the
+border style of the window.</dd>
+        <dt><span class="pname">fullscreen</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the window will cover the entire screen rather
+than floating.  Defaults to False.</dd>
+        <dt><span class="pname">visible</span> : <span class='ptype'>bool</span></dt>
+        <dd>Determines if the window is visible immediately after
+creation.  Defaults to True.  Set this to False if you
+would like to change attributes of the window before
+having it appear to the user.</dd>
+        <dt><span class="pname">vsync</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, buffer flips are synchronised to the primary screen's
+vertical retrace, eliminating flicker.</dd>
+        <dt><span class="pname">display</span> : <span class='ptype'><a href="pyglet.window.Display-class.html" class="link">Display</a></span></dt>
+        <dd>The display device to use.  Useful only under X11.</dd>
+        <dt><span class="pname">screen</span> : <span class='ptype'><a href="pyglet.window.Screen-class.html" class="link">Screen</a></span></dt>
+        <dd>The screen to use, if in fullscreen.</dd>
+        <dt><span class="pname">config</span> : <span class='ptype'><a href="pyglet.gl.Config-class.html" class="link">pyglet.gl.Config</a></span></dt>
+        <dd>Either a template from which to create a complete config,
+or a complete config.</dd>
+        <dt><span class="pname">context</span> : <span class='ptype'><a href="pyglet.gl.Context-class.html" class="link">pyglet.gl.Context</a></span></dt>
+        <dd>The context to attach to this window.  The context must
+not already be attached to another window.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="activate"></a>
+<div class=" detail">
+  <h3>activate</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">activate</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Attempt to restore keyboard focus to the window.</p>
+<p>Depending on the window manager or operating system, this may not
+be successful.  For example, on Windows XP an application is not
+allowed to &quot;steal&quot; focus from another application.  Instead, the
+window's taskbar icon will flash, indicating it requires attention.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="clear"></a>
+<div class=" detail">
+  <h3>clear</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">clear</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Clear the window.</p>
+<p>This is a convenience method for clearing the color and depth
+buffer.  The window must be the active context (see <a href="pyglet.window.Window-class.html#switch_to" class="link">switch_to</a>).</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="close"></a>
+<div class=" detail">
+  <h3>close</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">close</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Close the window.</p>
+<p>After closing the window, the GL context will be invalid.  The
+window instance cannot be reused once closed (see also <a href="pyglet.window.Window-class.html#set_visible" class="link">set_visible</a>).</p>
+<p>The <a href="pyglet.app.EventLoop-class.html#on_window_close" class="link">pyglet.app.EventLoop.on_window_close</a> event is dispatched on
+<a href="pyglet.app-module.html#event_loop" class="link">pyglet.app.event_loop</a> when this method is called.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="dispatch_event"></a>
+<div class=" detail">
+  <h3>dispatch_event</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">dispatch_event</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Dispatch a single event to the attached handlers.</p>
+<p>The event is propagated to all handlers from from the top of the stack
+until one returns <a href="pyglet.event-module.html#EVENT_HANDLED" class="link">EVENT_HANDLED</a>.  This method should be used only by
+<a href="pyglet.event.EventDispatcher-class.html" class="link">EventDispatcher</a> implementors; applications should call
+the <tt class="rst-rst-docutils literal rst-docutils literal">dispatch_events</tt> method.</p>
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.event.EventDispatcher-class.html#dispatch_event">event.EventDispatcher.dispatch_event</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="dispatch_events"></a>
+<div class=" detail">
+  <h3>dispatch_events</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">dispatch_events</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Poll the operating system event queue for new events and call
+attached event handlers.</p>
+<p>This method is provided for legacy applications targeting pyglet 1.0,
+and advanced applications that must integrate their event loop
+into another framework.</p>
+<p>Typical applications should use pyglet.app.run.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="draw_mouse_cursor"></a>
+<div class=" detail">
+  <h3>draw_mouse_cursor</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">draw_mouse_cursor</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Draw the custom mouse cursor.</p>
+<p>If the current mouse cursor has <tt class="rst-docutils literal">drawable</tt> set, this method
+is called before the buffers are flipped to render it.</p>
+<p>This method always leaves the <tt class="rst-docutils literal">GL_MODELVIEW</tt> matrix as current,
+regardless of what it was set to previously.  No other GL state
+is affected.</p>
+<p>There is little need to override this method; instead, subclass
+<tt class="rst-docutils literal">MouseCursor</tt> and provide your own <tt class="rst-docutils literal">draw</tt> method.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="flip"></a>
+<div class=" detail">
+  <h3>flip</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">flip</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Swap the OpenGL front and back buffers.</p>
+<p>Call this method on a double-buffered window to update the
+visible display with the back buffer.  The contents of the back buffer
+is undefined after this operation.</p>
+<p>Windows are double-buffered by default.  This method is called
+automatically by <a href="pyglet.app.EventLoop-class.html" class="link">EventLoop</a> after the <a href="pyglet.window.Window-class.html#on_draw" class="link">on_draw</a> event.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="get_location"></a>
+<div class=" detail">
+  <h3>get_location</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_location</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Return the current position of the window.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">(int, int)</span>: The distances of the left and top edges from their respective
+edges on the virtual desktop, in pixels.</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_size"></a>
+<div class=" detail">
+  <h3>get_size</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_size</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Return the current size of the window.</p>
+<p>The window size does not include the border or title bar.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">(int, int)</span>: The width and height of the window, in pixels.</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_system_mouse_cursor"></a>
+<div class=" detail">
+  <h3>get_system_mouse_cursor</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_system_mouse_cursor</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Obtain a system mouse cursor.</p>
+<p>Use <a href="pyglet.window.Window-class.html#set_mouse_cursor" class="link">set_mouse_cursor</a> to make the cursor returned by this method
+active.  The names accepted by this method are the <tt class="rst-docutils literal">CURSOR_*</tt>
+constants defined on this class.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Name describing the mouse cursor to return.  For example,
+<tt class="rst-docutils literal">CURSOR_WAIT</tt>, <tt class="rst-docutils literal">CURSOR_HELP</tt>, etc.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype"><a href="pyglet.window.MouseCursor-class.html" class="link">MouseCursor</a></span>: A mouse cursor which can be used with <a href="pyglet.window.Window-class.html#set_mouse_cursor" class="link">set_mouse_cursor</a>.</dd>
+  </dl>
+  </div>
+</div>
+<a name="maximize"></a>
+<div class=" detail">
+  <h3>maximize</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">maximize</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Maximize the window.</p>
+<p>The behaviour of this method is somewhat dependent on the user's
+display setup.  On a multi-monitor system, the window may maximize
+to either a single screen or the entire virtual desktop.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="set_caption"></a>
+<div class=" detail">
+  <h3>set_caption</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_caption</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">caption</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Set the window's caption.</p>
+<p>The caption appears in the titlebar of the window, if it has one,
+and in the taskbar on Windows and many X11 window managers.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">caption</span> : <span class='ptype'>str or unicode</span></dt>
+        <dd>The caption to set.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_exclusive_keyboard"></a>
+<div class=" detail">
+  <h3>set_exclusive_keyboard</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_exclusive_keyboard</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">exclusive</span>=<span class="sig-default">True</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Prevent the user from switching away from this window using
+keyboard accelerators.</p>
+<p>When enabled, this feature disables certain operating-system specific
+key combinations such as Alt+Tab (Command+Tab on OS X).  This can be
+useful in certain kiosk applications, it should be avoided in general
+applications or games.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">exclusive</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, exclusive keyboard is enabled, otherwise it is
+disabled.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_exclusive_mouse"></a>
+<div class=" detail">
+  <h3>set_exclusive_mouse</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_exclusive_mouse</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">exclusive</span>=<span class="sig-default">True</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Hide the mouse cursor and direct all mouse events to this
+window.</p>
+<p>When enabled, this feature prevents the mouse leaving the window.  It
+is useful for certain styles of games that require complete control of
+the mouse.  The position of the mouse as reported in subsequent events
+is meaningless when exclusive mouse is enabled; you should only use
+the relative motion parameters <tt class="rst-docutils literal">dx</tt> and <tt class="rst-docutils literal">dy</tt>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">exclusive</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, exclusive mouse is enabled, otherwise it is disabled.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_fullscreen"></a>
+<div class=" detail">
+  <h3>set_fullscreen</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_fullscreen</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">fullscreen</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">screen</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Toggle to or from fullscreen.</p>
+<p>After toggling fullscreen, the GL context should have retained its
+state and objects, however the buffers will need to be cleared and
+redrawn.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">fullscreen</span> : <span class='ptype'>bool</span></dt>
+        <dd>True if the window should be made fullscreen, False if it
+should be windowed.</dd>
+        <dt><span class="pname">screen</span> : <span class='ptype'>Screen</span></dt>
+        <dd>If not None and fullscreen is True, the window is moved to the
+given screen.  The screen must belong to the same display as
+the window.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_icon"></a>
+<div class=" detail">
+  <h3>set_icon</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_icon</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*images</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Set the window icon.</p>
+<p>If multiple images are provided, one with an appropriate size
+will be selected (if the correct size is not provided, the image
+will be scaled).</p>
+<p>Useful sizes to provide are 16x16, 32x32, 64x64 (Mac only) and
+128x128 (Mac only).</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">images</span> : <span class='ptype'>sequence of <a href="pyglet.image.AbstractImage-class.html" class="link">pyglet.image.AbstractImage</a></span></dt>
+        <dd>List of images to use for the window icon.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_location"></a>
+<div class=" detail">
+  <h3>set_location</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_location</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  Set the position of the window.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance of the left edge of the window from the left edge
+of the virtual desktop, in pixels.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Distance of the top edge of the window from the top edge of
+the virtual desktop, in pixels.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_maximum_size"></a>
+<div class=" detail">
+  <h3>set_maximum_size</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_maximum_size</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">width</span>,
+        <span class="sig-arg">height</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Set the maximum size of the window.</p>
+<p>Once set, the user will not be able to resize the window larger
+than the given dimensions.  There is no way to remove the
+maximum size constraint on a window (but you could set it to a large
+value).</p>
+<p>The behaviour is undefined if the maximum size is set smaller than
+the current size of the window.</p>
+<p>The window size does not include the border or title bar.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>Maximum width of the window, in pixels.</dd>
+        <dt><span class="pname">height</span> : <span class='ptype'>int</span></dt>
+        <dd>Maximum height of the window, in pixels.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_minimum_size"></a>
+<div class=" detail">
+  <h3>set_minimum_size</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_minimum_size</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">width</span>,
+        <span class="sig-arg">height</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Set the minimum size of the window.</p>
+<p>Once set, the user will not be able to resize the window smaller
+than the given dimensions.  There is no way to remove the
+minimum size constraint on a window (but you could set it to 0,0).</p>
+<p>The behaviour is undefined if the minimum size is set larger than
+the current size of the window.</p>
+<p>The window size does not include the border or title bar.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>Minimum width of the window, in pixels.</dd>
+        <dt><span class="pname">height</span> : <span class='ptype'>int</span></dt>
+        <dd>Minimum height of the window, in pixels.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_mouse_cursor"></a>
+<div class=" detail">
+  <h3>set_mouse_cursor</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_mouse_cursor</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">cursor</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Change the appearance of the mouse cursor.</p>
+<p>The appearance of the mouse cursor is only changed while it is
+within this window.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">cursor</span> : <span class='ptype'><a href="pyglet.window.MouseCursor-class.html" class="link">MouseCursor</a></span></dt>
+        <dd>The cursor to set, or None to restore the default cursor.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_mouse_platform_visible"></a>
+<div class=" detail">
+  <h3>set_mouse_platform_visible</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_mouse_platform_visible</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">platform_visible</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Set the platform-drawn mouse cursor visibility.  This is called
+automatically after changing the mouse cursor or exclusive mode.</p>
+<p>Applications should not normally need to call this method, see
+<a href="pyglet.window.Window-class.html#set_mouse_visible" class="link">set_mouse_visible</a> instead.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">platform_visible</span> : <span class='ptype'>bool or None</span></dt>
+        <dd>If None, sets platform visibility to the required visibility
+for the current exclusive mode and cursor type.  Otherwise,
+a bool value will override and force a visibility.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_mouse_visible"></a>
+<div class=" detail">
+  <h3>set_mouse_visible</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_mouse_visible</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">visible</span>=<span class="sig-default">True</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Show or hide the mouse cursor.</p>
+<p>The mouse cursor will only be hidden while it is positioned within
+this window.  Mouse events will still be processed as usual.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">visible</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the mouse cursor will be visible, otherwise it
+will be hidden.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_size"></a>
+<div class=" detail">
+  <h3>set_size</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_size</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">width</span>,
+        <span class="sig-arg">height</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Resize the window.</p>
+<p>The behaviour is undefined if the window is not resizable, or if
+it is currently fullscreen.</p>
+<p>The window size does not include the border or title bar.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>New width of the window, in pixels.</dd>
+        <dt><span class="pname">height</span> : <span class='ptype'>int</span></dt>
+        <dd>New height of the window, in pixels.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_visible"></a>
+<div class=" detail">
+  <h3>set_visible</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_visible</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">visible</span>=<span class="sig-default">True</span>)</span>
+    </div>
+  <div class="detail-description">
+  Show or hide the window.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">visible</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the window will be shown; otherwise it will be
+hidden.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="set_vsync"></a>
+<div class=" detail">
+  <h3>set_vsync</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_vsync</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">vsync</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Enable or disable vertical sync control.</p>
+<p>When enabled, this option ensures flips from the back to the front
+buffer are performed only during the vertical retrace period of the
+primary display.  This can prevent &quot;tearing&quot; or flickering when
+the buffer is updated in the middle of a video scan.</p>
+<p>Note that LCD monitors have an analogous time in which they are not
+reading from the video buffer; while it does not correspond to
+a vertical retrace it has the same effect.</p>
+<p>With multi-monitor systems the secondary monitor cannot be
+synchronised to, so tearing and flicker cannot be avoided when the
+window is positioned outside of the primary display.  In this case
+it may be advisable to forcibly reduce the framerate (for example,
+using pyglet.clock.set_fps_limit).</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">vsync</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, vsync is enabled, otherwise it is disabled.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="switch_to"></a>
+<div class=" detail">
+  <h3>switch_to</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">switch_to</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Make this window the current OpenGL rendering context.</p>
+<p>Only one OpenGL context can be active at a time.  This method sets
+the current window's context to be current.  You should use this
+method in preference to <a href="pyglet.gl.Context-class.html#set_current" class="link">pyglet.gl.Context.set_current</a>, as it may
+perform additional initialisation functions.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="caption"></a>
+<div class=" detail">
+  <h3>caption</h3>
+  <div class="detail-description">
+  The window caption (title).  Read-only.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>str</dd>
+  </dl>
+  </div>
+</div>
+<a name="config"></a>
+<div class=" detail">
+  <h3>config</h3>
+  <div class="detail-description">
+  A GL config describing the context of this window.  Read-only.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><a href="pyglet.gl.Config-class.html" class="link">pyglet.gl.Config</a></dd>
+  </dl>
+  </div>
+</div>
+<a name="context"></a>
+<div class=" detail">
+  <h3>context</h3>
+  <div class="detail-description">
+  The OpenGL context attached to this window.  Read-only.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><a href="pyglet.gl.Context-class.html" class="link">pyglet.gl.Context</a></dd>
+  </dl>
+  </div>
+</div>
+<a name="display"></a>
+<div class=" detail">
+  <h3>display</h3>
+  <div class="detail-description">
+  The display this window belongs to.  Read-only.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><a href="pyglet.window.Display-class.html" class="link">Display</a></dd>
+  </dl>
+  </div>
+</div>
+<a name="fullscreen"></a>
+<div class=" detail">
+  <h3>fullscreen</h3>
+  <div class="detail-description">
+  True if the window is currently fullscreen.  Read-only.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>bool</dd>
+  </dl>
+  </div>
+</div>
+<a name="height"></a>
+<div class=" detail">
+  <h3>height</h3>
+  <div class="detail-description">
+  The height of the window, in pixels.  Read-write.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="resizable"></a>
+<div class=" detail">
+  <h3>resizable</h3>
+  <div class="detail-description">
+  True if the window is resizable.  Read-only.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>bool</dd>
+  </dl>
+  </div>
+</div>
+<a name="screen"></a>
+<div class=" detail">
+  <h3>screen</h3>
+  <div class="detail-description">
+  The screen this window is fullscreen in.  Read-only.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd><a href="pyglet.window.Screen-class.html" class="link">Screen</a></dd>
+  </dl>
+  </div>
+</div>
+<a name="style"></a>
+<div class=" detail">
+  <h3>style</h3>
+  <div class="detail-description">
+  The window style; one of the <tt class="rst-rst-docutils literal rst-docutils literal">WINDOW_STYLE_*</tt> constants.
+Read-only.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="visible"></a>
+<div class=" detail">
+  <h3>visible</h3>
+  <div class="detail-description">
+  True if the window is currently visible.  Read-only.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>bool</dd>
+  </dl>
+  </div>
+</div>
+<a name="vsync"></a>
+<div class=" detail">
+  <h3>vsync</h3>
+  <div class="detail-description">
+  True if buffer flips are synchronised to the screen's vertical
+retrace.  Read-only.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>bool</dd>
+  </dl>
+  </div>
+</div>
+<a name="width"></a>
+<div class=" detail">
+  <h3>width</h3>
+  <div class="detail-description">
+  The width of the window, in pixels.  Read-write.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+        <h2>Class Variable Details</h2>
+<table class="details">
+</table>
+<a name="event_types"></a>
+<div class=" detail">
+  <h3>event_types</h3>
+  <div class="detail-description">
+  
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">on_key_press</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">on_key_release</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">on_text</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">on_text_motion</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">on_text_motion_select</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">on_mouse_motion</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">on_mouse_drag</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">on_mouse_press</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.window-module.html">window</a>&nbsp;.&nbsp;Window
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:20 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

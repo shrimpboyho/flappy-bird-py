@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;text
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package pyglet.text</h1>
+<p>Text formatting, layout and display.</p>
+<p>This module provides classes for loading styled documents from text files,
+HTML files and a pyglet-specific markup format.  Documents can be styled with
+multiple fonts, colours, styles, text sizes, margins, paragraph alignments,
+and so on.</p>
+<p>Using the layout classes, documents can be laid out on a single line or
+word-wrapped to fit a rectangle.  A layout can then be efficiently drawn in
+a window or updated incrementally (for example, to support interactive text
+editing).</p>
+<p>The label classes provide a simple interface for the common case where an
+application simply needs to display some text in a window.</p>
+<p>A plain text label can be created with:</p>
+<pre class="py-doctest">
+label = pyglet.text.Label(<span class="py-string">'Hello, world'</span>,
+                          font_name=<span class="py-string">'Times New Roman'</span>,
+                          font_size=36,
+                          x=10, y=10)</pre>
+<p>Alternatively, a styled text label using HTML can be created with:</p>
+<pre class="py-doctest">
+label = pyglet.text.HTMLLabel(<span class="py-string">'&lt;b&gt;Hello&lt;/b&gt;, &lt;i&gt;world&lt;/i&gt;'</span>,
+                              x=10, y=10)</pre>
+<p>Either label can then be drawn at any time with:</p>
+<pre class="py-doctest">
+label.draw()</pre>
+<p>For details on the subset of HTML supported, see <a href="pyglet.text.formats.html-module.html" class="link">pyglet.text.formats.html</a>.</p>
+<p>Refer to the Programming Guide for advanced usage of the document and layout
+classes, including interactive editing, embedding objects within documents and
+creating scrollable layouts.</p>
+
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div><!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+        <h2>Submodules</h2>
+<table class="summary">
+<tr><td width="15%"></td><td><a href="pyglet.text.caret-module.html" class="summary-name">pyglet.text.caret</a><div class="summary-description">Provides keyboard and mouse editing procedures for text layout.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.text.document-module.html" class="summary-name">pyglet.text.document</a><div class="summary-description">Formatted and unformatted document interfaces used by text layout.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.text.formats-module.html" class="summary-name">pyglet.text.formats</a><div class="summary-description">Document formats.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.text.formats.attributed-module.html" class="summary-name">pyglet.text.formats.attributed</a><div class="summary-description">Extensible attributed text format for representing pyglet formatted
+documents.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.text.formats.html-module.html" class="summary-name">pyglet.text.formats.html</a><div class="summary-description">Decode HTML into attributed text.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.text.formats.plaintext-module.html" class="summary-name">pyglet.text.formats.plaintext</a><div class="summary-description">Plain text decoder.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.text.formats.structured-module.html" class="summary-name">pyglet.text.formats.structured</a><div class="summary-description">Base class for structured (hierarchical) document formats.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.text.layout-module.html" class="summary-name">pyglet.text.layout</a><div class="summary-description">Render simple text and formatted documents efficiently.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.text.runlist-module.html" class="summary-name">pyglet.text.runlist</a><div class="summary-description">Run list encoding utilities.</div></td></tr></table>
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.DocumentDecodeException-class.html" class="summary-name">DocumentDecodeException</a>
+<div class="summary-description">An error occurred decoding document text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.DocumentDecoder-class.html" class="summary-name">DocumentDecoder</a>
+<div class="summary-description">Abstract document decoder.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.DocumentLabel-class.html" class="summary-name">DocumentLabel</a>
+<div class="summary-description">Base label class.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.Label-class.html" class="summary-name">Label</a>
+<div class="summary-description">Plain text label.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.text.HTMLLabel-class.html" class="summary-name">HTMLLabel</a>
+<div class="summary-description">HTML formatted text label.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.DocumentDecoder-class.html" class="link">DocumentDecoder</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text-module.html#get_decoder" class="summary-sig-name">get_decoder</a>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">mimetype</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Get a document decoder for the given filename and MIME type.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.document.AbstractDocument-class.html" class="link">AbstractDocument</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text-module.html#load" class="summary-sig-name">load</a>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">file</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">mimetype</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Load a document from a file.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.document.FormattedDocument-class.html" class="link">FormattedDocument</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text-module.html#decode_html" class="summary-sig-name">decode_html</a>(<span class="summary-sig-arg">text</span>,
+        <span class="summary-sig-arg">location</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Create a document directly from some HTML formatted text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.document.FormattedDocument-class.html" class="link">FormattedDocument</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text-module.html#decode_attributed" class="summary-sig-name">decode_attributed</a>(<span class="summary-sig-arg">text</span>)</span>
+<div class="summary-description">Create a document directly from some attributed text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.document.UnformattedDocument-class.html" class="link">UnformattedDocument</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text-module.html#decode_text" class="summary-sig-name">decode_text</a>(<span class="summary-sig-arg">text</span>)</span>
+<div class="summary-description">Create a document directly from some plain text.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.text'"><code class="variable-quote">'</code><code class="variable-string">pyglet.text</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="get_decoder"></a>
+<div class=" detail">
+  <h3>get_decoder</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_decoder</span>(<span class="sig-arg">filename</span>,
+        <span class="sig-arg">mimetype</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a document decoder for the given filename and MIME type.</p>
+<p>If <code class="link">mimetype</code> is omitted it is guessed from the filename extension.</p>
+<p>The following MIME types are supported:</p>
+<dl class="rst-docutils">
+<dt><tt class="rst-docutils literal">text/plain</tt></dt>
+<dd>Plain text</dd>
+<dt><tt class="rst-docutils literal">text/html</tt></dt>
+<dd>HTML 4 Transitional</dd>
+<dt><tt class="rst-docutils literal"><span class="pre">text/vnd.pyglet-attributed</span></tt></dt>
+<dd>Attributed text; see <a href="pyglet.text.formats.attributed-module.html" class="link">pyglet.text.formats.attributed</a></dd>
+</dl>
+<p><a href="pyglet.text.DocumentDecodeException-class.html" class="link">DocumentDecodeException</a> is raised if another MIME type is given.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">filename</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename to guess the MIME type from.  If a MIME type is given,
+the filename is ignored.</dd>
+        <dt><span class="pname">mimetype</span> : <span class='ptype'>str</span></dt>
+        <dd>MIME type to lookup, or <tt class="rst-docutils literal">None</tt> to guess the type from the
+filename.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.text.DocumentDecoder-class.html" class="link">DocumentDecoder</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="load"></a>
+<div class=" detail">
+  <h3>load</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">load</span>(<span class="sig-arg">filename</span>,
+        <span class="sig-arg">file</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">mimetype</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Load a document from a file.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">filename</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of document to load.</dd>
+        <dt><span class="pname">file</span> : <span class='ptype'>file-like object</span></dt>
+        <dd>File object containing encoded data.  If omitted, <code class="link">filename</code> is
+loaded from disk.</dd>
+        <dt><span class="pname">mimetype</span> : <span class='ptype'>str</span></dt>
+        <dd>MIME type of the document.  If omitted, the filename extension is
+used to guess a MIME type.  See get_decoder for a list of
+supported MIME types.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.text.document.AbstractDocument-class.html" class="link">AbstractDocument</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="decode_html"></a>
+<div class=" detail">
+  <h3>decode_html</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">decode_html</span>(<span class="sig-arg">text</span>,
+        <span class="sig-arg">location</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a document directly from some HTML formatted text.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">text</span> : <span class='ptype'>str</span></dt>
+        <dd>HTML data to decode.</dd>
+        <dt><span class="pname">location</span> : <span class='ptype'>str</span></dt>
+        <dd>Location giving the base path for additional resources
+referenced from the document (e.g., images).</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.text.document.FormattedDocument-class.html" class="link">FormattedDocument</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="decode_attributed"></a>
+<div class=" detail">
+  <h3>decode_attributed</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">decode_attributed</span>(<span class="sig-arg">text</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create a document directly from some attributed text.</p>
+<p>See <a href="pyglet.text.formats.attributed-module.html" class="link">pyglet.text.formats.attributed</a> for a description of attributed text.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">text</span> : <span class='ptype'>str</span></dt>
+        <dd>Attributed text to decode.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.text.document.FormattedDocument-class.html" class="link">FormattedDocument</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="decode_text"></a>
+<div class=" detail">
+  <h3>decode_text</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">decode_text</span>(<span class="sig-arg">text</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create a document directly from some plain text.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">text</span> : <span class='ptype'>str</span></dt>
+        <dd>Plain text to initialise the document with.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.text.document.UnformattedDocument-class.html" class="link">UnformattedDocument</a></dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;text
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.sprite</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;sprite
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module pyglet.sprite</h1>
+<p>Display positioned, scaled and rotated images.</p>
+<p>A sprite is an instance of an image displayed on-screen.  Multiple sprites can
+display the same image at different positions on the screen.  Sprites can also
+be scaled larger or smaller, rotated at any angle and drawn at a fractional
+opacity.</p>
+<p>The following complete example loads a <tt class="rst-docutils literal">&quot;ball.png&quot;</tt> image and creates a
+sprite for that image.  The sprite is then drawn in the window's
+draw event handler:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> pyglet
+
+ball_image = pyglet.image.load(<span class="py-string">'ball.png'</span>)
+ball = pyglet.sprite.Sprite(ball_image, x=50, y=50)
+
+window = pyglet.window.Window()
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    ball.draw()
+
+pyglet.app.run()</pre>
+<p>The sprite can be moved by modifying the <tt class="rst-docutils literal">x</tt> and <tt class="rst-docutils literal">y</tt> properties.  Other
+properties determine the sprite's rotation, scale and opacity.</p>
+<p>The sprite's positioning, rotation and scaling all honor the original
+image's anchor (anchor_x, anchor_y).</p>
+<div class="rst-section" id="rst-drawing-multiple-sprites">
+<h1 class="heading">Drawing multiple sprites</h1>
+<p>Sprites can be &quot;batched&quot; together and drawn at once more quickly than if each
+of their <tt class="rst-docutils literal">draw</tt> methods were called individually.  The following example
+creates one hundred ball sprites and adds each of them to a <a href="pyglet.graphics.Batch-class.html" class="link">Batch</a>.  The
+entire batch of sprites is then drawn in one call:</p>
+<pre class="py-doctest">
+batch = pyglet.graphics.Batch()
+
+ball_sprites = []
+<span class="py-keyword">for</span> i <span class="py-keyword">in</span> range(100):
+    x, y = i * 10, 50
+    ball_sprites.append(pyglet.sprite.Sprite(ball_image, x, y, batch=batch)
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    batch.draw()</pre>
+<p>Sprites can be freely modified in any way even after being added to a batch,
+however a sprite can belong to at most one batch.  See the documentation for
+pyglet.graphics for more details on batched rendering, and grouping of
+sprites within batches.</p>
+</div>
+
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.SpriteGroup-class.html" class="summary-name">SpriteGroup</a>
+<div class="summary-description">Shared sprite rendering group.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.sprite.Sprite-class.html" class="summary-name">Sprite</a>
+<div class="summary-description">Instance of an on-screen image.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet'"><code class="variable-quote">'</code><code class="variable-string">pyglet</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;sprite
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

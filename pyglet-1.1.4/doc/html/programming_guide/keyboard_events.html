@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Keyboard events</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="working_with_the_keyboard.html" title="Working with the keyboard">Working with ...</a></span><span class="next">Next: <a class="reference" href="text_and_motion_events.html" title="Text and motion events">Text and ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="working_with_the_keyboard.html" title="Working with the keyboard">Working with ...</a> » Keyboard events</span></div>
+<h1 class="title">Keyboard events</h1>
+
+<p>The <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_key_press " title="pyglet.window.Window.on_key_press">Window.on_key_press</a> and <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_key_release " title="pyglet.window.Window.on_key_release">Window.on_key_release</a> events are fired when
+any key on the keyboard is pressed or released, respectively.  These events
+are not affected by &quot;key repeat&quot; -- once a key is pressed there are no more
+events for that key until it is released.</p>
+<p>Both events are parameterised by the same arguments:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">on_key_press</span>(symbol, modifiers):
+    <span class="py-keyword">pass</span>
+
+<span class="py-keyword">def</span> <span class="py-defname">on_key_release</span>(symbol, modifiers):
+    <span class="py-keyword">pass</span></pre>
+<div class="section" id="defined-key-symbols">
+<h1><a class="toc-backref" href="#id264">Defined key symbols</a></h1>
+<p>The <cite>symbol</cite> argument is an integer that represents a &quot;virtual&quot; key code.
+It does //not// correspond to any particular numbering scheme; in particular
+the symbol is //not// an ASCII character code.</p>
+<p>pyglet has key symbols that are hardware and platform independent
+for many types of keyboard.  These are defined in <a class="reference apilink" href="../api/pyglet.window.key-module.html ">pyglet.window.key</a> as
+constants.  For example, the Latin-1 alphabet is simply the letter itself:</p>
+<pre class="py-doctest">
+key.A
+key.B
+key.C
+<span class="py-more">...</span></pre>
+<p>The numeric keys have an underscore to make them valid identifiers:</p>
+<pre class="py-doctest">
+key._1
+key._2
+key._3
+<span class="py-more">...</span></pre>
+<p>Various control and directional keys are identified by name:</p>
+<pre class="py-doctest">
+key.ENTER <span class="py-keyword">or</span> key.RETURN
+key.SPACE
+key.BACKSPACE
+key.DELETE
+key.MINUS
+key.EQUAL
+key.BACKSLASH
+
+key.LEFT
+key.RIGHT
+key.UP
+key.DOWN
+key.HOME
+key.END
+key.PAGEUP
+key.PAGEDOWN
+
+key.F1
+key.F2
+<span class="py-more">...</span></pre>
+<p>Keys on the number pad have separate symbols:</p>
+<pre class="py-doctest">
+key.NUM_1
+key.NUM_2
+<span class="py-more">...</span>
+key.NUM_EQUAL
+key.NUM_DIVIDE
+key.NUM_MULTIPLY
+key.NUM_MINUS
+key.NUM_PLUS
+key.NUM_DECIMAL
+key.NUM_ENTER</pre>
+<p>Some modifier keys have separate symbols for their left and right sides
+(however they cannot all be distinguished on all platforms):</p>
+<pre class="py-doctest">
+key.LCTRL
+key.RCTRL
+key.LSHIFT
+key.RSHIFT
+<span class="py-more">...</span></pre>
+<p>Key symbols are independent of any modifiers being held down.  For example,
+lower-case and upper-case letters both generate the <a class="reference apilink" href="../api/pyglet.window.key-module.html#A " title="pyglet.window.key.A">A</a> symbol.  This is also
+true of the number keypad.</p>
+</div>
+<div class="section" id="modifiers">
+<h1><a class="toc-backref" href="#id265">Modifiers</a></h1>
+<p>The modifiers that are held down when the event is generated are combined in a
+bitwise fashion and provided in the <tt class="docutils literal">modifiers</tt> parameter.  The modifier
+constants defined in <cite>pyglet.window.key</cite> are:</p>
+<pre class="py-doctest">
+MOD_SHIFT
+MOD_CTRL
+MOD_ALT         Not available on Mac OS X
+MOD_WINDOWS     Available on Windows only
+MOD_COMMAND     Available on Mac OS X only
+MOD_OPTION      Available on Mac OS X only
+MOD_CAPSLOCK
+MOD_NUMLOCK
+MOD_SCROLLLOCK
+MOD_ACCEL       Equivalent to MOD_CTRL, <span class="py-keyword">or</span> MOD_COMMAND on Mac OS X.</pre>
+<p>For example, to test if the shift key is held down:</p>
+<pre class="py-doctest">
+<span class="py-keyword">if</span> modifiers &amp; MOD_SHIFT:
+    <span class="py-keyword">pass</span></pre>
+<p>Unlike the corresponding key symbols, it is not possible to determine whether
+the left or right modifier is held down (though you could emulate this
+behaviour by keeping track of the key states yourself).</p>
+</div>
+<div class="section" id="user-defined-key-symbols">
+<h1><a class="toc-backref" href="#id266">User-defined key symbols</a></h1>
+<p>pyglet does not define key symbols for every keyboard ever made.  For example,
+non-Latin languages will have many keys not recognised by pyglet (however,
+their Unicode representation will still be valid, see <cite>Text and motion
+events</cite>).  Even English keyboards often have additional so-called &quot;OEM&quot; keys
+added by the manufacturer, which might be labelled &quot;Media&quot;, &quot;Volume&quot; or
+&quot;Shopping&quot;, for example.</p>
+<p>In these cases pyglet will create a key symbol at runtime based on the
+hardware scancode of the key.  This is guaranteed to be unique for that model
+of keyboard, but may not be consistent across other keyboards with the same
+labelled key.</p>
+<p>The best way to use these keys is to record what the user presses after a
+prompt, and then check for that same key symbol.  Many commercial games have
+similar functionality in allowing players to set up their own key bindings.</p>
+</div>
+<div class="section" id="remembering-key-state">
+<h1><a class="toc-backref" href="#id267">Remembering key state</a></h1>
+<p>pyglet provides the convenience class <a class="reference apilink" href="../api/pyglet.window.key.KeyStateHandler-class.html " title="pyglet.window.key.KeyStateHandler">KeyStateHandler</a> for storing the
+current keyboard state.  This can be pushed onto the event handler stack of
+any window and subsequently queried as a dict:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.window <span class="py-keyword">import</span> key
+
+window = pyglet.window.Window()
+<span class="py-builtin">keys</span> = key.KeyStateHandler()
+window.push_handlers(<span class="py-builtin">keys</span>)
+
+<span class="py-comment"># Check if the spacebar is currently pressed:</span>
+<span class="py-keyword">if</span> <span class="py-builtin">keys</span>[key.SPACE]:
+    <span class="py-keyword">pass</span></pre>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="working_with_the_keyboard.html" title="Working with the keyboard">Working with ...</a></span><span class="next">Next: <a class="reference" href="text_and_motion_events.html" title="Text and motion events">Text and ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="working_with_the_keyboard.html" title="Working with the keyboard">Working with ...</a> » Keyboard events</span></div>
+</div>
+</body>
+</html>

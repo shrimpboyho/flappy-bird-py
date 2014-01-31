@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.runlist.AbstractRunIterator</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.runlist-module.html">runlist</a>&nbsp;.&nbsp;AbstractRunIterator
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.runlist.AbstractRunIterator</h1>
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.text.runlist.ConstRunIterator-class.html">ConstRunIterator</a>,
+    <a href="pyglet.text.runlist.FilteredRunIterator-class.html">FilteredRunIterator</a>,
+    <a href="pyglet.text.runlist.OverriddenRunIterator-class.html">OverriddenRunIterator</a>,
+    <a href="pyglet.text.runlist.RunIterator-class.html">RunIterator</a>,
+    <a href="pyglet.text.runlist.ZipRunIterator-class.html">ZipRunIterator</a>
+</dd></dl>
+
+<p>Range iteration over <a href="pyglet.text.runlist.RunList-class.html" class="link">RunList</a>.</p>
+<p><a href="pyglet.text.runlist.AbstractRunIterator-class.html" class="link">AbstractRunIterator</a> objects allow any monotonically non-decreasing
+access of the iteration, including repeated iteration over the same index.
+Use the <tt class="rst-docutils literal">[index]</tt> operator to get the value at a particular index within
+the document.  For example:</p>
+<pre class="py-doctest">
+run_iter = iter(run_list)
+value = run_iter[0]
+value = run_iter[0]       <span class="py-comment"># non-decreasing access is OK</span>
+value = run_iter[15]
+value = run_iter[17]
+value = run_iter[16]      <span class="py-comment"># this is illegal, the index decreased.</span></pre>
+<p>Using <a href="pyglet.text.runlist.AbstractRunIterator-class.html" class="link">AbstractRunIterator</a> to access increasing indices of the value runs
+is more efficient than calling <a href="pyglet.text.runlist.RunList-class.html#__getitem__" class="link">RunList.__getitem__</a> repeatedly.</p>
+<p>You can also iterate over monotonically non-decreasing ranges over the
+iteration.  For example:</p>
+<pre class="py-doctest">
+run_iter = iter(run_list)
+<span class="py-keyword">for</span> start, end, value <span class="py-keyword">in</span> run_iter.ranges(0, 20):
+    <span class="py-keyword">pass</span>
+<span class="py-keyword">for</span> start, end, value <span class="py-keyword">in</span> run_iter.ranges(25, 30):
+    <span class="py-keyword">pass</span>
+<span class="py-keyword">for</span> start, end, value <span class="py-keyword">in</span> run_iter.ranges(30, 40):
+    <span class="py-keyword">pass</span></pre>
+<p>Both start and end indices of the slice are required and must be positive.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">object</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.runlist.AbstractRunIterator-class.html#__getitem__" class="summary-sig-name">__getitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">index</span>)</span>
+<div class="summary-description">Get the value at a given index.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">iterator</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.runlist.AbstractRunIterator-class.html#ranges" class="summary-sig-name">ranges</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">end</span>)</span>
+<div class="summary-description">Iterate over a subrange of the run list.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__getitem__"></a>
+<div class=" detail">
+  <h3>__getitem__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Indexing operator)</span>
+    <span class="sig"><span class="sig-name">__getitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">index</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the value at a given index.</p>
+<p>See the class documentation for examples of valid usage.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">index</span> : <span class='ptype'>int</span></dt>
+        <dd>Document position to query.</dd>
+    </dl></dd>
+    <dt>Returns: object</dt>
+  </dl>
+  </div>
+</div>
+<a name="ranges"></a>
+<div class=" detail">
+  <h3>ranges</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">ranges</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">end</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Iterate over a subrange of the run list.</p>
+<p>See the class documentation for examples of valid usage.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">start</span> : <span class='ptype'>int</span></dt>
+        <dd>Start index to iterate from.</dd>
+        <dt><span class="pname">end</span> : <span class='ptype'>int</span></dt>
+        <dd>End index, exclusive.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">iterator</span>: Iterator over (start, end, value) tuples.</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.runlist-module.html">runlist</a>&nbsp;.&nbsp;AbstractRunIterator
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:20 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

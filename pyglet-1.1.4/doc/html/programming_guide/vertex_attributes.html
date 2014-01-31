@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Vertex attributes</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="drawing_primitives.html" title="Drawing primitives">Drawing primitives</a></span><span class="next">Next: <a class="reference" href="vertex_lists.html" title="Vertex lists">Vertex lists</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="graphics.html" title="Graphics">Graphics</a> » Vertex attributes</span></div>
+<h1 class="title">Vertex attributes</h1>
+
+<p>Besides the required vertex position, vertices can have several other numeric
+attributes.  Each is specified in the format string with a letter, the number
+of components and the data type.</p>
+<p>Each of the attributes is described in the table below with the set of valid
+format strings written as a regular expression (for example, <tt class="docutils literal"><span class="pre">&quot;v[234][if]&quot;</span></tt>
+means <tt class="docutils literal">&quot;v2f&quot;</tt>, <tt class="docutils literal">&quot;v3i&quot;</tt>, <tt class="docutils literal">&quot;v4f&quot;</tt>, etc. are all valid formats).</p>
+<p>Some attributes have a &quot;recommended&quot; format string, which is the most efficient
+form for the video driver as it requires less conversion.</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Attribute</th>
+<th class="head">Formats</th>
+<th class="head">Recommended</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Vertex position</td>
+<td><tt class="docutils literal"><span class="pre">&quot;v[234][sifd]&quot;</span></tt></td>
+<td><tt class="docutils literal">&quot;v[234]f&quot;</tt></td>
+</tr>
+<tr><td>Color</td>
+<td><tt class="docutils literal"><span class="pre">&quot;c[34][bBsSiIfd]&quot;</span></tt></td>
+<td><tt class="docutils literal">&quot;c[34]B&quot;</tt></td>
+</tr>
+<tr><td>Edge flag</td>
+<td><tt class="docutils literal">&quot;e1[bB]&quot;</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Fog coordinate</td>
+<td><tt class="docutils literal"><span class="pre">&quot;f[1234][bBsSiIfd]&quot;</span></tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Normal</td>
+<td><tt class="docutils literal">&quot;n3[bsifd]&quot;</tt></td>
+<td><tt class="docutils literal">&quot;n3f&quot;</tt></td>
+</tr>
+<tr><td>Secondary color</td>
+<td><tt class="docutils literal"><span class="pre">&quot;s[34][bBsSiIfd]&quot;</span></tt></td>
+<td><tt class="docutils literal">&quot;s[34]B&quot;</tt></td>
+</tr>
+<tr><td>Texture coordinate</td>
+<td><tt class="docutils literal"><span class="pre">&quot;t[234][sifd]&quot;</span></tt></td>
+<td><tt class="docutils literal">&quot;t[234]f&quot;</tt></td>
+</tr>
+<tr><td>Generic attribute</td>
+<td><tt class="docutils literal"><span class="pre">&quot;[0-15]g(n)?[1234][bBsSiIfd]&quot;</span></tt></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The possible data types that can be specified in the format string are
+described below.</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Format</th>
+<th class="head">Type</th>
+<th class="head">Python type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">&quot;b&quot;</tt></td>
+<td>Signed byte</td>
+<td>int</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;B&quot;</tt></td>
+<td>Unsigned byte</td>
+<td>int</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;s&quot;</tt></td>
+<td>Signed short</td>
+<td>int</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;S&quot;</tt></td>
+<td>Unsigned short</td>
+<td>int</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;i&quot;</tt></td>
+<td>Signed int</td>
+<td>int</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;I&quot;</tt></td>
+<td>Unsigned int</td>
+<td>int</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;f&quot;</tt></td>
+<td>Single precision float</td>
+<td>float</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;d&quot;</tt></td>
+<td>Double precision float</td>
+<td>float</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The following attributes are normalised to the range <tt class="docutils literal">[0, 1]</tt>.  The value is
+used as-is if the data type is floating-point.  If the data type is byte,
+short or int, the value is divided by the maximum value representable by that
+type.  For example, unsigned bytes are divided by 255 to get the normalised
+value.</p>
+<ul class="simple">
+<li>Color</li>
+<li>Secondary color</li>
+<li>Generic attributes with the <tt class="docutils literal">&quot;n&quot;</tt> format given.</li>
+</ul>
+<p>Up to 16 generic attributes can be specified per vertex, and can be used by
+shader programs for any purpose (they are ignored in the fixed-function
+pipeline).  For the other attributes, consult the OpenGL programming guide for
+details on their effects.</p>
+<p>When using the <a class="reference apilink" href="../api/pyglet.graphics-module.html#draw ">pyglet.graphics.draw</a> and related functions, attribute data is
+specified alongside the vertex position data.  The following example
+reproduces the two points from the previous page, except that the first point
+is blue and the second green:</p>
+<pre class="py-doctest">
+pyglet.graphics.draw(2, pyglet.gl.GL_POINTS,
+    (<span class="py-string">'v2i'</span>, (10, 15, 30, 35)),
+    (<span class="py-string">'c3B'</span>, (0, 0, 255, 0, 255, 0))
+)</pre>
+<p>It is an error to provide more than one set of data for any attribute, or to
+mismatch the size of the initial data with the number of vertices specified in
+the first argument.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="drawing_primitives.html" title="Drawing primitives">Drawing primitives</a></span><span class="next">Next: <a class="reference" href="vertex_lists.html" title="Vertex lists">Vertex lists</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="graphics.html" title="Graphics">Graphics</a> » Vertex attributes</span></div>
+</div>
+</body>
+</html>

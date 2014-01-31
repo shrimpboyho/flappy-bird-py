@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.media</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;media
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package pyglet.media</h1>
+<p>Audio and video playback.</p>
+<p>pyglet can play WAV files, and if AVbin is installed, many other audio and
+video formats.</p>
+<p>Playback is handled by the <a href="pyglet.media.Player-class.html" class="link">Player</a> class, which reads raw data from <a href="pyglet.media.Source-class.html" class="link">Source</a>
+objects and provides methods for pausing, seeking, adjusting the volume, and
+so on.  The <a href="pyglet.media.Player-class.html" class="link">Player</a> class implements a the best available audio device
+(currently, only OpenAL is supported):</p>
+<pre class="py-doctest">
+player = Player()</pre>
+<p>A <a href="pyglet.media.Source-class.html" class="link">Source</a> is used to decode arbitrary audio and video files.  It is
+associated with a single player by &quot;queuing&quot; it:</p>
+<pre class="py-doctest">
+source = load(<span class="py-string">'background_music.mp3'</span>)
+player.queue(source)</pre>
+<p>Use the <a href="pyglet.media.Player-class.html" class="link">Player</a> to control playback.</p>
+<p>If the source contains video, the <a href="pyglet.media.Source-class.html#video_format" class="link">Source.video_format</a> attribute will be
+non-None, and the <a href="pyglet.media.Player-class.html#texture" class="link">Player.texture</a> attribute will contain the current video
+image synchronised to the audio.</p>
+<p>Decoding sounds can be processor-intensive and may introduce latency,
+particularly for short sounds that must be played quickly, such as bullets or
+explosions.  You can force such sounds to be decoded and retained in memory
+rather than streamed from disk by wrapping the source in a <a href="pyglet.media.StaticSource-class.html" class="link">StaticSource</a>:</p>
+<pre class="py-doctest">
+bullet_sound = StaticSource(load(<span class="py-string">'bullet.wav'</span>))</pre>
+<p>The other advantage of a <a href="pyglet.media.StaticSource-class.html" class="link">StaticSource</a> is that it can be queued on any number
+of players, and so played many times simultaneously.</p>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.MediaException-class.html" class="summary-name">MediaException</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.MediaFormatException-class.html" class="summary-name">MediaFormatException</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.CannotSeekException-class.html" class="summary-name">CannotSeekException</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.AudioFormat-class.html" class="summary-name">AudioFormat</a>
+<div class="summary-description">Audio details.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.VideoFormat-class.html" class="summary-name">VideoFormat</a>
+<div class="summary-description">Video details.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.AudioData-class.html" class="summary-name">AudioData</a>
+<div class="summary-description">A single packet of audio data.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.AudioPlayer-class.html" class="summary-name">AudioPlayer</a>
+<div class="summary-description">Abstract low-level interface for playing audio.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Source-class.html" class="summary-name">Source</a>
+<div class="summary-description">An audio and/or video source.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.StreamingSource-class.html" class="summary-name">StreamingSource</a>
+<div class="summary-description">A source that is decoded as it is being played, and can only be
+queued once.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.StaticSource-class.html" class="summary-name">StaticSource</a>
+<div class="summary-description">A source that has been completely decoded in memory.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.StaticMemorySource-class.html" class="summary-name">StaticMemorySource</a>
+<div class="summary-description">Helper class for default implementation of <a href="pyglet.media.StaticSource-class.html" class="link">StaticSource</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Player-class.html" class="summary-name">Player</a>
+<div class="summary-description">A sound and/or video player.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.ManagedSoundPlayer-class.html" class="summary-name">ManagedSoundPlayer</a>
+<div class="summary-description">A player which takes care of updating its own audio buffers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Listener-class.html" class="summary-name">Listener</a>
+<div class="summary-description">The listener properties for positional audio.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.media.Source-class.html" class="link">Source</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media-module.html#load" class="summary-sig-name">load</a>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">file</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">streaming</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Load a source from a file.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media-module.html#dispatch_events" class="summary-sig-name">dispatch_events</a>()</span>
+<div class="summary-description">Process managed audio events.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="driver"></a><span class="summary-name">driver</span> = <code title="None">None</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="audio_player_class"></a><span class="summary-name">audio_player_class</span> = <code title="driver.driver_audio_player_class">driver.driver_audio_player_class</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="listener"></a><span class="summary-name">listener</span> = <code title="driver.driver_listener">driver.driver_listener</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="have_avbin"></a><span class="summary-name">have_avbin</span> = <code title="False">False</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="managed_players"></a><span class="summary-name">managed_players</span> = <code title="[]"><code class="variable-group">[</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.media'"><code class="variable-quote">'</code><code class="variable-string">pyglet.media</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="load"></a>
+<div class=" detail">
+  <h3>load</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">load</span>(<span class="sig-arg">filename</span>,
+        <span class="sig-arg">file</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">streaming</span>=<span class="sig-default">True</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Load a source from a file.</p>
+<p>Currently the <code class="link">file</code> argument is not supported; media files must exist
+as real paths.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">filename</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the media file to load.</dd>
+        <dt><span class="pname">file</span> : <span class='ptype'>file-like object</span></dt>
+        <dd>Not yet supported.</dd>
+        <dt><span class="pname">streaming</span> : <span class='ptype'>bool</span></dt>
+        <dd>If False, a <a href="pyglet.media.StaticSource-class.html" class="link">StaticSource</a> will be returned; otherwise (default) a
+<a href="pyglet.media.StreamingSource-class.html" class="link">StreamingSource</a> is created.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.media.Source-class.html" class="link">Source</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="dispatch_events"></a>
+<div class=" detail">
+  <h3>dispatch_events</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">dispatch_events</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>Process managed audio events.</p>
+<p>You must call this function regularly (typically once per run loop
+iteration) in order to keep audio buffers of managed players full.</p>
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>Deprecated:</strong>
+        Since pyglet 1.1, Player objects schedule themselves on
+the default clock automatically.  Applications should not call this
+method.
+      </p>
+</div>  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;media
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

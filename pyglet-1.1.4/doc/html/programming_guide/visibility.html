@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Visibility</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="appearance.html" title="Appearance">Appearance</a></span><span class="next">Next: <a class="reference" href="subclassing_window.html" title="Subclassing Window">Subclassing Window</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Visibility</span></div>
+<h1 class="title">Visibility</h1>
+
+<p>Windows have several states of visibility.  Already shown is the <cite>visible</cite>
+property which shows or hides the window.</p>
+<p>Windows can be minimized, which is equivalent to hiding them except that they
+still appear on the taskbar (or are minimised to the dock, on OS X).  The user
+can minimize a window by clicking the appropriate button in the title bar.
+You can also programmatically minimize a window using the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#minimize " title="pyglet.window.Window.minimize">minimize</a> method
+(there is also a corresponding <a class="reference apilink" href="../api/pyglet.window.Window-class.html#maximize " title="pyglet.window.Window.maximize">maximize</a> method).</p>
+<p>When a window is made visible the <cite>on_show</cite> event is triggered.  When it is
+hidden the <cite>on_hide</cite> event is triggered.  On Windows and Linux these events
+will only occur when you manually change the visibility of the window or when
+the window is minimized or restored.  On Mac OS X the user can also hide or
+show the window (affecting visibility) using the Command+H shortcut.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="appearance.html" title="Appearance">Appearance</a></span><span class="next">Next: <a class="reference" href="subclassing_window.html" title="Subclassing Window">Subclassing Window</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Visibility</span></div>
+</div>
+</body>
+</html>

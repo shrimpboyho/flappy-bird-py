@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Size and position</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="creating_a_window.html" title="Creating a window">Creating a window</a></span><span class="next">Next: <a class="reference" href="appearance.html" title="Appearance">Appearance</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Size and position</span></div>
+<h1 class="title">Size and position</h1>
+
+<p>This section applies only to windows that are not fullscreen.  Fullscreen
+windows always have the width and height of the screen they fill.</p>
+<p>You can specify the size of a window as the first two arguments to the window
+constructor.  In the following example, a window is created with a width of
+800 pixels and a height of 600 pixels:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window(800, 600)</pre>
+<p>The &quot;size&quot; of a window refers to the drawable space within it, excluding any
+additional borders or title bar drawn by the operating system.</p>
+<p>You can allow the user to resize your window by specifying <tt class="docutils literal">resizable=True</tt>
+in the constructor.  If you do this, you may also want to handle the
+<cite>on_resize</cite> event:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window(resizable=True)
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_resize</span>(width, height):
+    <span class="py-keyword">print</span> <span class="py-string">'The window was resized to %dx%d'</span> % (width, height)</pre>
+<p>You can specify a minimum and maximum size that the window can be resized to
+by the user with the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#set_minimum_size " title="pyglet.window.Window.set_minimum_size">set_minimum_size</a> and <a class="reference apilink" href="../api/pyglet.window.Window-class.html#set_maximum_size " title="pyglet.window.Window.set_maximum_size">set_maximum_size</a> methods:</p>
+<pre class="py-doctest">
+window.set_minimum_size(320, 200)
+window.set_maximum_size(1024, 768)</pre>
+<p>The window can also be resized programatically (even if the window is not
+user-resizable) with the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#set_size " title="pyglet.window.Window.set_size">set_size</a> method:</p>
+<pre class="py-doctest">
+window.set_size(800, 600)</pre>
+<p>The window will initially be positioned by the operating system.  Typically,
+it will use its own algorithm to locate the window in a place that does not
+block other application windows, or cascades with them.  You can manually
+adjust the position of the window using the <cite>get_position</cite> and <cite>set_position</cite>
+methods:</p>
+<pre class="py-doctest">
+x, y = window.get_location()
+window.set_location(x + 20, y + 20)</pre>
+<p>Note that unlike the usual coordinate system in pyglet, the window location is
+relative to the top-left corner of the desktop, as shown in the following
+diagram:</p>
+<div class="figure">
+<img alt="window_location.png" src="window_location.png" />
+<p class="caption">The position and size of the window relative to the desktop.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="creating_a_window.html" title="Creating a window">Creating a window</a></span><span class="next">Next: <a class="reference" href="appearance.html" title="Appearance">Appearance</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Size and position</span></div>
+</div>
+</body>
+</html>

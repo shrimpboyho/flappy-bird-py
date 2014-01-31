@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.gl.glu_info.GLUInfo</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.gl-module.html">gl</a>&nbsp;.&nbsp;<a href="pyglet.gl.glu_info-module.html">glu_info</a>&nbsp;.&nbsp;GLUInfo
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.gl.glu_info.GLUInfo</h1>
+<p>Information interface for the GLU library.</p>
+<p>A default instance is created automatically when the first OpenGL context
+is created.  You can use the module functions as a convenience for
+this default instance's methods.</p>
+<p>If you are using more than one context, you must call <a href="pyglet.gl.glu_info.GLUInfo-class.html#set_active_context" class="link">set_active_context</a>
+when the context is active for this <a href="pyglet.gl.glu_info.GLUInfo-class.html" class="link">GLUInfo</a> instance.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.glu_info.GLUInfo-class.html#set_active_context" class="summary-sig-name">set_active_context</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Store information for the currently active context.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.glu_info.GLUInfo-class.html#have_version" class="summary-sig-name">have_version</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">major</span>,
+        <span class="summary-sig-arg">minor</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">release</span>=<span class="summary-sig-default">0</span>)</span>
+<div class="summary-description">Determine if a version of GLU is supported.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.glu_info.GLUInfo-class.html#get_version" class="summary-sig-name">get_version</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the current GLU version.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.glu_info.GLUInfo-class.html#have_extension" class="summary-sig-name">have_extension</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">extension</span>)</span>
+<div class="summary-description">Determine if a GLU extension is available.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.gl.glu_info.GLUInfo-class.html#get_extensions" class="summary-sig-name">get_extensions</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get a list of available GLU extensions.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+        <h2>Class Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="have_context"></a><span class="summary-name">have_context</span> = <code title="False">False</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="version"></a><span class="summary-name">version</span> = <code title="'0.0.0'"><code class="variable-quote">'</code><code class="variable-string">0.0.0</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="extensions"></a><span class="summary-name">extensions</span> = <code title="[]"><code class="variable-group">[</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="set_active_context"></a>
+<div class=" detail">
+  <h3>set_active_context</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_active_context</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Store information for the currently active context.</p>
+<p>This method is called automatically for the default context.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="have_version"></a>
+<div class=" detail">
+  <h3>have_version</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">have_version</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">major</span>,
+        <span class="sig-arg">minor</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">release</span>=<span class="sig-default">0</span>)</span>
+    </div>
+  <div class="detail-description">
+  Determine if a version of GLU is supported.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">major</span> : <span class='ptype'>int</span></dt>
+        <dd>The major revision number (typically 1).</dd>
+        <dt><span class="pname">minor</span> : <span class='ptype'>int</span></dt>
+        <dd>The minor revision number.</dd>
+        <dt><span class="pname">release</span> : <span class='ptype'>int</span></dt>
+        <dd>The release number.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">bool</span>: True if the requested or a later version is supported.</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_version"></a>
+<div class=" detail">
+  <h3>get_version</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_version</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the current GLU version.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">str</span>: the GLU version</dd>
+  </dl>
+  </div>
+</div>
+<a name="have_extension"></a>
+<div class=" detail">
+  <h3>have_extension</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">have_extension</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">extension</span>)</span>
+    </div>
+  <div class="detail-description">
+  Determine if a GLU extension is available.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">extension</span> : <span class='ptype'>str</span></dt>
+        <dd>The name of the extension to test for, including its
+<tt class="rst-docutils literal">GLU_</tt> prefix.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">bool</span>: True if the extension is provided by the implementation.</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_extensions"></a>
+<div class=" detail">
+  <h3>get_extensions</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_extensions</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get a list of available GLU extensions.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">list of str</span>: a list of the available extensions.</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.gl-module.html">gl</a>&nbsp;.&nbsp;<a href="pyglet.gl.glu_info-module.html">glu_info</a>&nbsp;.&nbsp;GLUInfo
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

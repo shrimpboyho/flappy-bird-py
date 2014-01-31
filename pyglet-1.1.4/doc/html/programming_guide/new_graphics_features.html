@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>New graphics features</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="new_features_replacing_standard_practice.html" title="New features replacing standard practice">New features ...</a></span><span class="next">Next: <a class="reference" href="new_text_features.html" title="New text features">New text features</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a> » New graphics features</span></div>
+<h1 class="title">New graphics features</h1>
+
+<p>The <a class="reference apilink" href="../api/pyglet.graphics-module.html ">pyglet.graphics</a> module is a low-level abstraction of OpenGL vertex
+arrays and buffer objects.  It is intended for use by developers who are
+already very familiar with OpenGL and are after the best performance possible.
+pyglet uses this module internally to implement its new sprite module and the
+new text rendering module.  The <a class="reference sectionlink" href="graphics.html">Graphics</a> chapter describes this module in
+detail.</p>
+<p>The <a class="reference apilink" href="../api/pyglet.sprite-module.html ">pyglet.sprite</a> module provide a fast, easy way to display 2D graphics on
+screen.  Sprites can be moved, rotated, scaled and made translucent.  Using
+the <em>batch</em> features of the new graphics API, multiple sprites can be drawn in
+one go very quickly.  See <a class="reference sectionlink" href="displaying_images.html#sprites">Sprites</a> for details.</p>
+<p>The <a class="reference apilink" href="../api/pyglet.image-module.html#load_animation ">pyglet.image.load_animation</a> function can load animated GIF images.
+These are returned as an <a class="reference apilink" href="../api/pyglet.image.Animation-class.html " title="pyglet.image.Animation">Animation</a>, which exposes the individual image
+frames and timings.  Animations can also be played directly on a sprite in
+place of an image.  The <a class="reference sectionlink" href="animations.html">Animations</a> chapter describes how to use them.</p>
+<p>The <a class="reference apilink" href="../api/pyglet.image.atlas-module.html ">pyglet.image.atlas</a> module packs multiple images into larger textures for
+efficient rendering.  The <a class="reference apilink" href="../api/pyglet.resource-module.html ">pyglet.resource</a> module uses this module for small
+images automatically, but you can use it directly even if you're not making
+use of <cite>pyglet.resource</cite>.  See <a class="reference sectionlink" href="image_sequences_and_atlases.html#texture-bins-and-atlases">Texture bins and atlases</a> for details.</p>
+<p>Images now have <tt class="docutils literal">anchor_x</tt> and <tt class="docutils literal">anchor_y</tt> attributes, which specify a
+point from which the image should be drawn.  The sprite module also uses the
+anchor point as the center of rotation.</p>
+<p>Textures have a <cite>get_transform</cite> method for retrieving a <a class="reference apilink" href="../api/pyglet.image.TextureRegion-class.html " title="pyglet.image.TextureRegion">TextureRegion</a> that
+refers to the same texture data in video memory, but with optional horizontal
+or vertical flipping, or 90-degree rotation.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="new_features_replacing_standard_practice.html" title="New features replacing standard practice">New features ...</a></span><span class="next">Next: <a class="reference" href="new_text_features.html" title="New text features">New text features</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a> » New graphics features</span></div>
+</div>
+</body>
+</html>

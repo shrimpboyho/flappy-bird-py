@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Working with images</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="supported_image_formats.html" title="Supported image formats">Supported image formats</a></span><span class="next">Next: <a class="reference" href="the_abstractimage_hierarchy.html" title="The AbstractImage hierarchy">The AbstractImage hierarchy</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Working with images</span></div>
+<h1 class="title">Working with images</h1>
+
+<p>The <a class="reference apilink" href="../api/pyglet.image-module.html#load ">pyglet.image.load</a> function returns an <a class="reference apilink" href="../api/pyglet.image.AbstractImage-class.html " title="pyglet.image.AbstractImage">AbstractImage</a>.  The actual class
+of the object depends on the decoder that was used, but all images support the
+following attributes:</p>
+<dl class="docutils">
+<dt><cite>width</cite></dt>
+<dd>The width of the image, in pixels.</dd>
+<dt><cite>height</cite></dt>
+<dd>The height of the image, in pixels.</dd>
+<dt><cite>anchor_x</cite></dt>
+<dd>Distance of the anchor point from the left edge of the image, in pixels</dd>
+<dt><cite>anchor_y</cite></dt>
+<dd>Distance of the anchor point from the bottom edge of the image, in pixels</dd>
+</dl>
+<p>The anchor point defaults to (0, 0), though some image formats may contain an
+intrinsic anchor point.  The anchor point is used to align the image to a
+point in space when drawing it.</p>
+<p>You may only want to use a portion of the complete image.  You can use the
+<cite>get_region</cite> method to return an image of a rectangular region of a source
+image:</p>
+<pre class="py-doctest">
+image_part = kitten.get_region(x=10, y=10, width=100, height=100)</pre>
+<p>This returns an image with dimensions 100x100.  The region extracted from
+<cite>kitten</cite> is aligned such that the bottom-left corner of the rectangle is 10
+pixels from the left and 10 pixels from the bottom of the image.</p>
+<p>Image regions can be used as if they were complete images.  Note that changes
+to an image region may or may not be reflected on the source image, and
+changes to the source image may or may not be reflected on any region images.
+You should not assume either behaviour.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="supported_image_formats.html" title="Supported image formats">Supported image formats</a></span><span class="next">Next: <a class="reference" href="the_abstractimage_hierarchy.html" title="The AbstractImage hierarchy">The AbstractImage hierarchy</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Working with images</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Setting event handlers</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="the_pyglet_event_framework.html" title="The pyglet event framework">The pyglet ...</a></span><span class="next">Next: <a class="reference" href="stacking_event_handlers.html" title="Stacking event handlers">Stacking event handlers</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_pyglet_event_framework.html" title="The pyglet event framework">The pyglet ...</a> » Setting event handlers</span></div>
+<h1 class="title">Setting event handlers</h1>
+
+<p>An event handler is simply a function with a formal parameter list
+corresponding to the event type.  For example, the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_resize " title="pyglet.window.Window.on_resize">Window.on_resize</a> event
+has the parameters <tt class="docutils literal">(width, height)</tt>, so an event handler for this event
+could be:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">on_resize</span>(width, height):
+    <span class="py-keyword">pass</span></pre>
+<p>The <a class="reference apilink" href="../api/pyglet.window.Window-class.html " title="pyglet.window.Window">Window</a> class subclasses <a class="reference apilink" href="../api/pyglet.event.EventDispatcher-class.html " title="pyglet.event.EventDispatcher">EventDispatcher</a>, which enables it to have
+event handlers attached to it.  The simplest way to attach an event handler is
+to set the corresponding attribute on the object:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window()
+
+<span class="py-keyword">def</span> <span class="py-defname">on_resize</span>(width, height):
+    <span class="py-keyword">pass</span>
+window.on_resize = on_resize</pre>
+<p>While this technique is straight-forward, it requires you to write the name of
+the event three times for the one function, which can get tiresome.  pyglet
+provides a shortcut using the <cite>event</cite> decorator:</p>
+<pre class="py-doctest">
+window = window.Window()
+
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_resize</span>(width, height):
+    <span class="py-keyword">pass</span></pre>
+<p>This is not entirely equivalent to setting the event handler directly on the
+object.  If the object already had an event handler, using <tt class="docutils literal">&#64;event</tt> will add
+the handler to the object, rather than replacing it.  The next section
+describes this functionality in detail.</p>
+<p>As shown in <a class="reference sectionlink" href="subclassing_window.html">Subclassing Window</a>, you can also attach event handlers by
+subclassing the event dispatcher and adding the event handler as a method:</p>
+<pre class="py-doctest">
+<span class="py-keyword">class</span> <span class="py-defname">MyWindow</span>(pyglet.window.Window):
+    <span class="py-keyword">def</span> <span class="py-defname">on_resize</span>(self, width, height):
+        <span class="py-keyword">pass</span></pre>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="the_pyglet_event_framework.html" title="The pyglet event framework">The pyglet ...</a></span><span class="next">Next: <a class="reference" href="stacking_event_handlers.html" title="Stacking event handlers">Stacking event handlers</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_pyglet_event_framework.html" title="The pyglet event framework">The pyglet ...</a> » Setting event handlers</span></div>
+</div>
+</body>
+</html>

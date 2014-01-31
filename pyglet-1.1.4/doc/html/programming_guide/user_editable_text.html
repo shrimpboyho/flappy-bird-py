@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>User-editable text</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="custom_elements.html" title="Custom elements">Custom elements</a></span><span class="next">Next: <a class="reference" href="loading_system_fonts.html" title="Loading system fonts">Loading system fonts</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » User-editable text</span></div>
+<h1 class="title">User-editable text</h1>
+
+<p>While pyglet does not come with any complete GUI widgets for applications to
+use, it does implement many of the features required to implement interactive
+text editing.  These can be used as a basis for a more complete GUI system, or
+to present a simple text entry field, as demonstrated in the
+<tt class="docutils literal">examples/text_input.py</tt> example.</p>
+<p><a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html " title="pyglet.text.layout.IncrementalTextLayout">IncrementalTextLayout</a> should always be used for text that can be edited by
+the user.  This class maintains information about the placement of glyphs on
+screen, and so can map window coordinates to a document position and
+vice-versa.  These methods are <a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#get_position_from_point " title="pyglet.text.layout.IncrementalTextLayout.get_position_from_point">get_position_from_point</a>,
+<a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#get_point_from_position " title="pyglet.text.layout.IncrementalTextLayout.get_point_from_position">get_point_from_position</a>, <a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#get_line_from_point " title="pyglet.text.layout.IncrementalTextLayout.get_line_from_point">get_line_from_point</a>, <a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#get_point_from_line " title="pyglet.text.layout.IncrementalTextLayout.get_point_from_line">get_point_from_line</a>,
+<a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#get_line_from_position " title="pyglet.text.layout.IncrementalTextLayout.get_line_from_position">get_line_from_position</a>, <a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#get_position_from_line " title="pyglet.text.layout.IncrementalTextLayout.get_position_from_line">get_position_from_line</a>, <a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#get_position_on_line " title="pyglet.text.layout.IncrementalTextLayout.get_position_on_line">get_position_on_line</a> and
+<a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#get_line_count " title="pyglet.text.layout.IncrementalTextLayout.get_line_count">get_line_count</a>.</p>
+<p>The viewable rectangle of the document can be adjusted using a document
+position instead of a scrollbar using the <a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#ensure_line_visible " title="pyglet.text.layout.IncrementalTextLayout.ensure_line_visible">ensure_line_visible</a> and
+<a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#ensure_x_visible " title="pyglet.text.layout.IncrementalTextLayout.ensure_x_visible">ensure_x_visible</a> methods.</p>
+<p><cite>IncrementalTextLayout</cite> can display a current text selection by temporarily
+overriding the foreground and background colour of the selected text.  The
+<a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#selection_start " title="pyglet.text.layout.IncrementalTextLayout.selection_start">selection_start</a> and <a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#selection_end " title="pyglet.text.layout.IncrementalTextLayout.selection_end">selection_end</a> properties give the range of the
+selection, and <a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#selection_color " title="pyglet.text.layout.IncrementalTextLayout.selection_color">selection_color</a> and <a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html#selection_background_color " title="pyglet.text.layout.IncrementalTextLayout.selection_background_color">selection_background_color</a> the colors
+to use (defaulting to white on blue).</p>
+<p>The <a class="reference apilink" href="../api/pyglet.text.caret.Caret-class.html " title="pyglet.text.caret.Caret">Caret</a> class implements an insertion caret (cursor) for
+<cite>IncrementalTextLayout</cite>.  This includes displaying the blinking caret at the
+correct location, and handling keyboard, text and mouse events.  The behaviour
+in response to the events is very similar to the system GUIs on Windows, Mac
+OS X and GTK.  Using <cite>Caret</cite> frees you from using the <cite>IncrementalTextLayout</cite>
+methods described above directly.</p>
+<p>The following example creates a document, a layout and a caret and attaches
+the caret to the window to listen for events:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> pyglet
+
+window = pyglet.window.Window()
+document = pyglet.text.document.FormattedDocument()
+layout = pyglet.text.layout.IncrementalTextLayout(document, width, height)
+caret = pyglet.text.caret.Caret(layout)
+window.push_handlers(caret)</pre>
+<p>When the layout is drawn, the caret will also be drawn, so this example is
+nearly complete enough to display the user input.  However, it is suitable for
+use when only one editable text layout is to be in the window.  If multiple
+text widgets are to be shown, some mechanism is needed to dispatch events to
+the widget that has keyboard focus.  An example of how to do this is given in
+the <a class="reference filelink" href="text_input.py">examples/text_input.py</a> example program.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="custom_elements.html" title="Custom elements">Custom elements</a></span><span class="next">Next: <a class="reference" href="loading_system_fonts.html" title="Loading system fonts">Loading system fonts</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » User-editable text</span></div>
+</div>
+</body>
+</html>

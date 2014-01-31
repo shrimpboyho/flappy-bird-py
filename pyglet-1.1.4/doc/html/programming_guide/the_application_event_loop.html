@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>The application event loop</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="windows_and_opengl_contexts.html" title="Windows and OpenGL contexts">Windows and ...</a></span><span class="next">Next: <a class="reference" href="customising_the_event_loop.html" title="Customising the event loop">Customising the ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » The application ...</span></div>
+<h1 class="title">The application event loop</h1>
+
+<p>In order to let pyglet process operating system events such as mouse and
+keyboard events, applications need to enter an application event loop.  The
+event loop continuously checks for new events, dispatches those events, and
+updates the contents of all open windows.</p>
+<p>pyglet provides an application event loop that is tuned for performance and
+low power usage on Windows, Linux and Mac OS X.  Most applications need only
+call:</p>
+<pre class="py-doctest">
+pyglet.app.run()</pre>
+<p>to enter the event loop after creating their initial set of windows and
+attaching event handlers.  The <cite>run</cite> function does not return until all open
+windows have been closed, or until <tt class="docutils literal">pyglet.app.exit()</tt> is called.</p>
+<p>The pyglet application event loop dispatches window events (such as for mouse
+and keyboard input) as they occur and dispatches the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_draw " title="pyglet.window.Window.on_draw">on_draw</a> event to
+each window after every iteration through the loop.</p>
+<p>To have additional code run periodically or every iteration through the loop,
+schedule functions on the clock (see <cite>Scheduling functions for future
+execution</cite>).  pyglet ensures that the loop iterates only as often as necessary
+to fulfil all scheduled functions and user input.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="windows_and_opengl_contexts.html" title="Windows and OpenGL contexts">Windows and ...</a></span><span class="next">Next: <a class="reference" href="customising_the_event_loop.html" title="Customising the event loop">Customising the ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » The application ...</span></div>
+</div>
+</body>
+</html>

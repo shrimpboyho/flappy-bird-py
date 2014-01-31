@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.graphics.vertexbuffer.AbstractMappable</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;<a href="pyglet.graphics.vertexbuffer-module.html">vertexbuffer</a>&nbsp;.&nbsp;AbstractMappable
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.graphics.vertexbuffer.AbstractMappable</h1>
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.graphics.vertexbuffer.MappableVertexBufferObject-class.html">MappableVertexBufferObject</a>,
+    <a href="pyglet.graphics.vertexbuffer.VertexArray-class.html">VertexArray</a>
+</dd></dl>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.graphics.vertexbuffer.AbstractBufferRegion-class.html" class="link">AbstractBufferRegion</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer.AbstractMappable-class.html#get_region" class="summary-sig-name">get_region</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">size</span>,
+        <span class="summary-sig-arg">ptr_type</span>)</span>
+<div class="summary-description">Map a region of the buffer into a ctypes array of the desired
+type.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="get_region"></a>
+<div class=" detail">
+  <h3>get_region</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_region</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">size</span>,
+        <span class="sig-arg">ptr_type</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Map a region of the buffer into a ctypes array of the desired
+type.  This region does not need to be unmapped, but will become
+invalid if the buffer is resized.</p>
+<p>Note that although a pointer type is required, an array is mapped.
+For example:</p>
+<pre class="py-doctest">
+get_region(0, ctypes.sizeof(c_int) * 20, ctypes.POINTER(c_int * 20))</pre>
+<p>will map bytes 0 to 80 of the buffer to an array of 20 ints.</p>
+<p>Changes to the array may not be recognised until the region's
+<a href="pyglet.graphics.vertexbuffer.AbstractBufferRegion-class.html#invalidate" class="link">AbstractBufferRegion.invalidate</a> method is called.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">start</span> : <span class='ptype'>int</span></dt>
+        <dd>Offset into the buffer to map from, in bytes</dd>
+        <dt><span class="pname">size</span> : <span class='ptype'>int</span></dt>
+        <dd>Size of the buffer region to map, in bytes</dd>
+        <dt><span class="pname">ptr_type</span> : <span class='ptype'>ctypes pointer type</span></dt>
+        <dd>Pointer type describing the array format to create</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.graphics.vertexbuffer.AbstractBufferRegion-class.html" class="link">AbstractBufferRegion</a></dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;<a href="pyglet.graphics.vertexbuffer-module.html">vertexbuffer</a>&nbsp;.&nbsp;AbstractMappable
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

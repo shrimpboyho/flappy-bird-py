@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Loading resources</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="application_resources.html" title="Application resources">Application resources</a></span><span class="next">Next: <a class="reference" href="specifying_the_resource_path.html" title="Specifying the resource path">Specifying the ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="application_resources.html" title="Application resources">Application resources</a> » Loading resources</span></div>
+<h1 class="title">Loading resources</h1>
+
+<p>Use the <a class="reference apilink" href="../api/pyglet.resource-module.html ">pyglet.resource</a> module when files shipped with the application need
+to be loaded.  For example, instead of writing:</p>
+<pre class="py-doctest">
+data_file = open(<span class="py-string">'file.txt'</span>)</pre>
+<p>use:</p>
+<pre class="py-doctest">
+data_file = pyglet.resource.file(<span class="py-string">'file.txt'</span>)</pre>
+<p>There are also convenience functions for loading media files for pyglet.  The
+following table shows the equivalent resource functions for the standard file
+functions.</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">File function</th>
+<th class="head">Resource function</th>
+<th class="head">Type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">open</tt></td>
+<td><a class="reference apilink" href="../api/pyglet.resource-module.html#file ">pyglet.resource.file</a></td>
+<td>File-like object</td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.image-module.html#load ">pyglet.image.load</a></td>
+<td><a class="reference apilink" href="../api/pyglet.resource-module.html#image ">pyglet.resource.image</a></td>
+<td><a class="reference apilink" href="../api/pyglet.image.Texture-class.html " title="pyglet.image.Texture">Texture</a> or <a class="reference apilink" href="../api/pyglet.image.TextureRegion-class.html " title="pyglet.image.TextureRegion">TextureRegion</a></td>
+</tr>
+<tr><td><cite>pyglet.image.load</cite></td>
+<td><a class="reference apilink" href="../api/pyglet.resource-module.html#texture ">pyglet.resource.texture</a></td>
+<td><cite>Texture</cite></td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.image-module.html#load_animation ">pyglet.image.load_animation</a></td>
+<td><a class="reference apilink" href="../api/pyglet.resource-module.html#animation ">pyglet.resource.animation</a></td>
+<td><a class="reference apilink" href="../api/pyglet.image.Animation-class.html " title="pyglet.image.Animation">Animation</a></td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.media-module.html#load ">pyglet.media.load</a></td>
+<td><a class="reference apilink" href="../api/pyglet.resource-module.html#media ">pyglet.resource.media</a></td>
+<td><a class="reference apilink" href="../api/pyglet.media.Source-class.html " title="pyglet.media.Source">Source</a></td>
+</tr>
+<tr><td><div class="first last line-block">
+<div class="line"><a class="reference apilink" href="../api/pyglet.text-module.html#load ">pyglet.text.load</a></div>
+<div class="line">mimetype = <tt class="docutils literal">text/plain</tt></div>
+</div>
+</td>
+<td><a class="reference apilink" href="../api/pyglet.resource-module.html#text ">pyglet.resource.text</a></td>
+<td><a class="reference apilink" href="../api/pyglet.text.document.UnformattedDocument-class.html " title="pyglet.text.document.UnformattedDocument">UnformattedDocument</a></td>
+</tr>
+<tr><td><div class="first last line-block">
+<div class="line"><cite>pyglet.text.load</cite></div>
+<div class="line">mimetype = <tt class="docutils literal">text/html</tt></div>
+</div>
+</td>
+<td><a class="reference apilink" href="../api/pyglet.resource-module.html#html ">pyglet.resource.html</a></td>
+<td><a class="reference apilink" href="../api/pyglet.text.document.FormattedDocument-class.html " title="pyglet.text.document.FormattedDocument">FormattedDocument</a></td>
+</tr>
+<tr><td><div class="first last line-block">
+<div class="line"><cite>pyglet.text.load</cite></div>
+<div class="line">mimetype = <tt class="docutils literal"><span class="pre">text/vnd.pyglet-attributed</span></tt></div>
+</div>
+</td>
+<td><a class="reference apilink" href="../api/pyglet.resource-module.html#attributed ">pyglet.resource.attributed</a></td>
+<td><cite>FormattedDocument</cite></td>
+</tr>
+<tr><td><a class="reference apilink" href="../api/pyglet.font-module.html#add_file ">pyglet.font.add_file</a></td>
+<td><a class="reference apilink" href="../api/pyglet.resource-module.html#add_font ">pyglet.resource.add_font</a></td>
+<td><tt class="docutils literal">None</tt></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><cite>pyglet.resource.texture</cite> is for loading stand-alone textures, and would be
+required when using the texture for a 3D model.</p>
+<p><cite>pyglet.resource.image</cite> is optimised for loading sprite-like images that can
+have their texture coordinates adjusted.  The resource module attempts to pack
+small images into larger textures for efficient rendering (which is why the
+return type of this function can be <cite>TextureRegion</cite>).</p>
+<div class="section" id="resource-locations">
+<h1><a class="toc-backref" href="#id190">Resource locations</a></h1>
+<p>Some resource files reference other files by name.  For example, an HTML
+document can contain <tt class="docutils literal">&lt;img <span class="pre">src=&quot;image.png&quot;</span> /&gt;</tt> elements.  In this case your
+application needs to locate <tt class="docutils literal">image.png</tt> relative to the original HTML file.</p>
+<p>Use <a class="reference apilink" href="../api/pyglet.resource-module.html#location ">pyglet.resource.location</a> to get a <a class="reference apilink" href="../api/pyglet.resource.Location-class.html " title="pyglet.resource.Location">Location</a> object describing the
+location of an application resource.  This location might be a file system
+directory or a directory within a ZIP file.  The <cite>Location</cite> object can
+directly open files by name, so your application does not need to distinguish
+between these cases.</p>
+<p>In the following example, a <tt class="docutils literal">thumbnails.txt</tt> file is assumed to contain a
+list of image filenames (one per line), which are then loaded assuming the
+image files are located in the same directory as the <tt class="docutils literal">thumbnails.txt</tt> file:</p>
+<pre class="py-doctest">
+thumbnails_file = pyglet.resource.file(<span class="py-string">'thumbnails.txt'</span>, <span class="py-string">'rt'</span>)
+thumbnails_location = pyglet.resource.location(<span class="py-string">'thumbnails.txt'</span>)
+
+<span class="py-keyword">for</span> line <span class="py-keyword">in</span> thumbnails_file:
+    filename = line.strip()
+    image_file = thumbnails_location.open(filename)
+    image = pyglet.image.load(filename, file=image_file)
+    <span class="py-comment"># Do something with `image`...</span></pre>
+<p>This code correctly ignores other images with the same filename that might
+appear elsewhere on the resource path.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="application_resources.html" title="Application resources">Application resources</a></span><span class="next">Next: <a class="reference" href="specifying_the_resource_path.html" title="Specifying the resource path">Specifying the ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="application_resources.html" title="Application resources">Application resources</a> » Loading resources</span></div>
+</div>
+</body>
+</html>

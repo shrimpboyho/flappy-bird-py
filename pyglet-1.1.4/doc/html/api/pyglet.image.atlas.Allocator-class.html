@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.image.atlas.Allocator</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;<a href="pyglet.image.atlas-module.html">atlas</a>&nbsp;.&nbsp;Allocator
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.image.atlas.Allocator</h1>
+<p>Rectangular area allocation algorithm.</p>
+<p>Initialise with a given <tt class="rst-docutils literal">width</tt> and <tt class="rst-docutils literal">height</tt>, then repeatedly
+call <a href="pyglet.image.atlas.Allocator-class.html#alloc" class="link">alloc</a> to retrieve free regions of the area and protect that
+area from future allocations.</p>
+<p><a href="pyglet.image.atlas.Allocator-class.html" class="link">Allocator</a> uses a fairly simple strips-based algorithm.  It performs best
+when rectangles are allocated in decreasing height order.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.atlas.Allocator-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>)</span>
+<div class="summary-description">Create an <a href="pyglet.image.atlas.Allocator-class.html" class="link">Allocator</a> of the given size.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int, int</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.atlas.Allocator-class.html#alloc" class="summary-sig-name">alloc</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>)</span>
+<div class="summary-description">Get a free area in the allocator of the given size.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.atlas.Allocator-class.html#get_usage" class="summary-sig-name">get_usage</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the fraction of area already allocated.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image.atlas.Allocator-class.html#get_fragmentation" class="summary-sig-name">get_fragmentation</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the fraction of area that's unlikely to ever be used, based on
+current allocation behaviour.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">width</span>,
+        <span class="sig-arg">height</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create an <a href="pyglet.image.atlas.Allocator-class.html" class="link">Allocator</a> of the given size.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>Width of the allocation region.</dd>
+        <dt><span class="pname">height</span> : <span class='ptype'>int</span></dt>
+        <dd>Height of the allocation region.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="alloc"></a>
+<div class=" detail">
+  <h3>alloc</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">alloc</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">width</span>,
+        <span class="sig-arg">height</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a free area in the allocator of the given size.</p>
+<p>After calling <a href="pyglet.image.atlas.Allocator-class.html#alloc" class="link">alloc</a>, the requested area will no longer be used.
+If there is not enough room to fit the given area <a href="pyglet.image.atlas.AllocatorException-class.html" class="link">AllocatorException</a>
+is raised.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>Width of the area to allocate.</dd>
+        <dt><span class="pname">height</span> : <span class='ptype'>int</span></dt>
+        <dd>Height of the area to allocate.</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype">int, int</span>: The X and Y coordinates of the bottom-left corner of the
+allocated region.</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_usage"></a>
+<div class=" detail">
+  <h3>get_usage</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_usage</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the fraction of area already allocated.</p>
+<p>This method is useful for debugging and profiling only.</p>
+  <dl class="fields">
+    <dt>Returns: float</dt>
+  </dl>
+  </div>
+</div>
+<a name="get_fragmentation"></a>
+<div class=" detail">
+  <h3>get_fragmentation</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_fragmentation</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the fraction of area that's unlikely to ever be used, based on
+current allocation behaviour.</p>
+<p>This method is useful for debugging and profiling only.</p>
+  <dl class="fields">
+    <dt>Returns: float</dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.image-module.html">image</a>&nbsp;.&nbsp;<a href="pyglet.image.atlas-module.html">atlas</a>&nbsp;.&nbsp;Allocator
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

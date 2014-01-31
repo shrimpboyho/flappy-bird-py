@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.text.caret.Caret</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.caret-module.html">caret</a>&nbsp;.&nbsp;Caret
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.text.caret.Caret</h1>
+<p>Visible text insertion marker for
+<a href="pyglet.text.layout.IncrementalTextLayout-class.html" class="link">pyglet.text.layout.IncrementalTextLayout</a>.</p>
+<p>The caret is drawn as a single vertical bar at the document <a href="pyglet.text.caret.Caret-class.html#position" class="link">position</a>
+on a text layout object.  If <a href="pyglet.text.caret.Caret-class.html#mark" class="link">mark</a> is not None, it gives the unmoving
+end of the current text selection.  The visible text selection on the
+layout is updated along with <a href="pyglet.text.caret.Caret-class.html#mark" class="link">mark</a> and <a href="pyglet.text.caret.Caret-class.html#position" class="link">position</a>.</p>
+<p>By default the layout's graphics batch is used, so the caret does not need
+to be drawn explicitly.  Even if a different graphics batch is supplied,
+the caret will be correctly positioned and clipped within the layout.</p>
+<p>Updates to the document (and so the layout) are automatically propagated
+to the caret.</p>
+<p>The caret object can be pushed onto a window event handler stack with
+<code class="link">Window.push_handlers</code>.  The caret will respond correctly to keyboard,
+text, mouse and activation events, including double- and triple-clicks.
+If the text layout is being used alongside other graphical widgets, a
+GUI toolkit will be needed to delegate keyboard and mouse events to the
+appropriate widget.  pyglet does not provide such a toolkit at this stage.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">layout</span>,
+        <span class="summary-sig-arg">batch</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">color</span>=<span class="summary-sig-default"><code class="variable-group">(</code>0<code class="variable-op">, </code>0<code class="variable-op">, </code>0<code class="variable-group">)</code></span>)</span>
+<div class="summary-description">Create a caret for a layout.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#delete" class="summary-sig-name">delete</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Remove the caret from its batch.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">object</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#get_style" class="summary-sig-name">get_style</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attribute</span>)</span>
+<div class="summary-description">Get the document's named style at the caret's current position.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#set_style" class="summary-sig-name">set_style</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attributes</span>)</span>
+<div class="summary-description">Set the document style at the caret's current position.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#move_to_point" class="summary-sig-name">move_to_point</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">Move the caret close to the given window coordinate.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#select_to_point" class="summary-sig-name">select_to_point</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">Move the caret close to the given window coordinate while
+maintaining the <a href="pyglet.text.caret.Caret-class.html#mark" class="link">mark</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#select_word" class="summary-sig-name">select_word</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">Select the word at the given window coordinate.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#select_paragraph" class="summary-sig-name">select_paragraph</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>)</span>
+<div class="summary-description">Select the paragraph at the given window coordinate.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="on_layout_update"></a><span class="summary-sig-name">on_layout_update</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#on_text" class="summary-sig-name">on_text</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span>
+<div class="summary-description">Handler for the <a href="pyglet.window.Window-class.html#on_text" class="link">pyglet.window.Window.on_text</a> event.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#on_text_motion" class="summary-sig-name">on_text_motion</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">motion</span>,
+        <span class="summary-sig-arg">select</span>=<span class="summary-sig-default">False</span>)</span>
+<div class="summary-description">Handler for the <a href="pyglet.window.Window-class.html#on_text_motion" class="link">pyglet.window.Window.on_text_motion</a> event.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#on_text_motion_select" class="summary-sig-name">on_text_motion_select</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">motion</span>)</span>
+<div class="summary-description">Handler for the <a href="pyglet.window.Window-class.html#on_text_motion_select" class="link">pyglet.window.Window.on_text_motion_select</a> event.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#on_mouse_scroll" class="summary-sig-name">on_mouse_scroll</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">scroll_x</span>,
+        <span class="summary-sig-arg">scroll_y</span>)</span>
+<div class="summary-description">Handler for the <a href="pyglet.window.Window-class.html#on_mouse_scroll" class="link">pyglet.window.Window.on_mouse_scroll</a> event.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#on_mouse_press" class="summary-sig-name">on_mouse_press</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">button</span>,
+        <span class="summary-sig-arg">modifiers</span>)</span>
+<div class="summary-description">Handler for the <a href="pyglet.window.Window-class.html#on_mouse_press" class="link">pyglet.window.Window.on_mouse_press</a> event.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#on_mouse_drag" class="summary-sig-name">on_mouse_drag</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">y</span>,
+        <span class="summary-sig-arg">dx</span>,
+        <span class="summary-sig-arg">dy</span>,
+        <span class="summary-sig-arg">buttons</span>,
+        <span class="summary-sig-arg">modifiers</span>)</span>
+<div class="summary-description">Handler for the <a href="pyglet.window.Window-class.html#on_mouse_drag" class="link">pyglet.window.Window.on_mouse_drag</a> event.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#on_activate" class="summary-sig-name">on_activate</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Handler for the <a href="pyglet.window.Window-class.html#on_activate" class="link">pyglet.window.Window.on_activate</a> event.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.text.caret.Caret-class.html#on_deactivate" class="summary-sig-name">on_deactivate</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Handler for the <a href="pyglet.window.Window-class.html#on_deactivate" class="link">pyglet.window.Window.on_deactivate</a> event.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">bool</span>
+    </td><td class="summary">
+        <a href="pyglet.text.caret.Caret-class.html#visible" class="summary-name">visible</a>
+<div class="summary-description">Caret visibility.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">(int, int, int)</span>
+    </td><td class="summary">
+        <a href="pyglet.text.caret.Caret-class.html#color" class="summary-name">color</a>
+<div class="summary-description">Caret color.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.caret.Caret-class.html#position" class="summary-name">position</a>
+<div class="summary-description">Position of caret within document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.caret.Caret-class.html#mark" class="summary-name">mark</a>
+<div class="summary-description">Position of immovable end of text selection within
+document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a href="pyglet.text.caret.Caret-class.html#line" class="summary-name">line</a>
+<div class="summary-description">Index of line containing the caret's position.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CONSTANTS ==================== -->
+<a name="section-Constants"></a>
+        <h2>Constants</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PERIOD"></a><span class="summary-name">PERIOD</span> = <code title="0.5">0.5</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SCROLL_INCREMENT"></a><span class="summary-name">SCROLL_INCREMENT</span> = <code title="16">16</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">layout</span>,
+        <span class="sig-arg">batch</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">color</span>=<span class="sig-default"><code class="variable-group">(</code>0<code class="variable-op">, </code>0<code class="variable-op">, </code>0<code class="variable-group">)</code></span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create a caret for a layout.</p>
+<p>By default the layout's batch is used, so the caret does not need to
+be drawn explicitly.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">layout</span> : <span class='ptype'><a href="pyglet.text.layout.TextLayout-class.html" class="link">TextLayout</a></span></dt>
+        <dd>Layout to control.</dd>
+        <dt><span class="pname">batch</span> : <span class='ptype'><a href="pyglet.graphics.Batch-class.html" class="link">Batch</a></span></dt>
+        <dd>Graphics batch to add vertices to.</dd>
+        <dt><span class="pname">color</span> : <span class='ptype'>(int, int, int)</span></dt>
+        <dd>RGB tuple with components in range [0, 255].</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="delete"></a>
+<div class=" detail">
+  <h3>delete</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">delete</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Remove the caret from its batch.</p>
+<p>Also disconnects the caret from further layout events.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="get_style"></a>
+<div class=" detail">
+  <h3>get_style</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_style</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">attribute</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the document's named style at the caret's current position.</p>
+<p>If there is a text selection and the style varies over the selection,
+<a href="pyglet.text.document-module.html#STYLE_INDETERMINATE" class="link">pyglet.text.document.STYLE_INDETERMINATE</a> is returned.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">attribute</span> : <span class='ptype'>str</span></dt>
+        <dd>Name of style attribute to retrieve.  See
+<a href="pyglet.text.document-module.html" class="link">pyglet.text.document</a> for a list of recognised attribute
+names.</dd>
+    </dl></dd>
+    <dt>Returns: object</dt>
+  </dl>
+  </div>
+</div>
+<a name="set_style"></a>
+<div class=" detail">
+  <h3>set_style</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_style</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">attributes</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Set the document style at the caret's current position.</p>
+<p>If there is a text selection the style is modified immediately.
+Otherwise, the next text that is entered before the position is
+modified will take on the given style.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">attributes</span> : <span class='ptype'>dict</span></dt>
+        <dd>Dict mapping attribute names to style values.  See
+<a href="pyglet.text.document-module.html" class="link">pyglet.text.document</a> for a list of recognised attribute
+names.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="move_to_point"></a>
+<div class=" detail">
+  <h3>move_to_point</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">move_to_point</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Move the caret close to the given window coordinate.</p>
+<p>The <a href="pyglet.text.caret.Caret-class.html#mark" class="link">mark</a> will be reset to <tt class="rst-docutils literal">None</tt>.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Y coordinate.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="select_to_point"></a>
+<div class=" detail">
+  <h3>select_to_point</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">select_to_point</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  Move the caret close to the given window coordinate while
+maintaining the <a href="pyglet.text.caret.Caret-class.html#mark" class="link">mark</a>.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Y coordinate.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="select_word"></a>
+<div class=" detail">
+  <h3>select_word</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">select_word</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  Select the word at the given window coordinate.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Y coordinate.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="select_paragraph"></a>
+<div class=" detail">
+  <h3>select_paragraph</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">select_paragraph</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>)</span>
+    </div>
+  <div class="detail-description">
+  Select the paragraph at the given window coordinate.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">x</span> : <span class='ptype'>int</span></dt>
+        <dd>X coordinate.</dd>
+        <dt><span class="pname">y</span> : <span class='ptype'>int</span></dt>
+        <dd>Y coordinate.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="on_text"></a>
+<div class=" detail">
+  <h3>on_text</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_text</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Handler for the <a href="pyglet.window.Window-class.html#on_text" class="link">pyglet.window.Window.on_text</a> event.</p>
+<p>Caret keyboard handlers assume the layout always has keyboard focus.
+GUI toolkits should filter keyboard and text events by widget focus
+before invoking this handler.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_text_motion"></a>
+<div class=" detail">
+  <h3>on_text_motion</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_text_motion</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">motion</span>,
+        <span class="sig-arg">select</span>=<span class="sig-default">False</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Handler for the <a href="pyglet.window.Window-class.html#on_text_motion" class="link">pyglet.window.Window.on_text_motion</a> event.</p>
+<p>Caret keyboard handlers assume the layout always has keyboard focus.
+GUI toolkits should filter keyboard and text events by widget focus
+before invoking this handler.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_text_motion_select"></a>
+<div class=" detail">
+  <h3>on_text_motion_select</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_text_motion_select</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">motion</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Handler for the <a href="pyglet.window.Window-class.html#on_text_motion_select" class="link">pyglet.window.Window.on_text_motion_select</a> event.</p>
+<p>Caret keyboard handlers assume the layout always has keyboard focus.
+GUI toolkits should filter keyboard and text events by widget focus
+before invoking this handler.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_mouse_scroll"></a>
+<div class=" detail">
+  <h3>on_mouse_scroll</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_mouse_scroll</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">scroll_x</span>,
+        <span class="sig-arg">scroll_y</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Handler for the <a href="pyglet.window.Window-class.html#on_mouse_scroll" class="link">pyglet.window.Window.on_mouse_scroll</a> event.</p>
+<p>Mouse handlers do not check the bounds of the coordinates: GUI
+toolkits should filter events that do not intersect the layout
+before invoking this handler.</p>
+<p>The layout viewport is scrolled by <a href="pyglet.text.caret.Caret-class.html#SCROLL_INCREMENT" class="link">SCROLL_INCREMENT</a> pixels per
+&quot;click&quot;.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_mouse_press"></a>
+<div class=" detail">
+  <h3>on_mouse_press</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_mouse_press</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">button</span>,
+        <span class="sig-arg">modifiers</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Handler for the <a href="pyglet.window.Window-class.html#on_mouse_press" class="link">pyglet.window.Window.on_mouse_press</a> event.</p>
+<p>Mouse handlers do not check the bounds of the coordinates: GUI
+toolkits should filter events that do not intersect the layout
+before invoking this handler.</p>
+<p>This handler keeps track of the number of mouse presses within
+a short span of time and uses this to reconstruct double- and
+triple-click events for selecting words and paragraphs.  This
+technique is not suitable when a GUI toolkit is in use, as the active
+widget must also be tracked.  Do not use this mouse handler if
+a GUI toolkit is being used.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_mouse_drag"></a>
+<div class=" detail">
+  <h3>on_mouse_drag</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_mouse_drag</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x</span>,
+        <span class="sig-arg">y</span>,
+        <span class="sig-arg">dx</span>,
+        <span class="sig-arg">dy</span>,
+        <span class="sig-arg">buttons</span>,
+        <span class="sig-arg">modifiers</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Handler for the <a href="pyglet.window.Window-class.html#on_mouse_drag" class="link">pyglet.window.Window.on_mouse_drag</a> event.</p>
+<p>Mouse handlers do not check the bounds of the coordinates: GUI
+toolkits should filter events that do not intersect the layout
+before invoking this handler.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_activate"></a>
+<div class=" detail">
+  <h3>on_activate</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_activate</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Handler for the <a href="pyglet.window.Window-class.html#on_activate" class="link">pyglet.window.Window.on_activate</a> event.</p>
+<p>The caret is hidden when the window is not active.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="on_deactivate"></a>
+<div class=" detail">
+  <h3>on_deactivate</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">on_deactivate</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Handler for the <a href="pyglet.window.Window-class.html#on_deactivate" class="link">pyglet.window.Window.on_deactivate</a> event.</p>
+<p>The caret is hidden when the window is not active.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="visible"></a>
+<div class=" detail">
+  <h3>visible</h3>
+  <div class="detail-description">
+  <p>Caret visibility.</p>
+<p>The caret may be hidden despite this property due to the periodic blinking
+or by <a href="pyglet.text.caret.Caret-class.html#on_deactivate" class="link">on_deactivate</a> if the event handler is attached to a window.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>bool</dd>
+  </dl>
+  </div>
+</div>
+<a name="color"></a>
+<div class=" detail">
+  <h3>color</h3>
+  <div class="detail-description">
+  <p>Caret color.</p>
+<p>The default caret color is <tt class="rst-docutils literal">[0, 0, 0]</tt> (black).  Each RGB color
+component is in the range 0 to 255.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>(int, int, int)</dd>
+  </dl>
+  </div>
+</div>
+<a name="position"></a>
+<div class=" detail">
+  <h3>position</h3>
+  <div class="detail-description">
+  Position of caret within document.
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="mark"></a>
+<div class=" detail">
+  <h3>mark</h3>
+  <div class="detail-description">
+  <p>Position of immovable end of text selection within
+document.</p>
+<p>An interactive text selection is determined by its immovable end (the
+caret's position when a mouse drag begins) and the caret's position, which
+moves interactively by mouse and keyboard input.</p>
+<p>This property is <tt class="rst-docutils literal">None</tt> when there is no selection.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<a name="line"></a>
+<div class=" detail">
+  <h3>line</h3>
+  <div class="detail-description">
+  <p>Index of line containing the caret's position.</p>
+<p>When set, <a href="pyglet.text.caret.Caret-class.html#position" class="link">position</a> is modified to place the caret on requested line
+while maintaining the closest possible X offset.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>int</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.text-module.html">text</a>&nbsp;.&nbsp;<a href="pyglet.text.caret-module.html">caret</a>&nbsp;.&nbsp;Caret
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

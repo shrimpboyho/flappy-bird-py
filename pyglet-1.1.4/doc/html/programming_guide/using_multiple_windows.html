@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Using multiple windows</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="using_extension_functions.html" title="Using extension functions">Using extension functions</a></span><span class="next">Next: <a class="reference" href="agl_glx_and_wgl.html" title="AGL, GLX and WGL">AGL, GLX ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a> » Using multiple windows</span></div>
+<h1 class="title">Using multiple windows</h1>
+
+<p>pyglet allows you to create and display any number of windows simultaneously.
+Each will be created with its own OpenGL context, however all contexts will
+share the same texture objects, display lists, shader programs, and so on,
+by default <a class="footnote-reference" href="#objects" id="id6">[7]</a>.  Each context has its own state and framebuffers.</p>
+<p>There is always an active context (unless there are no windows).  When using
+<a class="reference apilink" href="../api/pyglet.app-module.html#run ">pyglet.app.run</a> for the application event loop, pyglet ensures that
+the correct window is the active context before dispatching the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_draw " title="pyglet.window.Window.on_draw">on_draw</a>
+or <cite>on_resize</cite> events.</p>
+<p>In other cases, you can explicitly set the active context with
+<a class="reference apilink" href="../api/pyglet.window.Window-class.html#switch_to " title="pyglet.window.Window.switch_to">Window.switch_to</a>.</p>
+<table class="docutils footnote" frame="void" id="objects" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[7]</a></td><td>Sometimes objects and lists cannot be shared between contexts; for
+example, when the contexts are provided by different video
+devices.  This will usually only occur if you explicitly select
+different screens driven by different devices.</td></tr>
+</tbody>
+</table>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="using_extension_functions.html" title="Using extension functions">Using extension functions</a></span><span class="next">Next: <a class="reference" href="agl_glx_and_wgl.html" title="AGL, GLX and WGL">AGL, GLX ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_opengl_interface.html" title="The OpenGL interface">The OpenGL interface</a> » Using multiple windows</span></div>
+</div>
+</body>
+</html>

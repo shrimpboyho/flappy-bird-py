@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>OpenGL font considerations</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="loading_custom_fonts.html" title="Loading custom fonts">Loading custom fonts</a></span><span class="next">Next: <a class="reference" href="images.html" title="Images">Images</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » OpenGL font considerations</span></div>
+<h1 class="title">OpenGL font considerations</h1>
+
+<p>Text in pyglet is drawn using textured quads.  Each font maintains a set of
+one or more textures, into which glyphs are uploaded as they are needed.  For
+most applications this detail is transparent and unimportant, however some of
+the details of these glyph textures are described below for advanced users.</p>
+<div class="section" id="context-affinity">
+<h1><a class="toc-backref" href="#id297">Context affinity</a></h1>
+<p>When a font is loaded, it immediately creates a texture in the current
+context's object space.  Subsequent textures may need to be created if there
+is not enough room on the first texture for all the glyphs.  This is done when
+the glyph is first requested.</p>
+<p>pyglet always assumes that the object space that was active when the font was
+loaded is the active one when any texture operations are performed.  Normally
+this assumption is valid, as pyglet shares object spaces between all contexts
+by default.  There are a few situations in which this will not be the case,
+though:</p>
+<ul class="simple">
+<li>When explicitly setting the context share during context creation.</li>
+<li>When multiple display devices are being used which cannot support a shared
+context object space.</li>
+</ul>
+<p>In any of these cases, you will need to reload the font for each object space
+that it's needed in.  pyglet keeps a cache of fonts, but does so
+per-object-space, so it knows when it can reuse an existing font instance or
+if it needs to load it and create new textures.  You will also need to ensure
+that an appropriate context is active when any glyphs may need to be added.</p>
+</div>
+<div class="section" id="blend-state">
+<h1><a class="toc-backref" href="#id298">Blend state</a></h1>
+<p>The glyph textures have an internal format of <tt class="docutils literal">GL_ALPHA</tt>, which provides
+a simple way to recolour and blend antialiased text by changing the
+vertex colors.  pyglet makes very few assumptions about the OpenGL state, and
+will not alter it besides changing the currently bound texture.</p>
+<p>The following blend state is used for drawing font glyphs:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> *
+glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+glEnable(GL_BLEND)</pre>
+<p>All glyph textures use the <tt class="docutils literal">GL_TEXTURE_2D</tt> target, so you should ensure that
+a higher priority target such as <tt class="docutils literal">GL_TEXTURE_3D</tt> is not enabled before
+trying to render text.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="loading_custom_fonts.html" title="Loading custom fonts">Loading custom fonts</a></span><span class="next">Next: <a class="reference" href="images.html" title="Images">Images</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » OpenGL font considerations</span></div>
+</div>
+</body>
+</html>

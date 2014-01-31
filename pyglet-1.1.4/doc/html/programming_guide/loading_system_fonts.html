@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Loading system fonts</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="user_editable_text.html" title="User-editable text">User-editable text</a></span><span class="next">Next: <a class="reference" href="font_sizes.html" title="Font sizes">Font sizes</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Loading system fonts</span></div>
+<h1 class="title">Loading system fonts</h1>
+
+<p>The layout classes automatically load fonts as required.  You can also
+explicitly load fonts to implement your own layout algorithms.</p>
+<p>To load a font you must know its family name.  This is the name displayed in
+the font dialog of any application.  For example, all operating systems
+include the <em>Times New Roman</em> font.  You must also specify the font size to
+load, in points:</p>
+<pre class="py-doctest">
+<span class="py-comment"># Load &quot;Times New Roman&quot; at 16pt</span>
+times = pyglet.font.load(<span class="py-string">'Times New Roman'</span>, 16)</pre>
+<p>Bold and italic variants of the font can specified with keyword parameters:</p>
+<pre class="py-doctest">
+times_bold = pyglet.font.load(<span class="py-string">'Times New Roman'</span>, 16, bold=True)
+times_italic = pyglet.font.load(<span class="py-string">'Times New Roman'</span>, 16, italic=True)
+times_bold_italic = pyglet.font.load(<span class="py-string">'Times New Roman'</span>, 16,
+                                     bold=True, italic=True)</pre>
+<p>For maximum compatibility on all platforms, you can specify a list of font
+names to load, in order of preference.  For example, many users will have
+installed the Microsoft Web Fonts pack, which includes <cite>Verdana</cite>, but this
+cannot be guaranteed, so you might specify <cite>Arial</cite> or <cite>Helvetica</cite> as
+suitable alternatives:</p>
+<pre class="py-doctest">
+sans_serif = pyglet.font.load((<span class="py-string">'Verdana'</span>, <span class="py-string">'Helvetica'</span>, <span class="py-string">'Arial'</span>), 16)</pre>
+<p>If you do not particularly care which font is used, and just need to display
+some readable text, you can specify <cite>None</cite> as the family name, which will load
+a default sans-serif font (Helvetica on Mac OS X, Arial on Windows XP):</p>
+<pre class="py-doctest">
+sans_serif = pyglet.font.load(None, 16)</pre>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="user_editable_text.html" title="User-editable text">User-editable text</a></span><span class="next">Next: <a class="reference" href="font_sizes.html" title="Font sizes">Font sizes</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Loading system fonts</span></div>
+</div>
+</body>
+</html>

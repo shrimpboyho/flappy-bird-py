@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Application resources</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="positional_audio.html" title="Positional audio">Positional audio</a></span><span class="next">Next: <a class="reference" href="loading_resources.html" title="Loading resources">Loading resources</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » Application resources</span></div>
+<h1 class="title">Application resources</h1>
+
+<p>Previous sections in this guide have described how to load images, media and
+text documents using pyglet.  Applications also usually have the need to load
+other data files: for example, level descriptions in a game, internationalised
+strings, and so on.</p>
+<p>Programmers are often tempted to load, for example, an image required by their
+application with:</p>
+<pre class="py-doctest">
+image = pyglet.image.load(<span class="py-string">'logo.png'</span>)</pre>
+<p>This code assumes <tt class="docutils literal">logo.png</tt> is in the current working directory.
+Unfortunately the working directory is not necessarily the same as the
+directory containing the application script files.</p>
+<ul class="simple">
+<li>Applications started from the command line can start from an arbitrary
+working directory.</li>
+<li>Applications bundled into an egg, Mac OS X package or Windows executable
+may have their resources inside a ZIP file.</li>
+<li>The application might need to change the working directory in order to
+work with the user's files.</li>
+</ul>
+<p>A common workaround for this is to construct a path relative to the script
+file instead of the working directory:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> os
+
+script_dir = os.path.dirname(__file__)
+path = os.path.join(script_dir, <span class="py-string">'logo.png'</span>)
+image = pyglet.image.load(path)</pre>
+<p>This, besides being tedious to write, still does not work for resources within
+ZIP files, and can be troublesome in projects that span multiple packages.</p>
+<p>The <a class="reference apilink" href="../api/pyglet.resource-module.html ">pyglet.resource</a> module solves this problem elegantly:</p>
+<pre class="py-doctest">
+image = pyglet.resource.image(<span class="py-string">'logo.png'</span>)</pre>
+<p>The following sections describe exactly how the resources are located, and how
+the behaviour can be customised.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="positional_audio.html" title="Positional audio">Positional audio</a></span><span class="next">Next: <a class="reference" href="loading_resources.html" title="Loading resources">Loading resources</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » Application resources</span></div>
+</div>
+</body>
+</html>

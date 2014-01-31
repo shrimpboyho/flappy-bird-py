@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Windows and OpenGL contexts</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="subclassing_window.html" title="Subclassing Window">Subclassing Window</a></span><span class="next">Next: <a class="reference" href="the_application_event_loop.html" title="The application event loop">The application ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Windows and ...</span></div>
+<h1 class="title">Windows and OpenGL contexts</h1>
+
+<p>Every window in pyglet has an associated OpenGL context.  Specifying the
+configuration of this context has already been covered in <a class="reference sectionlink" href="creating_a_window.html">Creating a window</a>.
+Drawing into the OpenGL context is the only way to draw into the window's
+client area.</p>
+<div class="section" id="double-buffering">
+<h1><a class="toc-backref" href="#id256">Double-buffering</a></h1>
+<p>If the window is double-buffered (i.e., the configuration specified
+<tt class="docutils literal">double_buffer=True</tt>, the default), OpenGL commands are applied to a hidden
+back buffer.  This back buffer can be copied to the window using the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#flip " title="pyglet.window.Window.flip">flip</a>
+method.  If you are using the standard <a class="reference apilink" href="../api/pyglet.app-module.html#run ">pyglet.app.run</a> or
+<a class="reference apilink" href="../api/pyglet.app.EventLoop-class.html ">pyglet.app.EventLoop</a> event loop, this is taken care of automatically after
+each <a class="reference apilink" href="../api/pyglet.window.Window-class.html#on_draw " title="pyglet.window.Window.on_draw">on_draw</a> event.</p>
+<p>If the window is not double-buffered, the <cite>flip</cite> operation is unnecessary, and
+you should remember only to call <cite>glFlush</cite> to ensure buffered commands are
+executed.</p>
+</div>
+<div class="section" id="vertical-retrace-synchronisation">
+<h1><a class="toc-backref" href="#id257">Vertical retrace synchronisation</a></h1>
+<p>Double-buffering eliminates one cause of flickering: the user is unable to see
+the image as it painted, only the final rendering.  However, it does introduce
+another source of flicker known as &quot;tearing&quot;.</p>
+<p>Tearing becomes apparent when displaying fast-moving objects in an animation.
+The buffer flip occurs while the video display is still reading data from the
+framebuffer, causing the top half of the display to show the previous frame
+while the bottom half shows the updated frame.  If you are updating the
+framebuffer particularly quickly you may notice three or more such &quot;tears&quot; in
+the display.</p>
+<p>pyglet provides a way to avoid tearing by synchronising buffer flips to the
+video refresh rate.  This is enabled by default, but can be set or unset
+manually at any time with the <a class="reference apilink" href="../api/pyglet.window.Window-class.html#vsync " title="pyglet.window.Window.vsync">vsync</a> (vertical retrace synchronisation)
+property.  A window is created with vsync initially disabled in the following
+example:</p>
+<pre class="py-doctest">
+window = pyglet.window.Window(vsync=False)</pre>
+<p>It is usually desirable to leave vsync enabled, as it results in flicker-free
+animation.  There are some use-cases where you may want to disable it, for
+example:</p>
+<ul class="simple">
+<li>Profiling an application.  Measuring the time taken to perform an operation
+will be affected by the time spent waiting for the video device to refresh,
+which can throw off results.  You should disable vsync if you are measuring
+the performance of your application.</li>
+<li>If you cannot afford for your application to block.  If your application run
+loop needs to quickly poll a hardware device, for example, you may want to
+avoid blocking with vsync.</li>
+</ul>
+<p>Note that some older video cards do not support the required extensions to
+implement vsync; this will appear as a warning on the console but is otherwise
+ignored.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="subclassing_window.html" title="Subclassing Window">Subclassing Window</a></span><span class="next">Next: <a class="reference" href="the_application_event_loop.html" title="The application event loop">The application ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="windowing.html" title="Windowing">Windowing</a> » Windows and ...</span></div>
+</div>
+</body>
+</html>

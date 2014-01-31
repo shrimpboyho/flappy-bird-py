@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.event.EventDispatcher</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.event-module.html">event</a>&nbsp;.&nbsp;EventDispatcher
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.event.EventDispatcher</h1>
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.sprite.Sprite-class.html">sprite.Sprite</a>,
+    <a href="pyglet.app.EventLoop-class.html">app.EventLoop</a>,
+    <a href="pyglet.media.Player-class.html">media.Player</a>,
+    <a href="pyglet.window.Window-class.html">window.Window</a>,
+    <a href="pyglet.text.layout.IncrementalTextLayout-class.html">text.layout.IncrementalTextLayout</a>,
+    <a href="pyglet.text.document.AbstractDocument-class.html">text.document.AbstractDocument</a>
+</dd></dl>
+
+<p>Generic event dispatcher interface.</p>
+<p>See the module docstring for usage.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#register_event_type" class="summary-sig-name">register_event_type</a>(<span class="summary-sig-arg">cls</span>,
+        <span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Register an event type with the dispatcher.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="summary-sig-name">push_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Push a level onto the top of the handler stack, then attach zero or
+more event handlers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handlers" class="summary-sig-name">set_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Attach one or more event handlers to the top level of the handler
+stack.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#set_handler" class="summary-sig-name">set_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Attach a single event handler.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="pop_handlers"></a><span class="summary-sig-name">pop_handlers</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Pop the top level of event handlers off the stack.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handlers" class="summary-sig-name">remove_handlers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span>
+<div class="summary-description">Remove event handlers from the event stack.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#remove_handler" class="summary-sig-name">remove_handler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">handler</span>)</span>
+<div class="summary-description">Remove a single event handler.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#dispatch_event" class="summary-sig-name">dispatch_event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event_type</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Dispatch a single event to the attached handlers.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.event.EventDispatcher-class.html#event" class="summary-sig-name">event</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>)</span>
+<div class="summary-description">Function decorator for an event handler.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="register_event_type"></a>
+<div class=" detail">
+  <h3>register_event_type</h3>
+  <div class="detail-signature">
+    <span class="fspecial">Class Method</span>
+    <span class="sig"><span class="sig-name">register_event_type</span>(<span class="sig-arg">cls</span>,
+        <span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Register an event type with the dispatcher.</p>
+<p>Registering event types allows the dispatcher to validate event
+handler names as they are attached, and to search attached objects for
+suitable handlers.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Name of the event to register.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="push_handlers"></a>
+<div class=" detail">
+  <h3>push_handlers</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">push_handlers</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Push a level onto the top of the handler stack, then attach zero or
+more event handlers.</p>
+<p>If keyword arguments are given, they name the event type to attach.
+Otherwise, a callable's <code class="link">__name__</code> attribute will be used.  Any other
+object may also be specified, in which case it will be searched for
+callables with event names.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="set_handlers"></a>
+<div class=" detail">
+  <h3>set_handlers</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_handlers</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Attach one or more event handlers to the top level of the handler
+stack.</p>
+<p>See <a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="link">push_handlers</a> for the accepted argument types.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="set_handler"></a>
+<div class=" detail">
+  <h3>set_handler</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_handler</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>,
+        <span class="sig-arg">handler</span>)</span>
+    </div>
+  <div class="detail-description">
+  Attach a single event handler.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Name of the event type to attach to.</dd>
+        <dt><span class="pname">handler</span> : <span class='ptype'>callable</span></dt>
+        <dd>Event handler to attach.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="remove_handlers"></a>
+<div class=" detail">
+  <h3>remove_handlers</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">remove_handlers</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Remove event handlers from the event stack.</p>
+<p>See <a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="link">push_handlers</a> for the accepted argument types.  All handlers
+are removed from the first stack frame that contains any of the given
+handlers.  No error is raised if any handler does not appear in that
+frame, or if no stack frame contains any of the given handlers.</p>
+<p>If the stack frame is empty after removing the handlers, it is
+removed from the stack.  Note that this interferes with the expected
+symmetry of <a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="link">push_handlers</a> and <a href="pyglet.event.EventDispatcher-class.html#pop_handlers" class="link">pop_handlers</a>.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="remove_handler"></a>
+<div class=" detail">
+  <h3>remove_handler</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">remove_handler</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>,
+        <span class="sig-arg">handler</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Remove a single event handler.</p>
+<p>The given event handler is removed from the first handler stack frame
+it appears in.  The handler must be the exact same callable as passed
+to <a href="pyglet.event.EventDispatcher-class.html#set_handler" class="link">set_handler</a>, <a href="pyglet.event.EventDispatcher-class.html#set_handlers" class="link">set_handlers</a> or <a href="pyglet.event.EventDispatcher-class.html#push_handlers" class="link">push_handlers</a>; and the name
+must match the event type it is bound to.</p>
+<p>No error is raised if the event handler is not set.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Name of the event type to remove.</dd>
+        <dt><span class="pname">handler</span> : <span class='ptype'>callable</span></dt>
+        <dd>Event handler to remove.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="dispatch_event"></a>
+<div class=" detail">
+  <h3>dispatch_event</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">dispatch_event</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event_type</span>,
+        <span class="sig-arg">*args</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Dispatch a single event to the attached handlers.</p>
+<p>The event is propagated to all handlers from from the top of the stack
+until one returns <a href="pyglet.event-module.html#EVENT_HANDLED" class="link">EVENT_HANDLED</a>.  This method should be used only by
+<a href="pyglet.event.EventDispatcher-class.html" class="link">EventDispatcher</a> implementors; applications should call
+the <tt class="rst-docutils literal">dispatch_events</tt> method.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">event_type</span> : <span class='ptype'>str</span></dt>
+        <dd>Name of the event.</dd>
+        <dt><span class="pname">args</span> : <span class='ptype'>sequence</span></dt>
+        <dd>Arguments to pass to the event handler.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="event"></a>
+<div class=" detail">
+  <h3>event</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">event</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Function decorator for an event handler.</p>
+<p>Usage:</p>
+<pre class="py-doctest">
+win = window.Window()
+
+@win.event
+<span class="py-keyword">def</span> <span class="py-defname">on_resize</span>(self, width, height):
+    <span class="py-comment"># ...</span></pre>
+<p>or:</p>
+<pre class="py-doctest">
+@win.event(<span class="py-string">'on_resize'</span>)
+<span class="py-keyword">def</span> <span class="py-defname">foo</span>(self, width, height):
+    <span class="py-comment"># ...</span></pre>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.event-module.html">event</a>&nbsp;.&nbsp;EventDispatcher
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

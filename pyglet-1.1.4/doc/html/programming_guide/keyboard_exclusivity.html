@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Keyboard exclusivity</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="text_and_motion_events.html" title="Text and motion events">Text and ...</a></span><span class="next">Next: <a class="reference" href="working_with_the_mouse.html" title="Working with the mouse">Working with ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="working_with_the_keyboard.html" title="Working with the keyboard">Working with ...</a> » Keyboard exclusivity</span></div>
+<h1 class="title">Keyboard exclusivity</h1>
+
+<p>Some keystrokes or key combinations normally bypass applications and are
+handled by the operating system.  Some examples are Alt+Tab (Command+Tab on
+Mac OS X) to switch applications and the keys mapped to Expose on Mac OS X.</p>
+<p>You can disable these hot keys and have them behave as ordinary keystrokes for
+your application.  This can be useful if you are developing a kiosk
+application which should not be closed, or a game in which it is possible for
+a user to accidentally press one of these keys.</p>
+<p>To enable this mode, call <a class="reference apilink" href="../api/pyglet.window.Window-class.html#set_exclusive_keyboard " title="pyglet.window.Window.set_exclusive_keyboard">set_exclusive_keyboard</a> for the window on which it
+should apply.  On Mac OS X the dock and menu bar will slide out of view while
+exclusive keyboard is activated.</p>
+<p>The following restrictions apply on Windows:</p>
+<ul class="simple">
+<li>Most keys are not disabled: a user can still switch away from your
+application using Ctrl+Escape, Alt+Escape, the Windows key or
+Ctrl+Alt+Delete.  Only the Alt+Tab combination is disabled.</li>
+</ul>
+<p>The following restrictions apply on Mac OS X:</p>
+<ul class="simple">
+<li>The power key is not disabled.</li>
+</ul>
+<p>Use of this function is not recommended for general release applications or
+games as it violates user-interface conventions.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="text_and_motion_events.html" title="Text and motion events">Text and ...</a></span><span class="next">Next: <a class="reference" href="working_with_the_mouse.html" title="Working with the mouse">Working with ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="working_with_the_keyboard.html" title="Working with the keyboard">Working with ...</a> » Keyboard exclusivity</span></div>
+</div>
+</body>
+</html>

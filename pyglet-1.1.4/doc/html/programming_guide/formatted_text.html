@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Formatted text</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="the_document_layout_model.html" title="The document/layout model">The document/layout model</a></span><span class="next">Next: <a class="reference" href="custom_elements.html" title="Custom elements">Custom elements</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Formatted text</span></div>
+<h1 class="title">Formatted text</h1>
+
+<p>The <a class="reference apilink" href="../api/pyglet.text.document.FormattedDocument-class.html " title="pyglet.text.document.FormattedDocument">FormattedDocument</a> class maintains style information for individual
+characters in the text, rather than a single style for the whole document.
+Styles can be accessed and modified by name, for example:</p>
+<pre class="py-doctest">
+<span class="py-comment"># Get the font name used at character index 0</span>
+font_name = document.get_style(<span class="py-string">'font_name'</span>, 0)
+
+<span class="py-comment"># Set the font name and size for the first 5 characters</span>
+document.set_style(0, 5, dict(font_name=<span class="py-string">'Arial'</span>, font_size=12))</pre>
+<p>Internally, character styles are run-length encoded over the document text; so
+longer documents with few style changes do not use excessive memory.</p>
+<p>From the document's point of view, there are no predefined style names: it
+simply maps names and character ranges to arbitrary Python values.  It is the
+<a class="reference apilink" href="../api/pyglet.text.layout.TextLayout-class.html " title="pyglet.text.layout.TextLayout">TextLayout</a> classes that interpret this style information; for example, by
+selecting a different font based on the <tt class="docutils literal">font_name</tt> style.  Unrecognised
+style names are ignored by the layout -- you can use this knowledge to store
+additional data alongside the document text (for example, a URL behind a
+hyperlink).</p>
+<div class="section" id="character-styles">
+<h1><a class="toc-backref" href="#id284">Character styles</a></h1>
+<p>The following character styles are recognised by all <cite>TextLayout</cite> classes.</p>
+<p>Where an attribute is marked &quot;as a distance&quot; the value is assumed to be
+in pixels if given as an int or float, otherwise a string of the form
+<tt class="docutils literal">&quot;0u&quot;</tt> is required, where <tt class="docutils literal">0</tt> is the distance and <tt class="docutils literal">u</tt> is the unit; one
+of <tt class="docutils literal">&quot;px&quot;</tt> (pixels), <tt class="docutils literal">&quot;pt&quot;</tt> (points), <tt class="docutils literal">&quot;pc&quot;</tt> (picas), <tt class="docutils literal">&quot;cm&quot;</tt>
+(centimeters), <tt class="docutils literal">&quot;mm&quot;</tt> (millimeters) or <tt class="docutils literal">&quot;in&quot;</tt> (inches).  For example,
+<tt class="docutils literal">&quot;14pt&quot;</tt> is the distance covering 14 points, which at the default DPI of 96
+is 18 pixels.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">font_name</tt></dt>
+<dd>Font family name, as given to <a class="reference apilink" href="../api/pyglet.font-module.html#load ">pyglet.font.load</a>.</dd>
+<dt><tt class="docutils literal">font_size</tt></dt>
+<dd>Font size, in points.</dd>
+<dt><tt class="docutils literal">bold</tt></dt>
+<dd>Boolean.</dd>
+<dt><tt class="docutils literal">italic</tt></dt>
+<dd>Boolean.</dd>
+<dt><tt class="docutils literal">underline</tt></dt>
+<dd>4-tuple of ints in range (0, 255) giving RGBA underline color, or None
+(default) for no underline.</dd>
+<dt><tt class="docutils literal">kerning</tt></dt>
+<dd>Additional space to insert between glyphs, as a distance.  Defaults to 0.</dd>
+<dt><tt class="docutils literal">baseline</tt></dt>
+<dd>Offset of glyph baseline from line baseline, as a distance.  Positive
+values give a superscript, negative values give a subscript.  Defaults to
+0.</dd>
+<dt><tt class="docutils literal">color</tt></dt>
+<dd>4-tuple of ints in range (0, 255) giving RGBA text color</dd>
+<dt><tt class="docutils literal">background_color</tt></dt>
+<dd>4-tuple of ints in range (0, 255) giving RGBA text background color; or
+<tt class="docutils literal">None</tt> for no background fill.</dd>
+</dl>
+</div>
+<div class="section" id="paragraph-styles">
+<h1><a class="toc-backref" href="#id285">Paragraph styles</a></h1>
+<p>Although <cite>FormattedDocument</cite> does not distinguish between character- and
+paragraph-level styles, <cite>TextLayout</cite> interprets the following styles only at
+the paragraph level.  You should take care to set these styles for complete
+paragraphs only, for example, by using <cite>FormattedDocument.set_paragraph_style</cite>.</p>
+<p>These styles are ignored for layouts without the <tt class="docutils literal">multiline</tt> flag set.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal">align</tt></dt>
+<dd><tt class="docutils literal">&quot;left&quot;</tt> (default), <tt class="docutils literal">&quot;center&quot;</tt> or <tt class="docutils literal">&quot;right&quot;</tt>.</dd>
+<dt><tt class="docutils literal">indent</tt></dt>
+<dd>Additional horizontal space to insert before the first glyph of the
+first line of a paragraph, as a distance.</dd>
+<dt><tt class="docutils literal">leading</tt></dt>
+<dd>Additional space to insert between consecutive lines within a paragraph,
+as a distance.  Defaults to 0.</dd>
+<dt><tt class="docutils literal">line_spacing</tt></dt>
+<dd>Distance between consecutive baselines in a paragraph, as a distance.
+Defaults to <tt class="docutils literal">None</tt>, which automatically calculates the tightest line
+spacing for each line based on the maximum font ascent and descent.</dd>
+<dt><tt class="docutils literal">margin_left</tt></dt>
+<dd>Left paragraph margin, as a distance.</dd>
+<dt><tt class="docutils literal">margin_right</tt></dt>
+<dd>Right paragraph margin, as a distance.</dd>
+<dt><tt class="docutils literal">margin_top</tt></dt>
+<dd>Margin above paragraph, as a distance.</dd>
+<dt><tt class="docutils literal">margin_bottom</tt></dt>
+<dd>Margin below paragraph, as a distance.  Adjacent margins do not collapse.</dd>
+<dt><tt class="docutils literal">tab_stops</tt></dt>
+<dd>List of horizontal tab stops, as distances, measured from the left edge of
+the text layout.  Defaults to the empty list.  When the tab stops
+are exhausted, they implicitly continue at 50 pixel intervals.</dd>
+<dt><tt class="docutils literal">wrap</tt></dt>
+<dd>Boolean.  If True (the default), text wraps within the width of the layout.</dd>
+</dl>
+<p>For the purposes of these attributes, paragraphs are split by the newline
+character (U+0010) or the paragraph break character (U+2029).  Line breaks
+within a paragraph can be forced with character U+2028.</p>
+</div>
+<div class="section" id="attributed-text">
+<h1><a class="toc-backref" href="#id286">Attributed text</a></h1>
+<p>pyglet provides two formats for decoding formatted documents from plain text.
+These are useful for loading preprepared documents such as help screens.  At
+this time there is no facility for saving (encoding) formatted documents.</p>
+<p>The <em>attributed text</em> format is an encoding specific to pyglet that can
+exactly describe any <cite>FormattedDocument</cite>.  You must use this encoding to
+access all of the features of pyglet text layout.  For a more accessible, yet
+less featureful encoding, see the <a class="reference sectionlink" href="formatted_text.html#html">HTML</a> encoding, described below.</p>
+<p>The following example shows a simple attributed text encoded document:</p>
+<pre class="plain literal-block">
+Chapter 1
+
+My father's family name being Pirrip, and my Christian name Philip,
+my infant tongue could make of both names nothing longer or more
+explicit than Pip.  So, I called myself Pip, and came to be called
+Pip.
+
+I give Pirrip as my father's family name, on the authority of his
+tombstone and my sister - Mrs. Joe Gargery, who married the
+blacksmith.  As I never saw my father or my mother, and never saw
+any likeness of either of them (for their days were long before the
+days of photographs), my first fancies regarding what they were
+like, were unreasonably derived from their tombstones.
+</pre>
+<p>Newlines are ignored, unless two are made in succession, indicating a
+paragraph break.  Line breaks can be forced with the <tt class="docutils literal">\\</tt> sequence:</p>
+<pre class="plain literal-block">
+This is the way the world ends \\
+This is the way the world ends \\
+This is the way the world ends \\
+Not with a bang but a whimper.
+</pre>
+<p>Line breaks are also forced when the text is indented with one or more spaces
+or tabs, which is useful for typesetting code:</p>
+<pre class="plain literal-block">
+The following paragraph has hard line breaks for every line of code:
+
+    import pyglet
+
+    window = pyglet.window.Window()
+    pyglet.app.run()
+</pre>
+<p>Text can be styled using a attribute tag:</p>
+<pre class="plain literal-block">
+This sentence makes a {bold True}bold{bold False} statement.
+</pre>
+<p>The attribute tag consists of the attribute name (in this example, <tt class="docutils literal">bold</tt>)
+followed by a Python bool, int, float, string, tuple or list.</p>
+<p>Unlike most structured documents such as HTML, attributed text has no concept
+of the &quot;end&quot; of a style; styles merely change within the document.  This
+corresponds exactly to the representation used by <cite>FormattedDocument</cite>
+internally.</p>
+<p>Some more examples follow:</p>
+<pre class="plain literal-block">
+{font_name 'Times New Roman'}{font_size 28}Hello{font_size 12},
+{color (255, 0, 0, 255)}world{color (0, 0, 0, 255)}!
+</pre>
+<p>(This example uses 28pt Times New Roman for the word &quot;Hello&quot;, and 12pt
+red text for the word &quot;world&quot;).</p>
+<p>Paragraph styles can be set by prefixing the style name with a period (.).
+This ensures the style range exactly encompasses the paragraph:</p>
+<pre class="plain literal-block">
+{.margin_left &quot;12px&quot;}This is a block quote, as the margin is inset.
+
+{.margin_left &quot;24px&quot;}This paragraph is inset yet again.
+</pre>
+<p>Attributed text can be loaded as a Unicode string.  In addition, any character
+can be inserted given its Unicode code point in numeric form, either in
+decimal:</p>
+<pre class="plain literal-block">
+This text is Copyright {#169}.
+</pre>
+<p>or hexadecimal:</p>
+<pre class="plain literal-block">
+This text is Copyright {#xa9}.
+</pre>
+<p>The characters <tt class="docutils literal">{</tt> and <tt class="docutils literal">}</tt> can be escaped by duplicating them:</p>
+<pre class="plain literal-block">
+Attributed text uses many &quot;{{&quot; and &quot;}}&quot; characters.
+</pre>
+<p>Use the <tt class="docutils literal">decode_attributed</tt> function to decode attributed text into a
+<cite>FormattedDocument</cite>:</p>
+<pre class="py-doctest">
+document = pyglet.text.decode_attributed(<span class="py-string">'Hello, {bold True}world'</span>)</pre>
+</div>
+<div class="section" id="html">
+<h1><a class="toc-backref" href="#id287">HTML</a></h1>
+<p>While attributed text gives access to all of the features of
+<cite>FormattedDocument</cite> and <cite>TextLayout</cite>, it is quite verbose and difficult
+produce text in.  For convenience, pyglet provides an HTML 4.01 decoder that
+can translate a small, commonly used subset of HTML into a
+<cite>FormattedDocument</cite>.</p>
+<p>Note that the decoder does not preserve the structure of the HTML document --
+all notion of element hierarchy is lost in the translation, and only the
+visible style changes are preserved.</p>
+<p>The following example uses <a class="reference apilink" href="../api/pyglet.text-module.html#decode_html " title="pyglet.text.decode_html">decode_html</a> to create a <cite>FormattedDocument</cite> from
+a string of HTML:</p>
+<pre class="py-doctest">
+document = pyglet.text.decode_html(<span class="py-string">'Hello, &lt;b&gt;world&lt;/b&gt;'</span>)</pre>
+<p>The following elements are supported:</p>
+<pre class="plain literal-block">
+B BLOCKQUOTE BR CENTER CODE DD DIR DL EM FONT H1 H2 H3 H4 H5 H6 I IMG KBD
+LI MENU OL P PRE Q SAMP STRONG SUB SUP TT U UL VAR
+</pre>
+<p>The <tt class="docutils literal">style</tt> attribute is not supported, so font sizes must be given as HTML
+logical sizes in the range 1 to 7, rather than as point sizes.  The
+corresponding font sizes, and some other stylesheet parameters, can be
+modified by subclassing <a class="reference apilink" href="../api/pyglet.text.formats.html.HTMLDecoder-class.html " title="pyglet.text.formats.html.HTMLDecoder">HTMLDecoder</a>.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="the_document_layout_model.html" title="The document/layout model">The document/layout model</a></span><span class="next">Next: <a class="reference" href="custom_elements.html" title="Custom elements">Custom elements</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » Formatted text</span></div>
+</div>
+</body>
+</html>

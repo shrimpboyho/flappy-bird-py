@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Stacking event handlers</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="setting_event_handlers.html" title="Setting event handlers">Setting event handlers</a></span><span class="next">Next: <a class="reference" href="creating_your_own_event_dispatcher.html" title="Creating your own event dispatcher">Creating your ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_pyglet_event_framework.html" title="The pyglet event framework">The pyglet ...</a> » Stacking event handlers</span></div>
+<h1 class="title">Stacking event handlers</h1>
+
+<p>It is often convenient to attach more than one event handler for an event.
+<a class="reference apilink" href="../api/pyglet.event.EventDispatcher-class.html " title="pyglet.event.EventDispatcher">EventDispatcher</a> allows you to stack event handlers upon one another, rather
+than replacing them outright.  The event will propogate from the top of the
+stack to the bottom, but can be stopped by any handler along the way.</p>
+<p>To push an event handler onto the stack, use the <a class="reference apilink" href="../api/pyglet.event.EventDispatcher-class.html#push_handlers " title="pyglet.event.EventDispatcher.push_handlers">push_handlers</a> method:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">on_key_press</span>(symbol, modifiers):
+    <span class="py-keyword">if</span> symbol == key.SPACE
+        fire_laser()
+
+window.push_handlers(on_key_press)</pre>
+<p>As a convenience, the <tt class="docutils literal">&#64;event</tt> decorator can be used as an alternative to
+<cite>push_handlers</cite>:</p>
+<pre class="py-doctest">
+@window.event
+<span class="py-keyword">def</span> <span class="py-defname">on_key_press</span>(symbol, modifiers):
+    <span class="py-keyword">if</span> symbol == key.SPACE
+        fire_laser()</pre>
+<p>One use for pushing handlers instead of setting them is to handle different
+parameterisations of events in different functions.  In the above example, if
+the spacebar is pressed, the laser will be fired.  After the event handler
+returns control is passed to the next handler on the stack, which on a
+<a class="reference apilink" href="../api/pyglet.window.Window-class.html " title="pyglet.window.Window">Window</a> is a function that checks for the ESC key and sets the <tt class="docutils literal">has_exit</tt>
+attribute if it is pressed.  By pushing the event handler instead of setting
+it, the application keeps the default behaviour while adding additional
+functionality.</p>
+<p>You can prevent the remaining event handlers in the stack from receiving the
+event by returning a true value.  The following event handler, when pushed
+onto the window, will prevent the escape key from exiting the program:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">on_key_press</span>(symbol, modifiers):
+    <span class="py-keyword">if</span> symbol == key.ESCAPE:
+        <span class="py-keyword">return</span> True
+
+window.push_handlers(on_key_press)</pre>
+<p>You can push more than one event handler at a time, which is especially useful
+when coupled with the <tt class="docutils literal">pop_handlers</tt> function.  In the following example,
+when the game starts some additional event handlers are pushed onto the stack.
+When the game ends (perhaps returning to some menu screen) the handlers are
+popped off in one go:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">start_game</span>():
+    <span class="py-keyword">def</span> <span class="py-defname">on_key_press</span>(symbol, modifiers):
+        <span class="py-keyword">print</span> <span class="py-string">'Key pressed in game'</span>
+        <span class="py-keyword">return</span> True
+
+    <span class="py-keyword">def</span> <span class="py-defname">on_mouse_press</span>(x, y, button, modifiers):
+        <span class="py-keyword">print</span> <span class="py-string">'Mouse button pressed in game'</span>
+        <span class="py-keyword">return</span> True
+
+    window.push_handlers(on_key_press, on_mouse_press)
+
+<span class="py-keyword">def</span> <span class="py-defname">end_game</span>():
+    window.pop_handlers()</pre>
+<p>Note that you do not specify which handlers to pop off the stack -- the entire
+top &quot;level&quot; (consisting of all handlers specified in a single call to
+<cite>push_handlers</cite>) is popped.</p>
+<p>You can apply the same pattern in an object-oriented fashion by grouping
+related event handlers in a single class.  In the following example, a
+<tt class="docutils literal">GameEventHandler</tt> class is defined.  An instance of that class can be
+pushed on and popped off of a window:</p>
+<pre class="py-doctest">
+<span class="py-keyword">class</span> <span class="py-defname">GameEventHandler</span>(object):
+    <span class="py-keyword">def</span> <span class="py-defname">on_key_press</span>(self, symbol, modifiers):
+        <span class="py-keyword">print</span> <span class="py-string">'Key pressed in game'</span>
+        <span class="py-keyword">return</span> True
+
+    <span class="py-keyword">def</span> <span class="py-defname">on_mouse_press</span>(self, x, y, button, modifiers):
+        <span class="py-keyword">print</span> <span class="py-string">'Mouse button pressed in game'</span>
+        <span class="py-keyword">return</span> True
+
+game_handlers = GameEventHandler()
+
+<span class="py-keyword">def</span> <span class="py-defname">start_game</span>()
+    window.push_handlers(game_handlers)
+
+<span class="py-keyword">def</span> <span class="py-defname">stop_game</span>()
+    window.pop_handlers()</pre>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="setting_event_handlers.html" title="Setting event handlers">Setting event handlers</a></span><span class="next">Next: <a class="reference" href="creating_your_own_event_dispatcher.html" title="Creating your own event dispatcher">Creating your ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="the_pyglet_event_framework.html" title="The pyglet event framework">The pyglet ...</a> » Stacking event handlers</span></div>
+</div>
+</body>
+</html>

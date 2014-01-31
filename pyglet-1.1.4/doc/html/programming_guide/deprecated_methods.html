@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Deprecated methods</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="compatibility_and_deprecation.html" title="Compatibility and deprecation">Compatibility and deprecation</a></span><span class="next">Next: <a class="reference" href="new_features_replacing_standard_practice.html" title="New features replacing standard practice">New features ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a> » Deprecated methods</span></div>
+<h1 class="title">Deprecated methods</h1>
+
+<p>The following minor changes have been made for design or efficiency reasons.
+Applications which no longer need to support pyglet 1.0 should make the
+appropriate changes to ensure the deprecated methods are not called.</p>
+<p>The <tt class="docutils literal">dispatch_events</tt> method on <a class="reference apilink" href="../api/pyglet.media.Player-class.html " title="pyglet.media.Player">Player</a> and the equivalent function on the
+<a class="reference apilink" href="../api/pyglet.media-module.html ">pyglet.media</a> module should no longer be called.  In pyglet 1.1, media
+objects schedule an update function on <a class="reference apilink" href="../api/pyglet.clock-module.html ">pyglet.clock</a> at an appropriate
+interval.  New applications using media are required to call
+<a class="reference apilink" href="../api/pyglet.clock-module.html#tick ">pyglet.clock.tick</a> periodically.</p>
+<p>The <a class="reference apilink" href="../api/pyglet.image.AbstractImage-class.html " title="pyglet.image.AbstractImage">AbstractImage</a> properties <tt class="docutils literal">texture</tt>, <tt class="docutils literal">image_data</tt>, and so on have
+been replaced with equivalent methods <tt class="docutils literal">get_texture</tt>, <tt class="docutils literal">get_image_data</tt>,
+etc.</p>
+<p>The <a class="reference apilink" href="../api/pyglet.image.ImageData-class.html " title="pyglet.image.ImageData">ImageData</a> properties <cite>data</cite>, <cite>format</cite> and <cite>pitch</cite>, which together were
+used to extract pixel data from an image, have been replaced with a single
+function <tt class="docutils literal">get_data</tt>.  The <cite>format</cite> and <cite>pitch</cite> properties should now be used
+only to determine the current format and pitch of the image.</p>
+<p>The <cite>get_current_context</cite> function has been replaced with a global variable,
+<a class="reference apilink" href="../api/pyglet.gl-module.html#current_context " title="pyglet.gl.current_context">current_context</a>, for efficiency.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="compatibility_and_deprecation.html" title="Compatibility and deprecation">Compatibility and deprecation</a></span><span class="next">Next: <a class="reference" href="new_features_replacing_standard_practice.html" title="New features replacing standard practice">New features ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="appendix_migrating_to_pyglet_1_1.html" title="Appendix: Migrating to pyglet 1.1">Appendix: Migrating ...</a> » Deprecated methods</span></div>
+</div>
+</body>
+</html>

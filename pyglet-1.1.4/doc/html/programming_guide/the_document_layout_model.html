@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>The document/layout model</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="simple_text_rendering.html" title="Simple text rendering">Simple text rendering</a></span><span class="next">Next: <a class="reference" href="formatted_text.html" title="Formatted text">Formatted text</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » The document/layout model</span></div>
+<h1 class="title">The document/layout model</h1>
+
+<p>The <a class="reference apilink" href="../api/pyglet.text.Label-class.html " title="pyglet.text.Label">Label</a> class demonstrated above presents a simplified interface to
+pyglet's complete text rendering capabilities.  The underlying <a class="reference apilink" href="../api/pyglet.text.layout.TextLayout-class.html " title="pyglet.text.layout.TextLayout">TextLayout</a>
+and <a class="reference apilink" href="../api/pyglet.text.document.AbstractDocument-class.html " title="pyglet.text.document.AbstractDocument">AbstractDocument</a> classes provide a &quot;model/view&quot; interface to all of
+pyglet's text features.</p>
+<blockquote>
+<img alt="text_classes.png" src="text_classes.png" />
+</blockquote>
+<div class="section" id="documents">
+<h1><a class="toc-backref" href="#id281">Documents</a></h1>
+<p>A <cite>document</cite> is the &quot;model&quot; part of the architecture, and describes the
+content and style of the text to be displayed.  There are two concrete
+document classes: <a class="reference apilink" href="../api/pyglet.text.document.UnformattedDocument-class.html " title="pyglet.text.document.UnformattedDocument">UnformattedDocument</a> and <a class="reference apilink" href="../api/pyglet.text.document.FormattedDocument-class.html " title="pyglet.text.document.FormattedDocument">FormattedDocument</a>.
+<cite>UnformattedDocument</cite> models a document containing text in just one style,
+whereas <cite>FormattedDocument</cite> allows the style to change within the text.</p>
+<p>An empty, unstyled document can be created by constructing either of the
+classes directly.  Usually you will want to initialise the document with some
+text, however.  The <a class="reference apilink" href="../api/pyglet.text-module.html#decode_text " title="pyglet.text.decode_text">decode_text</a>, <a class="reference apilink" href="../api/pyglet.text-module.html#decode_attributed " title="pyglet.text.decode_attributed">decode_attributed</a> and <a class="reference apilink" href="../api/pyglet.text-module.html#decode_html " title="pyglet.text.decode_html">decode_html</a>
+functions return a document given a source string.  For <cite>decode_text</cite>, this is
+simply a plain text string, and the return value is an <cite>UnformattedDocument</cite>:</p>
+<pre class="py-doctest">
+document = pyglet.text.decode_text(<span class="py-string">'Hello, world.'</span>)</pre>
+<p><cite>decode_attributed</cite> and <cite>decode_html</cite> are described in detail in the next
+section.</p>
+<p>The text of a document can be modified directly as a property on the object:</p>
+<pre class="py-doctest">
+document.text = <span class="py-string">'Goodbye, cruel world.'</span></pre>
+<p>However, if small changes are being made to the document it can be more
+efficient (when coupled with an appropriate layout; see below) to use the
+<cite>remove_text</cite> and <a class="reference apilink" href="../api/pyglet.text.document.AbstractDocument-class.html#insert_text " title="pyglet.text.document.AbstractDocument.insert_text">insert_text</a> methods instead.</p>
+</div>
+<div class="section" id="layouts">
+<h1><a class="toc-backref" href="#id282">Layouts</a></h1>
+<p>The actual layout and rendering of a document is performed by the <cite>TextLayout</cite>
+classes.  This split exists to reduce the complexity of the code, and to allow
+a single document to be displayed in multiple layouts simultaneously (in other
+words, many layouts can display one document).</p>
+<p>Each of the <cite>TextLayout</cite> classes perform layout in the same way, but represent
+a trade-off in efficiency of update against efficiency of drawing and memory
+usage.</p>
+<p>The base <cite>TextLayout</cite> class uses little memory, and shares its graphics
+group with other <cite>TextLayout</cite> instances in the same batch (see <cite>Batched
+rendering</cite>).  When the text or style of the document is modified, or the
+layout constraints change (for example, the width of the layout changes), the
+entire text layout is recalculated.  This is a potentially expensive
+operation, especially for long documents.  This makes <cite>TextLayout</cite> suitable
+for relatively short or unchanging documents.</p>
+<p><a class="reference apilink" href="../api/pyglet.text.layout.ScrollableTextLayout-class.html " title="pyglet.text.layout.ScrollableTextLayout">ScrollableTextLayout</a> is a small extension to <cite>TextLayout</cite> that clips the
+text to a specified view rectangle, and allows text to be scrolled within that
+rectangle without performing the layout calculuation again.  Because of this
+clipping rectangle the graphics group cannot be shared with other text
+layouts, so for ideal performance <cite>ScrollableTextLayout</cite> should be used only
+if this behaviour is required.</p>
+<p><a class="reference apilink" href="../api/pyglet.text.layout.IncrementalTextLayout-class.html " title="pyglet.text.layout.IncrementalTextLayout">IncrementalTextLayout</a> uses a more sophisticated layout algorithm that
+performs less work for small changes to documents.  For example, if a document
+is being edited by the user, only the immediately affected lines of text are
+recalculated when a character is typed or deleted.  <cite>IncrementalTextLayout</cite>
+also performs view rectangle culling, reducing the amount of layout and
+rendering required when the document is larger than the view.
+<cite>IncrementalTextLayout</cite> should be used for large documents or documents that
+change rapidly.</p>
+<p>All the layout classes can be constructed given a document and display
+dimensions:</p>
+<pre class="py-doctest">
+layout = pyglet.text.layout.TextLayout(document, width, height)</pre>
+<p>Additional arguments to the constructor allow the specification of a graphics
+batch and group (recommended if many layouts are to be rendered), and the
+optional <cite>multiline</cite> flag.  To render more than one line of text (either
+through word-wrapping or explicit line breaks) <cite>multiline</cite> must be <tt class="docutils literal">True</tt>.</p>
+<p>Like labels, layouts are positioned through their <cite>x</cite>, <cite>y</cite>, <cite>anchor_x</cite> and
+<cite>anchor_y</cite> properties.  Note that unlike <a class="reference apilink" href="../api/pyglet.image.AbstractImage-class.html " title="pyglet.image.AbstractImage">AbstractImage</a>, the <cite>anchor</cite>
+properties accept a string such as <tt class="docutils literal">&quot;bottom&quot;</tt> or <tt class="docutils literal">&quot;center&quot;</tt> instead of a
+numeric displacement.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="simple_text_rendering.html" title="Simple text rendering">Simple text rendering</a></span><span class="next">Next: <a class="reference" href="formatted_text.html" title="Formatted text">Formatted text</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a> » The document/layout model</span></div>
+</div>
+</body>
+</html>

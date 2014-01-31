@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.graphics.vertexbuffer.VertexBufferObject</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;<a href="pyglet.graphics.vertexbuffer-module.html">vertexbuffer</a>&nbsp;.&nbsp;VertexBufferObject
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.graphics.vertexbuffer.VertexBufferObject</h1>
+<pre class="base-tree">
+<a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html">AbstractBuffer</a> --+
+                 |
+                <strong class="uidshort">VertexBufferObject</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.graphics.vertexbuffer.MappableVertexBufferObject-class.html">MappableVertexBufferObject</a>
+</dd></dl>
+
+<p>Lightweight representation of an OpenGL VBO.</p>
+<p>The data in the buffer is not replicated in any system memory (unless it
+is done so by the video driver).  While this can improve memory usage and
+possibly performance, updates to the buffer are relatively slow.</p>
+<p>This class does not implement <a href="pyglet.graphics.vertexbuffer.AbstractMappable-class.html" class="link">AbstractMappable</a>, and so has no
+<tt class="rst-docutils literal">get_region</tt> method.  See <a href="pyglet.graphics.vertexbuffer.MappableVertexBufferObject-class.html" class="link">MappableVertexBufferObject</a> for a VBO class
+that does implement <tt class="rst-docutils literal">get_region</tt>.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">size</span>,
+        <span class="summary-sig-arg">target</span>,
+        <span class="summary-sig-arg">usage</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html#bind" class="summary-sig-name">bind</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Bind this buffer to its OpenGL target.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html#unbind" class="summary-sig-name">unbind</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Reset the buffer's OpenGL target.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html#set_data" class="summary-sig-name">set_data</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>)</span>
+<div class="summary-description">Set the entire contents of the buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html#set_data_region" class="summary-sig-name">set_data_region</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">start</span>,
+        <span class="summary-sig-arg">length</span>)</span>
+<div class="summary-description">Set part of the buffer contents.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><tt class="rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">POINTER(ctypes.c_ubyte)</tt></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html#map" class="summary-sig-name">map</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">invalidate</span>=<span class="summary-sig-default">False</span>)</span>
+<div class="summary-description">Map the entire buffer into system memory.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html#unmap" class="summary-sig-name">unmap</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Unmap a previously mapped memory block.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__del__"></a><span class="summary-sig-name">__del__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html#delete" class="summary-sig-name">delete</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Delete this buffer, reducing system resource usage.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html#resize" class="summary-sig-name">resize</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">size</span>)</span>
+<div class="summary-description">Resize the buffer to a new size.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="ptr"></a><span class="summary-name">ptr</span> = <code title="0">0</code>
+<div class="summary-description">Memory offset of the buffer, as used by the <tt class="rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">glVertexPointer</tt>
+family of functions</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html">pyglet.graphics.vertexbuffer.AbstractBuffer</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="size"></a><span class="summary-name">size</span> = <code title="0">0</code>
+<div class="summary-description">Size of buffer, in bytes</div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html">pyglet.graphics.vertexbuffer.AbstractBuffer</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="target"></a><span class="summary-name">target</span>
+<div class="summary-description">OpenGL buffer target, for example <tt class="rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">GL_ARRAY_BUFFER</tt></div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html">pyglet.graphics.vertexbuffer.AbstractBuffer</a>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+        <a name="usage"></a><span class="summary-name">usage</span>
+<div class="summary-description">OpenGL buffer usage, for example <tt class="rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">GL_DYNAMIC_DRAW</tt></div>
+      <span class='inherited-from'>(Inherited from <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html">pyglet.graphics.vertexbuffer.AbstractBuffer</a>)</span>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="bind"></a>
+<div class=" detail">
+  <h3>bind</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">bind</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Bind this buffer to its OpenGL target.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html#bind">AbstractBuffer.bind</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="unbind"></a>
+<div class=" detail">
+  <h3>unbind</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">unbind</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Reset the buffer's OpenGL target.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html#unbind">AbstractBuffer.unbind</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="set_data"></a>
+<div class=" detail">
+  <h3>set_data</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_data</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">data</span>)</span>
+    </div>
+  <div class="detail-description">
+  Set the entire contents of the buffer.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html#set_data">AbstractBuffer.set_data</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="set_data_region"></a>
+<div class=" detail">
+  <h3>set_data_region</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">set_data_region</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">data</span>,
+        <span class="sig-arg">start</span>,
+        <span class="sig-arg">length</span>)</span>
+    </div>
+  <div class="detail-description">
+  Set part of the buffer contents.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html#set_data_region">AbstractBuffer.set_data_region</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="map"></a>
+<div class=" detail">
+  <h3>map</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">map</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">invalidate</span>=<span class="sig-default">False</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Map the entire buffer into system memory.</p>
+<p>The mapped region must be subsequently unmapped with <a href="pyglet.graphics.vertexbuffer.VertexBufferObject-class.html#unmap" class="link">unmap</a> before
+performing any other operations on the buffer.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype"><tt class="rst-rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-rst-docutils literal rst-rst-rst-rst-docutils literal rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">POINTER(ctypes.c_ubyte)</tt></span>: Pointer to the mapped block in memory</dd>
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html#map">AbstractBuffer.map</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="unmap"></a>
+<div class=" detail">
+  <h3>unmap</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">unmap</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Unmap a previously mapped memory block.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html#unmap">AbstractBuffer.unmap</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="delete"></a>
+<div class=" detail">
+  <h3>delete</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">delete</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Delete this buffer, reducing system resource usage.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html#delete">AbstractBuffer.delete</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<a name="resize"></a>
+<div class=" detail">
+  <h3>resize</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">resize</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">size</span>)</span>
+    </div>
+  <div class="detail-description">
+  Resize the buffer to a new size.
+  <dl class="fields">
+    <dt>Overrides:</dt>
+    <dd class="overrides">
+      <a href="pyglet.graphics.vertexbuffer.AbstractBuffer-class.html#resize">AbstractBuffer.resize</a>
+    </dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.graphics-module.html">graphics</a>&nbsp;.&nbsp;<a href="pyglet.graphics.vertexbuffer-module.html">vertexbuffer</a>&nbsp;.&nbsp;VertexBufferObject
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

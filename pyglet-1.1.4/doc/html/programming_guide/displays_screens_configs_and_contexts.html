@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Displays, screens, configs and contexts</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="creating_an_opengl_context.html" title="Creating an OpenGL context">Creating an ...</a></span><span class="next">Next: <a class="reference" href="opengl_configuration_options.html" title="OpenGL configuration options">OpenGL configuration options</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="creating_an_opengl_context.html" title="Creating an OpenGL context">Creating an ...</a> » Displays, screens, ...</span></div>
+<h1 class="title">Displays, screens, configs and contexts</h1>
+
+<div class="figure">
+<img alt="context_flow.png" src="context_flow.png" />
+<p class="caption">Flow of construction, from the singleton Platform to a newly
+created Window with its Context.</p>
+</div>
+<div class="section" id="contexts-and-configs">
+<h1><a class="toc-backref" href="#id220">Contexts and configs</a></h1>
+<p>When you draw on a window in pyglet, you are drawing to an OpenGL context.
+Every window has its own context, which is created when the window is created.
+You can access the window's context via its <a class="reference apilink" href="../api/pyglet.window.Window-class.html#context " title="pyglet.window.Window.context">context</a> attribute.</p>
+<p>The context is created from an OpenGL configuration (or &quot;config&quot;), which
+describes various properties of the context such as what color format to use,
+how many buffers are available, and so on.  You can access the config
+that was used to create a context via the context's <a class="reference apilink" href="../api/pyglet.window.Window-class.html#config " title="pyglet.window.Window.config">config</a> attribute.</p>
+<p>For example, here we create a window using the default config and examine some
+of its properties:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">import</span> pyglet
+<span class="py-prompt">&gt;&gt;&gt; </span>window = pyglet.window.Window()
+<span class="py-prompt">&gt;&gt;&gt; </span>context = window.context
+<span class="py-prompt">&gt;&gt;&gt; </span>config = context.config
+<span class="py-prompt">&gt;&gt;&gt; </span>config.double_buffer
+c_int(1)
+<span class="py-prompt">&gt;&gt;&gt; </span>config.stereo
+c_int(0)
+<span class="py-prompt">&gt;&gt;&gt; </span>config.sample_buffers
+c_int(0)</pre>
+<p>Note that the values of the config's attributes are all ctypes instances.
+This is because the config was not specified by pyglet.  Rather, it has been
+selected by pyglet from a list of configs supported by the system.  You can
+make no guarantee that a given config is valid on a system unless it was
+provided to you by the system.</p>
+<p>pyglet simplifies the process of selecting one of the system's configs by
+allowing you to create a &quot;template&quot; config which specifies only the values you
+are interested in.  See <a class="reference sectionlink" href="simple_context_configuration.html">Simple context configuration</a> for details.</p>
+</div>
+<div class="section" id="displays">
+<h1><a class="toc-backref" href="#id221">Displays</a></h1>
+<p>The system may actually support several different sets of configs, depending
+on which display device is being used.  For example, a computer with two video
+cards would have not support the same configs on each card.  Another example
+is using X11 remotely: the display device will support different
+configurations than the local driver.  Even a single video card on the local
+computer may support different configs for the two monitors plugged in.</p>
+<p>In pyglet, a &quot;display&quot; is a collection of &quot;screens&quot; attached to a single
+display device.  On Linux, the display device corresponds to the X11 display
+being used.  On Windows and Mac OS X, there is only one display (as these
+operating systems present multiple video cards as a single virtual device).</p>
+<p>There is a singleton class <a class="reference apilink" href="../api/pyglet.window.Platform-class.html " title="pyglet.window.Platform">Platform</a> which provides access to the display(s);
+this represents the computer on which your application is running.  It is
+usually sufficient to use the default display:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>platform = pyglet.window.get_platform()
+<span class="py-prompt">&gt;&gt;&gt; </span>display = platform.get_default_display()</pre>
+<p>On X11, you can specify the display string to use, for example to use a
+remotely connected display.  The display string is in the same format as used
+by the <tt class="docutils literal">DISPLAY</tt> environment variable:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>display = platform.get_display(<span class="py-string">'remote:1.0'</span>)</pre>
+<p>You use the same string to specify a separate X11 screen <a class="footnote-reference" href="#display" id="id4">[6]</a>:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>display = platform.get_display(<span class="py-string">':0.1'</span>)</pre>
+</div>
+<div class="section" id="screens">
+<h1><a class="toc-backref" href="#id222">Screens</a></h1>
+<p>Once you have obtained a display, you can enumerate the screens that are
+connected.  A screen is the physical display medium connected to the display
+device; for example a computer monitor, TV or projector.  Most computers will
+have a single screen, however dual-head workstations and laptops connected to
+a projector are common cases where more than one screen will be present.</p>
+<p>In the following example the screens of a dual-head workstation are listed:</p>
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span><span class="py-keyword">for</span> screen <span class="py-keyword">in</span> display.get_screens():
+<span class="py-more">... </span>    <span class="py-keyword">print</span> screen
+<span class="py-more">...</span>
+XlibScreen(screen=0, x=1280, y=0, width=1280, height=1024, xinerama=1)
+XlibScreen(screen=0, x=0, y=0, width=1280, height=1024, xinerama=1)</pre>
+<p>Because this workstation is running Linux, the returned screens are
+<tt class="docutils literal">XlibScreen</tt>, a subclass of <tt class="docutils literal">Screen</tt>.  The <tt class="docutils literal">screen</tt> and <tt class="docutils literal">xinerama</tt>
+attributes are specific to Linux, but the <tt class="docutils literal">x</tt>, <tt class="docutils literal">y</tt>, <tt class="docutils literal">width</tt> and
+<tt class="docutils literal">height</tt> attributes are present on all screens, and describe the screen's
+geometry, as shown below.</p>
+<div class="figure">
+<img alt="screens.png" src="screens.png" />
+<p class="caption">Example arrangement of screens and their reported geometry.  Note that the
+primary display (marked &quot;1&quot;) is positioned on the right, according to this
+particular user's preference.</p>
+</div>
+<p>There is always a &quot;default&quot; screen, which is the first screen returned by
+<a class="reference apilink" href="../api/pyglet.window.Display-class.html#get_screens " title="pyglet.window.Display.get_screens">get_screens</a>.  Depending on the operating system, the default screen is
+usually the one that contains the taskbar (on Windows) or menu bar (on OS X).
+You can access this screen directly using <a class="reference apilink" href="../api/pyglet.window.Display-class.html#get_default_screen " title="pyglet.window.Display.get_default_screen">get_default_screen</a>.</p>
+<table class="docutils footnote" frame="void" id="display" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[6]</a></td><td>Assuming Xinerama is not being used to combine the screens.  If
+Xinerama is enabled, use screen 0 in the display string, and
+select a screen in the same manner as for Windows and Mac OS X.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="creating_an_opengl_context.html" title="Creating an OpenGL context">Creating an ...</a></span><span class="next">Next: <a class="reference" href="opengl_configuration_options.html" title="OpenGL configuration options">OpenGL configuration options</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="creating_an_opengl_context.html" title="Creating an OpenGL context">Creating an ...</a> » Displays, screens, ...</span></div>
+</div>
+</body>
+</html>

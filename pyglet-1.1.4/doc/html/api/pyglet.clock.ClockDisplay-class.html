@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.clock.ClockDisplay</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.clock-module.html">clock</a>&nbsp;.&nbsp;ClockDisplay
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.clock.ClockDisplay</h1>
+<p>Display current clock values, such as FPS.</p>
+<p>This is a convenience class for displaying diagnostics such as the
+framerate.  See the module documentation for example usage.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.clock.ClockDisplay-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">interval</span>=<span class="summary-sig-default">0.25</span>,
+        <span class="summary-sig-arg">format</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">%(fps).2f</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">color</span>=<span class="summary-sig-default"><code class="variable-group">(</code>0.5<code class="variable-op">, </code>0.5<code class="variable-op">, </code>0.5<code class="variable-op">, </code>0.5<code class="variable-group">)</code></span>,
+        <span class="summary-sig-arg">clock</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Create a ClockDisplay.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.clock.ClockDisplay-class.html#unschedule" class="summary-sig-name">unschedule</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Remove the display from its clock's schedule.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="update_text"></a><span class="summary-sig-name">update_text</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dt</span>=<span class="summary-sig-default">0</span>)</span>
+<div class="summary-description">Scheduled method to update the label text.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="draw"></a><span class="summary-sig-name">draw</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Method called each frame to render the label.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.font.Text-class.html" class="link">pyglet.font.Text</a></span>
+    </td><td class="summary">
+        <a name="label"></a><span class="summary-name">label</span>
+<div class="summary-description">The label which is displayed.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="__init__"></a>
+<div class=" detail">
+  <h3>__init__</h3>
+  <div class="detail-signature">
+    <span class="fspecial">(Constructor)</span>
+    <span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">interval</span>=<span class="sig-default">0.25</span>,
+        <span class="sig-arg">format</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">%(fps).2f</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">color</span>=<span class="sig-default"><code class="variable-group">(</code>0.5<code class="variable-op">, </code>0.5<code class="variable-op">, </code>0.5<code class="variable-op">, </code>0.5<code class="variable-group">)</code></span>,
+        <span class="sig-arg">clock</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Create a ClockDisplay.</p>
+<p>All parameters are optional.  By default, a large translucent
+font will be used to display the FPS to two decimal places.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">font</span> : <span class='ptype'><a href="pyglet.font.base.Font-class.html" class="link">pyglet.font.Font</a></span></dt>
+        <dd>The font to format text in.</dd>
+        <dt><span class="pname">interval</span> : <span class='ptype'>float</span></dt>
+        <dd>The number of seconds between updating the display.</dd>
+        <dt><span class="pname">format</span> : <span class='ptype'>str</span></dt>
+        <dd>A format string describing the format of the text.  This
+string is modulated with the dict <tt class="rst-docutils literal">{'fps' : fps}</tt>.</dd>
+        <dt><span class="pname">color</span> : <span class='ptype'>4-tuple of float</span></dt>
+        <dd>The color, including alpha, passed to <tt class="rst-docutils literal">glColor4f</tt>.</dd>
+        <dt><span class="pname">clock</span> : <span class='ptype'><a href="pyglet.clock.Clock-class.html" class="link">Clock</a></span></dt>
+        <dd>The clock which determines the time.  If None, the default
+clock is used.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="unschedule"></a>
+<div class=" detail">
+  <h3>unschedule</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">unschedule</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Remove the display from its clock's schedule.</p>
+<p><a href="pyglet.clock.ClockDisplay-class.html" class="link">ClockDisplay</a> uses <a href="pyglet.clock.Clock-class.html#schedule_interval" class="link">Clock.schedule_interval</a> to periodically update
+its display label.  Even if the ClockDisplay is not being used any
+more, its update method will still be scheduled, which can be a
+resource drain.  Call this method to unschedule the update method
+and allow the ClockDisplay to be garbage collected.</p>
+  <dl class="fields">
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div>  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.clock-module.html">clock</a>&nbsp;.&nbsp;ClockDisplay
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

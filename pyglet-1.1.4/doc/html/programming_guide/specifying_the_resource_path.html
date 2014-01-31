@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Specifying the resource path</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="loading_resources.html" title="Loading resources">Loading resources</a></span><span class="next">Next: <a class="reference" href="multiple_loaders.html" title="Multiple loaders">Multiple loaders</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="application_resources.html" title="Application resources">Application resources</a> » Specifying the ...</span></div>
+<h1 class="title">Specifying the resource path</h1>
+
+<p>By default, only the script home directory is searched (the directory
+containing the <tt class="docutils literal">__main__</tt> module).  You can set <a class="reference apilink" href="../api/pyglet.resource-module.html#path ">pyglet.resource.path</a> to a
+list of locations to search in order.  This list is indexed, so after
+modifying it you will need to call <a class="reference apilink" href="../api/pyglet.resource-module.html#reindex ">pyglet.resource.reindex</a>.</p>
+<p>Each item in the path list is either a path relative to the script home, or
+the name of a Python module preceded with an ampersand (<tt class="docutils literal">&#64;</tt>).  For example,
+if you would like to package all your resources in a <tt class="docutils literal">res</tt> directory:</p>
+<pre class="py-doctest">
+pyglet.resource.path = [<span class="py-string">'res'</span>]
+pyglet.resource.reindex()</pre>
+<p>Items on the path are not searched recursively, so if your resource directory
+itself has subdirectories, these need to be specified explicitly:</p>
+<pre class="py-doctest">
+pyglet.resource.path = [<span class="py-string">'res'</span>, <span class="py-string">'res/images'</span>, <span class="py-string">'res/sounds'</span>, <span class="py-string">'res/fonts'</span>]
+pyglet.resource.reindex()</pre>
+<p>The entries in the resource path always use forward slash characters as path
+separators even when the operating systems using a different character.</p>
+<p>Specifying module names makes it easy to group code with its resources.  The
+following example uses the directory containing the hypothetical
+<tt class="docutils literal">gui.skins.default</tt> for resources:</p>
+<pre class="py-doctest">
+pyglet.resource.path = [<span class="py-string">'@gui.skins.default'</span>, <span class="py-string">'.'</span>]
+pyglet.resource.reindex()</pre>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="loading_resources.html" title="Loading resources">Loading resources</a></span><span class="next">Next: <a class="reference" href="multiple_loaders.html" title="Multiple loaders">Multiple loaders</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="application_resources.html" title="Application resources">Application resources</a> » Specifying the ...</span></div>
+</div>
+</body>
+</html>

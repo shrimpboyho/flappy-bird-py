@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Drawing primitives</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="graphics.html" title="Graphics">Graphics</a></span><span class="next">Next: <a class="reference" href="vertex_attributes.html" title="Vertex attributes">Vertex attributes</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="graphics.html" title="Graphics">Graphics</a> » Drawing primitives</span></div>
+<h1 class="title">Drawing primitives</h1>
+
+<p>The <a class="reference apilink" href="../api/pyglet.graphics-module.html ">pyglet.graphics</a> module draws the OpenGL primitive objects by a mode
+denoted by the constants</p>
+<ul class="simple">
+<li><tt class="docutils literal">pyglet.gl.GL_POINTS</tt></li>
+<li><tt class="docutils literal">pyglet.gl.GL_LINES</tt></li>
+<li><tt class="docutils literal">pyglet.gl.GL_LINE_LOOP</tt></li>
+<li><tt class="docutils literal">pyglet.gl.GL_LINE_STRIP</tt></li>
+<li><tt class="docutils literal">pyglet.gl.GL_TRIANGLES</tt></li>
+<li><tt class="docutils literal">pyglet.gl.GL_TRIANGLE_STRIP</tt></li>
+<li><tt class="docutils literal">pyglet.gl.GL_TRIANGLE_FAN</tt></li>
+<li><tt class="docutils literal">pyglet.gl.GL_QUADS</tt></li>
+<li><tt class="docutils literal">pyglet.gl.GL_QUAD_STRIP</tt></li>
+<li><tt class="docutils literal">pyglet.gl.GL_POLYGON</tt></li>
+</ul>
+<p>See the <a class="reference" href="http://opengl.org/documentation/red_book/">OpenGL Programming Guide</a> for a description of each of mode.</p>
+<p>Each primitive is made up of one or more vertices.  Each vertex is specified
+with either 2, 3 or 4 components (for 2D, 3D, or non-homogeneous coordinates).
+The data type of each component can be either int or float.</p>
+<p>Use <a class="reference apilink" href="../api/pyglet.graphics-module.html#draw ">pyglet.graphics.draw</a> to draw a primitive.  The following example draws
+two points at coordinates (10, 15) and (30, 35):</p>
+<pre class="py-doctest">
+pyglet.graphics.draw(2, pyglet.gl.GL_POINTS,
+    (<span class="py-string">'v2i'</span>, (10, 15, 30, 35))
+)</pre>
+<p>The first and second arguments to the function give the number of vertices to
+draw and the primitive mode, respectively.  The third argument is a &quot;data
+item&quot;, and gives the actual vertex data.</p>
+<p>Because vertex data can be supplied in several forms, a &quot;format string&quot; is
+required.  In this case, the format string is <tt class="docutils literal">&quot;v2i&quot;</tt>, meaning the vertex
+position data has two components (2D) and int type.</p>
+<p>The following example has the same effect as the previous one, but uses
+floating point data and 3 components per vertex:</p>
+<pre class="py-doctest">
+pyglet.graphics.draw(2, pyglet.gl.GL_POINTS,
+    (<span class="py-string">'v3f'</span>, (10.0, 15.0, 0.0, 30.0, 35.0, 0.0))
+)</pre>
+<p>Vertices can also be drawn out of order and more than once by using the
+<a class="reference apilink" href="../api/pyglet.graphics-module.html#draw_indexed ">pyglet.graphics.draw_indexed</a> function.  This requires a list of integers
+giving the indices into the vertex data.  The following example draws the same
+two points as above, but indexes the vertices (sequentially):</p>
+<pre class="py-doctest">
+pyglet.graphics.draw_indexed(2, pyglet.gl.GL_POINTS,
+    [0, 1, 2, 3],
+    (<span class="py-string">'v2i'</span>, (10, 15, 30, 35))
+)</pre>
+<p>This second example is more typical; two adjacent triangles are drawn, and the
+shared vertices are reused with indexing:</p>
+<pre class="py-doctest">
+pyglet.graphics.draw_indexed(4, pyglet.gl.GL_TRIANGLES,
+    [0, 1, 2, 0, 2, 3],
+    (<span class="py-string">'v2i'</span>, (100, 100,
+             150, 100,
+             150, 150,
+             100, 150))
+)</pre>
+<p>Note that the first argument gives the number of vertices in the data, not the
+number of indices (which is implicit on the length of the index list given in
+the third argument).</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="graphics.html" title="Graphics">Graphics</a></span><span class="next">Next: <a class="reference" href="vertex_attributes.html" title="Vertex attributes">Vertex attributes</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="graphics.html" title="Graphics">Graphics</a> » Drawing primitives</span></div>
+</div>
+</body>
+</html>

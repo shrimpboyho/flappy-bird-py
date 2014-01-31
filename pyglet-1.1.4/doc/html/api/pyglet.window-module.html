@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.window</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;window
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package pyglet.window</h1>
+<p>Windowing and user-interface events.</p>
+<p>This module allows applications to create and display windows with an
+OpenGL context.  Windows can be created with a variety of border styles
+or set fullscreen.</p>
+<p>You can register event handlers for keyboard, mouse and window events.
+For games and kiosks you can also restrict the input to your windows,
+for example disabling users from switching away from the application
+with certain key combinations or capturing and hiding the mouse.</p>
+<div class="rst-section" id="rst-getting-started">
+<h1 class="heading">Getting started</h1>
+<p>Call the Window constructor to create a new window:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.window <span class="py-keyword">import</span> Window
+win = Window(width=640, height=480)</pre>
+<p>Attach your own event handlers:</p>
+<pre class="py-doctest">
+@win.event
+<span class="py-keyword">def</span> <span class="py-defname">on_key_press</span>(symbol, modifiers):
+    <span class="py-comment"># ... handle this event ...</span></pre>
+<p>Place drawing code for the window within the <a href="pyglet.window.Window-class.html#on_draw" class="link">Window.on_draw</a> event handler:</p>
+<pre class="py-doctest">
+@win.event
+<span class="py-keyword">def</span> <span class="py-defname">on_draw</span>():
+    <span class="py-comment"># ... drawing code ...</span></pre>
+<p>Call pyglet.app.run to enter the main event loop (by default, this
+returns when all open windows are closed):</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet <span class="py-keyword">import</span> app
+app.run()</pre>
+</div>
+<div class="rst-section" id="rst-creating-a-game-window">
+<h1 class="heading">Creating a game window</h1>
+<p>Use <a href="pyglet.window.Window-class.html#set_exclusive_mouse" class="link">Window.set_exclusive_mouse</a> to hide the mouse cursor and receive relative
+mouse movement events.  Specify <tt class="rst-docutils literal">fullscreen=True</tt> as a keyword argument to
+the <a href="pyglet.window.Window-class.html" class="link">Window</a> constructor to render to the entire screen rather than opening a
+window:</p>
+<pre class="py-doctest">
+win = Window(fullscreen=True)
+win.set_exclusive_mouse()</pre>
+</div>
+<div class="rst-section" id="rst-working-with-multiple-screens">
+<h1 class="heading">Working with multiple screens</h1>
+<p>By default, fullscreen windows are opened on the primary display (typically
+set by the user in their operating system settings).  You can retrieve a list
+of attached screens and select one manually if you prefer.  This is useful for
+opening a fullscreen window on each screen:</p>
+<pre class="py-doctest">
+display = window.get_platform().get_default_display()
+screens = display.get_screens()
+windows = []
+<span class="py-keyword">for</span> screen <span class="py-keyword">in</span> screens:
+    windows.append(window.Window(fullscreen=True, screen=screen))</pre>
+<p>Specifying a screen has no effect if the window is not fullscreen.</p>
+</div>
+<div class="rst-section" id="rst-specifying-the-opengl-context-properties">
+<h1 class="heading">Specifying the OpenGL context properties</h1>
+<p>Each window has its own context which is created when the window is created.
+You can specify the properties of the context before it is created
+by creating a &quot;template&quot; configuration:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet <span class="py-keyword">import</span> gl
+<span class="py-comment"># Create template config</span>
+config = gl.Config()
+config.stencil_size = 8
+config.aux_buffers = 4
+<span class="py-comment"># Create a window using this config</span>
+win = window.Window(config=config)</pre>
+<p>To determine if a given configuration is supported, query the screen (see
+above, &quot;Working with multiple screens&quot;):</p>
+<pre class="py-doctest">
+configs = screen.get_matching_configs(config)
+<span class="py-keyword">if</span> <span class="py-keyword">not</span> configs:
+    <span class="py-comment"># ... config is not supported</span>
+<span class="py-keyword">else</span>:
+    win = window.Window(config=configs[0])</pre>
+</div>
+
+<!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+        <h2>Submodules</h2>
+<table class="summary">
+<tr><td width="15%"></td><td><a href="pyglet.window.event-module.html" class="summary-name">pyglet.window.event</a><div class="summary-description">Events for <a href="pyglet.window-module.html" class="link">pyglet.window</a>.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.window.key-module.html" class="summary-name">pyglet.window.key</a><div class="summary-description">Key constants and utilities for pyglet.window.</div></td></tr><tr><td width="15%"></td><td><a href="pyglet.window.mouse-module.html" class="summary-name">pyglet.window.mouse</a><div class="summary-description">Mouse constants and utilities for pyglet.window.</div></td></tr></table>
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.WindowException-class.html" class="summary-name">WindowException</a>
+<div class="summary-description">The root exception for all window-related errors.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.NoSuchDisplayException-class.html" class="summary-name">NoSuchDisplayException</a>
+<div class="summary-description">An exception indicating the requested display is not available.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.NoSuchConfigException-class.html" class="summary-name">NoSuchConfigException</a>
+<div class="summary-description">An exception indicating the requested configuration is not
+available.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.MouseCursorException-class.html" class="summary-name">MouseCursorException</a>
+<div class="summary-description">The root exception for all mouse cursor-related errors.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Platform-class.html" class="summary-name">Platform</a>
+<div class="summary-description">Operating-system-level functionality.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Display-class.html" class="summary-name">Display</a>
+<div class="summary-description">A display device supporting one or more screens.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Screen-class.html" class="summary-name">Screen</a>
+<div class="summary-description">A virtual monitor that supports fullscreen windows.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.MouseCursor-class.html" class="summary-name">MouseCursor</a>
+<div class="summary-description">An abstract mouse cursor.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.DefaultMouseCursor-class.html" class="summary-name">DefaultMouseCursor</a>
+<div class="summary-description">The default mouse cursor used by the operating system.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.ImageMouseCursor-class.html" class="summary-name">ImageMouseCursor</a>
+<div class="summary-description">A user-defined mouse cursor created from an image.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.window.Window-class.html" class="summary-name">Window</a>
+<div class="summary-description">Platform-independent application window.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.window.Platform-class.html" class="link">Platform</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window-module.html#get_platform" class="summary-sig-name">get_platform</a>()</span>
+<div class="summary-description">Get an instance of the Platform most appropriate for this
+system.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.window'"><code class="variable-quote">'</code><code class="variable-string">pyglet.window</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="get_platform"></a>
+<div class=" detail">
+  <h3>get_platform</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_platform</span>()</span>
+    </div>
+  <div class="detail-description">
+  Get an instance of the Platform most appropriate for this
+system.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype"><a href="pyglet.window.Platform-class.html" class="link">Platform</a></span>: The platform instance.</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;window
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.media.Source</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;media&nbsp;.&nbsp;Source
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.media.Source</h1>
+<dl><dt>Known Subclasses:</dt>
+<dd>
+    <a href="pyglet.media.StaticSource-class.html">StaticSource</a>,
+    <a href="pyglet.media.StreamingSource-class.html">StreamingSource</a>
+</dd></dl>
+
+An audio and/or video source.
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.media.ManagedSoundPlayer-class.html" class="link">ManagedSoundPlayer</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Source-class.html#play" class="summary-sig-name">play</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Play the source.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Animation-class.html" class="link">pyglet.image.Animation</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Source-class.html#get_animation" class="summary-sig-name">get_animation</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Import all video frames into memory as an <a href="pyglet.image.Animation-class.html" class="link">Animation</a>.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Source-class.html#get_next_video_timestamp" class="summary-sig-name">get_next_video_timestamp</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the timestamp of the next video frame.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.AbstractImage-class.html" class="link">pyglet.image.AbstractImage</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.media.Source-class.html#get_next_video_frame" class="summary-sig-name">get_next_video_frame</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the next video frame.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+        <h2>Properties</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">float</span>
+    </td><td class="summary">
+        <a href="pyglet.media.Source-class.html#duration" class="summary-name">duration</a>
+<div class="summary-description">The length of the source, in seconds.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+        <h2>Instance Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.media.AudioFormat-class.html" class="link">AudioFormat</a></span>
+    </td><td class="summary">
+        <a name="audio_format"></a><span class="summary-name">audio_format</span> = <code title="None">None</code>
+<div class="summary-description">Format of the audio in this source, or None if the source is
+silent.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.media.VideoFormat-class.html" class="link">VideoFormat</a></span>
+    </td><td class="summary">
+        <a name="video_format"></a><span class="summary-name">video_format</span> = <code title="None">None</code>
+<div class="summary-description">Format of the video in this source, or None if there is no
+video.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="play"></a>
+<div class=" detail">
+  <h3>play</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">play</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Play the source.</p>
+<p>This is a convenience method which creates a ManagedSoundPlayer for
+this source and plays it immediately.</p>
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.media.ManagedSoundPlayer-class.html" class="link">ManagedSoundPlayer</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="get_animation"></a>
+<div class=" detail">
+  <h3>get_animation</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_animation</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Import all video frames into memory as an <a href="pyglet.image.Animation-class.html" class="link">Animation</a>.</p>
+<p>An empty animation will be returned if the source has no video.
+Otherwise, the animation will contain all unplayed video frames (the
+entire source, if it has not been queued on a player).  After creating
+the animation, the source will be at EOS.</p>
+<p>This method is unsuitable for videos running longer than a
+few seconds.</p>
+  <dl class="fields">
+    <dt>Returns: <a href="pyglet.image.Animation-class.html" class="link">pyglet.image.Animation</a></dt>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div>  </div>
+</div>
+<a name="get_next_video_timestamp"></a>
+<div class=" detail">
+  <h3>get_next_video_timestamp</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_next_video_timestamp</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  Get the timestamp of the next video frame.
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">float</span>: The next timestamp, or <tt class="rst-docutils literal">None</tt> if there are no more video
+frames.</dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div>  </div>
+</div>
+<a name="get_next_video_frame"></a>
+<div class=" detail">
+  <h3>get_next_video_frame</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_next_video_frame</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the next video frame.</p>
+<p>Video frames may share memory: the previous frame may be invalidated
+or corrupted when this method is called unless the application has
+made a copy of it.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype"><a href="pyglet.image.AbstractImage-class.html" class="link">pyglet.image.AbstractImage</a></span>: The next video frame image, or <tt class="rst-docutils literal">None</tt> if there are no more
+video frames.</dd>
+  </dl>
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div>  </div>
+</div>
+<br />
+<!-- ==================== PROPERTY DETAILS ==================== -->
+<a name="section-PropertyDetails"></a>
+        <h2>Property Details</h2>
+<table class="details">
+</table>
+<a name="duration"></a>
+<div class=" detail">
+  <h3>duration</h3>
+  <div class="detail-description">
+  <p>The length of the source, in seconds.</p>
+<p>Not all source durations can be determined; in this case the value
+is None.</p>
+<p>Read-only.</p>
+  <dl class="fields">
+    <dt>Type:</dt>
+      <dd>float</dd>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;media&nbsp;.&nbsp;Source
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:19 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

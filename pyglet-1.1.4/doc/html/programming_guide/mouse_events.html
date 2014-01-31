@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Mouse events</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="working_with_the_mouse.html" title="Working with the mouse">Working with ...</a></span><span class="next">Next: <a class="reference" href="changing_the_mouse_cursor.html" title="Changing the mouse cursor">Changing the ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="working_with_the_mouse.html" title="Working with the mouse">Working with ...</a> » Mouse events</span></div>
+<h1 class="title">Mouse events</h1>
+
+<p>All mouse events are dispatched by the window which receives the event from
+the operating system.  Typically this is the window over which the mouse
+cursor is, however mouse exclusivity and drag operations mean this is not
+always the case.</p>
+<p>The coordinate space for the mouse pointer's location is relative to the
+bottom-left corner of the window, with increasing Y values approaching the top
+of the screen (note that this is &quot;upside-down&quot; compared with many other
+windowing toolkits, but is consistent with the default OpenGL projection in
+pyglet).</p>
+<div class="figure">
+<img alt="mouse_coordinates.png" src="mouse_coordinates.png" />
+<p class="caption">The coordinate space for the mouse pointer.</p>
+</div>
+<p>The most basic mouse event is <cite>on_mouse_motion</cite> which is dispatched every time
+the mouse moves:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">on_mouse_motion</span>(x, y, dx, dy):
+    <span class="py-keyword">pass</span></pre>
+<p>The <cite>x</cite> and <cite>y</cite> parameters give the coordinates of the mouse pointer, relative
+to the bottom-left corner of the window.</p>
+<p>The event is dispatched every time the operating system registers a mouse
+movement.  This is not necessarily once for every pixel moved -- the operating
+system typically samples the mouse at a fixed frequency, and it is easy to
+move the mouse faster than this.  Conversely, if your application is not
+processing events fast enough you may find that several queued-up mouse events
+are dispatched in a single <a class="reference apilink" href="../api/pyglet.window.Window-class.html#dispatch_events " title="pyglet.window.Window.dispatch_events">Window.dispatch_events</a> call.  There is no need to
+concern yourself with either of these issues; the latter rarely causes
+problems, and the former can not be avoided.</p>
+<p>Many games are not concerned with the actual position of the mouse cursor, and
+only need to know in which direction the mouse has moved.  For example, the
+mouse in a first-person game typically controls the direction the player
+looks, but the mouse pointer itself is not displayed.</p>
+<p>The <cite>dx</cite> and <cite>dy</cite> parameters are for this purpose: they give the distance the
+mouse travelled along each axis to get to its present position.  This can be
+computed naively by storing the previous <cite>x</cite> and <cite>y</cite> parameters after every
+mouse event, but besides being tiresome to code, it does not take into account
+the effects of other obscuring windows.  It is best to use the <cite>dx</cite> and <cite>dy</cite>
+parameters instead.</p>
+<p>The following events are dispatched when a mouse button is pressed or
+released, or the mouse is moved while any button is held down:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">on_mouse_press</span>(x, y, button, modifiers):
+    <span class="py-keyword">pass</span>
+
+<span class="py-keyword">def</span> <span class="py-defname">on_mouse_release</span>(x, y, button, modifiers):
+    <span class="py-keyword">pass</span>
+
+<span class="py-keyword">def</span> <span class="py-defname">on_mouse_drag</span>(x, y, dx, dy, buttons, modifiers):
+    <span class="py-keyword">pass</span></pre>
+<p>The <cite>x</cite>, <cite>y</cite>, <cite>dx</cite> and <cite>dy</cite> parameters are as for the <cite>on_mouse_motion</cite> event.
+The press and release events do not require <cite>dx</cite> and <cite>dy</cite> parameters as they
+would be zero in this case.  The <a class="reference sectionlink" href="keyboard_events.html#modifiers">modifiers</a> parameter is as for the keyboard
+events, see <a class="reference sectionlink" href="working_with_the_keyboard.html">Working with the keyboard</a>.</p>
+<p>The <cite>button</cite> parameter signifies which mouse button was pressed, and is one of
+the following constants:</p>
+<pre class="py-doctest">
+pyglet.window.mouse.LEFT
+pyglet.window.mouse.MIDDLE
+pyglet.window.mouse.RIGHT</pre>
+<p>The <cite>buttons</cite> parameter in <cite>on_mouse_drag</cite> is a bitwise combination of all the
+mouse buttons currently held down.  For example, to test if the user is
+performing a drag gesture with the left button:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.window <span class="py-keyword">import</span> mouse
+
+<span class="py-keyword">def</span> <span class="py-defname">on_mouse_drag</span>(x, y, dx, dy, buttons, modifiers):
+    <span class="py-keyword">if</span> buttons &amp; mouse.LEFT:
+        <span class="py-keyword">pass</span></pre>
+<p>When the user begins a drag operation (i.e., pressing and holding a mouse
+button and then moving the mouse), the window in which they began the drag
+will continue to receive the <cite>on_mouse_drag</cite> event as long as the button is
+held down.  This is true even if the mouse leaves the window.  You generally
+do not need to handle this specially: it is a convention among all operating
+systems that dragging is a gesture rather than a direct manipulation of the
+user interface widget.</p>
+<p>There are events for when the mouse enters or leaves a window:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">on_mouse_enter</span>(x, y):
+    <span class="py-keyword">pass</span>
+
+<span class="py-keyword">def</span> <span class="py-defname">on_mouse_leave</span>(x, y):
+    <span class="py-keyword">pass</span></pre>
+<p>The coordinates for <cite>on_mouse_leave</cite> will lie outside of your window.  These
+events are not dispatched while a drag operation is taking place.</p>
+<p>The mouse scroll wheel generates the <cite>on_mouse_scroll</cite> event:</p>
+<pre class="py-doctest">
+<span class="py-keyword">def</span> <span class="py-defname">on_mouse_scroll</span>(x, y, scroll_x, scroll_y):
+    <span class="py-keyword">pass</span></pre>
+<p>The <cite>scroll_y</cite> parameter gives the number of &quot;clicks&quot; the wheel moved, with
+positive numbers indicating the wheel was pushed forward.  The <cite>scroll_x</cite>
+parameter is 0 for most mice, however some new mice such as the Apple Mighty
+Mouse use a ball instead of a wheel; the <cite>scroll_x</cite> parameter gives the
+horizontal movement in this case.  The scale of these numbers is not known; it
+is typically set by the user in their operating system preferences.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="working_with_the_mouse.html" title="Working with the mouse">Working with ...</a></span><span class="next">Next: <a class="reference" href="changing_the_mouse_cursor.html" title="Changing the mouse cursor">Changing the ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="working_with_the_mouse.html" title="Working with the mouse">Working with ...</a> » Mouse events</span></div>
+</div>
+</body>
+</html>

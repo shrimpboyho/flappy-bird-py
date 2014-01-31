@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Playing sounds and music</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="handling_mouse_and_keyboard_events.html" title="Handling mouse and keyboard events">Handling mouse ...</a></span><span class="next">Next: <a class="reference" href="where_to_next.html" title="Where to next?">Where to next?</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="writing_a_pyglet_application.html" title="Writing a pyglet application">Writing a ...</a> » Playing sounds ...</span></div>
+<h1 class="title">Playing sounds and music</h1>
+
+<p>pyglet makes it easy to play and mix multiple sounds together in your game.
+The following example plays an MP3 file <a class="footnote-reference" href="#mp3" id="id2">[5]</a>:</p>
+<pre class="py-doctest">
+<span class="py-keyword">import</span> pyglet
+
+music = pyglet.resource.media(<span class="py-string">'music.mp3'</span>)
+music.play()
+
+pyglet.app.run()</pre>
+<p>As with the image loading example presented earlier, <a class="reference apilink" href="../api/pyglet.resource-module.html#media ">pyglet.resource.media</a>
+locates the sound file in the application's directory (not the working
+directory).  If you know the actual filesystem path (either relative or
+absolute), use <a class="reference apilink" href="../api/pyglet.media-module.html#load ">pyglet.media.load</a>.</p>
+<p>Short sounds, such as a gunfire shot used in a game, should be decoded in
+memory before they are used, so that they play more immediately and incur less
+of a CPU performance penalty.  Specify <tt class="docutils literal">streaming=False</tt> in this case:</p>
+<pre class="py-doctest">
+sound = pyglet.resource.media(<span class="py-string">'shot.wav'</span>, streaming=False)
+sound.play()</pre>
+<p>The <a class="reference filelink" href="media_player.py">examples/media_player.py</a> example demonstrates playback of streaming
+audio and video using pyglet.  The <a class="reference filelink" href="noisy.py">examples/noisy/noisy.py</a> example
+demonstrates playing many short audio samples simultaneously, as in a game.</p>
+<table class="docutils footnote" frame="void" id="mp3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[5]</a></td><td>MP3 and other compressed audio formats require AVbin to be installed
+(this is the default for the Windows and Mac OS X installers).
+Uncompressed WAV files can be played without AVbin.</td></tr>
+</tbody>
+</table>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="handling_mouse_and_keyboard_events.html" title="Handling mouse and keyboard events">Handling mouse ...</a></span><span class="next">Next: <a class="reference" href="where_to_next.html" title="Where to next?">Where to next?</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="writing_a_pyglet_application.html" title="Writing a pyglet application">Writing a ...</a> » Playing sounds ...</span></div>
+</div>
+</body>
+</html>

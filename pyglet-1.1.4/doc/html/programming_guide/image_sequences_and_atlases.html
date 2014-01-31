@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Image sequences and atlases</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="accessing_or_providing_pixel_data.html" title="Accessing or providing pixel data">Accessing or ...</a></span><span class="next">Next: <a class="reference" href="animations.html" title="Animations">Animations</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Image sequences ...</span></div>
+<h1 class="title">Image sequences and atlases</h1>
+
+<p>Sometimes a single image is used to hold several images.  For example, a
+&quot;sprite sheet&quot; is an image that contains each animation frame required for a
+character sprite animation.</p>
+<p>pyglet provides convenience classes for extracting the individual images from
+such a composite image as if it were a simple Python sequence.  Discrete
+images can also be packed into one or more larger textures with texture bins
+and atlases.</p>
+<div class="figure">
+<img alt="image_sequence.png" src="image_sequence.png" />
+<p class="caption">The AbstractImageSequence class hierarchy.</p>
+</div>
+<div class="section" id="image-grids">
+<h1><a class="toc-backref" href="#id306">Image grids</a></h1>
+<p>An &quot;image grid&quot; is a single image which is divided into several smaller images
+by drawing an imaginary grid over it.  The following image shows an image used
+for the explosion animation in the <em>Astraea</em> example.</p>
+<div class="figure">
+<img alt="explosion.png" src="explosion.png" />
+<p class="caption">An image consisting of eight animation frames arranged in a grid.</p>
+</div>
+<p>This image has one row and eight columns.  This is all the information you
+need to create an <a class="reference apilink" href="../api/pyglet.image.ImageGrid-class.html " title="pyglet.image.ImageGrid">ImageGrid</a> with:</p>
+<pre class="py-doctest">
+explosion = pyglet.image.load(<span class="py-string">'explosion.png'</span>)
+explosion_seq = pyglet.image.ImageGrid(explosion, 1, 8)</pre>
+<p>The images within the grid can now be accessed as if they were their own
+images:</p>
+<pre class="py-doctest">
+frame_1 = explosion_seq[0]
+frame_2 = explosion_seq[1]</pre>
+<p>Images with more than one row can be accessed either as a single-dimensional
+sequence, or as a (row, column) tuple; as shown in the following diagram.</p>
+<div class="figure">
+<img alt="image_grid.png" src="image_grid.png" />
+<p class="caption">An image grid with several rows and columns, and the slices that can be
+used to access it.</p>
+</div>
+<p>Image sequences can be sliced like any other sequence in Python.  For example,
+the following obtains the first four frames in the animation:</p>
+<pre class="py-doctest">
+start_frames = explosion_seq[:4]</pre>
+<p>For efficient rendering, you should use a <a class="reference apilink" href="../api/pyglet.image.TextureGrid-class.html " title="pyglet.image.TextureGrid">TextureGrid</a>.  This uses a single
+texture for the grid, and each individual image returned from a slice will be
+a <a class="reference apilink" href="../api/pyglet.image.TextureRegion-class.html " title="pyglet.image.TextureRegion">TextureRegion</a>:</p>
+<pre class="py-doctest">
+explosion_tex_seq = image.TextureGrid(explosion_seq)</pre>
+<p>Because <cite>TextureGrid</cite> is also a <a class="reference apilink" href="../api/pyglet.image.Texture-class.html " title="pyglet.image.Texture">Texture</a>, you can use it either as individual
+images or as the whole grid at once.</p>
+</div>
+<div class="section" id="d-textures">
+<h1><a class="toc-backref" href="#id307">3D textures</a></h1>
+<p><cite>TextureGrid</cite> is extremely efficient for drawing many sprites from a single
+texture.  One problem you may encounter, however, is bleeding between adjacent
+images.</p>
+<p>When OpenGL renders a texture to the screen, by default it obtains each pixel
+colour by interpolating nearby texels.  You can disable this behaviour by
+switching to the <tt class="docutils literal">GL_NEAREST</tt> interpolation mode, however you then lose the
+benefits of smooth scaling, distortion, rotation and sub-pixel positioning.</p>
+<p>You can alleviate the problem by always leaving a 1-pixel clear border around
+each image frame.  This will not solve the problem if you are using
+mipmapping, however.  At this stage you will need a 3D texture.</p>
+<p>You can create a 3D texture from any sequence of images, or from an
+<cite>ImageGrid</cite>.  The images must all be of the same dimension, however they need
+not be powers of two (pyglet takes care of this by returning <cite>TextureRegion</cite>
+as with a regular <cite>Texture</cite>).</p>
+<p>In the following example, the explosion texture from above is uploaded into a
+3D texture:</p>
+<pre class="py-doctest">
+explosion_3d = pyglet.image.Texture3D.create_for_image_grid(explosion_seq)</pre>
+<p>You could also have stored each image as a separate file and used
+<a class="reference apilink" href="../api/pyglet.image.Texture3D-class.html#create_for_images " title="pyglet.image.Texture3D.create_for_images">Texture3D.create_for_images</a> to create the 3D texture.</p>
+<p>Once created, a 3D texture behaves like any other <cite>ImageSequence</cite>; slices
+return <cite>TextureRegion</cite> for an image plane within the texture.  Unlike a
+<cite>TextureGrid</cite>, though, you cannot blit a <a class="reference apilink" href="../api/pyglet.image.Texture3D-class.html " title="pyglet.image.Texture3D">Texture3D</a> in its entirety.</p>
+</div>
+<div class="section" id="texture-bins-and-atlases">
+<h1><a class="toc-backref" href="#id308">Texture bins and atlases</a></h1>
+<p>Image grids are useful when the artist has good tools to construct the larger
+images of the appropriate format, and the contained images all have the same
+size.  However it is often simpler to keep individual images as separate files
+on disk, and only combine them into larger textures at runtime for efficiency.</p>
+<p>A <a class="reference apilink" href="../api/pyglet.image.atlas.TextureAtlas-class.html " title="pyglet.image.atlas.TextureAtlas">TextureAtlas</a> is initially an empty texture, but images of any size can be
+added to it at any time.  The atlas takes care of tracking the &quot;free&quot; areas
+within the texture, and of placing images at appropriate locations within the
+texture to avoid overlap.</p>
+<p>It's possible for a <cite>TextureAtlas</cite> to run out of space for new images, so
+applications will need to either know the correct size of the texture to
+allocate initally, or maintain multiple atlases as each one fills up.</p>
+<p>The <a class="reference apilink" href="../api/pyglet.image.atlas.TextureBin-class.html " title="pyglet.image.atlas.TextureBin">TextureBin</a> class provides a simple means to manage multiple atlases.
+The following example loads a list of images, then inserts those images into a
+texture bin.  The resulting list is a list of <cite>TextureRegion</cite> images that map
+into the larger shared texture atlases:</p>
+<pre class="py-doctest">
+images = [
+    pyglet.image.load(<span class="py-string">'img1.png'</span>),
+    pyglet.image.load(<span class="py-string">'img2.png'</span>),
+    <span class="py-comment"># ...</span>
+]
+
+bin = pyglet.image.atlas.TextureBin()
+images = [bin.add(image) <span class="py-keyword">for</span> image <span class="py-keyword">in</span> images]</pre>
+<p>The <a class="reference apilink" href="../api/pyglet.resource-module.html ">pyglet.resource</a> module (see <a class="reference sectionlink" href="application_resources.html">Application resources</a>) uses texture bins
+internally to efficiently pack images automatically.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="accessing_or_providing_pixel_data.html" title="Accessing or providing pixel data">Accessing or ...</a></span><span class="next">Next: <a class="reference" href="animations.html" title="Animations">Animations</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Image sequences ...</span></div>
+</div>
+</body>
+</html>

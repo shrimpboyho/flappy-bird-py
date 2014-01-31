@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Vertex lists</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="vertex_attributes.html" title="Vertex attributes">Vertex attributes</a></span><span class="next">Next: <a class="reference" href="batched_rendering.html" title="Batched rendering">Batched rendering</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="graphics.html" title="Graphics">Graphics</a> » Vertex lists</span></div>
+<h1 class="title">Vertex lists</h1>
+
+<p>There is a significant overhead in using <a class="reference apilink" href="../api/pyglet.graphics-module.html#draw ">pyglet.graphics.draw</a> and
+<a class="reference apilink" href="../api/pyglet.graphics-module.html#draw_indexed ">pyglet.graphics.draw_indexed</a> due to pyglet interpreting and formatting
+the vertex data for the video device.  Usually the data drawn in each frame
+(of an animation) is identical or very similar to the previous frame, so
+this overhead is unnecessarily repeated.</p>
+<p>A <a class="reference apilink" href="../api/pyglet.graphics.vertexdomain.VertexList-class.html " title="pyglet.graphics.vertexdomain.VertexList">VertexList</a> is a list of vertices and their attributes, stored in
+an efficient manner that's suitable for direct upload to the video card.
+On newer video cards (supporting OpenGL 1.5 or later) the data is actually
+stored in video memory.</p>
+<p>Create a <cite>VertexList</cite> for a set of attributes and initial data with
+<a class="reference apilink" href="../api/pyglet.graphics-module.html#vertex_list ">pyglet.graphics.vertex_list</a>.  The following example creates a vertex
+list with the two coloured points used in the previous page:</p>
+<pre class="py-doctest">
+vertex_list = pyglet.graphics.vertex_list(2,
+    (<span class="py-string">'v2i'</span>, (10, 15, 30, 35)),
+    (<span class="py-string">'c3B'</span>, (0, 0, 255, 0, 255, 0))
+)</pre>
+<p>To draw the vertex list, call its <a class="reference apilink" href="../api/pyglet.graphics.vertexdomain.VertexList-class.html#draw " title="pyglet.graphics.vertexdomain.VertexList.draw">VertexList.draw</a> method:</p>
+<pre class="py-doctest">
+vertex_list.draw(pyglet.gl.GL_POINTS)</pre>
+<p>Note that the primitive mode is given to the draw method, not the vertex list
+constructor.  Otherwise the <cite>vertex_list</cite> method takes the same arguments
+as <cite>pyglet.graphics.draw</cite>, including any number of vertex attributes.</p>
+<p>Because vertex lists can reside in video memory, it is necessary to call the
+<cite>delete</cite> method to release video resources if the vertex list isn't going to
+be used any more (there's no need to do this if you're just exiting the
+process).</p>
+<div class="section" id="updating-vertex-data">
+<h1><a class="toc-backref" href="#id237">Updating vertex data</a></h1>
+<p>The data in a vertex list can be modified.  Each vertex attribute (including
+the vertex position) appears as an attribute on the <cite>VertexList</cite> object.  The
+attribute names are given in the following table.</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Vertex attribute</th>
+<th class="head">Object attribute</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Vertex position</td>
+<td><tt class="docutils literal">vertices</tt></td>
+</tr>
+<tr><td>Color</td>
+<td><tt class="docutils literal">colors</tt></td>
+</tr>
+<tr><td>Edge flag</td>
+<td><tt class="docutils literal">edge_flags</tt></td>
+</tr>
+<tr><td>Fog coordinate</td>
+<td><tt class="docutils literal">fog_coords</tt></td>
+</tr>
+<tr><td>Normal</td>
+<td><tt class="docutils literal">normals</tt></td>
+</tr>
+<tr><td>Secondary color</td>
+<td><tt class="docutils literal">secondary_colors</tt></td>
+</tr>
+<tr><td>Texture coordinate</td>
+<td><tt class="docutils literal">tex_coords</tt></td>
+</tr>
+<tr><td>Generic attribute</td>
+<td><em>Inaccessible</em></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>In the following example, the vertex positions of the vertex list are updated
+by replacing the <tt class="docutils literal">vertices</tt> attribute:</p>
+<pre class="py-doctest">
+vertex_list.vertices = [20, 25, 40, 45]</pre>
+<p>The attributes can also be selectively updated in-place:</p>
+<pre class="py-doctest">
+vertex_list.vertices[:2] = [30, 35]</pre>
+<p>Similarly, the color attribute of the vertex can be updated:</p>
+<pre class="py-doctest">
+vertex_list.colors[:3] = [255, 0, 0]</pre>
+<p>For large vertex lists, updating only the modified vertices can have a
+perfomance benefit, especially on newer graphics cards.</p>
+<p>Attempting to set the attribute list to a different size will cause an error
+(not necessarily immediately, either).  To resize the vertex list, call
+<a class="reference apilink" href="../api/pyglet.graphics.vertexdomain.VertexList-class.html#resize " title="pyglet.graphics.vertexdomain.VertexList.resize">VertexList.resize</a> with the new vertex count.  Be sure to fill in any
+newly uninitialised data after resizing the vertex list.</p>
+<p>Since vertex lists are mutable, you may not necessarily want to initialise
+them with any particular data.  You can specify just the format string in
+place of the <tt class="docutils literal">(format, data)</tt> tuple in the data arguments <cite>vertex_list</cite>
+function.  The following example creates a vertex list of 1024 vertices with
+positional, color, texture coordinate and normal attributes:</p>
+<pre class="py-doctest">
+vertex_list = pyglet.graphics.vertex_list(1024, <span class="py-string">'v3f'</span>, <span class="py-string">'c4B'</span>, <span class="py-string">'t2f'</span>, <span class="py-string">'n3f'</span>)</pre>
+</div>
+<div class="section" id="data-usage">
+<h1><a class="toc-backref" href="#id238">Data usage</a></h1>
+<p>By default, pyglet assumes vertex data will be updated less often than it is
+drawn, but more often than just during initialisation.  You can override
+this assumption for each attribute by affixing a usage specification
+onto the end of the format string, detailed in the following table:</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Usage</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">&quot;/static&quot;</tt></td>
+<td>Data is never or rarely modified after initialisation</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;/dynamic&quot;</tt></td>
+<td>Data is occasionally modified (default)</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;/stream&quot;</tt></td>
+<td>Data is updated every frame</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>In the following example a vertex list is created in which the positional data
+is expected to change every frame, but the color data is expected to remain
+relatively constant:</p>
+<pre class="py-doctest">
+vertex_list = pyglet.graphics.vertex_list(1024, <span class="py-string">'v3f/stream'</span>, <span class="py-string">'c4B/static'</span>)</pre>
+<p>The usage specification affects how pyglet lays out vertex data in memory,
+whether or not it's stored on the video card, and is used as a hint to OpenGL.
+Specifying a usage does not affect what operations are possible with a vertex
+list (a <tt class="docutils literal">static</tt> attribute can still be modified), and may only have
+performance benefits on some hardware.</p>
+</div>
+<div class="section" id="indexed-vertex-lists">
+<h1><a class="toc-backref" href="#id239">Indexed vertex lists</a></h1>
+<p><a class="reference apilink" href="../api/pyglet.graphics.vertexdomain.IndexedVertexList-class.html " title="pyglet.graphics.vertexdomain.IndexedVertexList">IndexedVertexList</a> performs the same role as <cite>VertexList</cite>, but for indexed
+vertices.  Use <a class="reference apilink" href="../api/pyglet.graphics-module.html#vertex_list_indexed ">pyglet.graphics.vertex_list_indexed</a> to construct an indexed
+vertex list, and update the <a class="reference apilink" href="../api/pyglet.graphics.vertexdomain.IndexedVertexList-class.html#indices " title="pyglet.graphics.vertexdomain.IndexedVertexList.indices">IndexedVertexList.indices</a> sequence to change the
+indices.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="vertex_attributes.html" title="Vertex attributes">Vertex attributes</a></span><span class="next">Next: <a class="reference" href="batched_rendering.html" title="Batched rendering">Batched rendering</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="graphics.html" title="Graphics">Graphics</a> » Vertex lists</span></div>
+</div>
+</body>
+</html>

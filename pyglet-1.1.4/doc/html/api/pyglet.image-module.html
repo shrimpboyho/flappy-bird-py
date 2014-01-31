@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.image</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;image
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package pyglet.image</h1>
+<p>Image load, capture and high-level texture functions.</p>
+<p>Only basic functionality is described here; for full reference see the
+accompanying documentation.</p>
+<p>To load an image:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet <span class="py-keyword">import</span> image
+pic = image.load(<span class="py-string">'picture.png'</span>)</pre>
+<p>The supported image file types include PNG, BMP, GIF, JPG, and many more,
+somewhat depending on the operating system.  To load an image from a file-like
+object instead of a filename:</p>
+<pre class="py-doctest">
+pic = image.load(<span class="py-string">'hint.jpg'</span>, file=fileobj)</pre>
+<p>The hint helps the module locate an appropriate decoder to use based on the
+file extension.  It is optional.</p>
+<p>Once loaded, images can be used directly by most other modules of pyglet.  All
+images have a width and height you can access:</p>
+<pre class="py-doctest">
+width, height = pic.width, pic.height</pre>
+<p>You can extract a region of an image (this keeps the original image intact;
+the memory is shared efficiently):</p>
+<pre class="py-doctest">
+subimage = pic.get_region(x, y, width, height)</pre>
+<p>Remember that y-coordinates are always increasing upwards.</p>
+<div class="rst-section" id="rst-drawing-images">
+<h1 class="heading">Drawing images</h1>
+<p>To draw an image at some point on the screen:</p>
+<pre class="py-doctest">
+pic.blit(x, y, z)</pre>
+<p>This assumes an appropriate view transform and projection have been applied.</p>
+<p>Some images have an intrinsic &quot;anchor point&quot;: this is the point which will be
+aligned to the <tt class="rst-docutils literal">x</tt> and <tt class="rst-docutils literal">y</tt> coordinates when the image is drawn.  By
+default the anchor point is the lower-left corner of the image.  You can use
+the anchor point to center an image at a given point, for example:</p>
+<pre class="py-doctest">
+pic.anchor_x = pic.width // 2
+pic.anchor_y = pic.height // 2
+pic.blit(x, y, z)</pre>
+</div>
+<div class="rst-section" id="rst-texture-access">
+<h1 class="heading">Texture access</h1>
+<p>If you are using OpenGL directly, you can access the image as a texture:</p>
+<pre class="py-doctest">
+texture = pic.get_texture()</pre>
+<p>(This is the most efficient way to obtain a texture; some images are
+immediately loaded as textures, whereas others go through an intermediate
+form).  To use a texture with pyglet.gl:</p>
+<pre class="py-doctest">
+<span class="py-keyword">from</span> pyglet.gl <span class="py-keyword">import</span> *
+glEnable(texture.target)        <span class="py-comment"># typically target is GL_TEXTURE_2D</span>
+glBindTexture(texture.target, texture.id)
+<span class="py-comment"># ... draw with the texture</span></pre>
+</div>
+<div class="rst-section" id="rst-pixel-access">
+<h1 class="heading">Pixel access</h1>
+<p>To access raw pixel data of an image:</p>
+<pre class="py-doctest">
+rawimage = pic.get_image_data()</pre>
+<p>(If the image has just been loaded this will be a very quick operation;
+however if the image is a texture a relatively expensive readback operation
+will occur).  The pixels can be accessed as a string:</p>
+<pre class="py-doctest">
+format = <span class="py-string">'RGBA'</span>
+pitch = rawimage.width * len(format)
+pixels = rawimage.get_data(format, pitch)</pre>
+<p>&quot;format&quot; strings consist of characters that give the byte order of each color
+component.  For example, if rawimage.format is 'RGBA', there are four color
+components: red, green, blue and alpha, in that order.  Other common format
+strings are 'RGB', 'LA' (luminance, alpha) and 'I' (intensity).</p>
+<p>The &quot;pitch&quot; of an image is the number of bytes in a row (this may validly be
+more than the number required to make up the width of the image, it is common
+to see this for word alignment).  If &quot;pitch&quot; is negative the rows of the image
+are ordered from top to bottom, otherwise they are ordered from bottom to top.</p>
+<p>Retrieving data with the format and pitch given in <a href="pyglet.image.ImageData-class.html#format" class="link">ImageData.format</a> and
+<a href="pyglet.image.ImageData-class.html#pitch" class="link">ImageData.pitch</a> avoids the need for data conversion (assuming you can make
+use of the data in this arbitrary format).</p>
+</div>
+
+<!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+        <h2>Submodules</h2>
+<table class="summary">
+<tr><td width="15%"></td><td><a href="pyglet.image.atlas-module.html" class="summary-name">pyglet.image.atlas</a><div class="summary-description">Group multiple small images into larger textures.</div></td></tr></table>
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.ImageException-class.html" class="summary-name">ImageException</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.ImagePattern-class.html" class="summary-name">ImagePattern</a>
+<div class="summary-description">Abstract image creation class.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.SolidColorImagePattern-class.html" class="summary-name">SolidColorImagePattern</a>
+<div class="summary-description">Creates an image filled with a solid color.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.CheckerImagePattern-class.html" class="summary-name">CheckerImagePattern</a>
+<div class="summary-description">Create an image with a tileable checker image.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.AbstractImage-class.html" class="summary-name">AbstractImage</a>
+<div class="summary-description">Abstract class representing an image.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.AbstractImageSequence-class.html" class="summary-name">AbstractImageSequence</a>
+<div class="summary-description">Abstract sequence of images.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.TextureSequence-class.html" class="summary-name">TextureSequence</a>
+<div class="summary-description">Interface for a sequence of textures.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.UniformTextureSequence-class.html" class="summary-name">UniformTextureSequence</a>
+<div class="summary-description">Interface for a sequence of textures, each with the same dimensions.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.ImageData-class.html" class="summary-name">ImageData</a>
+<div class="summary-description">An image represented as a string of unsigned bytes.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.ImageDataRegion-class.html" class="summary-name">ImageDataRegion</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.CompressedImageData-class.html" class="summary-name">CompressedImageData</a>
+<div class="summary-description">Image representing some compressed data suitable for direct uploading
+to driver.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.Texture-class.html" class="summary-name">Texture</a>
+<div class="summary-description">An image loaded into video memory that can be efficiently drawn
+to the framebuffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.TextureRegion-class.html" class="summary-name">TextureRegion</a>
+<div class="summary-description">A rectangular region of a texture, presented as if it were
+a separate texture.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.Texture3D-class.html" class="summary-name">Texture3D</a>
+<div class="summary-description">A texture with more than one image slice.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.TileableTexture-class.html" class="summary-name">TileableTexture</a>
+<div class="summary-description">A texture that can be tiled efficiently.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.DepthTexture-class.html" class="summary-name">DepthTexture</a>
+<div class="summary-description">A texture with depth samples (typically 24-bit).</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.BufferManager-class.html" class="summary-name">BufferManager</a>
+<div class="summary-description">Manages the set of framebuffers for a context.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.BufferImage-class.html" class="summary-name">BufferImage</a>
+<div class="summary-description">An abstract framebuffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.ColorBufferImage-class.html" class="summary-name">ColorBufferImage</a>
+<div class="summary-description">A color framebuffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.DepthBufferImage-class.html" class="summary-name">DepthBufferImage</a>
+<div class="summary-description">The depth buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.BufferImageMask-class.html" class="summary-name">BufferImageMask</a>
+<div class="summary-description">A single bit of the stencil buffer.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.ImageGrid-class.html" class="summary-name">ImageGrid</a>
+<div class="summary-description">An imaginary grid placed over an image allowing easy access to
+regular regions of that image.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.TextureGrid-class.html" class="summary-name">TextureGrid</a>
+<div class="summary-description">A texture containing a regular grid of texture regions.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.Animation-class.html" class="summary-name">Animation</a>
+<div class="summary-description">Sequence of images with timing information.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.image.AnimationFrame-class.html" class="summary-name">AnimationFrame</a>
+<div class="summary-description">A single frame of an animation.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">AbstractImage</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image-module.html#load" class="summary-sig-name">load</a>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">file</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">decoder</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Load an image from a file.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">AbstractImage</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image-module.html#create" class="summary-sig-name">create</a>(<span class="summary-sig-arg">width</span>,
+        <span class="summary-sig-arg">height</span>,
+        <span class="summary-sig-arg">pattern</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Create an image optionally filled with the given pattern.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.BufferManager-class.html" class="link">BufferManager</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_buffer_manager"></a><span class="summary-sig-name">get_buffer_manager</span>()</span>
+<div class="summary-description">Get the buffer manager for the current OpenGL context.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Animation</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.image-module.html#load_animation" class="summary-sig-name">load_animation</a>(<span class="summary-sig-arg">filename</span>,
+        <span class="summary-sig-arg">file</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">decoder</span>=<span class="summary-sig-default">None</span>)</span>
+<div class="summary-description">Load an animation from a file.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet.image'"><code class="variable-quote">'</code><code class="variable-string">pyglet.image</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="load"></a>
+<div class=" detail">
+  <h3>load</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">load</span>(<span class="sig-arg">filename</span>,
+        <span class="sig-arg">file</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">decoder</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Load an image from a file.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">filename</span> : <span class='ptype'>str</span></dt>
+        <dd>Used to guess the image format, and to load the file if <code class="link">file</code> is
+unspecified.</dd>
+        <dt><span class="pname">file</span> : <span class='ptype'>file-like object or None</span></dt>
+        <dd>Source of image data in any supported format.</dd>
+        <dt><span class="pname">decoder</span> : <span class='ptype'>ImageDecoder or None</span></dt>
+        <dd>If unspecified, all decoders that are registered for the filename
+extension are tried.  If none succeed, the exception from the
+first decoder is raised.</dd>
+    </dl></dd>
+    <dt>Returns: AbstractImage</dt>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        You can make no assumptions about the return type; usually it will
+be ImageData or CompressedImageData, but decoders are free to return
+any subclass of AbstractImage.
+      </p>
+</div>  </div>
+</div>
+<a name="create"></a>
+<div class=" detail">
+  <h3>create</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">create</span>(<span class="sig-arg">width</span>,
+        <span class="sig-arg">height</span>,
+        <span class="sig-arg">pattern</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  Create an image optionally filled with the given pattern.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">width</span> : <span class='ptype'>int</span></dt>
+        <dd>Width of image to create</dd>
+        <dt><span class="pname">height</span> : <span class='ptype'>int</span></dt>
+        <dd>Height of image to create</dd>
+        <dt><span class="pname">pattern</span> : <span class='ptype'>ImagePattern or None</span></dt>
+        <dd>Pattern to fill image with.  If unspecified, the image will
+initially be transparent.</dd>
+    </dl></dd>
+    <dt>Returns: AbstractImage</dt>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        You can make no assumptions about the return type; usually it will
+be ImageData or CompressedImageData, but patterns are free to return
+any subclass of AbstractImage.
+      </p>
+</div>  </div>
+</div>
+<a name="load_animation"></a>
+<div class=" detail">
+  <h3>load_animation</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">load_animation</span>(<span class="sig-arg">filename</span>,
+        <span class="sig-arg">file</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">decoder</span>=<span class="sig-default">None</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Load an animation from a file.</p>
+<p>Currently, the only supported format is GIF.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">filename</span> : <span class='ptype'>str</span></dt>
+        <dd>Used to guess the animation format, and to load the file if <code class="link">file</code>
+is unspecified.</dd>
+        <dt><span class="pname">file</span> : <span class='ptype'>file-like object or None</span></dt>
+        <dd>File object containing the animation stream.</dd>
+        <dt><span class="pname">decoder</span> : <span class='ptype'>ImageDecoder or None</span></dt>
+        <dd>If unspecified, all decoders that are registered for the filename
+extension are tried.  If none succeed, the exception from the
+first decoder is raised.</dd>
+    </dl></dd>
+    <dt>Returns: Animation</dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;image
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

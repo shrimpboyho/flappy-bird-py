@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>User-defined clocks</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="the_frame_rate.html" title="The frame rate">The frame rate</a></span><span class="next">Next: <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="keeping_track_of_time.html" title="Keeping track of time">Keeping track ...</a> » User-defined clocks</span></div>
+<h1 class="title">User-defined clocks</h1>
+
+<p>The default clock used by pyglet uses the system clock to determine the time
+(i.e., <tt class="docutils literal">time.time()</tt>).  Separate clocks can be created, however, allowing
+you to use another time source.  This can be useful for implementing a
+separate &quot;game time&quot; to the real-world time, or for synchronising to a network
+time source or a sound device.</p>
+<p>Each of the <a class="reference apilink" href="../api/pyglet.clock-module.html " title="pyglet.clock">clock</a> functions are aliases for the methods on a global instance
+of <a class="reference apilink" href="../api/pyglet.clock.Clock-class.html " title="pyglet.clock.Clock">clock.Clock</a>.  You can construct or subclass your own <cite>Clock</cite>, which can
+then maintain its own schedule and framerate calculation.  See the class
+documentation for more details.</p>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="the_frame_rate.html" title="The frame rate">The frame rate</a></span><span class="next">Next: <a class="reference" href="displaying_text.html" title="Displaying text">Displaying text</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="keeping_track_of_time.html" title="Keeping track of time">Keeping track ...</a> » User-defined clocks</span></div>
+</div>
+</body>
+</html>

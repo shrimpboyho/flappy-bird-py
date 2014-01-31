@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
+<title>Accessing or providing pixel data</title>
+<link rel="stylesheet" href="doc.css" type="text/css" />
+</head>
+<body>
+<div class="document">
+<div class="navigation navigation-header container">
+<span class="previous">Previous: <a class="reference" href="the_abstractimage_hierarchy.html" title="The AbstractImage hierarchy">The AbstractImage hierarchy</a></span><span class="next">Next: <a class="reference" href="image_sequences_and_atlases.html" title="Image sequences and atlases">Image sequences ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Accessing or ...</span></div>
+<h1 class="title">Accessing or providing pixel data</h1>
+
+<p>The <a class="reference apilink" href="../api/pyglet.image.ImageData-class.html " title="pyglet.image.ImageData">ImageData</a> class represents an image as a string or sequence of pixel
+data, or as a ctypes pointer.  Details such as the pitch and component layout
+are also stored in the class.  You can access an <cite>ImageData</cite> object for any
+image with <cite>get_image_data</cite>:</p>
+<pre class="py-doctest">
+kitten = pyglet.image.load(<span class="py-string">'kitten.png'</span>).get_image_data()</pre>
+<p>The design of <cite>ImageData</cite> is to allow applications to access the detail in the
+format they prefer, rather than having to understand the many formats that
+each operating system and OpenGL make use of.</p>
+<p>The <cite>pitch</cite> and <cite>format</cite> properties determine how the bytes are arranged.
+<cite>pitch</cite> gives the number of bytes between each consecutive row.  The data is
+assumed to run from left-to-right, bottom-to-top, unless <cite>pitch</cite> is negative,
+in which case it runs from left-to-right, top-to-bottom.  There is no need for
+rows to be tightly packed; larger <cite>pitch</cite> values are often used to align each
+row to machine word boundaries.</p>
+<p>The <cite>format</cite> property gives the number and order of color components.  It is a
+string of one or more of the letters corresponding to the components in the
+following table:</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>R</td>
+<td>Red</td>
+</tr>
+<tr><td>G</td>
+<td>Green</td>
+</tr>
+<tr><td>B</td>
+<td>Blue</td>
+</tr>
+<tr><td>A</td>
+<td>Alpha</td>
+</tr>
+<tr><td>L</td>
+<td>Luminance</td>
+</tr>
+<tr><td>I</td>
+<td>Intensity</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>For example, a format string of <tt class="docutils literal">&quot;RGBA&quot;</tt> corresponds to four bytes of
+colour data, in the order red, green, blue, alpha.  Note that machine
+endianness has no impact on the interpretation of a format string.</p>
+<p>The length of a format string always gives the number of bytes per pixel.  So,
+the minimum absolute pitch for a given image is <tt class="docutils literal">len(kitten.format) *
+kitten.width</tt>.</p>
+<p>To retrieve pixel data in a particular format, use the <cite>get_data</cite> method,
+specifying the desired format and pitch. The following example reads tightly
+packed rows in <tt class="docutils literal">RGB</tt> format (the alpha component, if any, will be
+discarded):</p>
+<pre class="py-doctest">
+kitten = kitten.get_image_data()
+data = kitten.get_data(<span class="py-string">'RGB'</span>, kitten.width * 3)</pre>
+<p><cite>data</cite> always returns a string, however it can be set to a ctypes array,
+stdlib array, list of byte data, string, or ctypes pointer.  To set the image
+data use <cite>set_data</cite>, again specifying the format and pitch:</p>
+<pre class="py-doctest">
+kitten.set_data(<span class="py-string">'RGB'</span>, kitten.width * 3, data)</pre>
+<p>You can also create <cite>ImageData</cite> directly, by providing each of these
+attributes to the constructor.  This is any easy way to load textures into
+OpenGL from other programs or libraries.</p>
+<div class="section" id="performance-concerns">
+<h1><a class="toc-backref" href="#id304">Performance concerns</a></h1>
+<p>pyglet can use several methods to transform pixel data from one format to
+another.  It will always try to select the most efficient means.  For example,
+when providing texture data to OpenGL, the following possibilities are
+examined in order:</p>
+<ol class="arabic simple">
+<li>Can the data be provided directly using a built-in OpenGL pixel format such
+as <tt class="docutils literal">GL_RGB</tt> or <tt class="docutils literal">GL_RGBA</tt>?</li>
+<li>Is there an extension present that handles this pixel format?</li>
+<li>Can the data be transformed with a single regular expression?</li>
+<li>If none of the above are possible, the image will be split into separate
+scanlines and a regular expression replacement done on each; then the lines
+will be joined together again.</li>
+</ol>
+<p>The following table shows which image formats can be used directly with steps
+1 and 2 above, as long as the image rows are tightly packed (that is, the
+pitch is equal to the width times the number of components).</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Format</th>
+<th class="head">Required extensions</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal">&quot;I&quot;</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;L&quot;</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;LA&quot;</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;R&quot;</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;G&quot;</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;B&quot;</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;A&quot;</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;RGB&quot;</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;RGBA&quot;</tt></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;ARGB&quot;</tt></td>
+<td><tt class="docutils literal">GL_EXT_bgra</tt> and <tt class="docutils literal">GL_APPLE_packed_pixels</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;ABGR&quot;</tt></td>
+<td><tt class="docutils literal">GL_EXT_abgr</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;BGR&quot;</tt></td>
+<td><tt class="docutils literal">GL_EXT_bgra</tt></td>
+</tr>
+<tr><td><tt class="docutils literal">&quot;BGRA&quot;</tt></td>
+<td><tt class="docutils literal">GL_EXT_bgra</tt></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>If the image data is not in one of these formats, a regular expression will be
+constructed to pull it into one.  If the rows are not tightly packed, or if
+the image is ordered from top-to-bottom, the rows will be split before the
+regular expression is applied.  Each of these may incur a performance penalty
+-- you should avoid such formats for real-time texture updates if possible.</p>
+</div>
+<div class="navigation navigation-footer container">
+<span class="previous">Previous: <a class="reference" href="the_abstractimage_hierarchy.html" title="The AbstractImage hierarchy">The AbstractImage hierarchy</a></span><span class="next">Next: <a class="reference" href="image_sequences_and_atlases.html" title="Image sequences and atlases">Image sequences ...</a></span><span class="breadcrumbs"><a class="reference" href="index.html" title="Programming Guide">Programming Guide</a> » <a class="reference" href="images.html" title="Images">Images</a> » Accessing or ...</span></div>
+</div>
+</body>
+</html>

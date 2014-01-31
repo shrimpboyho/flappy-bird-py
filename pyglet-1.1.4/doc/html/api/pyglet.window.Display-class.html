@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.window.Display</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.window-module.html">window</a>&nbsp;.&nbsp;Display
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class pyglet.window.Display</h1>
+<p>A display device supporting one or more screens.</p>
+<p>Use <a href="pyglet.window.Platform-class.html#get_display" class="link">Platform.get_display</a> or <a href="pyglet.window.Platform-class.html#get_default_display" class="link">Platform.get_default_display</a> to obtain
+an instance of this class.  Use a display to obtain <a href="pyglet.window.Screen-class.html" class="link">Screen</a> instances.</p>
+
+<!-- ==================== METHODS ==================== -->
+<a name="section-Methods"></a>
+        <h2>Methods</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>)</span>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of <a href="pyglet.window.Screen-class.html" class="link">Screen</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.window.Display-class.html#get_screens" class="summary-sig-name">get_screens</a>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the available screens.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.window.Screen-class.html" class="link">Screen</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_default_screen"></a><span class="summary-sig-name">get_default_screen</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the default screen as specified by the user's operating system
+preferences.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">sequence of <a href="pyglet.window.Window-class.html" class="link">Window</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_windows"></a><span class="summary-sig-name">get_windows</span>(<span class="summary-sig-arg">self</span>)</span>
+<div class="summary-description">Get the windows currently attached to this display.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+        <h2>Method Details</h2>
+<table class="details">
+</table>
+<a name="get_screens"></a>
+<div class=" detail">
+  <h3>get_screens</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_screens</span>(<span class="sig-arg">self</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the available screens.</p>
+<p>A typical multi-monitor workstation comprises one <a href="pyglet.window.Display-class.html" class="link">Display</a> with
+multiple <a href="pyglet.window.Screen-class.html" class="link">Screen</a> s.  This method returns a list of screens which
+can be enumerated to select one for full-screen display.</p>
+<p>For the purposes of creating an OpenGL config, the default screen
+will suffice.</p>
+  <dl class="fields">
+    <dt>Returns: list of <a href="pyglet.window.Screen-class.html" class="link">Screen</a></dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;<a href="pyglet.window-module.html">window</a>&nbsp;.&nbsp;Display
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:20 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>

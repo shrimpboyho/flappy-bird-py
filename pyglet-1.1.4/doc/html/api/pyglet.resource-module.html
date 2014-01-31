@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyglet.resource</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;resource
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module pyglet.resource</h1>
+<p>Load application resources from a known path.</p>
+<p>Loading resources by specifying relative paths to filenames is often
+problematic in Python, as the working directory is not necessarily the same
+directory as the application's script files.</p>
+<p>This module allows applications to specify a search path for resources.
+Relative paths are taken to be relative to the application's __main__ module.
+ZIP files can appear on the path; they will be searched inside.  The resource
+module also behaves as expected when applications are bundled using py2exe or
+py2app.</p>
+<p>As well as providing file references (with the file function), the resource
+module also contains convenience functions for loading images, textures,
+fonts, media and documents.</p>
+<p>3rd party modules or packages not bound to a specific application should
+construct their own <a href="pyglet.resource.Loader-class.html" class="link">Loader</a> instance and override the path to use the
+resources in the module's directory.</p>
+<div class="rst-section" id="rst-path-format">
+<h1 class="heading">Path format</h1>
+<p>The resource path <a href="pyglet.resource-module.html#path" class="link">path</a> (see also <a href="pyglet.resource.Loader-class.html#__init__" class="link">Loader.__init__</a> and <a href="pyglet.resource.Loader-class.html#path" class="link">Loader.path</a>)
+is a list of locations to search for resources.  Locations are searched in the
+order given in the path.  If a location is not valid (for example, if the
+directory does not exist), it is skipped.</p>
+<p>Locations in the path beginning with an ampersand (''&#64;'' symbol) specify
+Python packages.  Other locations specify a ZIP archive or directory on the
+filesystem.  Locations that are not absolute are assumed to be relative to the
+script home.  Some examples:</p>
+<pre class="py-doctest">
+<span class="py-comment"># Search just the `res` directory, assumed to be located alongside the</span>
+<span class="py-comment"># main script file.</span>
+path = [<span class="py-string">'res'</span>]
+
+<span class="py-comment"># Search the directory containing the module `levels.level1`, followed</span>
+<span class="py-comment"># by the `res/images` directory.</span>
+path = [<span class="py-string">'@levels.level1'</span>, <span class="py-string">'res/images'</span>]</pre>
+<p>Paths are always case-sensitive and forward slashes are always used as path
+separators, even in cases when the filesystem or platform does not do this.
+This avoids a common programmer error when porting applications between
+platforms.</p>
+<p>The default path is <tt class="rst-docutils literal"><span class="pre">['.']</span></tt>.  If you modify the path, you must call
+reindex.</p>
+</div>
+
+<div class="fields">      <p><strong>Since:</strong>
+        pyglet 1.1
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+        <h2>Classes</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.resource.ResourceNotFoundException-class.html" class="summary-name">ResourceNotFoundException</a>
+<div class="summary-description">The named resource was not found on the search path.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.resource.Location-class.html" class="summary-name">Location</a>
+<div class="summary-description">Abstract resource location.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.resource.FileLocation-class.html" class="summary-name">FileLocation</a>
+<div class="summary-description">Location on the filesystem.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.resource.ZIPLocation-class.html" class="summary-name">ZIPLocation</a>
+<div class="summary-description">Location within a ZIP file.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.resource.URLLocation-class.html" class="summary-name">URLLocation</a>
+<div class="summary-description">Location on the network.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyglet.resource.Loader-class.html" class="summary-name">Loader</a>
+<div class="summary-description">Load program resource files from disk.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+        <h2>Functions</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#get_script_home" class="summary-sig-name">get_script_home</a>()</span>
+<div class="summary-description">Get the directory containing the program entry module.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#get_settings_path" class="summary-sig-name">get_settings_path</a>(<span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Get a directory to save user preferences.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#reindex" class="summary-sig-name">reindex</a>()</span>
+<div class="summary-description">Refresh the file index.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">file object</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#file" class="summary-sig-name">file</a>(<span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">rb</code><code class="variable-quote">'</code></span>)</span>
+<div class="summary-description">Load a resource.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.resource.Location-class.html" class="link">Location</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#location" class="summary-sig-name">location</a>(<span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Get the location of a resource.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#add_font" class="summary-sig-name">add_font</a>(<span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Add a font resource to the application.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Texture-class.html" class="link">Texture</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#image" class="summary-sig-name">image</a>(<span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">flip_x</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">flip_y</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">rotate</span>=<span class="summary-sig-default">0</span>)</span>
+<div class="summary-description">Load an image with optional transformation.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Animation-class.html" class="link">Animation</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#animation" class="summary-sig-name">animation</a>(<span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">flip_x</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">flip_y</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">rotate</span>=<span class="summary-sig-default">0</span>)</span>
+<div class="summary-description">Load an animation with optional transformation.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#get_cached_image_names" class="summary-sig-name">get_cached_image_names</a>()</span>
+<div class="summary-description">Get a list of image filenames that have been cached.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#get_cached_animation_names" class="summary-sig-name">get_cached_animation_names</a>()</span>
+<div class="summary-description">Get a list of animation filenames that have been cached.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#get_texture_bins" class="summary-sig-name">get_texture_bins</a>()</span>
+<div class="summary-description">Get a list of texture bins in use.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.media.Source-class.html" class="link">media.Source</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#media" class="summary-sig-name">media</a>(<span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">streaming</span>=<span class="summary-sig-default">True</span>)</span>
+<div class="summary-description">Load a sound or video resource.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.image.Texture-class.html" class="link">Texture</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#texture" class="summary-sig-name">texture</a>(<span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Load a texture.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.document.FormattedDocument-class.html" class="link">FormattedDocument</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#html" class="summary-sig-name">html</a>(<span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Load an HTML document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.document.FormattedDocument-class.html" class="link">FormattedDocument</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#attributed" class="summary-sig-name">attributed</a>(<span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Load an attributed text document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><a href="pyglet.text.document.UnformattedDocument-class.html" class="link">UnformattedDocument</a></span>
+    </td><td class="summary">
+        <span class="summary-sig"><a href="pyglet.resource-module.html#text" class="summary-sig-name">text</a>(<span class="summary-sig-arg">name</span>)</span>
+<div class="summary-description">Load a plain text document.</div>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of str</span>
+    </td><td class="summary">
+        <span class="summary-sig"><a name="get_cached_texture_names"></a><span class="summary-sig-name">get_cached_texture_names</span>()</span>
+<div class="summary-description">Get the names of textures currently cached.</div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+        <h2>Variables</h2>
+<table class="summary">
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="path"></a><span class="summary-name">path</span> = <code title="['.']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">.</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'pyglet'"><code class="variable-quote">'</code><code class="variable-string">pyglet</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+        <h2>Function Details</h2>
+<table class="details">
+</table>
+<a name="get_script_home"></a>
+<div class=" detail">
+  <h3>get_script_home</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_script_home</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the directory containing the program entry module.</p>
+<p>For ordinary Python scripts, this is the directory containing the
+<tt class="rst-docutils literal">__main__</tt> module.  For executables created with py2exe the result is
+the directory containing the running executable file.  For OS X bundles
+created using Py2App the result is the Resources directory within the
+running bundle.</p>
+<p>If none of the above cases apply and the file for <tt class="rst-docutils literal">__main__</tt> cannot
+be determined the working directory is returned.</p>
+  <dl class="fields">
+    <dt>Returns: str</dt>
+  </dl>
+  </div>
+</div>
+<a name="get_settings_path"></a>
+<div class=" detail">
+  <h3>get_settings_path</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_settings_path</span>(<span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a directory to save user preferences.</p>
+<p>Different platforms have different conventions for where to save user
+preferences, saved games, and settings.  This function implements those
+conventions.  Note that the returned path may not exist: applications
+should use <tt class="rst-docutils literal">os.makedirs</tt> to construct it if desired.</p>
+<p>On Linux, a hidden directory <code class="link">name</code> in the user's home directory is
+returned.</p>
+<p>On Windows (including under Cygwin) the <code class="link">name</code> directory in the user's
+<tt class="rst-docutils literal">Application Settings</tt> directory is returned.</p>
+<p>On Mac OS X the <code class="link">name</code> directory under <tt class="rst-docutils literal">~/Library/Application Support</tt>
+is returned.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>The name of the application.</dd>
+    </dl></dd>
+    <dt>Returns: str</dt>
+  </dl>
+  </div>
+</div>
+<a name="reindex"></a>
+<div class=" detail">
+  <h3>reindex</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">reindex</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>Refresh the file index.</p>
+<p>You must call this method if <a href="pyglet.resource-module.html#path" class="link">path</a> is changed or the filesystem
+layout changes.</p>
+  <dl class="fields">
+  </dl>
+  </div>
+</div>
+<a name="file"></a>
+<div class=" detail">
+  <h3>file</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">file</span>(<span class="sig-arg">name</span>,
+        <span class="sig-arg">mode</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">rb</code><code class="variable-quote">'</code></span>)</span>
+    </div>
+  <div class="detail-description">
+  Load a resource.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the resource to load.</dd>
+        <dt><span class="pname">mode</span> : <span class='ptype'>str</span></dt>
+        <dd>Combination of <tt class="rst-docutils literal">r</tt>, <tt class="rst-docutils literal">w</tt>, <tt class="rst-docutils literal">a</tt>, <tt class="rst-docutils literal">b</tt> and <tt class="rst-docutils literal">t</tt> characters
+with the meaning as for the builtin <tt class="rst-docutils literal">open</tt> function.</dd>
+    </dl></dd>
+    <dt>Returns: file object</dt>
+  </dl>
+  </div>
+</div>
+<a name="location"></a>
+<div class=" detail">
+  <h3>location</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">location</span>(<span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Get the location of a resource.</p>
+<p>This method is useful for opening files referenced from a resource.
+For example, an HTML file loaded as a resource might reference some
+images.  These images should be located relative to the HTML file, not
+looked up individually in the loader's path.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the resource to locate.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.resource.Location-class.html" class="link">Location</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="add_font"></a>
+<div class=" detail">
+  <h3>add_font</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">add_font</span>(<span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Add a font resource to the application.</p>
+<p>Fonts not installed on the system must be added to pyglet before they
+can be used with font.load.  Although the font is added with
+its filename using this function, it is loaded by specifying its
+family name.  For example:</p>
+<pre class="py-doctest">
+resource.add_font(<span class="py-string">'action_man.ttf'</span>)
+action_man = font.load(<span class="py-string">'Action Man'</span>)</pre>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the font resource to add.</dd>
+    </dl></dd>
+  </dl>
+  </div>
+</div>
+<a name="image"></a>
+<div class=" detail">
+  <h3>image</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">image</span>(<span class="sig-arg">name</span>,
+        <span class="sig-arg">flip_x</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">flip_y</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">rotate</span>=<span class="sig-default">0</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Load an image with optional transformation.</p>
+<p>This is similar to texture, except the resulting image will be
+packed into a <a href="pyglet.image.atlas.TextureBin-class.html" class="link">TextureBin</a> if it is an appropriate size for packing.
+This is more efficient than loading images into separate textures.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the image source to load.</dd>
+        <dt><span class="pname">flip_x</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the returned image will be flipped horizontally.</dd>
+        <dt><span class="pname">flip_y</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the returned image will be flipped vertically.</dd>
+        <dt><span class="pname">rotate</span> : <span class='ptype'>int</span></dt>
+        <dd>The returned image will be rotated clockwise by the given
+number of degrees (a multiple of 90).</dd>
+    </dl></dd>
+    <dt>Returns:</dt>
+        <dd><span class="rtype"><a href="pyglet.image.Texture-class.html" class="link">Texture</a></span>: A complete texture if the image is large, otherwise a
+<a href="pyglet.image.TextureRegion-class.html" class="link">TextureRegion</a> of a texture atlas.</dd>
+  </dl>
+  </div>
+</div>
+<a name="animation"></a>
+<div class=" detail">
+  <h3>animation</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">animation</span>(<span class="sig-arg">name</span>,
+        <span class="sig-arg">flip_x</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">flip_y</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">rotate</span>=<span class="sig-default">0</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Load an animation with optional transformation.</p>
+<p>Animations loaded from the same source but with different
+transformations will use the same textures.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the animation source to load.</dd>
+        <dt><span class="pname">flip_x</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the returned image will be flipped horizontally.</dd>
+        <dt><span class="pname">flip_y</span> : <span class='ptype'>bool</span></dt>
+        <dd>If True, the returned image will be flipped vertically.</dd>
+        <dt><span class="pname">rotate</span> : <span class='ptype'>int</span></dt>
+        <dd>The returned image will be rotated clockwise by the given
+number of degrees (a multiple of 90).</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.image.Animation-class.html" class="link">Animation</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="get_cached_image_names"></a>
+<div class=" detail">
+  <h3>get_cached_image_names</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_cached_image_names</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a list of image filenames that have been cached.</p>
+<p>This is useful for debugging and profiling only.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">list</span>: List of str</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_cached_animation_names"></a>
+<div class=" detail">
+  <h3>get_cached_animation_names</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_cached_animation_names</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a list of animation filenames that have been cached.</p>
+<p>This is useful for debugging and profiling only.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">list</span>: List of str</dd>
+  </dl>
+  </div>
+</div>
+<a name="get_texture_bins"></a>
+<div class=" detail">
+  <h3>get_texture_bins</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">get_texture_bins</span>()</span>
+    </div>
+  <div class="detail-description">
+  <p>Get a list of texture bins in use.</p>
+<p>This is useful for debugging and profiling only.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd><span class="rtype">list</span>: List of <a href="pyglet.image.atlas.TextureBin-class.html" class="link">TextureBin</a></dd>
+  </dl>
+  </div>
+</div>
+<a name="media"></a>
+<div class=" detail">
+  <h3>media</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">media</span>(<span class="sig-arg">name</span>,
+        <span class="sig-arg">streaming</span>=<span class="sig-default">True</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Load a sound or video resource.</p>
+<p>The meaning of <code class="link">streaming</code> is as for media.load.  Compressed
+sources cannot be streamed (that is, video and compressed audio
+cannot be streamed from a ZIP archive).</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the media source to load.</dd>
+        <dt><span class="pname">streaming</span> : <span class='ptype'>bool</span></dt>
+        <dd>True if the source should be streamed from disk, False if
+it should be entirely decoded into memory immediately.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.media.Source-class.html" class="link">media.Source</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="texture"></a>
+<div class=" detail">
+  <h3>texture</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">texture</span>(<span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Load a texture.</p>
+<p>The named image will be loaded as a single OpenGL texture.  If the
+dimensions of the image are not powers of 2 a <a href="pyglet.image.TextureRegion-class.html" class="link">TextureRegion</a> will
+be returned.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the image resource to load.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.image.Texture-class.html" class="link">Texture</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="html"></a>
+<div class=" detail">
+  <h3>html</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">html</span>(<span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  Load an HTML document.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the HTML resource to load.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.text.document.FormattedDocument-class.html" class="link">FormattedDocument</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="attributed"></a>
+<div class=" detail">
+  <h3>attributed</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">attributed</span>(<span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  <p>Load an attributed text document.</p>
+<p>See <a href="pyglet.text.formats.attributed-module.html" class="link">pyglet.text.formats.attributed</a> for details on this format.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the attribute text resource to load.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.text.document.FormattedDocument-class.html" class="link">FormattedDocument</a></dt>
+  </dl>
+  </div>
+</div>
+<a name="text"></a>
+<div class=" detail">
+  <h3>text</h3>
+  <div class="detail-signature">
+    <span class="sig"><span class="sig-name">text</span>(<span class="sig-arg">name</span>)</span>
+    </div>
+  <div class="detail-description">
+  Load a plain text document.
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><dl class="parameters">
+        <dt><span class="pname">name</span> : <span class='ptype'>str</span></dt>
+        <dd>Filename of the plain text resource to load.</dd>
+    </dl></dd>
+    <dt>Returns: <a href="pyglet.text.document.UnformattedDocument-class.html" class="link">UnformattedDocument</a></dt>
+  </dl>
+  </div>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar">
+  <tr valign="middle">
+  <!-- Project homepage -->
+      <!--<th class="navbar" 
+            ><a class="navbar" target="_top" href="http://www.pyglet.org/">pyglet API reference</a></th>-->
+
+  <!-- Tree link -->
+      <th><a
+        href="module-tree.html">Trees</a></th>
+
+  <!-- Index link -->
+      <th><a
+        href="identifier-index.html">Indices</a></th>
+
+  <!-- Breadcrumbs -->
+      <th class="navbar-breadcrumbs">
+        <span class="breadcrumbs">
+          <a href="pyglet-module.html">pyglet</a>&nbsp;.&nbsp;resource
+        </span>
+      </th>
+
+      <th class="navbar last">
+        <a href="javascript:toggleFrames()">Toggle&nbsp;frames</a>
+      </th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Dec 31 17:58:18 2009
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>
