@@ -2,7 +2,7 @@ import pyglet
 from pyglet.window import key
 
 # Create the window
-window = pyglet.window.Window(300,500)
+window = pyglet.window.Window(200,600)
 
 # Get the sprites set up
 bird_image = pyglet.resource.image('assets/sprites/sheet.png')
