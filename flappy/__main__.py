@@ -29,6 +29,7 @@ bird_sprite.x = 10
 
 # Get game status booleans set up
 titleScreenMode = True
+gameOverScreenMode = False
 
 # Handle the keypress
 @window.event
@@ -43,6 +44,7 @@ def on_mouse_press(x, y, button, modifiers):
         print 'The left mouse button was pressed at %d, %d' % (x, y)
 	# TODO: Add logic for switching game states
 
+# Handle the drawing
 @window.event
 def on_draw():
     # Clear the window
