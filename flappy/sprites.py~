@@ -25,4 +25,4 @@ bird_images = [
 
 bird_animation = pyglet.image.Animation.from_image_sequence(bird_images, .500, loop=True)
 bird_sprite = pyglet.sprite.Sprite(bird_animation)
-bird_sprite.set_position(50, 50)
+bird_sprite.set_position(0, 0)
