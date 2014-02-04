@@ -22,6 +22,7 @@ def changeState(state):
     global gamePlayScreenMode
     global gameOverScreenMode
     global instructionsScreenMode
+    global bird_sprite
 
     if(state == 'title'):
 	titleScreenMode = True
@@ -53,6 +54,9 @@ def changeState(state):
         gamePlayScreenMode = False
         gameOverScreenMode = False
 	instructionsScreenMode = True
+
+# Set up the current state as the title screen
+changeState('title')
 
 # Set up buffer variables
 bufferedHeight = 256
@@ -121,6 +125,9 @@ def on_mouse_press(x, y, button, modifiers):
         if(instructionsScreenMode):
 	    pass
 
+# Grab fps count
+fps_display = pyglet.clock.ClockDisplay()
+
 # Handle the drawing
 @window.event
 def on_draw():
@@ -140,6 +147,7 @@ def on_draw():
     # Draw the title screen if nessecary
     if(titleScreenMode):
     	title_sprite.draw()
+	bird_sprite.draw()
 
     # Draw the gameplay screen if nessecary
     if(titleScreenMode):
@@ -156,4 +164,6 @@ def on_draw():
     # Draw the instructions screen if nessecary
     if(instructionsScreenMode):
     	instructions_sprite.draw()
-	bird_sprite.draw()
+	bird_sprite2.draw()
+
+    fps_display.draw()

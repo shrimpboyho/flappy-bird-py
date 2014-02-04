@@ -1,17 +1,10 @@
-# set up screen transitioning
-titleScreenMode = True
-highScoreScreenMode = False
-gamePlayScreenMode = False
-gameOverScreenMode = False
-instructionsScreenMode = False
-pause = False
-
 def changeState(state):
     global titleScreenMode
     global highScoreScreenMode
     global gamePlayScreenMode
     global gameOverScreenMode
     global instructionsScreenMode
+    global bird_sprite
 
     if(state == 'title'):
 	titleScreenMode = True
@@ -43,4 +36,3 @@ def changeState(state):
         gamePlayScreenMode = False
         gameOverScreenMode = False
 	instructionsScreenMode = True
-
