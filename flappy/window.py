@@ -58,6 +58,8 @@ def changeState(state):
 bufferedHeight = 256
 bufferedWidth = 144
 
+#glScalef(2.0, 2.0, 2.0)
+
 # Create the window
 window = pyglet.window.Window(bufferedWidth, bufferedHeight, resizable=True)
 
