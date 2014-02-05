@@ -1,7 +1,7 @@
 import pyglet
 from sprites import *
 
-class Bird:
+class Bird(pyglet.sprite.Sprite):
     TLX = 0
     TLY = 0
     TRX = 0
@@ -10,7 +10,7 @@ class Bird:
     BLY = 0
     BRX = 0
     BRY = 0
-    player_sprite = pyglet.sprite.Sprite(bird_animation)
-
     def move(this, x, y):
-        pass
+        self.set_position(self.x + x, self.y + y)
+    def set_angle(this, angle):
+        self.rotation = angle

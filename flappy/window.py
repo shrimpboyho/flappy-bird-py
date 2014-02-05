@@ -97,7 +97,7 @@ def on_key_press(symbol, modifiers):
 
 # Handle mouse presses
 @window.event
-def on_mouse_press(x, y, button, modifiers):
+def on_mouse_release(x, y, button, modifiers):
     global titleScreenMode
     global highScoreScreenMode
     global gamePlayScreenMode
@@ -106,7 +106,11 @@ def on_mouse_press(x, y, button, modifiers):
 
     if button == mouse.LEFT:
         print 'The left mouse button was pressed at %d, %d' % (x, y)
-	# Add logic for switching game states
+	
+	""" Add logic for switching game states """
+	if(instructionsScreenMode):
+	    changeState('gameplay')
+	    print "Changed to gameplay screen"
 	if(titleScreenMode):
 	    # Play button logic
 	    if(x > 21 and x < 60 and y > 63 and y < 75):
@@ -122,11 +126,13 @@ def on_mouse_press(x, y, button, modifiers):
 	    pass
         if(highScoreScreenMode):
 	    pass
-        if(instructionsScreenMode):
-	    pass
 
 # Grab fps count
 fps_display = pyglet.clock.ClockDisplay()
+
+# Create the player object
+
+player = Bird(bird_animation)
 
 # Handle the drawing
 @window.event
@@ -150,8 +156,8 @@ def on_draw():
 	bird_sprite.draw()
 
     # Draw the gameplay screen if nessecary
-    if(titleScreenMode):
-    	pass
+    if(gamePlayScreenMode):
+    	player.draw()
 
     # Draw the highscore screen if nessecary
     if(highScoreScreenMode):
