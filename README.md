@@ -9,4 +9,4 @@ $ cd flappy-bird-py
 $ make
 ```
 
-<img src = "flappy.PNG">
+<img src = "flappy.png">
