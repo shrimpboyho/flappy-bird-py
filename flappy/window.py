@@ -132,7 +132,8 @@ fps_display = pyglet.clock.ClockDisplay()
 
 # Create the player object
 
-player = Bird(bird_animation)
+player = Bird(bird_animation, 41, 120)
+pyglet.clock.schedule_interval(player.bounce_player, .05)
 
 # Handle the drawing
 @window.event
@@ -157,7 +158,8 @@ def on_draw():
 
     # Draw the gameplay screen if nessecary
     if(gamePlayScreenMode):
-    	player.draw()
+    	background_sprite.draw()
+        player.draw()
 
     # Draw the highscore screen if nessecary
     if(highScoreScreenMode):
