@@ -71,3 +71,6 @@ class Bird(pyglet.sprite.Sprite):
     # Begin the bouncing
     def begin_bouncing(self):
         self.CLOCK.schedule_interval(self.bounce_player, .05)
+    # End the bouncing
+    def end_bouncing(self):
+        self.CLOCK.unschedule(self.bounce_player)

@@ -97,15 +97,23 @@ def on_key_press(symbol, modifiers):
 
 # Handle mouse presses
 @window.event
+def on_mouse_press(x, y, button, modifiers):
+    global player
+    if button == mouse.LEFT:
+        pyglet.clock.unschedule(player.bounce_player)
+
+@window.event
 def on_mouse_release(x, y, button, modifiers):
     global titleScreenMode
     global highScoreScreenMode
     global gamePlayScreenMode
     global gameOverScreenMode
     global instructionsScreenMode
+    global player
 
     if button == mouse.LEFT:
         print 'The left mouse button was pressed at %d, %d' % (x, y)
+        pyglet.clock.schedule_interval(player.bounce_player, .05)
 	
 	""" Add logic for switching game states """
 	if(instructionsScreenMode):
@@ -121,17 +129,16 @@ def on_mouse_release(x, y, button, modifiers):
 	        changeState('highscores')
 		print "Changed to highscores screen"
         if(gamePlayScreenMode):
-	    pass
+	   pass
         if(gameOverScreenMode):
-	    pass
+	   pass
         if(highScoreScreenMode):
-	    pass
+	   pass
 
 # Grab fps count
 fps_display = pyglet.clock.ClockDisplay()
 
 # Create the player object
-
 player = Bird(bird_animation, 41, 120)
 pyglet.clock.schedule_interval(player.bounce_player, .05)
 
