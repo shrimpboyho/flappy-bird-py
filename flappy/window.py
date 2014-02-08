@@ -161,6 +161,7 @@ def on_draw():
     # Draw the title screen if nessecary
     if(titleScreenMode):
     	title_sprite.draw()
+	flappybird_sprite.draw()
 	bird_sprite.draw()
 
     # Draw the gameplay screen if nessecary
