@@ -85,7 +85,7 @@ class Bird(pyglet.sprite.Sprite):
 	    img = pyglet.resource.image('assets/sprites/' + dig + '.png')
 	    img.height = img.height * 2
 	    img.width = img.width * 2
-	    picdig.append(pyglet.resource.image('assets/sprites/' + dig + '.png'))
-	# TODO: Implement better drawing algo
+	    picdig.append(img)
+	# TODO: Implement better drawing algo to handle drawing double digit scores
 	for pic in picdig:
 	    pic.blit(64,204)
