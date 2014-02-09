@@ -10,3 +10,7 @@ $ make
 ```
 
 <img src = "flappy.png">
+
+##Help Out
+
+This project is nowhere near completion, and we need writers for a physics engine and a score keeping mechanism. If you think you can help out with that feel free to fork the project and begin contributing right away!
