@@ -168,6 +168,7 @@ def on_draw():
     if(gamePlayScreenMode):
     	background_sprite.draw()
         player.draw()
+	player.draw_score()
 
     # Draw the highscore screen if nessecary
     if(highScoreScreenMode):

@@ -2,7 +2,7 @@ import pyglet
 import threading
 from sprites import *
 
-# BIRD BOUNCING
+# BIRD BOUNCING GLOBAL VARIABLES
 birdbouncecount = 0
 birdbouncebool = 'up'
 
@@ -71,6 +71,21 @@ class Bird(pyglet.sprite.Sprite):
     # Begin the bouncing
     def begin_bouncing(self):
         self.CLOCK.schedule_interval(self.bounce_player, .05)
+
     # End the bouncing
     def end_bouncing(self):
         self.CLOCK.unschedule(self.bounce_player)
+
+    # Enable drawing of score
+    def draw_score(self):
+	scores = str(self.SCORE)
+	scoresl = scores.split()
+	picdig = []
+	for dig in scoresl:
+	    img = pyglet.resource.image('assets/sprites/' + dig + '.png')
+	    img.height = img.height * 2
+	    img.width = img.width * 2
+	    picdig.append(pyglet.resource.image('assets/sprites/' + dig + '.png'))
+	# TODO: Implement better drawing algo
+	for pic in picdig:
+	    pic.blit(64,204)
