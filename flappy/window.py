@@ -70,15 +70,18 @@ window = pyglet.window.Window(bufferedWidth, bufferedHeight, resizable=True)
 
 # Handle the keypress
 @window.event
-def on_key_press(symbol, modifiers):
+def on_key_release(symbol, modifiers):
     global titleScreenMode
     global highScoreScreenMode
     global gamePlayScreenMode
     global gameOverScreenMode
     global instructionsScreenMode
+    global player
 
     if symbol == key.SPACE:
         print 'The SPACE key was pressed.'
+	player.jump()
+        player.acc = 0
     if symbol == key.PAGEUP:
         glScalef(2.0, 2.0, 2.0)
 	window.set_size(window.width * 2, window.height * 2)
@@ -88,31 +91,21 @@ def on_key_press(symbol, modifiers):
 
 # Handle mouse presses
 @window.event
-def on_mouse_press(x, y, button, modifiers):
-    global player
-    if button == mouse.LEFT:
-        pyglet.clock.unschedule(player.bounce_player)
-        player.jump()
-        player.acc = 0
-
-@window.event
 def on_mouse_release(x, y, button, modifiers):
     global titleScreenMode
     global highScoreScreenMode
     global gamePlayScreenMode
     global gameOverScreenMode
     global instructionsScreenMode
-    global player
 
     if button == mouse.LEFT:
         print 'The left mouse button was pressed at %d, %d' % (x, y)
-        pyglet.clock.schedule_interval(player.bounce_player, .05)
-	pyglet.clock.schedule_interval(player.gravity, .05)
 	
 	""" Add logic for switching game states """
 	if(instructionsScreenMode):
 	    changeState('gameplay')
 	    print "Changed to gameplay screen"
+	    pyglet.clock.schedule_interval(player.bounce_player, .05)
 	if(titleScreenMode):
 	    # Play button logic
 	    if(x > 21 and x < 60 and y > 63 and y < 75):
@@ -123,7 +116,9 @@ def on_mouse_release(x, y, button, modifiers):
 	        changeState('highscores')
 		print "Changed to highscores screen"
         if(gamePlayScreenMode):
+	   pyglet.clock.unschedule(player.gravity)
 	   pyglet.clock.schedule_interval(player.gravity, .05)
+	   pyglet.clock.unschedule(player.bounce_player)
         if(gameOverScreenMode):
 	   pass
         if(highScoreScreenMode):
@@ -134,7 +129,6 @@ fps_display = pyglet.clock.ClockDisplay()
 
 # Create the player object
 player = Bird(bird_animation, 41, 120)
-pyglet.clock.schedule_interval(player.bounce_player, .05)
 
 # Handle the drawing
 @window.event
@@ -165,8 +159,7 @@ def on_draw():
         player.draw()
 	player.draw_score()
 	# Make sure bird dies when it hits the ground
-	if(player.y <= 70):
-            pyglet.clock.unschedule(player.bounce_player)
+	if(player.y <= 60):
             player.image = middleflap_image
         else:
             ground_sprite.draw()

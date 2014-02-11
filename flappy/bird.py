@@ -17,7 +17,7 @@ class Bird(pyglet.sprite.Sprite):
     BLY = 0
     BRX = 0
     BRY = 0
-    acc = 0
+    dy = 75
     angacc = 0
 
     # Score data
@@ -94,31 +94,26 @@ class Bird(pyglet.sprite.Sprite):
 
     # Enable effect of gravity
     def gravity(self, dt):
-        if(self.y - self.acc >= 69):
-            self.move(0, -(1 + self.acc))
-            self.acc += .05
-        elif(self.y != 69):
-            self.move(0, - (self.y - 69))
+        if(self.y >= 60):
+            self.move(0, -(self.dy * dt))
         if(self.rotation < 90 or self.rotation < 450):
-            self.set_angle(self.rotation + self.angacc)
-            self.angacc += 1
+            self.set_angle(self.rotation + (self.dy * dt))
+            self.angacc += .05
 
     # Jump
     def jump(self):
-        global player
-        pyglet.clock.unschedule(self.gravity)
-        pyglet.clock.unschedule(self.bounce_player)
-        self.acc = 0
         self.angacc = 0
-        self.move(0, 1)
+        self.move(0, 20)
         self.set_angle(355)
-        self.move(0, 1)
+        self.move(0, 2)
         self.set_angle(350)
-        self.move(0, 1)
+        self.move(0, 2)
         self.set_angle(345)
-        self.move(0, 1)
+        self.move(0, 2)
         self.set_angle(340)
-        self.move(0, 1)
+        self.move(0, 2)
         self.set_angle(335)
-        self.move(0, 1)
+        self.move(0, 2)
+	self.set_angle(330)
+        self.move(0, 2)
         
