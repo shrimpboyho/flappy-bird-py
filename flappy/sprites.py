@@ -23,10 +23,20 @@ downflap_image = pyglet.resource.image('assets/sprites/downflap.png')
 upflap_image = pyglet.resource.image('assets/sprites/upflap.png')
 middleflap_image = pyglet.resource.image('assets/sprites/middleflap.png')
 
+ground1_image = pyglet.resource.image('assets/sprites/ground1.png')
+ground2_image = pyglet.resource.image('assets/sprites/ground2.png')
+ground3_image = pyglet.resource.image('assets/sprites/ground3.png')
+
 bird_images = [
     downflap_image,
     middleflap_image,
     upflap_image
+]
+
+ground_images = [
+    ground1_image,
+    ground2_image,
+    ground3_image
 ]
 
 bird_animation = pyglet.image.Animation.from_image_sequence(bird_images, .100, loop=True)
@@ -37,6 +47,9 @@ bird_sprite2.set_position(41, 120)
 bouncebool = 'up'
 bouncebool2 = 'up'
 bouncebool3 = 'up'
+
+ground_animation = pyglet.image.Animation.from_image_sequence(ground_images, .100, loop=True)
+ground_sprite = pyglet.sprite.Sprite(ground_animation)
 
 def bounce2(dt):
     global bouncebool2

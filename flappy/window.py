@@ -163,6 +163,7 @@ def on_draw():
     	title_sprite.draw()
 	flappybird_sprite.draw()
 	bird_sprite.draw()
+	ground_sprite.draw()
 
     # Draw the gameplay screen if nessecary
     if(gamePlayScreenMode):
@@ -182,5 +183,6 @@ def on_draw():
     if(instructionsScreenMode):
     	instructions_sprite.draw()
 	bird_sprite2.draw()
+	ground_sprite.draw()
 
     fps_display.draw()
