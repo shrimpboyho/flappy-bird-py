@@ -92,6 +92,8 @@ def on_mouse_press(x, y, button, modifiers):
     global player
     if button == mouse.LEFT:
         pyglet.clock.unschedule(player.bounce_player)
+        player.jump()
+        player.acc = 0
 
 @window.event
 def on_mouse_release(x, y, button, modifiers):
@@ -105,6 +107,7 @@ def on_mouse_release(x, y, button, modifiers):
     if button == mouse.LEFT:
         print 'The left mouse button was pressed at %d, %d' % (x, y)
         pyglet.clock.schedule_interval(player.bounce_player, .05)
+	pyglet.clock.schedule_interval(player.gravity, .05)
 	
 	""" Add logic for switching game states """
 	if(instructionsScreenMode):
@@ -120,7 +123,7 @@ def on_mouse_release(x, y, button, modifiers):
 	        changeState('highscores')
 		print "Changed to highscores screen"
         if(gamePlayScreenMode):
-	   pass
+	   pyglet.clock.schedule_interval(player.gravity, .05)
         if(gameOverScreenMode):
 	   pass
         if(highScoreScreenMode):
@@ -161,6 +164,12 @@ def on_draw():
     	background_sprite.draw()
         player.draw()
 	player.draw_score()
+	# Make sure bird dies when it hits the ground
+	if(player.y <= 70):
+            pyglet.clock.unschedule(player.bounce_player)
+            player.image = middleflap_image
+        else:
+            ground_sprite.draw()
 
     # Draw the highscore screen if nessecary
     if(highScoreScreenMode):

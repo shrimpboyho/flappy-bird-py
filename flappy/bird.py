@@ -17,6 +17,8 @@ class Bird(pyglet.sprite.Sprite):
     BLY = 0
     BRX = 0
     BRY = 0
+    acc = 0
+    angacc = 0
 
     # Score data
     SCORE = 0
@@ -33,7 +35,7 @@ class Bird(pyglet.sprite.Sprite):
     # Move function
     def move(self, x, y):
         self.set_position(self.x + x, self.y + y)
-        self.update_edges()
+        #self.update_edges()
     
     # Set the sprite angle
     def set_angle(self, angle):
@@ -89,3 +91,34 @@ class Bird(pyglet.sprite.Sprite):
 	# TODO: Implement better drawing algo to handle drawing double digit scores
 	for pic in picdig:
 	    pic.blit(64,204)
+
+    # Enable effect of gravity
+    def gravity(self, dt):
+        if(self.y - self.acc >= 69):
+            self.move(0, -(1 + self.acc))
+            self.acc += .05
+        elif(self.y != 69):
+            self.move(0, - (self.y - 69))
+        if(self.rotation < 90 or self.rotation < 450):
+            self.set_angle(self.rotation + self.angacc)
+            self.angacc += 1
+
+    # Jump
+    def jump(self):
+        global player
+        pyglet.clock.unschedule(self.gravity)
+        pyglet.clock.unschedule(self.bounce_player)
+        self.acc = 0
+        self.angacc = 0
+        self.move(0, 1)
+        self.set_angle(355)
+        self.move(0, 1)
+        self.set_angle(350)
+        self.move(0, 1)
+        self.set_angle(345)
+        self.move(0, 1)
+        self.set_angle(340)
+        self.move(0, 1)
+        self.set_angle(335)
+        self.move(0, 1)
+        
