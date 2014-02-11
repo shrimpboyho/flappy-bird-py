@@ -62,26 +62,11 @@ changeState('title')
 bufferedHeight = 256
 bufferedWidth = 144
 
-#glScalef(2.0, 2.0, 2.0)
+# Scale resolution
+glScalef(1.0, 1.0, 1.0)
 
 # Create the window
 window = pyglet.window.Window(bufferedWidth, bufferedHeight, resizable=True)
-
-# TODO: Get the resize event working
-@window.event
-def on_resize(width, height):
-    global titleScreenMode
-    global highScoreScreenMode
-    global gamePlayScreenMode
-    global gameOverScreenMode
-    global instructionsScreenMode
-
-    global bufferedHeight, bufferedWidth
-
-    print 'The window was resized to %dx%d' % (width, height)
-    glScalef(width / bufferedWidth, height / bufferedHeight, 2.0 ) 
-    bufferedHeight = height
-    bufferedWidth = width
 
 # Handle the keypress
 @window.event
@@ -94,6 +79,12 @@ def on_key_press(symbol, modifiers):
 
     if symbol == key.SPACE:
         print 'The SPACE key was pressed.'
+    if symbol == key.PAGEUP:
+        glScalef(2.0, 2.0, 2.0)
+	window.set_size(window.width * 2, window.height * 2)
+    if symbol == key.PAGEDOWN:
+        glScalef(0.5, 0.5, 0.5)
+	window.set_size(window.width / 2 , window.height /2)
 
 # Handle mouse presses
 @window.event
