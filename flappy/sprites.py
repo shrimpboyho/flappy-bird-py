@@ -11,9 +11,17 @@ flappybird_image = pyglet.resource.image('assets/sprites/flappybird.png')
 flappybird_sprite = pyglet.sprite.Sprite(flappybird_image)
 flappybird_sprite.set_position(10, 162)
 
-background_image = pyglet.resource.image('assets/sprites/background.png')
-background_sprite = pyglet.sprite.Sprite(background_image)
-background_sprite.set_position(0, 0)
+background_image1 = pyglet.resource.image('assets/sprites/background.png')
+background_sprite1 = pyglet.sprite.Sprite(background_image1)
+background_sprite1.set_position(0, 0)
+
+background_image2 = pyglet.resource.image('assets/sprites/background.png')
+background_sprite2 = pyglet.sprite.Sprite(background_image2)
+background_sprite2.set_position(144, 0)
+
+background_image3 = pyglet.resource.image('assets/sprites/background.png')
+background_sprite3 = pyglet.sprite.Sprite(background_image3)
+background_sprite3.set_position(288, 0)
 
 instructions_image = pyglet.resource.image('assets/sprites/instructions.png')
 instructions_sprite = pyglet.sprite.Sprite(instructions_image)

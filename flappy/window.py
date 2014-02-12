@@ -68,6 +68,7 @@ changeState('title')
 bufferedHeight = 256    
 bufferedWidth = 144
 
+
 #glScalef(2.0, 2.0, 2.0)
 
 # Create the window
@@ -105,9 +106,10 @@ def on_key_press(symbol, modifiers):
 # Handle mouse presses
 @window.event
 def on_mouse_press(x, y, button, modifiers):
-    global player
+    global player, gamePlayScreenMode
     print 'The left mouse button was pressed at %d, %d' % (x, y)
-    player.bounce_player_game(1)
+    if gamePlayScreenMode:
+        player.bounce_player_game(1)
 
 @window.event
 def on_mouse_release(x, y, button, modifiers):
@@ -142,6 +144,20 @@ def on_mouse_release(x, y, button, modifiers):
         if highScoreScreenMode:
             pass
 
+def movebg(number):
+    global background_sprite1, background_sprite2, background_sprite3, gamePlayScreenMode, bufferedWidth
+    if (gamePlayScreenMode):
+        background_sprite1.x = background_sprite1.x - 1
+        background_sprite2.x = background_sprite2.x - 1
+        background_sprite3.x = background_sprite3.x - 1
+        
+        if background_sprite1.x <= -bufferedWidth:
+            background_sprite1.x = bufferedWidth
+        if background_sprite2.x <= -bufferedWidth:
+            background_sprite2.x = bufferedWidth
+        if background_sprite2.x <= -bufferedWidth:
+            background_sprite2.x = bufferedWidth
+
 # Grab fps count
 fps_display = pyglet.clock.ClockDisplay()
 
@@ -149,6 +165,7 @@ fps_display = pyglet.clock.ClockDisplay()
 player = Bird(bird_animation, 41, 120)
 pyglet.clock.schedule_interval(player.bounce_player, .05)
 pyglet.clock.schedule_interval(player.unbounce_player_game, .007)
+pyglet.clock.schedule_interval(movebg, .005) # update at 60Hz
 
 # Handle the drawing
 @window.event
@@ -174,7 +191,11 @@ def on_draw():
 
     # Draw the gameplay screen if nessecary
     if gamePlayScreenMode:
-        background_sprite.draw()
+        background_sprite1.draw()
+        background_sprite2.draw()
+        background_sprite3.draw()
+        
+
         player.draw()
     player.draw_score()
 
