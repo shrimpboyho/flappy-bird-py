@@ -29,7 +29,7 @@ bird_images = [
     upflap_image
 ]
 
-bird_animation = pyglet.image.Animation.from_image_sequence(bird_images, .100, loop=True)
+bird_animation = pyglet.image.Animation.from_image_sequence(bird_images, .05, loop=True)
 bird_sprite = pyglet.sprite.Sprite(bird_animation)
 bird_sprite.set_position(115, 171)
 bird_sprite2 = pyglet.sprite.Sprite(bird_animation)

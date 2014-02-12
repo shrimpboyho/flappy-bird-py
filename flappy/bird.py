@@ -57,16 +57,29 @@ class Bird(pyglet.sprite.Sprite):
     # Manipulate coordinate data to simulate bouncing
     def bounce_player(self, dt):
         global birdbouncebool, birdbouncecount
-        if(birdbouncebool == 'up' and birdbouncecount <= 5):
+
+        if birdbouncebool == 'up' and birdbouncecount <= 5:
             self.move(0, 1)
             birdbouncecount += 1
-        if(birdbouncecount == 5):
+
+        if birdbouncecount == 5:
             birdbouncebool = 'down'
-        if(birdbouncecount == 0):
+
+        if birdbouncecount == 0:
             birdbouncebool = 'up'
-        if(birdbouncebool == 'down' and birdbouncecount >= 0):
+
+        if birdbouncebool == 'down' and birdbouncecount >= 0:
             self.move(0, -1)
             birdbouncecount -= 1
+
+    # Manipulate coordinate data to simulate bouncing
+    def bounce_player_game(self, dt):
+        global birdbouncebool, birdbouncecount
+        self.move(0, 25)
+
+    def unbounce_player_game(self, dt):
+        global birdbouncebool, birdbouncecount
+        self.move(0, -.9)
 
     # Begin the bouncing
     def begin_bouncing(self):
