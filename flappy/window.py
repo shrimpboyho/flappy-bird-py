@@ -50,7 +50,6 @@ def changeState(state):
         gamePlayScreenMode = False
         gameOverScreenMode = False
         instructionsScreenMode = True
-        instructionsScreenMode = True
 
 
 # set up screen transitioning
@@ -72,28 +71,8 @@ bufferedWidth = 144
 # Scale resolution
 glScalef(1.0, 1.0, 1.0)
 
-#glScalef(2.0, 2.0, 2.0)
-
 # Create the window
 window = pyglet.window.Window(bufferedWidth, bufferedHeight, resizable=True)
-
-
-# TODO: Get the resize event working
-@window.event
-def on_resize(width, height):
-    global titleScreenMode
-    global highScoreScreenMode
-    global gamePlayScreenMode
-    global gameOverScreenMode
-    global instructionsScreenMode
-
-    global bufferedHeight, bufferedWidth
-
-    print 'The window was resized to %dx%d' % (width, height)
-    glScalef(width / bufferedWidth, height / bufferedHeight, 2.0 ) 
-
-    bufferedHeight = height
-    bufferedWidth = width
 
 # Handle the keypress
 @window.event
@@ -118,13 +97,6 @@ def on_key_release(symbol, modifiers):
 
 # Handle mouse presses
 @window.event
-def on_mouse_press(x, y, button, modifiers):
-    global player, gamePlayScreenMode
-    print 'The left mouse button was pressed at %d, %d' % (x, y)
-    if gamePlayScreenMode:
-        player.bounce_player_game(1)
-
-@window.event
 def on_mouse_release(x, y, button, modifiers):
     global titleScreenMode
     global highScoreScreenMode
@@ -134,7 +106,7 @@ def on_mouse_release(x, y, button, modifiers):
 
     if button == mouse.LEFT:
         print 'The left mouse button was pressed at %d, %d' % (x, y)
-	
+
 	""" Add logic for switching game states """
 	if(instructionsScreenMode):
 	    changeState('gameplay')
@@ -157,28 +129,6 @@ def on_mouse_release(x, y, button, modifiers):
 	   pass
         if(highScoreScreenMode):
 	   pass
-        print 'The left mouse button was released at %d, %d' % (x, y)
-        #pyglet.clock.schedule_interval(player.bounce_player, .05)
-
-    """ Add logic for switching game states """
-    if instructionsScreenMode:
-        changeState('gameplay')
-        print "Changed to gameplay screen"
-    if titleScreenMode:
-        # Play button logic
-        if (x > 21 and x < 60 and y > 63 and y < 75):
-            changeState('instructions')
-            print "Changed to instuctions screen"
-        # Score button logic
-        if (x > 80 and x < 119 and y > 63 and y < 75):
-            changeState('highscores')
-            print "Changed to highscores screen"
-        if gamePlayScreenMode:
-            pass
-        if gameOverScreenMode:
-            pass
-        if highScoreScreenMode:
-            pass
 
 def crash_pipe(sprite):
     global pipe_top_sprite, pipe_bottom_sprite
@@ -248,15 +198,16 @@ def on_draw():
 
     if titleScreenMode:
         title_sprite.draw()
-    flappybird_sprite.draw()
-    bird_sprite.draw()
+        flappybird_sprite.draw()
+        bird_sprite.draw()
 
     # Draw the gameplay screen if nessecary
     if gamePlayScreenMode:
         if crash_floor(player) or crash_pipe(player):
             gamePlayScreenMode = False
             gameOverScreenMode = True
-        schedule_events_to_play()
+        
+	schedule_events_to_play()
         background_sprite1.draw()
         background_sprite2.draw()
         background_sprite3.draw()
@@ -272,7 +223,7 @@ def on_draw():
         pipe_top_sprite.draw()
         pipe_bottom_sprite.draw()
 
-    player.draw_score()
+        player.draw_score()
     # Draw the highscore screen if nessecary
     if highScoreScreenMode:
         pass
