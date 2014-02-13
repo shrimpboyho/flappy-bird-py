@@ -60,6 +60,7 @@ gamePlayScreenMode = False
 gameOverScreenMode = False
 instructionsScreenMode = False
 pause = False
+gamePlayScreenModeStarted = False
 
 # Set up the current state as the title screen
 changeState('title')
@@ -101,7 +102,8 @@ def on_key_press(symbol, modifiers):
     global instructionsScreenMode
 
     if symbol == key.SPACE:
-        print 'The SPACE key was pressed.'
+        if gamePlayScreenMode:
+            player.bounce_player_game(1)
 
 # Handle mouse presses
 @window.event
@@ -144,6 +146,14 @@ def on_mouse_release(x, y, button, modifiers):
         if highScoreScreenMode:
             pass
 
+def crash_pipe(sprite):
+    global pipe_top_sprite, pipe_bottom_sprite
+    return collide([pipe_top_sprite, pipe_bottom_sprite], sprite)
+
+def crash_floor(sprite):
+    global bufferedHeight
+    return sprite.x > bufferedHeight or sprite.y <= 0
+
 def movebg(number):
     global background_sprite1, background_sprite2, background_sprite3, gamePlayScreenMode, bufferedWidth
     if (gamePlayScreenMode):
@@ -158,14 +168,24 @@ def movebg(number):
         if background_sprite2.x <= -bufferedWidth:
             background_sprite2.x = bufferedWidth
 
+        pipe_top_sprite.x = pipe_top_sprite.x - 1
+        pipe_bottom_sprite.x = pipe_bottom_sprite.x - 1
+        
+
 # Grab fps count
 fps_display = pyglet.clock.ClockDisplay()
 
 # Create the player object
 player = Bird(bird_animation, 41, 120)
-pyglet.clock.schedule_interval(player.bounce_player, .05)
-pyglet.clock.schedule_interval(player.unbounce_player_game, .007)
-pyglet.clock.schedule_interval(movebg, .005) # update at 60Hz
+#pyglet.clock.schedule_interval(player.bounce_player, .05)
+
+
+def schedule_events_to_play():
+    global gamePlayScreenModeStarted
+    if not gamePlayScreenModeStarted:
+        gamePlayScreenModeStarted = True
+        pyglet.clock.schedule_interval(player.unbounce_player_game, .007)
+        pyglet.clock.schedule_interval(movebg, .005) # update at 60Hz
 
 # Handle the drawing
 @window.event
@@ -182,7 +202,7 @@ def on_draw():
     # The following two lines will change how textures are scaled.
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST) 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
-    
+
     # Draw the title screen if nessecary
     if titleScreenMode:
         title_sprite.draw()
@@ -191,14 +211,17 @@ def on_draw():
 
     # Draw the gameplay screen if nessecary
     if gamePlayScreenMode:
+        if crash_floor(player) or crash_pipe(player):
+            gamePlayScreenMode = False
+        schedule_events_to_play()
         background_sprite1.draw()
         background_sprite2.draw()
         background_sprite3.draw()
-        
-
         player.draw()
-    player.draw_score()
+        pipe_top_sprite.draw()
+        pipe_bottom_sprite.draw()
 
+    player.draw_score()
     # Draw the highscore screen if nessecary
     if highScoreScreenMode:
         pass
