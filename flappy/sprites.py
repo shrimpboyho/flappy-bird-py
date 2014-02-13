@@ -25,12 +25,42 @@ downflap_image = pyglet.resource.image('assets/sprites/downflap.png')
 upflap_image = pyglet.resource.image('assets/sprites/upflap.png')
 middleflap_image = pyglet.resource.image('assets/sprites/middleflap.png')
 
-pipe_top_image = pyglet.resource.image('assets/sprites/sheet.png').get_region(300,120, 30, 200)
-pipe_top_sprite = pyglet.sprite.Sprite(pipe_top_image, 110, 120)
 
-pipe_bottom_image = pyglet.resource.image('assets/sprites/sheet.png').get_region(330, 120, 28, 136)
-pipe_bottom_sprite = pyglet.sprite.Sprite(pipe_bottom_image, 112, -60)
+PIPE_TOP_L = 300
+PIPE_TOP_R = 120
+PIPE_TOP_B = 30
+PIPE_TOP_T = 200
 
+PIPE_BTM_L = 330
+PIPE_BTM_R = 120
+PIPE_BTM_B = 30
+PIPE_BTM_T = 136
+
+pipes_batch = pyglet.graphics.Batch()
+pipe_top_sprite1 = pyglet.sprite.Sprite(
+    pyglet.resource.image('assets/sprites/sheet.png').
+    get_region(PIPE_TOP_L, PIPE_TOP_R, PIPE_TOP_B, PIPE_TOP_T), 0, 120, batch=pipes_batch
+)
+pipe_bottom_sprite1 = pyglet.sprite.Sprite(
+    pyglet.resource.image('assets/sprites/sheet.png').
+    get_region(PIPE_BTM_L, PIPE_BTM_R, PIPE_BTM_B, PIPE_BTM_T), 0, -60, batch=pipes_batch
+)
+pipe_top_sprite2 = pyglet.sprite.Sprite(
+    pyglet.resource.image('assets/sprites/sheet.png').
+    get_region(PIPE_TOP_L, PIPE_TOP_R, PIPE_TOP_B, PIPE_TOP_T), 144, 130, batch=pipes_batch
+)
+pipe_bottom_sprite2 = pyglet.sprite.Sprite(
+    pyglet.resource.image('assets/sprites/sheet.png').
+    get_region(PIPE_BTM_L, PIPE_BTM_R, PIPE_BTM_B, PIPE_BTM_T), 144, -60, batch=pipes_batch
+)
+pipe_top_sprite3 = pyglet.sprite.Sprite(
+    pyglet.resource.image('assets/sprites/sheet.png').
+    get_region(PIPE_TOP_L, PIPE_TOP_R, PIPE_TOP_B, PIPE_TOP_T), 288, 110, batch=pipes_batch
+)
+pipe_bottom_sprite3 = pyglet.sprite.Sprite(
+    pyglet.resource.image('assets/sprites/sheet.png').
+    get_region(PIPE_BTM_L, PIPE_BTM_R, PIPE_BTM_B, PIPE_BTM_T), 288, -80, batch=pipes_batch
+)
 
 bird_images = [
     downflap_image,

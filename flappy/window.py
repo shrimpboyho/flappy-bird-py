@@ -148,11 +148,18 @@ def on_mouse_release(x, y, button, modifiers):
 
 def crash_pipe(sprite):
     global pipe_top_sprite, pipe_bottom_sprite
-    return collide([pipe_top_sprite, pipe_bottom_sprite], sprite)
+    return collide([
+            pipe_top_sprite1,
+            pipe_bottom_sprite1,
+            pipe_top_sprite2,
+            pipe_bottom_sprite2,
+            pipe_top_sprite3,
+            pipe_bottom_sprite3,
+        ], sprite)
 
 def crash_floor(sprite):
     global bufferedHeight
-    return sprite.x > bufferedHeight or sprite.y <= 0
+    return sprite.y > bufferedHeight or sprite.y < 0
 
 def movebg(number):
     global gamePlayScreenMode, bufferedWidth
@@ -160,8 +167,15 @@ def movebg(number):
         background_sprite1.x = background_sprite1.x - 1
         background_sprite2.x = background_sprite2.x - 1
         background_sprite3.x = background_sprite3.x - 1
-        pipe_top_sprite.x = pipe_top_sprite.x - 2
-        pipe_bottom_sprite.x = pipe_bottom_sprite.x - 2
+
+        pipe_top_sprite1.x = pipe_top_sprite1.x - 2
+        pipe_bottom_sprite1.x = pipe_bottom_sprite1.x - 2
+
+        pipe_top_sprite2.x = pipe_top_sprite2.x - 2
+        pipe_bottom_sprite2.x = pipe_bottom_sprite2.x - 2
+
+        pipe_top_sprite3.x = pipe_top_sprite3.x - 2
+        pipe_bottom_sprite3.x = pipe_bottom_sprite3.x - 2
 
         if background_sprite1.x <= -bufferedWidth:
             background_sprite1.x = bufferedWidth
@@ -170,10 +184,19 @@ def movebg(number):
         if background_sprite2.x <= -bufferedWidth:
             background_sprite2.x = bufferedWidth
 
-        if pipe_top_sprite.x <= -bufferedWidth / 6:
-            pipe_top_sprite.x = bufferedWidth
-        if pipe_bottom_sprite.x <= -bufferedWidth / 6:
-            pipe_bottom_sprite.x = bufferedWidth
+        if pipe_top_sprite1.x <= -bufferedWidth / 2:
+            pipe_top_sprite1.x = bufferedWidth
+        if pipe_bottom_sprite1.x <= -bufferedWidth / 2:
+            pipe_bottom_sprite1.x = bufferedWidth
+        if pipe_top_sprite2.x <= -bufferedWidth / 2:
+            pipe_top_sprite2.x = bufferedWidth
+        if pipe_bottom_sprite2.x <= -bufferedWidth / 2:
+            pipe_bottom_sprite2.x = bufferedWidth
+        if pipe_top_sprite3.x <= -bufferedWidth / 2:
+            pipe_top_sprite3.x = bufferedWidth
+        if pipe_bottom_sprite3.x <= -bufferedWidth / 2:
+            pipe_bottom_sprite3.x = bufferedWidth
+
 
 # Grab fps count
 fps_display = pyglet.clock.ClockDisplay()
@@ -221,8 +244,8 @@ def on_draw():
         background_sprite2.draw()
         background_sprite3.draw()
         player.draw()
-        pipe_top_sprite.draw()
-        pipe_bottom_sprite.draw()
+        pipes_batch.draw()
+        
 
     player.draw_score()
     # Draw the highscore screen if nessecary
@@ -237,5 +260,3 @@ def on_draw():
     if instructionsScreenMode:
         instructions_sprite.draw()
 	bird_sprite2.draw()
-
-    #fps_display.draw()
