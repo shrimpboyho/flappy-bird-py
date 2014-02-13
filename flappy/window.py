@@ -155,12 +155,14 @@ def crash_floor(sprite):
     return sprite.x > bufferedHeight or sprite.y <= 0
 
 def movebg(number):
-    global background_sprite1, background_sprite2, background_sprite3, gamePlayScreenMode, bufferedWidth
+    global gamePlayScreenMode, bufferedWidth
     if (gamePlayScreenMode):
         background_sprite1.x = background_sprite1.x - 1
         background_sprite2.x = background_sprite2.x - 1
         background_sprite3.x = background_sprite3.x - 1
-        
+        pipe_top_sprite.x = pipe_top_sprite.x - 2
+        pipe_bottom_sprite.x = pipe_bottom_sprite.x - 2
+
         if background_sprite1.x <= -bufferedWidth:
             background_sprite1.x = bufferedWidth
         if background_sprite2.x <= -bufferedWidth:
@@ -168,9 +170,10 @@ def movebg(number):
         if background_sprite2.x <= -bufferedWidth:
             background_sprite2.x = bufferedWidth
 
-        pipe_top_sprite.x = pipe_top_sprite.x - 1
-        pipe_bottom_sprite.x = pipe_bottom_sprite.x - 1
-        
+        if pipe_top_sprite.x <= -bufferedWidth / 6:
+            pipe_top_sprite.x = bufferedWidth
+        if pipe_bottom_sprite.x <= -bufferedWidth / 6:
+            pipe_bottom_sprite.x = bufferedWidth
 
 # Grab fps count
 fps_display = pyglet.clock.ClockDisplay()
@@ -178,7 +181,6 @@ fps_display = pyglet.clock.ClockDisplay()
 # Create the player object
 player = Bird(bird_animation, 41, 120)
 #pyglet.clock.schedule_interval(player.bounce_player, .05)
-
 
 def schedule_events_to_play():
     global gamePlayScreenModeStarted
@@ -213,6 +215,7 @@ def on_draw():
     if gamePlayScreenMode:
         if crash_floor(player) or crash_pipe(player):
             gamePlayScreenMode = False
+            gameOverScreenMode = True
         schedule_events_to_play()
         background_sprite1.draw()
         background_sprite2.draw()
