@@ -68,6 +68,10 @@ changeState('title')
 bufferedHeight = 256    
 bufferedWidth = 144
 
+# Set up the screen resolution variables
+smallScreen = True
+bigScreen = False
+
 # Scale resolution
 glScalef(1.0, 1.0, 1.0)
 
@@ -84,17 +88,25 @@ def on_key_release(symbol, modifiers):
     global instructionsScreenMode
     global player
 
+    global bigScreen
+    global smallScreen
+
     if symbol == key.SPACE:
         print 'The SPACE key was pressed.'
 	player.jump()
         player.acc = 0
     if symbol == key.PAGEUP:
-        glScalef(2.0, 2.0, 2.0)
-	window.set_size(window.width * 2, window.height * 2)
+	    if smallScreen == True:
+                glScalef(2.0, 2.0, 2.0)
+	        window.set_size(window.width * 2, window.height * 2)
+		smallScreen = False
+		bigScreen = True
     if symbol == key.PAGEDOWN:
-        glScalef(0.5, 0.5, 0.5)
-	window.set_size(window.width / 2 , window.height /2)
-
+            if bigScreen == True:
+	        glScalef(0.5, 0.5, 0.5)
+	        window.set_size(window.width / 2 , window.height /2)
+		smallScreen = True
+		bigScreen = False
 # Handle mouse presses
 @window.event
 def on_mouse_release(x, y, button, modifiers):
@@ -113,14 +125,24 @@ def on_mouse_release(x, y, button, modifiers):
 	    print "Changed to gameplay screen"
 	    pyglet.clock.schedule_interval(player.bounce_player, .05)
 	if(titleScreenMode):
-	    # Play button logic
-	    if(x > 21 and x < 60 and y > 63 and y < 75):
-		changeState('instructions')
-		print "Changed to instuctions screen"
-	    # Score button logic
-	    if(x > 80 and x < 119 and y > 63 and y < 75):
-	        changeState('highscores')
-		print "Changed to highscores screen"
+	    if(smallScreen):
+	            # Play button logic
+	    	if(x > 21 and x < 60 and y > 63 and y < 75):
+		    changeState('instructions')
+		    print "Changed to instuctions screen"
+	    	    # Score button logic
+	    	if(x > 80 and x < 119 and y > 63 and y < 75):
+	            changeState('highscores')
+		    print "Changed to highscores screen"
+            if(bigScreen):
+	            # Play button logic
+	    	if(x > 43 and x < 121 and y > 125 and y < 148):
+		    changeState('instructions')
+		    print "Changed to instuctions screen"
+	    	    # Score button logic
+	    	if(x > 160 and x < 240 and y > 125 and y < 148):
+	            changeState('highscores')
+		    print "Changed to highscores screen"
         if(gamePlayScreenMode):
 	   pyglet.clock.unschedule(player.gravity)
 	   pyglet.clock.schedule_interval(player.gravity, .05)

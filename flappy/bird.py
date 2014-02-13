@@ -24,8 +24,8 @@ class Bird(pyglet.sprite.Sprite):
     BLY = 0
     BRX = 0
     BRY = 0
-    dy = 75
-    angacc = 0
+    dy = 15
+    angacc = 50
 
     # Score data
     SCORE = 0
@@ -116,23 +116,10 @@ class Bird(pyglet.sprite.Sprite):
         if(self.y >= 60):
             self.move(0, -(self.dy * dt))
         if(self.rotation < 90 or self.rotation < 450):
-            self.set_angle(self.rotation + (self.dy * dt))
-            self.angacc += .05
+            self.set_angle(self.rotation + (self.angacc * dt))
 
     # Jump
     def jump(self):
-        self.angacc = 0
+	self.set_angle(340)
         self.move(0, 20)
-        self.set_angle(355)
-        self.move(0, 2)
-        self.set_angle(350)
-        self.move(0, 2)
-        self.set_angle(345)
-        self.move(0, 2)
-        self.set_angle(340)
-        self.move(0, 2)
-        self.set_angle(335)
-        self.move(0, 2)
-	self.set_angle(330)
-        self.move(0, 2)
 
