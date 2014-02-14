@@ -1,48 +1,48 @@
 class State(object):
 
-    titleScreenMode = True
-    highScoreScreenMode = False
-    gamePlayScreenMode = False
-    gameOverScreenMode = False
-    instructionsScreenMode = False
+    TITLE_SCREEN = True
+    HIGH_SCORES_SCREEN = False
+    GAME_PLAY = False
+    GAME_OVER = False
+    INSTRUCTIONS = False
     pause = False
-    gamePlayScreenModeStarted = False
-    currentState = ''
+    GAME_PLAYStarted = False
+    CURRENT_STATE = ''
 
     def change(self, state):
-        self.currentState = state
+        self.CURRENT_STATE = state
 
-        if self.currentState == 'title':
-            self.titleScreenMode = True
-            self.highScoreScreenMode = False
-            self.gamePlayScreenMode = False
-            self.gameOverScreenMode = False
-            self.instructionsScreenMode = False
+        if self.CURRENT_STATE == 'title':
+            self.TITLE_SCREEN = True
+            self.HIGH_SCORES_SCREEN = False
+            self.GAME_PLAY = False
+            self.GAME_OVER = False
+            self.INSTRUCTIONS = False
 
-        if self.currentState == 'highscores':
-            self.titleScreenMode = False
-            self.highScoreScreenMode = True
-            self.gamePlayScreenMode = False
-            self.gameOverScreenMode = False
-            self.instructionsScreenMode = False
+        if self.CURRENT_STATE == 'highscores':
+            self.TITLE_SCREEN = False
+            self.HIGH_SCORES_SCREEN = True
+            self.GAME_PLAY = False
+            self.GAME_OVER = False
+            self.INSTRUCTIONS = False
 
-        if self.currentState == 'gameplay':
-            self.titleScreenMode = False
-            self.highScoreScreenMode = False
-            self.gamePlayScreenMode = True
-            self.gameOverScreenMode = False
-            self.instructionsScreenMode = False
+        if self.CURRENT_STATE == 'gameplay':
+            self.TITLE_SCREEN = False
+            self.HIGH_SCORES_SCREEN = False
+            self.GAME_PLAY = True
+            self.GAME_OVER = False
+            self.INSTRUCTIONS = False
 
-        if self.currentState == 'gameover':
-            self.titleScreenMode = False
-            self.highScoreScreenMode = False
-            self.gamePlayScreenMode = False
-            self.gameOverScreenMode = True
-            self.instructionsScreenMode = False
+        if self.CURRENT_STATE == 'gameover':
+            self.TITLE_SCREEN = False
+            self.HIGH_SCORES_SCREEN = False
+            self.GAME_PLAY = False
+            self.GAME_OVER = True
+            self.INSTRUCTIONS = False
             
-        if self.currentState == 'instructions':
-            self.titleScreenMode = False
-            self.highScoreScreenMode = False
-            self.gamePlayScreenMode = False
-            self.gameOverScreenMode = False
-            self.instructionsScreenMode = True
+        if self.CURRENT_STATE == 'instructions':
+            self.TITLE_SCREEN = False
+            self.HIGH_SCORES_SCREEN = False
+            self.GAME_PLAY = False
+            self.GAME_OVER = False
+            self.INSTRUCTIONS = True

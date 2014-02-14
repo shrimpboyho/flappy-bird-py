@@ -63,10 +63,10 @@ def on_mouse_release(x, y, button, modifiers):
         print 'The left mouse button was released at %d, %d' % (x, y)
 
     """ Add logic for switching game states """
-    if state.instructionsScreenMode:
+    if state.INSTRUCTIONS:
         state.change('gameplay')
         
-    if state.titleScreenMode:
+    if state.TITLE_SCREEN:
         if smallScreen:
             # Play button logic
             if x > 21 and x < 60 and y > 63 and y < 75:
@@ -82,11 +82,11 @@ def on_mouse_release(x, y, button, modifiers):
             # Score button logic
             if x > 160 and x < 240 and y > 125 and y < 148:
                 state.change('highscores')
-    if state.gamePlayScreenModeStarted:
+    if state.GAME_PLAYStarted:
         player.jump()
-    if state.gameOverScreenMode:
+    if state.GAME_OVER:
         pass
-    if state.highScoreScreenMode:
+    if state.HIGH_SCORES_SCREEN:
         pass
 
 def crash_pipe(sprite):
@@ -107,8 +107,8 @@ fps_display = pyglet.clock.ClockDisplay()
 pyglet.clock.schedule_interval(scene.logo_animation, .05) # update at 60Hz
 
 def schedule_events_to_play():
-    if state.gamePlayScreenMode and not state.gamePlayScreenModeStarted:
-        state.gamePlayScreenModeStarted = True
+    if state.GAME_PLAY and not state.GAME_PLAYStarted:
+        state.GAME_PLAYStarted = True
         pyglet.clock.schedule_interval(scene.move_background, .005) # update at 60Hz
         pyglet.clock.schedule_interval(scene.move_pipes, .005) # update at 60Hz
         pyglet.clock.schedule_interval(player.gravity, .01)
@@ -125,21 +125,21 @@ def on_draw():
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
 
     # Draw the title screen if nessecary
-    if state.titleScreenMode:
+    if state.TITLE_SCREEN:
         title_sprite.draw()
         flappybird_sprite.draw()
         bird_sprite.draw()
 
-    if state.titleScreenMode:
+    if state.TITLE_SCREEN:
         title_sprite.draw()
         flappybird_sprite.draw()
         bird_sprite.draw()
 
     # Draw the gameplay screen if nessecary
-    if state.gamePlayScreenMode:
+    if state.GAME_PLAY:
         if crash_floor(player) or crash_pipe(player):
-            state.gamePlayScreenMode = False
-            state.gameOverScreenMode = True
+            state.GAME_PLAY = False
+            state.GAME_OVER = True
         schedule_events_to_play()
         background_batch.draw()
         player.draw()
@@ -147,15 +147,15 @@ def on_draw():
         scene.draw_score(scene.PIPES_PASSED)
 
     # Draw the highscore screen if nessecary
-    if state.highScoreScreenMode:
+    if state.HIGH_SCORES_SCREEN:
         pass
 
     # Draw the gameover screen if nessecary
-    if state.gameOverScreenMode:
+    if state.GAME_OVER:
         pass
     
     # Draw the instructions screen if nessecary
-    if state.instructionsScreenMode:
+    if state.INSTRUCTIONS:
         instructions_sprite.draw()
         bird_sprite2.draw()
 
