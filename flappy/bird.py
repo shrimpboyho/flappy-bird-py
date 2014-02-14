@@ -34,14 +34,14 @@ class Bird(pyglet.sprite.Sprite):
 
     # Update the coordinate data everytime a move is made
     def update_edges(self):
-        self.TLX = self.x
-        self.TLY = self.y + self.image.get_max_height()
-        self.TRX = self.x + self.image.get_max_width()
-        self.TRY = self.y + self.image.get_max_height()
-        self.BLX = self.x
-        self.BLY = self.y
-        self.BRX = self.x + self.image.get_max_width()
-        self.BRY = self.y
+        self.TLX = self.x - self.image.get_max_width() / 2
+        self.TLY = self.y + self.image.get_max_height() / 2
+        self.TRX = self.x + self.image.get_max_width() / 2
+        self.TRY = self.y + self.image.get_max_height() / 2
+        self.BLX = self.x - self.image.get_max_width() / 2
+        self.BLY = self.y - self.image.get_max_height() / 2
+        self.BRX = self.x + self.image.get_max_width() / 2
+        self.BRY = self.y - self.image.get_max_height() / 2
 
     # Enable effect of gravity
     def gravity(self, dt):

@@ -1,5 +1,6 @@
 import pyglet
 from copy import *
+from tools import *
 
 # Get the sprites set up
 
@@ -64,17 +65,11 @@ pipe_bottom_sprite3 = pyglet.sprite.Sprite(
 )
 
 bird_images = [
-    downflap_image,
-    middleflap_image,
-    upflap_image
+    center_image_anchor(downflap_image),
+    center_image_anchor(middleflap_image),
+    center_image_anchor(upflap_image)
 ]
 
-bird_animation = pyglet.image.Animation.from_image_sequence(bird_images, .100, loop=True)
-bird_sprite = pyglet.sprite.Sprite(bird_animation)
-bird_sprite.set_position(115, 171)
-bird_sprite2 = pyglet.sprite.Sprite(bird_animation)
-bird_sprite2.set_position(41, 120)
-
 bird_animation = pyglet.image.Animation.from_image_sequence(bird_images, .05, loop=True)
-bird_sprite = pyglet.sprite.Sprite(bird_animation, 115, 171)
-bird_sprite2 = pyglet.sprite.Sprite(bird_animation, 41, 120)
+bird_sprite = pyglet.sprite.Sprite(bird_animation, 119, 175)
+bird_sprite2 = pyglet.sprite.Sprite(bird_animation, 50, 130)

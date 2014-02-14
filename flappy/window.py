@@ -108,9 +108,6 @@ pyglet.clock.schedule_interval(scene.logo_animation, .05) # update at 60Hz
 def schedule_events_to_play():
     if state.GAME_PLAY and not state.GAME_PLAY_STARTED:
         state.GAME_PLAY_STARTED = True
-	pyglet.clock.unschedule(scene.move_background) 
-        pyglet.clock.unschedule(scene.move_pipes)
-        pyglet.clock.unschedule(player.gravity)
         pyglet.clock.schedule_interval(scene.move_background, .005) # update at 60Hz
         pyglet.clock.schedule_interval(scene.move_pipes, .005) # update at 60Hz
         pyglet.clock.schedule_interval(player.gravity, .01)
@@ -127,11 +124,6 @@ def on_draw():
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
 
     # Draw the title screen if nessecary
-    if state.TITLE_SCREEN:
-        title_sprite.draw()
-        flappybird_sprite.draw()
-        bird_sprite.draw()
-
     if state.TITLE_SCREEN:
         title_sprite.draw()
         flappybird_sprite.draw()

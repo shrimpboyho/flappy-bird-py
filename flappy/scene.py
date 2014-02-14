@@ -60,7 +60,6 @@ class Scene(object):
 
     # Enable drawing of score
     def draw_score(self, score_number):
-	print "Drawing score: %d" % (score_number)
 	if score_number < 10:
             img = pyglet.resource.image('assets/sprites/' + str(score_number) + '.png')
             img.height = img.height * 2
@@ -103,4 +102,4 @@ class Rect(object):
         self.LEFT = sprite.x;
         self.RIGHT = sprite.x + sprite.width;
         self.TOP = sprite.y + sprite.height;
-        self.BOTTOM = sprite.y + 8; #related to sprite img crop
+        self.BOTTOM = sprite.y + 8; # related to sprite img crop
