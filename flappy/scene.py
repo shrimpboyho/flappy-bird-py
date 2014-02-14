@@ -52,10 +52,10 @@ class Scene(object):
         crasher_obj = Rect(crasher_obj)
         for sprite in sprites_list:
             sprite = Rect(sprite)
-            if (crasher_obj.bottom <= sprite.top and
-                    crasher_obj.top >= sprite.bottom and
-                    crasher_obj.right >= sprite.left and
-                    crasher_obj.left <= sprite.right):
+            if (crasher_obj.BOTTOM <= sprite.TOP and
+                    crasher_obj.TOP >= sprite.BOTTOM and
+                    crasher_obj.RIGHT >= sprite.LEFT and
+                    crasher_obj.LEFT <= sprite.RIGHT):
                 return True
 
     # Enable drawing of score
@@ -97,9 +97,11 @@ class Scene(object):
             flappybird_sprite.y -= 1
 
 class Rect(object):
-    left = right = top = bottom = 0
+
+    LEFT = RIGHT = TOP = BOTTOM = 0
+
     def __init__(self, sprite):
-        self.left = sprite.x;
-        self.right = sprite.x + sprite.width;
-        self.bottom = sprite.y + 8; #related to sprite img crop
-        self.top = sprite.y + sprite.height;
+        self.LEFT = sprite.x;
+        self.RIGHT = sprite.x + sprite.width;
+        self.TOP = sprite.y + sprite.height;
+        self.BOTTOM = sprite.y + 8; #related to sprite img crop

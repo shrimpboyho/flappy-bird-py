@@ -6,12 +6,6 @@ from sprites import *
 class Bird(pyglet.sprite.Sprite):
     left = right = top = bottom = 0
 
-    def __init__(self):
-        self.left = self.x
-        self.right = self.x + self.width
-        self.top = self.y + self.height
-        self.bottom = self.y
-
     # Coordinate data
     TLX = 0
     TLY = 0

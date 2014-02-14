@@ -6,7 +6,7 @@ class State(object):
     GAME_OVER = False
     INSTRUCTIONS = False
     pause = False
-    GAME_PLAYStarted = False
+    GAME_PLAY_STARTED = False
     CURRENT_STATE = ''
 
     def change(self, state):

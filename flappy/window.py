@@ -82,24 +82,23 @@ def on_mouse_release(x, y, button, modifiers):
             # Score button logic
             if x > 160 and x < 240 and y > 125 and y < 148:
                 state.change('highscores')
-    if state.GAME_PLAYStarted:
+    if state.GAME_PLAY_STARTED:
         player.jump()
     if state.GAME_OVER:
         pass
     if state.HIGH_SCORES_SCREEN:
         pass
 
-def crash_pipe(sprite):
-    global pipe_top_sprite, pipe_bottom_sprite
-    return scene.check_collide(sprite, [
+def crash_pipe():
+    return scene.check_collide(player, [
         pipe_top_sprite1, pipe_bottom_sprite1,
         pipe_top_sprite2, pipe_bottom_sprite2,
         pipe_top_sprite3, pipe_bottom_sprite3,
     ])
 
-def crash_floor(sprite):
+def crash_floor():
     global bufferedHeight
-    return sprite.y > bufferedHeight or sprite.y < 0
+    return player.y > bufferedHeight or player.y < 0
 
 # Grab fps count
 fps_display = pyglet.clock.ClockDisplay()
@@ -107,8 +106,8 @@ fps_display = pyglet.clock.ClockDisplay()
 pyglet.clock.schedule_interval(scene.logo_animation, .05) # update at 60Hz
 
 def schedule_events_to_play():
-    if state.GAME_PLAY and not state.GAME_PLAYStarted:
-        state.GAME_PLAYStarted = True
+    if state.GAME_PLAY and not state.GAME_PLAY_STARTED:
+        state.GAME_PLAY_STARTED = True
         pyglet.clock.schedule_interval(scene.move_background, .005) # update at 60Hz
         pyglet.clock.schedule_interval(scene.move_pipes, .005) # update at 60Hz
         pyglet.clock.schedule_interval(player.gravity, .01)
@@ -137,7 +136,7 @@ def on_draw():
 
     # Draw the gameplay screen if nessecary
     if state.GAME_PLAY:
-        if crash_floor(player) or crash_pipe(player):
+        if crash_floor() or crash_pipe():
             state.GAME_PLAY = False
             state.GAME_OVER = True
         schedule_events_to_play()
