@@ -60,16 +60,15 @@ class Scene(object):
 
     # Enable drawing of score
     def draw_score(self, score_number):
-        for number in range(0, score_number):
-            if number < 10:
-                img = pyglet.resource.image('assets/sprites/' + str(number) + '.png')
-                img.blit(64, 204)
-            else:
-                # TODO: Implement better drawing algo to handle drawing double digit scores
-                for number in list(str(number)):
-                    pass
-                    #img = pyglet.resource.image('assets/sprites/' + str(number) + '.png')
-                    #img.blit(64, 214)
+	print "Drawing score: %d" % (score_number)
+	if score_number < 10:
+            img = pyglet.resource.image('assets/sprites/' + str(score_number) + '.png')
+            img.height = img.height * 2
+            img.width = img.width * 2
+	    img.blit(64, 204)
+        else:
+            # TODO: Implement better drawing algo to handle drawing double digit scores
+            pass
 
     def logo_animation(self, dt):
         if self.LOGO_POS_BIRD == 'up' and bird_sprite.y <= 175:

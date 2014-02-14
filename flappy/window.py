@@ -108,6 +108,9 @@ pyglet.clock.schedule_interval(scene.logo_animation, .05) # update at 60Hz
 def schedule_events_to_play():
     if state.GAME_PLAY and not state.GAME_PLAY_STARTED:
         state.GAME_PLAY_STARTED = True
+	pyglet.clock.unschedule(scene.move_background) 
+        pyglet.clock.unschedule(scene.move_pipes)
+        pyglet.clock.unschedule(player.gravity)
         pyglet.clock.schedule_interval(scene.move_background, .005) # update at 60Hz
         pyglet.clock.schedule_interval(scene.move_pipes, .005) # update at 60Hz
         pyglet.clock.schedule_interval(player.gravity, .01)
