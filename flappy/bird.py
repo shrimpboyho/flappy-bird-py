@@ -45,10 +45,12 @@ class Bird(pyglet.sprite.Sprite):
 
     # Enable effect of gravity
     def gravity(self, dt):
-        self.move(0, -.5)
-        if self.rotation < 90 or self.rotation < 400:
+        self.move(0, -1)
+        #Check if this rotation affect directly the collision detector (visual impact bug)
+        if self.rotation < 90 or self.rotation < 445:
             self.set_angle(self.rotation + (self.angacc * dt))
     # Jump
     def jump(self):
+        #Implement jumping effect to prevent move directly the position of the sprite
         self.set_angle(330)
-        self.move(0, 25)
+        self.move(0, 30)

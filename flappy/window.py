@@ -131,14 +131,14 @@ def on_draw():
 
     # Draw the gameplay screen if nessecary
     if state.GAME_PLAY:
-        if crash_floor() or crash_pipe():
-            state.GAME_PLAY = False
-            state.GAME_OVER = True
         schedule_events_to_play()
         background_batch.draw()
         player.draw()
         pipes_batch.draw()
         scene.draw_score(scene.PIPES_PASSED)
+        if crash_floor() or crash_pipe():
+            state.GAME_PLAY = False
+            state.GAME_OVER = True
 
     # Draw the highscore screen if nessecary
     if state.HIGH_SCORES_SCREEN:

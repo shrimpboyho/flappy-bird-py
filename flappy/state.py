@@ -5,7 +5,7 @@ class State(object):
     GAME_PLAY = False
     GAME_OVER = False
     INSTRUCTIONS = False
-    pause = False
+    PAUSE = False
     GAME_PLAY_STARTED = False
     CURRENT_STATE = ''
 
