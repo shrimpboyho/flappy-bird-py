@@ -8,13 +8,13 @@ class Scene(object):
     LOGO_POS_BIRD = 'up'
     LOGO_POS_LETTERS = 'up'
 
-    PIPES_VELOCITY = 2
-    BACKGROUND_VELOCITY = 1
+    PIPES_VELOCITY = 1.5
+    BACKGROUND_VELOCITY = .5
 
     def move_background(self, dt):
         background_sprite1.x -= self.BACKGROUND_VELOCITY
         background_sprite2.x -= self.BACKGROUND_VELOCITY
-        background_sprite3.x = self.BACKGROUND_VELOCITY
+        background_sprite3.x -= self.BACKGROUND_VELOCITY
 
         if background_sprite1.x <= -window.bufferedWidth:
             background_sprite1.x = window.bufferedWidth
@@ -24,44 +24,27 @@ class Scene(object):
             background_sprite2.x = window.bufferedWidth
 
     def move_pipes(self, dt):
-        pipe_top_sprite1.x -= self.PIPES_VELOCITY
-        pipe_bottom_sprite1.x -= self.PIPES_VELOCITY
+        window.pipe1.move(-self.PIPES_VELOCITY, 0)
+        window.pipe2.move(-self.PIPES_VELOCITY, 0)
+        window.pipe3.move(-self.PIPES_VELOCITY, 0)
 
-        pipe_top_sprite2.x -= self.PIPES_VELOCITY
-        pipe_bottom_sprite2.x -= self.PIPES_VELOCITY
-
-        pipe_top_sprite3.x -= self.PIPES_VELOCITY
-        pipe_bottom_sprite3.x -= self.PIPES_VELOCITY
-
-        #Implement random regeneration algo to prevent all same pipes
         #Implement stable solution to increment the separation between pipes
-        if pipe_top_sprite1.x <= -window.bufferedWidth / 2:
-            pipe_top_sprite1.x = window.bufferedWidth
-        if pipe_bottom_sprite1.x <= -window.bufferedWidth / 2:
-            pipe_bottom_sprite1.x = window.bufferedWidth
+        if window.pipe1.x <= window.bufferedWidth / -2:
+            window.pipe1.regenerate()
+            self.PIPES_PASSED += 1
+        if window.pipe2.x <= window.bufferedWidth / -2:
+            window.pipe2.regenerate()
+            self.PIPES_PASSED += 1
+        if window.pipe3.x <= window.bufferedWidth / -2:
+            window.pipe3.regenerate()
             self.PIPES_PASSED += 1
 
-        if pipe_top_sprite2.x <= -window.bufferedWidth / 2:
-            pipe_top_sprite2.x = window.bufferedWidth
-        if pipe_bottom_sprite2.x <= -window.bufferedWidth / 2:
-            pipe_bottom_sprite2.x = window.bufferedWidth
-            self.PIPES_PASSED += 1
-
-        if pipe_top_sprite3.x <= -window.bufferedWidth / 2:
-            pipe_top_sprite3.x = window.bufferedWidth
-        if pipe_bottom_sprite3.x <= -window.bufferedWidth / 2:
-            pipe_bottom_sprite3.x = window.bufferedWidth
-            self.PIPES_PASSED += 1
-
-    def check_collide(self, crasher_obj, sprites_list):
-        #TODO: append each sprite object with rect property to prevent the object creation there (performance)
-        crasher_obj = Rect(crasher_obj)
-        for sprite in sprites_list:
-            sprite = Rect(sprite)
-            if (crasher_obj.BOTTOM <= sprite.TOP and
-                    crasher_obj.TOP >= sprite.BOTTOM and
-                    crasher_obj.RIGHT >= sprite.LEFT and
-                    crasher_obj.LEFT <= sprite.RIGHT):
+    def check_collision(self, crasher_obj, sprobj_list):
+        for sprite in sprobj_list:
+            if (crasher_obj.bottom <= sprite.top and
+                    crasher_obj.top >= sprite.bottom and
+                    crasher_obj.right >= sprite.left and
+                    crasher_obj.left <= sprite.right):
                 print "Collision detected between: [crasherObj: %s] [crasherSpr: %s]" % (crasher_obj, sprite)
                 return True
 
@@ -100,13 +83,3 @@ class Scene(object):
 
         if self.LOGO_POS_LETTERS == 'down' and flappybird_sprite.y >= 162:
             flappybird_sprite.y -= 1
-
-class Rect(object):
-
-    LEFT = RIGHT = TOP = BOTTOM = 0
-
-    def __init__(self, sprite):
-        self.LEFT = sprite.x;
-        self.RIGHT = sprite.x + sprite.width;
-        self.TOP = sprite.y + sprite.height;
-        self.BOTTOM = sprite.y;

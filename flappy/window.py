@@ -9,6 +9,7 @@ from bird import *
 from sprites import *
 from scene import *
 from state import *
+from pipe import *
 
 # Set up buffer variables
 bufferedHeight = 256    
@@ -23,9 +24,14 @@ glScalef(1.0, 1.0, 1.0)
 
 # Create the window
 window = pyglet.window.Window(bufferedWidth, bufferedHeight, resizable=True)
-#window.set_location(50,750)
+window.set_location(50,750)
 
 player = Bird(bird_animation, 41, 120)
+# Pipes are currently one object (with top and bottom pipes)
+# TODO: fix bug of the empty spaces between pipes
+pipe1 = Pipe(pipe_img1, 0, -70, batch=pipes_batch)
+pipe2 = Pipe(pipe_img2, 144, -50, batch=pipes_batch)
+pipe3 = Pipe(pipe_img3, 288, -60, batch=pipes_batch)
 scene = Scene()
 state = State()
 
@@ -90,15 +96,10 @@ def on_mouse_release(x, y, button, modifiers):
         pass
 
 def crash_pipe():
-    return scene.check_collide(player, [
-        pipe_top_sprite1, pipe_bottom_sprite1,
-        pipe_top_sprite2, pipe_bottom_sprite2,
-        pipe_top_sprite3, pipe_bottom_sprite3,
-    ])
+    return scene.check_collision(player, [pipe1, pipe2, pipe3])
 
 def crash_floor():
-    global bufferedHeight
-    return player.y > bufferedHeight or player.y < 0
+    return player.y < 0
 
 # Grab fps count
 fps_display = pyglet.clock.ClockDisplay()
@@ -109,8 +110,8 @@ def schedule_events_to_play():
     if state.GAME_PLAY and not state.GAME_PLAY_STARTED:
         state.GAME_PLAY_STARTED = True
         pyglet.clock.schedule_interval(scene.move_background, .005) # update at 60Hz
-        pyglet.clock.schedule_interval(scene.move_pipes, .005) # update at 60Hz
-        pyglet.clock.schedule_interval(player.gravity, .01)
+        pyglet.clock.schedule_interval(scene.move_pipes, .007) # update at 60Hz
+        pyglet.clock.schedule_interval(player.gravity, .015)
 
 # Handle the drawing
 @window.event
@@ -122,7 +123,6 @@ def on_draw():
     # The following two lines will change how textures are scaled.
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST) 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
-
     # Draw the title screen if nessecary
     if state.TITLE_SCREEN:
         title_sprite.draw()
@@ -137,9 +137,14 @@ def on_draw():
         pipes_batch.draw()
         scene.draw_score(scene.PIPES_PASSED)
         if crash_floor() or crash_pipe():
+            pyglet.resource.media('assets/audio/hurt.wav').play()
             state.GAME_PLAY = False
             state.GAME_OVER = True
 
+    if state.GAME_OVER:
+        game_over_sprite.x = window.width / 2
+        game_over_sprite.y = window.height / 2
+        game_over_sprite.draw()
     # Draw the highscore screen if nessecary
     if state.HIGH_SCORES_SCREEN:
         pass
