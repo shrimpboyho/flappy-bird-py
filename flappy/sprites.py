@@ -1,5 +1,4 @@
 import pyglet
-from copy import *
 from tools import *
 
 # Get the sprites set up

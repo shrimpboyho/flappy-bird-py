@@ -2,9 +2,8 @@
 import pyglet
 
 from window import *
+from tools import play_audio
 
-music = pyglet.resource.media('assets/audio/background.wav')
-music.EOS_LOOP = 'loop'
-music.play()
+play_audio('assets/audio/background.wav', True)
 
 pyglet.app.run()

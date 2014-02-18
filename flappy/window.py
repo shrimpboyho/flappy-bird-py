@@ -10,6 +10,7 @@ from sprites import *
 from scene import *
 from state import *
 from pipe import *
+from tools import play_audio
 
 # Set up buffer variables
 bufferedHeight = 256    
@@ -88,8 +89,10 @@ def on_mouse_release(x, y, button, modifiers):
             # Score button logic
             if x > 160 and x < 240 and y > 125 and y < 148:
                 state.change('highscores')
+
     if state.GAME_PLAY_STARTED:
         player.jump()
+
     if state.GAME_OVER:
         pass
     if state.HIGH_SCORES_SCREEN:
@@ -97,9 +100,6 @@ def on_mouse_release(x, y, button, modifiers):
 
 def crash_pipe():
     return scene.check_collision(player, [pipe1, pipe2, pipe3])
-
-def crash_floor():
-    return player.y < 0
 
 # Grab fps count
 fps_display = pyglet.clock.ClockDisplay()
@@ -111,7 +111,7 @@ def schedule_events_to_play():
         state.GAME_PLAY_STARTED = True
         pyglet.clock.schedule_interval(scene.move_background, .005) # update at 60Hz
         pyglet.clock.schedule_interval(scene.move_pipes, .007) # update at 60Hz
-        pyglet.clock.schedule_interval(player.gravity, .015)
+        pyglet.clock.schedule_interval(player.gravity, .00000001)
 
 # Handle the drawing
 @window.event
@@ -136,10 +136,11 @@ def on_draw():
         player.draw()
         pipes_batch.draw()
         scene.draw_score(scene.PIPES_PASSED)
-        if crash_floor() or crash_pipe():
-            pyglet.resource.media('assets/audio/hurt.wav').play()
-            state.GAME_PLAY = False
-            state.GAME_OVER = True
+        if player.crash_floor() or crash_pipe():
+            pass
+            #play_audio('assets/audio/hurt.wav')
+            #state.GAME_PLAY = False
+            #state.GAME_OVER = True
 
     if state.GAME_OVER:
         game_over_sprite.x = window.width / 2

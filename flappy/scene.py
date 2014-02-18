@@ -8,8 +8,8 @@ class Scene(object):
     LOGO_POS_BIRD = 'up'
     LOGO_POS_LETTERS = 'up'
 
-    PIPES_VELOCITY = 1.5
-    BACKGROUND_VELOCITY = .5
+    PIPES_VELOCITY = 1
+    BACKGROUND_VELOCITY = 1
 
     def move_background(self, dt):
         background_sprite1.x -= self.BACKGROUND_VELOCITY
