@@ -8,7 +8,7 @@ class Scene(object):
     LOGO_POS_BIRD = 'up'
     LOGO_POS_LETTERS = 'up'
 
-    PIPES_VELOCITY = 1
+    PIPES_VELOCITY = 2
     BACKGROUND_VELOCITY = 1
 
     def move_background(self, dt):
@@ -28,14 +28,13 @@ class Scene(object):
         window.pipe2.move(-self.PIPES_VELOCITY, 0)
         window.pipe3.move(-self.PIPES_VELOCITY, 0)
 
-        #Implement stable solution to increment the separation between pipes
-        if window.pipe1.x <= window.bufferedWidth / -2:
+        if window.pipe1.x <= -window.bufferedWidth:
             window.pipe1.regenerate()
             self.PIPES_PASSED += 1
-        if window.pipe2.x <= window.bufferedWidth / -2:
+        if window.pipe2.x <= -window.bufferedWidth:
             window.pipe2.regenerate()
             self.PIPES_PASSED += 1
-        if window.pipe3.x <= window.bufferedWidth / -2:
+        if window.pipe3.x <= -window.bufferedWidth:
             window.pipe3.regenerate()
             self.PIPES_PASSED += 1
 

@@ -5,6 +5,8 @@ from sprites import *
 
 class SprObj(pyglet.sprite.Sprite):
 
+    ROTATION = 0
+
     # Constructor
     def __init__(self, img, x=0, y=0, blend_src=770, blend_dest=771, batch=None, group=None, usage='dynamic'):
         pyglet.sprite.Sprite.__init__(self, img, x, y, blend_src, blend_dest, batch, group, usage)
@@ -15,7 +17,7 @@ class SprObj(pyglet.sprite.Sprite):
 
     # Set the sprite angle
     def set_angle(self, angle):
-        self.rotation = angle
+        self.ROTATION = angle
 
     # Jump
     def jump(self, increase, angle=None):

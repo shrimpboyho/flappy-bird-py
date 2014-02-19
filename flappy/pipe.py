@@ -5,5 +5,5 @@ from sprobj import SprObj
 class Pipe(SprObj):
 
     def regenerate(self):
-        self.x = window.bufferedWidth
-        self.y = random.randrange(-120, 0)
+        self.x = window.bufferedWidth * 2
+        self.y = random.randrange(-100, -10)

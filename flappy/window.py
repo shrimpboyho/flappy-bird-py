@@ -106,12 +106,17 @@ fps_display = pyglet.clock.ClockDisplay()
 
 pyglet.clock.schedule_interval(scene.logo_animation, .05) # update at 60Hz
 
+def set_gravity(enabled=True):
+    if enabled:
+        return pyglet.clock.schedule_interval(player.gravitate, .00000001)
+    return pyglet.clock.unschedule(player.gravitate)
+
 def schedule_events_to_play():
     if state.GAME_PLAY and not state.GAME_PLAY_STARTED:
         state.GAME_PLAY_STARTED = True
         pyglet.clock.schedule_interval(scene.move_background, .005) # update at 60Hz
         pyglet.clock.schedule_interval(scene.move_pipes, .007) # update at 60Hz
-        pyglet.clock.schedule_interval(player.gravity, .00000001)
+        set_gravity(True)
 
 # Handle the drawing
 @window.event
@@ -139,8 +144,8 @@ def on_draw():
         if player.crash_floor() or crash_pipe():
             pass
             #play_audio('assets/audio/hurt.wav')
-            #state.GAME_PLAY = False
-            #state.GAME_OVER = True
+            state.GAME_PLAY = False
+            state.GAME_OVER = True
 
     if state.GAME_OVER:
         game_over_sprite.x = window.width / 2
