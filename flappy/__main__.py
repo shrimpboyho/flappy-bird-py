@@ -1,4 +1,6 @@
-# import pyglet lib functions
+#author   Shrimpboyho               https://github.com/shrimpboyho
+#author   Jonas Sciangula Street    https://github.com/joni2back
+
 import pyglet
 
 from window import *
